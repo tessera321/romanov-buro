@@ -3462,6 +3462,103 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
 }
 .control-split .tg-mockup { max-width: none; width: 100%; }
 
+/* ===== S4: shared — parity between pages, calmer emphasis ===== */
+/* emphasis by colour, not by weight */
+.hl { color: rgba(245,240,232,0.94); font-weight: inherit; }
+section p b, section li b, .hero-sub b { color: inherit; font-weight: inherit; }
+.eng-note b, .ip-note b, .err-card .fix b, .geo-line b, .cmp-cap b { font-weight: 600; }
+.eng-note b, .ip-note b, .cmp-cap b { color: var(--text-primary); }
+.err-card .fix b, .geo-line b { color: var(--bronze); }
+.hero-cta-note b { color: var(--bronze-hover); font-weight: 600; }
+.p2-label b { color: inherit; font-weight: inherit; }
+
+/* same heading scale as on the houses page */
+@media (min-width: 901px) {
+  section h2, section .section-heading { font-size: clamp(2.1rem, 3.9vw, 3.6rem); line-height: 1; }
+  .h2-two { max-width: 27ch !important; text-wrap: balance; }
+  .standard-head h2 { max-width: 26ch; }
+  .founder-info > h3 { font-size: clamp(1.6rem, 2.4vw, 2.2rem); }
+  .founder-info > p { font-size: 1rem; }
+}
+.standard-head { margin-bottom: clamp(32px, 4vw, 56px); }
+
+/* fonts that rendered unevenly */
+.ally-close, .certs2-title { font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0; }
+.quality2 { background: linear-gradient(135deg, #17150F, #0F0E0D); }
+
+/* control list with icons */
+.control .section-intro { margin-bottom: 0; }
+.control .approach-items { margin-top: clamp(28px, 3vw, 40px); }
+.control-split { grid-template-columns: 1fr 1fr; margin-top: clamp(28px, 3vw, 40px); align-items: stretch; }
+.control-list { align-content: start; }
+.control-list > .cl-row { display: grid; grid-template-columns: 52px 1fr; gap: 4px 18px; padding-block: 24px; }
+.control-list > .cl-row .p-ic { grid-row: span 2; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-accent); color: var(--bronze); }
+.control-list > .cl-row h3 { font-size: clamp(1.1rem, 1.4vw, 1.3rem); margin: 2px 0 0; }
+.control-list > .cl-row p { font-size: 0.94rem; }
+
+/* founder: photo on the grid, facts in the right column */
+.team-founder { grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.38fr); align-items: stretch; margin-bottom: clamp(36px, 4vw, 56px); }
+.founder-photo { max-width: none; width: 100%; height: 100%; aspect-ratio: auto; min-height: 420px; }
+.founder-info { display: flex; flex-direction: column; }
+.founder-info .founder-facts { margin: auto 0 0; padding-top: 28px; }
+.founder-info .founder-facts h3 { font-size: 1.05rem; }
+
+/* price: wider what-is-included, compact example */
+.format-main { grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: clamp(32px, 4vw, 64px); }
+.price-split > div { padding: clamp(24px, 2.8vw, 40px); }
+.price-split h3 { font-size: 1.15rem; }
+.price-split li { font-size: 1rem; }
+.price-split ul { gap: 13px; }
+.price-example { margin-top: 22px; padding: 14px 16px; }
+.price-example-row { font-size: 0.8rem; padding: 6px 0; }
+.price-example-title { font-size: 0.72rem; }
+
+/* error cards: one photo + text */
+.err-card .solo { aspect-ratio: 16/10; border: none; border-bottom: 1px solid var(--border-main); }
+
+/* reviews run off the right edge of the screen */
+.rev-track { margin-right: calc((100vw - min(1400px, 92vw)) / -2); padding-right: calc((100vw - min(1400px, 92vw)) / 2); scroll-padding-left: 0; }
+.reviews { overflow: hidden; }
+
+/* compare: drag anywhere */
+.cmp-wrap { cursor: ew-resize; touch-action: pan-y; }
+.cmp-handle::after { width: 56px; height: 56px; }
+/* map: drag to pan */
+.map-svg { cursor: grab; }
+.map-svg.dragging { cursor: grabbing; }
+
+@media (max-width: 900px) {
+  .control-split, .team-founder, .format-main { grid-template-columns: 1fr; }
+  .founder-photo { aspect-ratio: 4/5; min-height: 0; height: auto; }
+  .founder-info .founder-facts { grid-template-columns: 1fr; }
+  .price-split li { font-size: 0.92rem; }
+  .guar-photo { aspect-ratio: 4/5; min-height: 0; }
+  .rev-track { margin-right: -4vw; padding-right: 4vw; }
+
+  /* design project: heading → subtitle → photo slider → facts → list */
+  .design-grid.design2 { display: flex; flex-direction: column; gap: 0; }
+  .design2 .design-left { display: contents; }
+  .design2 .design-left > .label-sm { order: 1; }
+  .design2 .design-left > h2 { order: 2; }
+  .design2 .design-left > .lead-p { order: 3; }
+  .design2 .design-collage { order: 4; display: flex; grid-template-columns: none; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; aspect-ratio: auto; height: auto; min-height: 0; margin: 22px -4vw 6px 0; padding-right: 4vw; }
+  .design2 .design-collage::-webkit-scrollbar { display: none; }
+  .design2 .design-collage .photo { flex: 0 0 86%; aspect-ratio: 4/3; scroll-snap-align: start; }
+  .design2 .design-left > .design-facts { order: 5; }
+  .design2 .design-left > .design-list { order: 6; }
+  .anim-ready .design-collage.reveal.pre { opacity: 1; transform: none; }
+
+  /* lead magnets: title → subtitle → mockup → full-width buttons */
+  .lm-card, .lm-card.wide, .lm-card.full { display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 24px 20px; }
+  .lm-card .lm-body, .lm-card.full .lm-body { display: contents; }
+  .lm-body > b { order: 1; font-size: 1.25rem; margin-bottom: 10px; }
+  .lm-body > p { order: 2; }
+  .lm-card .lm-mock { order: 3; align-self: center; margin: 26px 0 22px; height: 200px; width: 180px; }
+  .lm-card .lm-actions, .lm-card.full .lm-actions { order: 4; margin-top: 0; }
+}
+@media (max-width: 900px) { .design2 > .hs-count { order: 4; margin: 0 0 18px; } }
+@media (min-width: 901px) { .design2 > .hs-count { display: none; } }
+
 </style>
 </head>
 <body>
@@ -3534,7 +3631,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
 
     <h1 style="max-width:21ch">Въезжайте в дом точно по проекту: инженерия и отделка в одном договоре, без аванса и роста сметы</h1>
     <div class="hero7-price">от 90 000 ₽/м²<span>дома от 150 м² · цена работ фиксируется в договоре</span></div>
-    <p class="hero-sub">Я, Владимир Романов, лично веду ваш дом — от котельной и вентиляции до последнего плинтуса. <b>Один договор и одна гарантия на инженерию и отделку.</b></p>
+    <p class="hero-sub">Я, Владимир Романов, лично веду ваш дом — от котельной и вентиляции до последнего плинтуса. <span class="hl">Один договор и одна гарантия на инженерию и отделку.</span></p>
     <ul class="hero7-facts"><li>Основатель бюро</li><li>20 лет практики</li></ul>
     <div class="hero-cta-row" style="margin-top:30px">
       <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
@@ -3551,7 +3648,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
       <h3>Без аванса — ни рубля вперёд</h3>
-      <p>Платите за принятую работу — <b>по актам раз в 7–10 дней</b>.</p>
+      <p>Платите за принятую работу — <span class="hl">по актам раз в 7–10 дней</span>.</p>
     </div>
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
@@ -3569,7 +3666,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
     <div class="p2-grid">
       <div class="p2-cell p2-main reveal">
         <div class="p2-num big"><span class="cnt" data-to="20">20</span></div>
-        <div class="p2-label"><b>лет</b> личного опыта в премиальном ремонте. Каждый объект веду сам.</div>
+        <div class="p2-label">лет личного опыта в премиальном ремонте. Каждый объект веду сам.</div>
       </div>
       <div class="p2-cell reveal">
         <div class="p2-num"><span class="cnt" data-to="115">115</span>+</div>
@@ -3581,11 +3678,11 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       </div>
       <div class="p2-cell reveal">
         <div class="p2-num">до <span class="cnt" data-to="5">5</span></div>
-        <div class="p2-label"><b>лет</b> гарантии на отделку и инженерные сети</div>
+        <div class="p2-label">лет гарантии на отделку и инженерные сети</div>
       </div>
       <div class="p2-cell reveal">
         <div class="p2-num"><span class="cnt" data-to="10">10</span>–<span class="cnt" data-to="14">14</span></div>
-        <div class="p2-label"><b>месяцев</b> — дом под ключ по графику в договоре</div>
+        <div class="p2-label">месяцев — дом под ключ по графику в договоре</div>
       </div>
     </div>
     <span class="todo">Сколько из 115+ объектов — дома и коттеджи (ориентир ≈10)? Подставим точное число.</span>
@@ -3596,7 +3693,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
 <section class="portfolio" id="portfolio">
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:22ch">Дома, в которых уже живут, а не доделывают инженерию</h2>
-    <p class="section-intro reveal"><b>Срок и цена за м² — по договору и по факту.</b> Адреса не раскрываю.</p>
+    <p class="section-intro reveal"><span class="hl">Срок и цена за м² — по договору и по факту.</span> Адреса не раскрываю.</p>
     <div class="pf-tabs" role="tablist" aria-label="Объекты" id="pfTabs"></div>
     <div class="pf-panel" role="tabpanel" id="pfPanel" aria-live="polite">
       <div>
@@ -3628,7 +3725,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
   <div class="container">
     <span class="label-sm reveal">Сразу честно</span>
     <h2 class="reveal">Мы не для всех.<br>И это нормально.</h2>
-    <p class="lead-p reveal" style="margin-top:18px"><b>Беру дома от 150 м² с бюджетом на работы от 90 000 ₽/м²</b> — и говорю об этом до первой встречи.</p>
+    <p class="lead-p reveal" style="margin-top:18px"><span class="hl">Беру дома от 150 м² с бюджетом на работы от 90 000 ₽/м²</span> — и говорю об этом до первой встречи.</p>
     <div class="fit-grid reveal">
       <div class="fit-col">
         <h3>Я вам подойду, если</h3>
@@ -3668,20 +3765,20 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       <div>
         <span class="label-sm reveal">Главное отличие дома от квартиры</span>
         <h2 class="section-heading reveal" style="margin-bottom:18px">Котельная, вентиляция и септик — в том же договоре, что и отделка</h2>
-        <p class="lead-p reveal">Инженерия и отделка — <b>один договор, один график, одна гарантия</b>. Искать виноватого между подрядчиками не придётся.</p>
+        <p class="lead-p reveal">Инженерия и отделка — <span class="hl">один договор, один график, одна гарантия</span>. Искать виноватого между подрядчиками не придётся.</p>
         <div class="eng-list">
-          <div class="eng-item reveal"><h3>Отопление и котельная</h3><p>Мощность — по теплопотерям, <b>с запасом на вентиляцию и горячую воду</b>. В котельной есть место для обслуживания.</p></div>
-          <div class="eng-item reveal"><h3>Вентиляция — до чистовой отделки</h3><p>Закладываю в проект <b>до потолков</b>. Позже — только вскрывая отделку.</p></div>
-          <div class="eng-item reveal"><h3>Тёплые полы</h3><p>Опрессовка и балансировка — <b>до стяжки</b>. Акт испытаний у вас.</p></div>
-          <div class="eng-item reveal"><h3>Вода, канализация, септик</h3><p>Водоподготовка под анализ воды. Септик — <b>с якорением и подъездом для откачки</b>.</p></div>
+          <div class="eng-item reveal"><h3>Отопление и котельная</h3><p>Мощность — по теплопотерям, <span class="hl">с запасом на вентиляцию и горячую воду</span>. В котельной есть место для обслуживания.</p></div>
+          <div class="eng-item reveal"><h3>Вентиляция — до чистовой отделки</h3><p>Закладываю в проект <span class="hl">до потолков</span>. Позже — только вскрывая отделку.</p></div>
+          <div class="eng-item reveal"><h3>Тёплые полы</h3><p>Опрессовка и балансировка — <span class="hl">до стяжки</span>. Акт испытаний у вас.</p></div>
+          <div class="eng-item reveal"><h3>Вода, канализация, септик</h3><p>Водоподготовка под анализ воды. Септик — <span class="hl">с якорением и подъездом для откачки</span>.</p></div>
           <div class="eng-item reveal"><h3>Электрика и автоматика</h3><p>Расчёт под выделенную мощность, щит с маркировкой, сценарии света, умный дом.</p></div>
-          <div class="eng-item reveal"><h3>Доступ к каждому узлу</h3><p>Ревизии и исполнительные схемы: любой узел обслуживается <b>без вскрытия отделки</b>.</p></div>
+          <div class="eng-item reveal"><h3>Доступ к каждому узлу</h3><p>Ревизии и исполнительные схемы: любой узел обслуживается <span class="hl">без вскрытия отделки</span>.</p></div>
         </div>
-        <p class="eng-note reveal"><b>Честно о подрядчиках.</b> Отделку и сети делают мои мастера. Котельную и септик — профильные подрядчики, но <b>договор у вас один, со мной</b>, и отвечаю за всё я.</p>
+        <p class="eng-note reveal"><b>Честно о подрядчиках.</b> Отделку и сети делают мои мастера. Котельную и септик — профильные подрядчики, но <span class="hl">договор у вас один, со мной</span>, и отвечаю за всё я.</p>
       </div>
     </div>
     <div class="warm-row reveal">
-      <div><h3>Тёплый контур — до зимы</h3><p>Нет окон и кровли — <b>закрою контур сам</b>. Инженерия запустится до холодов, отделка пойдёт в тёплом доме. Контур готов — начну с проверки коробки и вводов.</p></div>
+      <div><h3>Тёплый контур — до зимы</h3><p>Нет окон и кровли — <span class="hl">закрою контур сам</span>. Инженерия запустится до холодов, отделка пойдёт в тёплом доме. Контур готов — начну с проверки коробки и вводов.</p></div>
       <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
     </div>
     <span class="todo">Подтвердить формулировку про подрядчиков по котельной и септику. Уточнить, даёт ли Романов гарантию на тёплый контур и на какой срок.</span>
@@ -3692,7 +3789,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
 <section class="price-truth" id="honest-price">
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:24ch">Я называю полную цену дома до старта. На рынке её часто узнают к третьей допсмете</h2>
-    <p class="section-intro reveal">Низкая цифра на сайте — чтобы получить заявку. Реальная — когда уйти уже дорого. У меня на сайте честный ориентир, а <b>полная стоимость — в смете до договора</b>.</p>
+    <p class="section-intro reveal">Низкая цифра на сайте — чтобы получить заявку. Реальная — когда уйти уже дорого. У меня на сайте честный ориентир, а <span class="hl">полная стоимость — в смете до договора</span>.</p>
     <div class="pt-grid">
       <div class="pt-col reveal">
         <h3>Как это часто бывает</h3>
@@ -3708,7 +3805,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
         <ol class="pt-steps">
           <li><span>На сайте — честный ориентир</span><b>от 90 000 ₽</b></li>
           <li><span>В смете — все работы по проекту, построчно</span><b>фиксирую</b></li>
-          <li><span>Изменения — <b>только по вашему решению</b> и с вашей подписью</span><b>0 ₽ сюрпризов</b></li>
+          <li><span>Изменения — <span class="hl">только по вашему решению</span> и с вашей подписью</span><b>0 ₽ сюрпризов</b></li>
           <li><span>Итог за м²</span><b>цена из договора</b></li>
         </ol>
         <p class="pt-total">Та же сумма — но вы знаете её до подписания договора.</p>
@@ -3717,7 +3814,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
     <div class="pt-check reveal">
       <div>
         <h3 class="pt-check-title">Пришлите смету другого подрядчика — отмечу, где появятся доплаты</h3>
-        <p class="lead-p">Отмечу позиции, которые «вырастают» по ходу: занижённые объёмы, работы «по факту», инженерию без пусконаладки. <b>Разбор за 1 рабочий день</b>, остаётся у вас.</p>
+        <p class="lead-p">Отмечу позиции, которые «вырастают» по ходу: занижённые объёмы, работы «по факту», инженерию без пусконаладки. <span class="hl">Разбор за 1 рабочий день</span>, остаётся у вас.</p>
         <button class="btn-primary" data-scroll="final" style="margin-top:22px">Проверить смету другого подрядчика</button>
       </div>
       <figure class="est-mock" aria-label="Пример разбора сметы: рискованные позиции выделены">
@@ -3857,7 +3954,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       <h2 class="reveal">Стандарт честного ремонта: 5 правил и гарантия, записанные в договоре</h2></div>
     <div class="standard-grid">
       <div class="standard-aside">
-        <p class="lead-p reveal">Не обещания на сайте, а <b>пункты, под которыми я ставлю свою подпись</b>.</p>
+        <p class="lead-p reveal">Не обещания на сайте, а <span class="hl">пункты, под которыми я ставлю свою подпись</span>.</p>
         <a class="btn-outline contract-btn reveal" href="#" style="text-decoration:none;display:inline-block">Посмотреть образец договора</a>
         <div class="photo reveal" style="aspect-ratio:4/3;margin-top:28px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><span class="ph-label">Фото: разворот договора, крупно пункт о цене и подпись</span></div>
       </div>
@@ -3865,9 +3962,9 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
         <ol class="rules">
           <li class="rule reveal"><div><h3>Цена фиксируется в договоре</h3><p>Меняется только по вашему решению — и после вашей подписи под допсоглашением.</p></div></li>
           <li class="rule reveal"><div><h3>Ни рубля вперёд</h3><p>Платите за принятую работу — по актам раз в 7–10 дней. Материалы и оборудование — поставщику напрямую. Безнал или наличные.</p></div></li>
-          <li class="rule reveal"><div><h3>Просрочку оплачиваю я</h3><p>График — в приложении к договору. За каждый день просрочки плачу <b>0,05% от стоимости работ</b>.</p></div></li>
-          <li class="rule reveal"><div><h3>Гарантия 5 лет</h3><p>На отделку и инженерные сети. На котёл, насосы и септик — гарантия производителя, но <b>обращаетесь вы ко мне</b>.</p></div></li>
-          <li class="rule reveal"><div><h3>Выезд за 2–3 дня, устранение до 10 дней</h3><p><b>Срок реакции записан в договоре</b>: гарантия без срока выезда ничего не стоит.</p></div></li>
+          <li class="rule reveal"><div><h3>Просрочку оплачиваю я</h3><p>График — в приложении к договору. За каждый день просрочки плачу <span class="hl">0,05% от стоимости работ</span>.</p></div></li>
+          <li class="rule reveal"><div><h3>Гарантия 5 лет</h3><p>На отделку и инженерные сети. На котёл, насосы и септик — гарантия производителя, но <span class="hl">обращаетесь вы ко мне</span>.</p></div></li>
+          <li class="rule reveal"><div><h3>Выезд за 2–3 дня, устранение до 10 дней</h3><p><span class="hl">Срок реакции записан в договоре</span>: гарантия без срока выезда ничего не стоит.</p></div></li>
         </ol>
         <div class="ip-note reveal"><b>Почему договор со мной лично.</b> Я работаю как индивидуальный предприниматель и отвечаю по обязательствам всем своим имуществом (ст. 24 ГК РФ). Поэтому в названии бюро — моё имя.</div>
         <span class="todo">Договор дорабатывается под эти пункты. Гарантия в формате «5 лет на отделку и сети, на оборудование — производителя» предложена мной — подтвердить. Срок гарантии на тёплый контур — уточнить.</span>
@@ -3884,7 +3981,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       <div>
         <span class="label-sm reveal">Моя роль в вашем ремонте</span>
         <h2 class="reveal">Свой человек на стройке, который играет за вас</h2>
-        <p class="lead-p reveal">На стройке десятки людей, у каждого свой интерес. Мой один: <b>вы въезжаете в срок и по цене из договора</b>.</p>
+        <p class="lead-p reveal">На стройке десятки людей, у каждого свой интерес. Мой один: <span class="hl">вы въезжаете в срок и по цене из договора</span>.</p>
         <div class="ally-rows">
           <div class="ally-row reveal"><b>Объект</b><p>Я на площадке 2–3 раза в неделю. Прораб не меняется до сдачи.</p></div>
           <div class="ally-row reveal"><b>Посёлок и охрана</b><p>Пропуска, режим работ, проезд техники, мусор — на мне.</p></div>
@@ -3901,7 +3998,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
 <section class="control">
   <div class="container">
     <h2 class="section-heading reveal">Вы видите каждый этап — и не ездите за город по выходным</h2>
-    <p class="section-intro reveal"><b>О проблеме вы узнаёте первым</b> — а не когда её закрыли гипсокартоном.</p>
+    <p class="section-intro reveal"><span class="hl">О проблеме вы узнаёте первым</span> — а не когда её закрыли гипсокартоном.</p>
     <div class="control-split">
       <div class="control-list">
         <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Статус и видеообход каждую пятницу</h3><p>Что сделано, что проверено, что дальше — и видео с объекта.</p></div>
@@ -3924,7 +4021,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       <div class="q2-head">
         <span class="label-sm">Работаю по нормам, а не «как привык»</span>
         <h3 class="q2-title">Проверьте мою работу любым независимым экспертом</h3>
-        <p class="lead-p">Работы сделаны по нормам и технологическим картам: <b>качество можно измерить</b>, а не принимать на веру.</p>
+        <p class="lead-p">Работы сделаны по нормам и технологическим картам: <span class="hl">качество можно измерить</span>, а не принимать на веру.</p>
       </div>
       <div class="q2-cards">
         <div class="q2-card"><span class="q2-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 3v18M5 21h14M4 7h16"/><path d="M4 7l-2.5 6a3 3 0 005 0L4 7zM20 7l-2.5 6a3 3 0 005 0L20 7z"/></svg></span><span class="q2-n">01</span><h4>Спор решает экспертиза, а не «на глаз»</h4><p>Вопрос по качеству решает независимая экспертиза, а не слово против слова.</p></div>
@@ -3947,7 +4044,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       <div class="founder-info">
         <h3>Владимир Романов</h3>
         <p><strong style="color:var(--bronze)">Основатель бюро · 20 лет в ремонте</strong></p>
-        <p>Договор — со мной, и <b>за результат отвечаю я</b>: проверяю скрытые работы, принимаю решения на площадке, отвечаю на ваши вопросы.</p>
+        <p>Договор — со мной, и <span class="hl">за результат отвечаю я</span>: проверяю скрытые работы, принимаю решения на площадке, отвечаю на ваши вопросы.</p>
         <p class="founder-quote">«Цитата Владимира его собственными словами — почему бюро называется „честных интерьеров“».</p>
         <span class="todo">Записать цитату со слов Романова.</span>
         <div class="founder-facts">
@@ -3989,7 +4086,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       <div>
         <div class="format-title">Дом под ключ</div>
         <div class="format-price">от 90 000 ₽ / м²</div>
-        <div class="format-desc">Стоимость работ: инженерия и отделка. <b>Фиксируется в договоре.</b> Материалы, оборудование и проект — отдельно.</div>
+        <div class="format-desc">Стоимость работ: инженерия и отделка. <span class="hl">Фиксируется в договоре.</span> Материалы, оборудование и проект — отдельно.</div>
         <div class="price-example">
           <div class="price-example-title">Пример: дом 250 м², с готового тёплого контура</div>
           <div class="price-example-row"><span>Работы под ключ</span><b>от 22,5 млн ₽</b></div>
@@ -4070,7 +4167,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       <div class="lm-mock list" aria-hidden="true"><span class="lm-page p2"></span><span class="lm-cover sheet"><b>14 ошибок</b><small>инженерии в доме</small><i class="ln"></i><i class="ln"></i><i class="ln s"></i><i class="ln"></i><i class="ln s"></i></span></div>
       <div class="lm-body">
         <b>14 инженерных ошибок, которые в доме находят после отделки</b>
-        <p>Проверьте свой проект сами — <b>до закупки оборудования</b>.</p>
+        <p>Проверьте свой проект сами — <span class="hl">до закупки оборудования</span>.</p>
         <div class="lm-actions"><a class="btn-primary" href="#" style="text-decoration:none">Получить чек-лист в Telegram</a><button class="btn-outline" data-scroll="final">Прислать проект на проверку</button></div>
       </div>
     </div>
@@ -4084,7 +4181,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
     <div class="route8-grid">
       <div class="route8-aside stretch">
         <h2 class="reveal">Контур и инженерия — до холодов, отделка — в тёплом доме</h2>
-        <p class="lead-p reveal">Семь шагов. Что должно быть сделано <b>до морозов</b>, вы знаете до договора.</p>
+        <p class="lead-p reveal">Семь шагов. Что должно быть сделано <span class="hl">до морозов</span>, вы знаете до договора.</p>
         <div class="photo reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: готовый дом вечером, свет в окнах, ключи на столе</span></div>
       </div>
       <ol class="route8-list">
@@ -4137,7 +4234,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       </div>
       <div>
         <h2 class="reveal">Пришлите проект или смету — я лично покажу, где дом подорожает</h2>
-        <p class="lead-p reveal">Проект, смета другого подрядчика или просто планировки. <b>За 1 рабочий день</b> назову стоимость и отмечу, где прячутся переделки. <b>Через 2–3 дня приеду на объект</b>. Разбор останется у вас.</p>
+        <p class="lead-p reveal">Проект, смета другого подрядчика или просто планировки. <span class="hl">За 1 рабочий день</span> назову стоимость и отмечу, где прячутся переделки. <span class="hl">Через 2–3 дня приеду на объект</span>. Разбор останется у вас.</p>
         <p class="geo-line reveal"><b>Выезжаю до 50 км от МКАД:</b> Одинцово, Рублёвка и Барвиха, Новая Рига, Истра, Красногорск, Мытищи, Пушкино и другие направления.</p>
         <form class="lead-form-card reveal" novalidate>
           <div class="form-group">
@@ -4259,7 +4356,7 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
     var go = function(d){ c.scrollBy({left: d * c.clientWidth * 0.8, behavior: reduced ? 'auto' : 'smooth'}); };
     b[0].addEventListener('click', function(){ go(-1); }); b[1].addEventListener('click', function(){ go(1); });
   });
-  document.querySelectorAll('.err-grid, .rev-mini').forEach(function(g){
+  document.querySelectorAll('.err-grid, .rev-mini, .design2 .design-collage').forEach(function(g){
     var n = g.children.length; if (n < 2) return;
     var cnt = document.createElement('div'); cnt.className = 'hs-count'; cnt.setAttribute('aria-hidden','true'); cnt.textContent = '1 / ' + n + ' · листайте';
     g.parentNode.insertBefore(cnt, g.nextSibling);
@@ -4268,6 +4365,16 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
       cnt.textContent = Math.min(n, Math.round(g.scrollLeft / w) + 1) + ' / ' + n;
     }, {passive: true});
   });
+
+  /* ----- Compare slider: drag anywhere on the picture ----- */
+  var cmpW = document.getElementById('cmp'), cmpIn = document.getElementById('cmpRange');
+  if (cmpW && cmpIn){
+    var cmpOn = false;
+    var cmpSet = function(e){ var r = cmpW.getBoundingClientRect(); var v = Math.max(0, Math.min(100, (e.clientX - r.left) / r.width * 100)); cmpIn.value = v; cmpW.style.setProperty('--pos', v + '%'); };
+    cmpW.addEventListener('pointerdown', function(e){ cmpOn = true; cmpSet(e); try { cmpW.setPointerCapture(e.pointerId); } catch (_) {} });
+    cmpW.addEventListener('pointermove', function(e){ if (cmpOn) cmpSet(e); });
+    ['pointerup','pointercancel'].forEach(function(n){ cmpW.addEventListener(n, function(){ cmpOn = false; }); });
+  }
 
   /* ----- Mobile: secondary descriptions collapse into tap-to-open rows ----- */
   if (isMobile){
@@ -4608,6 +4715,18 @@ section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight
     }
     document.querySelectorAll('[data-zoom]').forEach(function(b){ b.addEventListener('click', function(){ animateTo(b.getAttribute('data-zoom')); }); });
 
+    var drag = null, justDragged = false;
+    svg.addEventListener('pointerdown', function(e){ if (e.pointerType === 'touch' || e.button !== 0) return; drag = {x: e.clientX, y: e.clientY, vb: vb.slice(), moved: false, id: e.pointerId}; });
+    svg.addEventListener('pointermove', function(e){
+      if (!drag) return;
+      var k = vb[2] / (svg.clientWidth || 1), dx = (e.clientX - drag.x) * k, dy = (e.clientY - drag.y) * k;
+      if (!drag.moved){ if (Math.abs(e.clientX - drag.x) + Math.abs(e.clientY - drag.y) < 5) return; drag.moved = true; svg.classList.add('dragging'); hideTip(); try { svg.setPointerCapture(drag.id); } catch (_) {} }
+      vb[0] = Math.max(-vb[2] * 0.5, Math.min(1000 - vb[2] * 0.5, drag.vb[0] - dx));
+      vb[1] = Math.max(-vb[3] * 0.5, Math.min(1050 - vb[3] * 0.5, drag.vb[1] - dy));
+      svg.setAttribute('viewBox', vb.join(' '));
+    });
+    ['pointerup','pointercancel','pointerleave'].forEach(function(n){ svg.addEventListener(n, function(){ if (!drag) return; if (drag.moved){ justDragged = true; setTimeout(function(){ justDragged = false; }, 0); } drag = null; svg.classList.remove('dragging'); }); });
+    svg.addEventListener('click', function(e){ if (justDragged){ e.stopImmediatePropagation(); e.preventDefault(); } }, true);
     var list = document.getElementById('mapList');
     function renderList(q){
       q = (q || '').toLowerCase().replace(/ё/g, 'е');
