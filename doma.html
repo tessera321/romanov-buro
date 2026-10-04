@@ -3366,20 +3366,6 @@ html { scroll-padding-top: 136px; }
 }
 
 @media (max-width: 900px) {
-  /* hero order: offer → price → photo → facts → subtitle → buttons */
-  .hero7 { padding-top: var(--hdr-h); }
-  .hero7-inner { display: contents; }
-  .hero7 .hero7-inner > * { margin-left: 4vw !important; margin-right: 4vw !important; }
-  .hero7 h1 { order: 1; margin-top: 26px; }
-  .hero7-price { order: 2; margin-top: 16px; margin-bottom: 20px; }
-  .hero7-photo { order: 3; height: 74vw; min-height: 280px; }
-  .hero7-facts { order: 4; margin-top: 16px; font-size: 0.95rem; }
-  .hero7 .hero-sub { order: 5; margin-top: 18px; }
-  .hero7 .hero-cta-row { order: 6; margin-top: 22px !important; }
-  .hero7 .hero-cta-note { order: 7; margin-bottom: 28px; }
-  .hero7-features-wrap { order: 8; }
-  .hero7-scrim { display: none; }
-
   .pf-tabs { gap: 8px; margin-right: -4vw; padding-right: 4vw; }
   .pf-tab { padding: 10px 14px; }
   .control-split, .team-founder, .format-main { grid-template-columns: 1fr; }
@@ -3394,6 +3380,88 @@ html { scroll-padding-top: 136px; }
 }
 .founder-info .founder-facts h3 { font-size: 1.05rem; }
 
+/* ===== S3: shared edits (both pages) ===== */
+/* key phrases in running text */
+section p b, section li b, .hero-sub b { color: var(--text-primary); font-weight: 600; }
+.hero-cta-note b { color: var(--bronze-hover); }
+.todo b { color: inherit; }
+
+/* hero facts + brighter note */
+.hero7-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 26px; margin: 14px 0 0; padding: 0; font-size: 0.9rem; color: var(--text-primary); }
+.hero7-facts li { position: relative; padding-left: 16px; }
+.hero7-facts li::before { content: ''; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; background: var(--bronze); }
+.hero-cta-note { font-size: 0.95rem; color: rgba(245,240,232,0.82); line-height: 1.55; max-width: 56ch; margin-top: 18px; }
+
+/* numbers: only figures are large */
+.p2-num { white-space: nowrap; }
+.p2-num.big .u { display: inline; color: inherit; }
+.p2-label b { color: var(--text-primary); font-weight: 600; }
+
+/* case tabs: outlined, active filled */
+.pf-tabs { gap: 10px; border-bottom: none; padding-bottom: 2px; }
+.pf-tab { border: 1px solid var(--border-accent); padding: 12px 18px; color: var(--text-primary); background: transparent; text-align: left; font-weight: 600; }
+.pf-tab small { color: var(--text-secondary); font-weight: 400; }
+.pf-tab:hover { background: var(--bronze-glow); }
+.pf-tab[aria-selected="true"] { background: var(--bronze); border-color: var(--bronze); color: #0D0D0D; }
+.pf-tab[aria-selected="true"] small { color: rgba(13,13,13,0.72); }
+.pf-table td:first-child { width: 32%; }
+
+/* "I am a fit" — the accent column */
+.fit-grid { gap: clamp(12px, 1.4vw, 20px); border: none; }
+.fit-col { border: 1px solid var(--border-main); }
+.fit-col:not(.no) { border-color: var(--bronze); background: linear-gradient(180deg, rgba(184,150,90,0.13), rgba(184,150,90,0.04)); }
+.fit-col:not(.no) h3 { color: var(--bronze-hover); font-size: 1.2rem; }
+.fit-col:not(.no) li { color: var(--text-primary); }
+.fit-col + .fit-col { border-left: 1px solid var(--border-main); background: transparent; }
+.fit-col.no h3 { color: var(--text-muted); font-size: 1.2rem; }
+.fit-col.no li { color: var(--text-muted); }
+
+/* "How I do it" — the accent column */
+.pt-col.me { border-color: var(--bronze); background: linear-gradient(180deg, rgba(184,150,90,0.14), rgba(184,150,90,0.04)); position: relative; }
+.pt-col h3 { font-size: 0.86rem; }
+.pt-col.me h3 { color: var(--bronze-hover); font-size: 0.95rem; }
+.pt-col.me .pt-steps span { color: var(--text-primary); }
+.pt-col:not(.me) .pt-steps span { color: var(--text-muted); }
+.pt-col:not(.me) .pt-steps b { color: rgba(245,240,232,0.3); }
+
+/* certificates as bordered tiles */
+.certs2 { margin: 0 0 8px; }
+.certs2-title { font-family: 'Actay', sans-serif; font-size: clamp(1.05rem, 1.4vw, 1.3rem); color: var(--text-primary); margin-bottom: 16px; }
+.certs2-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.certs2-grid span { display: flex; align-items: center; justify-content: center; min-height: 84px; padding: 14px; border: 1px solid rgba(245,240,232,0.26); font-family: 'Actay Wide', sans-serif; font-weight: 700; font-size: clamp(0.82rem, 1.1vw, 1.05rem); letter-spacing: 0.08em; color: rgba(245,240,232,0.78); text-align: center; }
+
+@media (max-width: 900px) {
+  /* first screen: offer → photo + facts → subtitle → price → buttons → note */
+  .hero7 { padding-top: var(--hdr-h); }
+  .hero7-inner { display: contents; }
+  .hero7 .hero7-inner > * { margin-left: 4vw !important; margin-right: 4vw !important; }
+  .hero7 h1 { order: 1; margin-top: 26px; margin-bottom: 22px; }
+  .hero7-photo { order: 2; height: 74vw; min-height: 280px; }
+  .hero7-facts { order: 3; margin-top: 16px; font-size: 0.95rem; }
+  .hero7 .hero-sub { order: 4; margin-top: 18px; }
+  .hero7-price { order: 5; margin-top: 22px; margin-bottom: 0; }
+  .hero7 .hero-cta-row { order: 6; margin-top: 22px !important; }
+  .hero7 .hero-cta-note { order: 7; margin-bottom: 28px; }
+  .hero7-features-wrap { order: 8; }
+  .hero7-scrim { display: none; }
+
+  .pf-tabs { gap: 8px; margin-right: -4vw; padding-right: 4vw; }
+  .pf-tab { padding: 10px 14px; }
+  .fit-grid { grid-template-columns: 1fr; }
+  .certs2-grid { grid-template-columns: 1fr 1fr; }
+  .certs2-grid span { min-height: 68px; font-size: 0.8rem; }
+  .p2-main .p2-num.big { font-size: clamp(2.6rem, 12vw, 3.2rem); }
+}
+
+.pt-steps li { grid-template-columns: minmax(0, 1fr) auto; }
+.pt-steps span { min-width: 0; }
+@media (max-width: 900px) {
+  .hero7 h1 { text-wrap: wrap; }
+  .pt-steps b { white-space: normal; text-align: right; max-width: 46%; font-size: 0.95rem; }
+  .pt-steps li { grid-template-columns: minmax(0, 1fr) minmax(0, auto); }
+}
+.control-split .tg-mockup { max-width: none; width: 100%; }
+
 </style>
 </head>
 <body>
@@ -3403,9 +3471,9 @@ html { scroll-padding-top: 136px; }
   <div class="hdr-top">
     <div class="hdr-wrap">
       <ul class="hdr-proof" aria-label="Факты о бюро">
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>20 лет</b> в премиальном ремонте</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>20 лет</b> в премиальном ремонте</span></li>
         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/></svg><span><b>115+</b> сданных объектов</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>5 лет</b> по договору</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>до 5 лет</b> по договору</span></li>
       </ul>
       <div class="hdr-meta">
         <span class="hdr-msg"><a href="#" aria-label="Написать в Telegram">Telegram</a><a href="#" aria-label="Написать в WhatsApp">WhatsApp</a><a href="#" aria-label="Написать в MAX">MAX</a></span>
@@ -3425,11 +3493,11 @@ html { scroll-padding-top: 136px; }
       </a>
       <nav class="seg" aria-label="Направления: что ремонтируем">
         <a class="seg-item" href="index.html"><b>Квартиры</b></a>
-        <a class="seg-item" href="#top" data-scroll="top" aria-current="page"><b>Дома и коттеджи</b></a>
+        <a class="seg-item" href="#top" data-scroll="top" aria-current="page"><b>Дома и коттеджи</b></a>
         <span class="seg-item soon" aria-disabled="true" title="Страница готовится"><b>Коммерция <i>скоро</i></b></span>
       </nav>
       <div class="hdr-contacts">
-        <a class="hdr-phone" href="tel:+70000000000"><b>+7 (___) ___-__-__</b><small>Отвечаю лично, без колл-центра</small></a>
+        <a class="hdr-phone" href="tel:+70000000000"><b>+7 (___) ___-__-__</b><small>Отвечаю лично, без колл-центра</small></a>
         <button class="top-bar-cta" data-scroll="quiz">Рассчитать стоимость</button>
         <a class="hdr-call" href="tel:+70000000000" aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></a>
         <button class="hdr-burger" type="button" id="hdrBurger" aria-label="Меню" aria-expanded="false" aria-controls="hdrDrawer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
@@ -3438,16 +3506,16 @@ html { scroll-padding-top: 136px; }
   </div>
   <nav class="hdr-nav" aria-label="Разделы страницы">
     <div class="hdr-wrap">
-      <span class="hdr-desc">Ремонт домов и коттеджей от 150 м² под ключ</span>
+      <span class="hdr-desc">Ремонт домов и коттеджей от 150 м² под ключ</span>
       <div class="hdr-links"><a href="#portfolio" data-scroll="portfolio" data-spy="portfolio">Объекты</a><a href="#honest-price" data-scroll="honest-price" data-spy="honest-price">Цена</a><a href="#standard" data-scroll="standard" data-spy="standard">Гарантии</a><a href="#team" data-scroll="team" data-spy="team">Команда</a><a href="#faq" data-scroll="faq" data-spy="faq">Вопросы</a></div>
     </div>
   </nav>
   <div class="hdr-drawer" id="hdrDrawer" hidden>
     <a class="dl" href="#portfolio" data-scroll="portfolio">Объекты</a><a class="dl" href="#honest-price" data-scroll="honest-price">Цена</a><a class="dl" href="#standard" data-scroll="standard">Гарантии</a><a class="dl" href="#team" data-scroll="team">Команда</a><a class="dl" href="#faq" data-scroll="faq">Вопросы</a>
     <ul class="hdr-proof">
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>20 лет</b> в премиальном ремонте</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>20 лет</b> в премиальном ремонте</span></li>
         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/></svg><span><b>115+</b> сданных объектов</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>5 лет</b> по договору</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>до 5 лет</b> по договору</span></li>
     </ul>
     <div class="dc"><b>+7 (___) ___-__-__</b><span>hello@romanov-buro.ru</span><span>Пн–Сб 9:00–20:00 · Telegram · WhatsApp · MAX</span></div>
     <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость</button>
@@ -3459,36 +3527,36 @@ html { scroll-padding-top: 136px; }
 <section class="hero7">
   <div class="photo hero7-photo" aria-hidden="true">
     <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
-    <span class="ph-label">Фото на всю ширину: Владимир Романов в готовом загородном доме (гостиная с панорамным остеклением), по пояс, взгляд в камеру. Естественный свет, лицо в правой трети кадра</span>
+    <span class="ph-label">Фото на всю ширину: Владимир Романов в готовом загородном доме (гостиная с панорамным остеклением), по пояс, взгляд в камеру. Естественный свет, лицо в правой трети кадра</span>
   </div>
   <div class="hero7-scrim"></div>
   <div class="hero7-inner">
 
-    <h1 style="max-width:21ch">Въезжайте в дом точно по проекту: инженерия и отделка в одном договоре, без аванса и роста сметы</h1>
-    <div class="hero7-price">от 90 000 ₽/м²<span>дома от 150 м² · цена работ фиксируется в договоре</span></div>
-    <p class="hero-sub">Я, Владимир Романов, лично веду ваш дом — от котельной и вентиляции до последнего плинтуса. Один договор и одна гарантия на инженерию и отделку.</p>
+    <h1 style="max-width:21ch">Въезжайте в дом точно по проекту: инженерия и отделка в одном договоре, без аванса и роста сметы</h1>
+    <div class="hero7-price">от 90 000 ₽/м²<span>дома от 150 м² · цена работ фиксируется в договоре</span></div>
+    <p class="hero-sub">Я, Владимир Романов, лично веду ваш дом — от котельной и вентиляции до последнего плинтуса. <b>Один договор и одна гарантия на инженерию и отделку.</b></p>
     <ul class="hero7-facts"><li>Основатель бюро</li><li>20 лет практики</li></ul>
     <div class="hero-cta-row" style="margin-top:30px">
       <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
-      <a class="btn-outline" href="#" style="text-decoration:none">Обсудить дом в Telegram</a>
+      <a class="btn-outline" href="#" style="text-decoration:none">Обсудить дом в Telegram</a>
     </div>
-    <p class="hero-cta-note">5 вопросов, 2 минуты. <b>Ориентир стоимости — сразу на экране.</b> Бонусом: чек-лист «14 инженерных ошибок» и мой выезд на объект.</p>
+    <p class="hero-cta-note">5 вопросов, 2 минуты. <b>Ориентир стоимости — сразу на экране.</b> Бонусом: чек-лист «14 инженерных ошибок» и мой выезд на объект.</p>
   </div>
   <div class="hero7-features-wrap"><div class="hero7-features">
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3" width="16" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
       <h3>Железная смета</h3>
-      <p>Фиксирую на старте. Меняется только с вашей подписью.</p>
+      <p>Фиксирую на старте. Меняется только с вашей подписью.</p>
     </div>
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <h3>Без аванса — ни рубля вперёд</h3>
-      <p>Платите за принятую работу — по актам раз в 7–10 дней.</p>
+      <h3>Без аванса — ни рубля вперёд</h3>
+      <p>Платите за принятую работу — <b>по актам раз в 7–10 дней</b>.</p>
     </div>
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <h3>Гарантия 5 лет</h3>
-      <p>На отделку и инженерные сети. Выезд — за 2–3 дня.</p>
+      <p>На отделку и инженерные сети. Выезд — за 2–3 дня.</p>
     </div>
   </div>
   </div>
@@ -3497,38 +3565,38 @@ html { scroll-padding-top: 136px; }
 <!-- 2. PROOF BAND -->
 <section class="proof2" aria-label="Факты о бюро">
   <div class="container">
-    <h2 class="section-heading reveal h2-two">20 лет и 115+ объектов: ваш дом<br class="d-br"> не станет экспериментом новой бригады</h2>
+    <h2 class="section-heading reveal h2-two">20 лет и 115+ объектов: ваш дом<br class="d-br"> не станет экспериментом новой бригады</h2>
     <div class="p2-grid">
       <div class="p2-cell p2-main reveal">
-        <div class="p2-num big"><span class="cnt" data-to="20">20</span><span class="u"> лет</span></div>
-        <div class="p2-label">личного опыта в премиальном ремонте. Каждый объект веду сам.</div>
+        <div class="p2-num big"><span class="cnt" data-to="20">20</span></div>
+        <div class="p2-label"><b>лет</b> личного опыта в премиальном ремонте. Каждый объект веду сам.</div>
       </div>
       <div class="p2-cell reveal">
         <div class="p2-num"><span class="cnt" data-to="115">115</span>+</div>
-        <div class="p2-label">сданных объектов, из них ___ домов и коттеджей</div>
+        <div class="p2-label">сданных объектов, из них ___ домов и коттеджей</div>
       </div>
       <div class="p2-cell reveal">
         <div class="p2-num"><span class="cnt" data-to="97">97</span>%</div>
         <div class="p2-label">клиентов рекомендуют меня своим друзьям</div>
       </div>
       <div class="p2-cell reveal">
-        <div class="p2-num"><span class="cnt" data-to="5">5</span><span class="u"> лет</span></div>
-        <div class="p2-label">гарантии на отделку и инженерные сети</div>
+        <div class="p2-num">до <span class="cnt" data-to="5">5</span></div>
+        <div class="p2-label"><b>лет</b> гарантии на отделку и инженерные сети</div>
       </div>
       <div class="p2-cell reveal">
-        <div class="p2-num"><span class="cnt" data-to="10">10</span>–<span class="cnt" data-to="14">14</span><span class="u"> мес</span></div>
-        <div class="p2-label">дом под ключ по графику в договоре</div>
+        <div class="p2-num"><span class="cnt" data-to="10">10</span>–<span class="cnt" data-to="14">14</span></div>
+        <div class="p2-label"><b>месяцев</b> — дом под ключ по графику в договоре</div>
       </div>
     </div>
-    <span class="todo">Сколько из 115+ объектов — дома и коттеджи (ориентир ≈10)? Подставим точное число.</span>
+    <span class="todo">Сколько из 115+ объектов — дома и коттеджи (ориентир ≈10)? Подставим точное число.</span>
   </div>
 </section>
 
 <!-- 3. PORTFOLIO TABS -->
 <section class="portfolio" id="portfolio">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:22ch">Дома, в которых уже живут, а не доделывают инженерию</h2>
-    <p class="section-intro reveal">Срок и цена за м² — по договору и по факту. Адреса не раскрываю.</p>
+    <h2 class="section-heading reveal" style="max-width:22ch">Дома, в которых уже живут, а не доделывают инженерию</h2>
+    <p class="section-intro reveal"><b>Срок и цена за м² — по договору и по факту.</b> Адреса не раскрываю.</p>
     <div class="pf-tabs" role="tablist" aria-label="Объекты" id="pfTabs"></div>
     <div class="pf-panel" role="tabpanel" id="pfPanel" aria-live="polite">
       <div>
@@ -3538,7 +3606,7 @@ html { scroll-padding-top: 136px; }
       <div class="pf-info">
         <h3 id="pfTitle">Квартира</h3>
         <div class="pf-chips" id="pfChips"></div>
-        <table class="pf-table"><thead><tr><th></th><th>По договору</th><th>По факту</th></tr></thead><tbody id="pfTable"></tbody></table>
+        <table class="pf-table"><thead><tr><th></th><th>По договору</th><th>По факту</th></tr></thead><tbody id="pfTable"></tbody></table>
         <div class="pf-sub">Что сделали</div>
         <p class="pf-works" id="pfWorks"></p>
         <div class="pf-sub">Особенность проекта</div>
@@ -3551,7 +3619,7 @@ html { scroll-padding-top: 136px; }
         </div>
       </div>
     </div>
-    <span class="todo">Кейсы 1–2 собраны по присланным проектам (фото и сроки — заглушки). Кейсы 3–4 выдуманы для прототипа и помечены «Пример · заменить» — заменим после показа Владимиру.</span>
+    <span class="todo">Кейсы 1–2 собраны по присланным проектам (фото и сроки — заглушки). Кейсы 3–4 выдуманы для прототипа и помечены «Пример · заменить» — заменим после показа Владимиру.</span>
   </div>
 </section>
 
@@ -3559,35 +3627,35 @@ html { scroll-padding-top: 136px; }
 <section class="honest">
   <div class="container">
     <span class="label-sm reveal">Сразу честно</span>
-    <h2 class="reveal">Мы не для всех.<br>И это нормально.</h2>
-    <p class="lead-p reveal" style="margin-top:18px">Беру дома от 150 м² с бюджетом на работы от 90 000 ₽/м² — и говорю об этом до первой встречи.</p>
+    <h2 class="reveal">Мы не для всех.<br>И это нормально.</h2>
+    <p class="lead-p reveal" style="margin-top:18px"><b>Беру дома от 150 м² с бюджетом на работы от 90 000 ₽/м²</b> — и говорю об этом до первой встречи.</p>
     <div class="fit-grid reveal">
       <div class="fit-col">
         <h3>Я вам подойду, если</h3>
         <ul>
-          <li>хотите переехать в дом, где всё работает и выглядит как задумано, — и проводить вечера и выходные с семьёй, а не управлять стройкой</li>
-          <li>вам нужен не ещё один красивый рендер, а человек, который соберёт дом, не даст забыть про вентиляцию и не будет звонить по каждому саморезу</li>
-          <li>в проекте камень, дерево, теневые зазоры и встроенная мебель — и вы хотите реализовать их без компромиссов, как на визуализации</li>
-          <li>хотите, чтобы дом работал с первой зимы: тепло, воздух и вода — без доделок после въезда</li>
-          <li>уже обжигались на подрядчиках и хотите закончить дом без второго провала</li>
+          <li>хотите переехать в дом, где всё работает и выглядит как задумано, — и проводить вечера и выходные с семьёй, а не управлять стройкой</li>
+          <li>вам нужен не ещё один красивый рендер, а человек, который соберёт дом, не даст забыть про вентиляцию и не будет звонить по каждому саморезу</li>
+          <li>в проекте камень, дерево, теневые зазоры и встроенная мебель — и вы хотите реализовать их без компромиссов, как на визуализации</li>
+          <li>хотите, чтобы дом работал с первой зимы: тепло, воздух и вода — без доделок после въезда</li>
+          <li>уже обжигались на подрядчиках и хотите закончить дом без второго провала</li>
         </ul>
       </div>
       <div class="fit-col no">
-        <h3>Не подойду, если</h3>
+        <h3>Не подойду, если</h3>
         <ul>
-          <li>нужен бюджетный ремонт или самая низкая цифра в смете</li>
+          <li>нужен бюджетный ремонт или самая низкая цифра в смете</li>
           <li>нужны частичные работы: только электрика, только плитка, один этаж</li>
-          <li>хотите сэкономить на инженерии, «раз её не видно»</li>
-          <li>готовы начать без проекта и решать по ходу</li>
-          <li>ищете бригаду, а не ответственного за результат</li>
+          <li>хотите сэкономить на инженерии, «раз её не видно»</li>
+          <li>готовы начать без проекта и решать по ходу</li>
+          <li>ищете бригаду, а не ответственного за результат</li>
         </ul>
       </div>
     </div>
     <div class="principles">
-      <div class="principle reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3" width="16" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><h3>Называю полную цену до старта</h3><p>В смете — всё, что нужно по проекту.</p></div>
-      <div class="principle reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg></span><h3>Говорю «нет», если не сходится</h3><p>Проект нереализуем или бюджет не сходится — скажу сразу.</p></div>
-      <div class="principle reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Не беру больше, чем могу проверить</h3><p>Каждый объект веду лично, поэтому их немного.</p></div>
-      <div class="principle reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><h3>Не экономлю на том, что под отделкой</h3><p>Трубы, кабель, узлы котельной — то, что не переделать без вскрытия.</p></div>
+      <div class="principle reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3" width="16" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><h3>Называю полную цену до старта</h3><p>В смете — всё, что нужно по проекту.</p></div>
+      <div class="principle reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 8.5l7 7M15.5 8.5l-7 7"/></svg></span><h3>Говорю «нет», если не сходится</h3><p>Проект нереализуем или бюджет не сходится — скажу сразу.</p></div>
+      <div class="principle reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></span><h3>Не беру больше, чем могу проверить</h3><p>Каждый объект веду лично, поэтому их немного.</p></div>
+      <div class="principle reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg></span><h3>Не экономлю на том, что под отделкой</h3><p>Трубы, кабель, узлы котельной — то, что не переделать без вскрытия.</p></div>
     </div>
   </div>
 </section>
@@ -3596,77 +3664,77 @@ html { scroll-padding-top: 136px; }
 <section class="eng eng-main" id="engineering">
   <div class="container">
     <div class="eng-grid">
-      <div class="photo eng-photo reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: котельная «как по линейке» — обвязка котла, коллекторы, маркировка линий, свободный проход для обслуживания</span></div>
+      <div class="photo eng-photo reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: котельная «как по линейке» — обвязка котла, коллекторы, маркировка линий, свободный проход для обслуживания</span></div>
       <div>
-        <span class="label-sm reveal">Главное отличие дома от квартиры</span>
-        <h2 class="section-heading reveal" style="margin-bottom:18px">Котельная, вентиляция и септик — в том же договоре, что и отделка</h2>
-        <p class="lead-p reveal">Инженерия и отделка — один договор, один график, одна гарантия. Искать виноватого между подрядчиками не придётся.</p>
+        <span class="label-sm reveal">Главное отличие дома от квартиры</span>
+        <h2 class="section-heading reveal" style="margin-bottom:18px">Котельная, вентиляция и септик — в том же договоре, что и отделка</h2>
+        <p class="lead-p reveal">Инженерия и отделка — <b>один договор, один график, одна гарантия</b>. Искать виноватого между подрядчиками не придётся.</p>
         <div class="eng-list">
-          <div class="eng-item reveal"><h3>Отопление и котельная</h3><p>Мощность — по теплопотерям, с запасом на вентиляцию и горячую воду. В котельной есть место для обслуживания.</p></div>
-          <div class="eng-item reveal"><h3>Вентиляция — до чистовой отделки</h3><p>Закладываю в проект до потолков. Позже — только вскрывая отделку.</p></div>
-          <div class="eng-item reveal"><h3>Тёплые полы</h3><p>Опрессовка и балансировка — до стяжки. Акт испытаний у вас.</p></div>
-          <div class="eng-item reveal"><h3>Вода, канализация, септик</h3><p>Водоподготовка под анализ воды. Септик — с якорением и подъездом для откачки.</p></div>
-          <div class="eng-item reveal"><h3>Электрика и автоматика</h3><p>Расчёт под выделенную мощность, щит с маркировкой, сценарии света, умный дом.</p></div>
-          <div class="eng-item reveal"><h3>Доступ к каждому узлу</h3><p>Ревизии и исполнительные схемы: любой узел обслуживается без вскрытия отделки.</p></div>
+          <div class="eng-item reveal"><h3>Отопление и котельная</h3><p>Мощность — по теплопотерям, <b>с запасом на вентиляцию и горячую воду</b>. В котельной есть место для обслуживания.</p></div>
+          <div class="eng-item reveal"><h3>Вентиляция — до чистовой отделки</h3><p>Закладываю в проект <b>до потолков</b>. Позже — только вскрывая отделку.</p></div>
+          <div class="eng-item reveal"><h3>Тёплые полы</h3><p>Опрессовка и балансировка — <b>до стяжки</b>. Акт испытаний у вас.</p></div>
+          <div class="eng-item reveal"><h3>Вода, канализация, септик</h3><p>Водоподготовка под анализ воды. Септик — <b>с якорением и подъездом для откачки</b>.</p></div>
+          <div class="eng-item reveal"><h3>Электрика и автоматика</h3><p>Расчёт под выделенную мощность, щит с маркировкой, сценарии света, умный дом.</p></div>
+          <div class="eng-item reveal"><h3>Доступ к каждому узлу</h3><p>Ревизии и исполнительные схемы: любой узел обслуживается <b>без вскрытия отделки</b>.</p></div>
         </div>
-        <p class="eng-note reveal"><b>Честно о подрядчиках.</b> Отделку и сети делают мои мастера. Котельную и септик — профильные подрядчики, но договор у вас один, со мной, и отвечаю за всё я.</p>
+        <p class="eng-note reveal"><b>Честно о подрядчиках.</b> Отделку и сети делают мои мастера. Котельную и септик — профильные подрядчики, но <b>договор у вас один, со мной</b>, и отвечаю за всё я.</p>
       </div>
     </div>
     <div class="warm-row reveal">
-      <div><h3>Тёплый контур — до зимы</h3><p>Нет окон и кровли — закрою контур сам. Инженерия запустится до холодов, отделка пойдёт в тёплом доме. Контур готов — начну с проверки коробки и вводов.</p></div>
+      <div><h3>Тёплый контур — до зимы</h3><p>Нет окон и кровли — <b>закрою контур сам</b>. Инженерия запустится до холодов, отделка пойдёт в тёплом доме. Контур готов — начну с проверки коробки и вводов.</p></div>
       <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
     </div>
-    <span class="todo">Подтвердить формулировку про подрядчиков по котельной и септику. Уточнить, даёт ли Романов гарантию на тёплый контур и на какой срок.</span>
+    <span class="todo">Подтвердить формулировку про подрядчиков по котельной и септику. Уточнить, даёт ли Романов гарантию на тёплый контур и на какой срок.</span>
   </div>
 </section>
 
 <!-- 6. HONEST PRICE -->
 <section class="price-truth" id="honest-price">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:24ch">Я называю полную цену дома до старта. На рынке её часто узнают к третьей допсмете</h2>
-    <p class="section-intro reveal">Низкая цифра на сайте — чтобы получить заявку. Реальная — когда уйти уже дорого. У меня на сайте честный ориентир, а полная стоимость — в смете до договора.</p>
+    <h2 class="section-heading reveal" style="max-width:24ch">Я называю полную цену дома до старта. На рынке её часто узнают к третьей допсмете</h2>
+    <p class="section-intro reveal">Низкая цифра на сайте — чтобы получить заявку. Реальная — когда уйти уже дорого. У меня на сайте честный ориентир, а <b>полная стоимость — в смете до договора</b>.</p>
     <div class="pt-grid">
       <div class="pt-col reveal">
         <h3>Как это часто бывает</h3>
         <ol class="pt-steps">
-          <li><span>На сайте — «отделка дома под ключ»</span><b>от 35 000 ₽</b></li>
-          <li><span>В смете: «инженерия считается отдельно»</span><b>55 000 ₽</b></li>
-          <li><span>По ходу: пусконаладка, автоматика, «этого не было в проекте»</span><b>+ доп. работы</b></li>
-          <li><span>Итог за м² — когда уйти уже поздно</span><b>90–100 000 ₽</b></li>
+          <li><span>На сайте — «отделка дома под ключ»</span><b>от 35 000 ₽</b></li>
+          <li><span>В смете: «инженерия считается отдельно»</span><b>55 000 ₽</b></li>
+          <li><span>По ходу: пусконаладка, автоматика, «этого не было в проекте»</span><b>+ доп. работы</b></li>
+          <li><span>Итог за м² — когда уйти уже поздно</span><b>90–100 000 ₽</b></li>
         </ol>
       </div>
       <div class="pt-col me reveal">
-        <h3>Как у меня</h3>
+        <h3>Как у меня</h3>
         <ol class="pt-steps">
-          <li><span>На сайте — честный ориентир</span><b>от 90 000 ₽</b></li>
-          <li><span>В смете — все работы по проекту, построчно</span><b>фиксирую</b></li>
-          <li><span>Изменения — только по вашему решению и с вашей подписью</span><b>0 ₽ сюрпризов</b></li>
-          <li><span>Итог за м²</span><b>цена из договора</b></li>
+          <li><span>На сайте — честный ориентир</span><b>от 90 000 ₽</b></li>
+          <li><span>В смете — все работы по проекту, построчно</span><b>фиксирую</b></li>
+          <li><span>Изменения — <b>только по вашему решению</b> и с вашей подписью</span><b>0 ₽ сюрпризов</b></li>
+          <li><span>Итог за м²</span><b>цена из договора</b></li>
         </ol>
-        <p class="pt-total">Та же сумма — но вы знаете её до подписания договора.</p>
+        <p class="pt-total">Та же сумма — но вы знаете её до подписания договора.</p>
       </div>
     </div>
     <div class="pt-check reveal">
       <div>
-        <h3 class="pt-check-title">Пришлите смету другого подрядчика — отмечу, где появятся доплаты</h3>
-        <p class="lead-p">Отмечу позиции, которые «вырастают» по ходу: занижённые объёмы, работы «по факту», инженерию без пусконаладки. Разбор за 1 рабочий день, остаётся у вас.</p>
+        <h3 class="pt-check-title">Пришлите смету другого подрядчика — отмечу, где появятся доплаты</h3>
+        <p class="lead-p">Отмечу позиции, которые «вырастают» по ходу: занижённые объёмы, работы «по факту», инженерию без пусконаладки. <b>Разбор за 1 рабочий день</b>, остаётся у вас.</p>
         <button class="btn-primary" data-scroll="final" style="margin-top:22px">Проверить смету другого подрядчика</button>
       </div>
       <figure class="est-mock" aria-label="Пример разбора сметы: рискованные позиции выделены">
         <div class="est-head"><span>Смета № ___ · дом 260 м²</span><span class="est-badge">Разбор РОМАНОВЪ</span></div>
-        <div class="est-row"><span>Штукатурка стен по маякам</span><span>640 м²</span><b>512 000</b></div>
-        <div class="est-row risk"><span>Монтаж котельной</span><span>компл.</span><b>без обвязки</b><em>Обвязка, автоматика и пусконаладка не включены — придут допсметой</em></div>
+        <div class="est-row"><span>Штукатурка стен по маякам</span><span>640 м²</span><b>512 000</b></div>
+        <div class="est-row risk"><span>Монтаж котельной</span><span>компл.</span><b>без обвязки</b><em>Обвязка, автоматика и пусконаладка не включены — придут допсметой</em></div>
         <div class="est-row"><span>Тёплый пол, монтаж контуров</span><span>210 м²</span><b>189 000</b></div>
-        <div class="est-row risk"><span>Вентиляция</span><span>—</span><b>нет</b><em>Позиции нет в смете — после отделки её ставят, вскрывая потолки</em></div>
-        <div class="est-row"><span>Укладка плитки и керамогранита</span><span>118 м²</span><b>413 000</b></div>
-        <div class="est-row risk"><span>Электромонтаж</span><span>компл.</span><b>по факту</b><em>Без объёмов — итог неизвестен до конца работ</em></div>
+        <div class="est-row risk"><span>Вентиляция</span><span>—</span><b>нет</b><em>Позиции нет в смете — после отделки её ставят, вскрывая потолки</em></div>
+        <div class="est-row"><span>Укладка плитки и керамогранита</span><span>118 м²</span><b>413 000</b></div>
+        <div class="est-row risk"><span>Электромонтаж</span><span>компл.</span><b>по факту</b><em>Без объёмов — итог неизвестен до конца работ</em></div>
         <div class="est-row"><span>Покраска стен</span><span>580 м²</span><b>464 000</b></div>
         <div class="est-foot"><span>Найдено рискованных позиций: <b>3</b></span><span>Вероятная доплата: <b>+2,5–4 млн ₽</b></span></div>
       </figure>
     </div>
-    <span class="todo">Мокап сметы — пример для прототипа. Для сайта сделать скриншот реального обезличенного разбора.</span>
+    <span class="todo">Мокап сметы — пример для прототипа. Для сайта сделать скриншот реального обезличенного разбора.</span>
 
-    <span class="todo">Цифры «как часто бывает» — иллюстрация практики рынка без названий компаний. Сверить с опытом Романова.</span>
+    <span class="todo">Цифры «как часто бывает» — иллюстрация практики рынка без названий компаний. Сверить с опытом Романова.</span>
   </div>
 </section>
 
@@ -3676,11 +3744,11 @@ html { scroll-padding-top: 136px; }
     <div class="quiz-grid">
     <div class="quiz-aside">
       <h2 class="section-heading reveal">Рассчитайте стоимость ремонта вашего дома</h2>
-      <p class="section-intro reveal">5 вопросов, 2 минуты. Ориентир — сразу на экране. Контакты нужны, чтобы прислать бонусы и согласовать выезд.</p>
+      <p class="section-intro reveal">5 вопросов, 2 минуты. Ориентир — сразу на экране. Контакты нужны, чтобы прислать бонусы и согласовать выезд.</p>
       <div class="bonus-stack" id="bonusStack" aria-label="Что вы получите">
-        <div class="bonus-row" data-b="1"><span class="photo b-thumb"><span class="ph-label">Скриншот расчёта в мессенджере</span></span><span><b>Расчёт стоимости работ по вашим параметрам</b><small>Ориентир сразу на экране, план по этапам — в мессенджер</small></span><span class="st">после 5 ответов</span></div>
-        <div class="bonus-row" data-b="2"><span class="photo b-thumb"><span class="ph-label">Мокап чек-листа</span></span><span><b>Чек-лист «14 инженерных ошибок в загородном доме»</b><small>Одна такая ошибка после отделки — это вскрытые потолки и полы</small></span><span class="st">бонус</span></div>
-        <div class="bonus-row" data-b="3"><span class="photo b-thumb"><span class="ph-label">Фото: Владимир на объекте</span></span><span><b>Мой личный выезд на ваш объект</b><small>До 50 км от МКАД, через 2–3 дня после заявки. Бесплатно</small></span><span class="st">бонус</span></div>
+        <div class="bonus-row" data-b="1"><span class="photo b-thumb"><span class="ph-label">Скриншот расчёта в мессенджере</span></span><span><b>Расчёт стоимости работ по вашим параметрам</b><small>Ориентир сразу на экране, план по этапам — в мессенджер</small></span><span class="st">после 5 ответов</span></div>
+        <div class="bonus-row" data-b="2"><span class="photo b-thumb"><span class="ph-label">Мокап чек-листа</span></span><span><b>Чек-лист «14 инженерных ошибок в загородном доме»</b><small>Одна такая ошибка после отделки — это вскрытые потолки и полы</small></span><span class="st">бонус</span></div>
+        <div class="bonus-row" data-b="3"><span class="photo b-thumb"><span class="ph-label">Фото: Владимир на объекте</span></span><span><b>Мой личный выезд на ваш объект</b><small>До 50 км от МКАД, через 2–3 дня после заявки. Бесплатно</small></span><span class="st">бонус</span></div>
       </div>
     </div>
     <div class="quiz-card">
@@ -3690,7 +3758,7 @@ html { scroll-padding-top: 136px; }
       </div>
 
       <div class="quiz-question active" data-key="area">
-        <div class="quiz-step-label">Вопрос 1 из 5</div>
+        <div class="quiz-step-label">Вопрос 1 из 5</div>
         <div class="quiz-q-text">Какая площадь дома?</div>
         <div class="quiz-options">
           <button class="quiz-option" data-v="150-200">150–200 м²</button>
@@ -3698,49 +3766,49 @@ html { scroll-padding-top: 136px; }
           <button class="quiz-option" data-v="301-400">301–400 м²</button>
           <button class="quiz-option" data-v="400+">Более 400 м²</button>
           <button class="quiz-option" data-v="small">Меньше 150 м²</button>
-          <button class="quiz-option" data-v="?">Пока не знаю точно</button>
+          <button class="quiz-option" data-v="?">Пока не знаю точно</button>
         </div>
       </div>
       <div class="quiz-question" data-key="stage">
-        <div class="quiz-step-label">Вопрос 2 из 5</div>
-        <div class="quiz-q-text">На какой стадии дом сейчас?</div>
+        <div class="quiz-step-label">Вопрос 2 из 5</div>
+        <div class="quiz-q-text">На какой стадии дом сейчас?</div>
         <div class="quiz-options">
-          <button class="quiz-option" data-v="box">Коробка без окон и кровли</button>
+          <button class="quiz-option" data-v="box">Коробка без окон и кровли</button>
           <button class="quiz-option" data-v="warm">Тёплый контур закрыт</button>
-          <button class="quiz-option" data-v="eng">Контур и часть инженерии готовы</button>
-          <button class="quiz-option" data-v="redo">Дом жилой: капремонт или переделка после другого подрядчика</button>
+          <button class="quiz-option" data-v="eng">Контур и часть инженерии готовы</button>
+          <button class="quiz-option" data-v="redo">Дом жилой: капремонт или переделка после другого подрядчика</button>
         </div>
         <button class="quiz-back" type="button">← Назад</button>
       </div>
       <div class="quiz-question" data-key="eng">
-        <div class="quiz-step-label">Вопрос 3 из 5</div>
-        <div class="quiz-q-text">Что с инженерными системами?</div>
+        <div class="quiz-step-label">Вопрос 3 из 5</div>
+        <div class="quiz-q-text">Что с инженерными системами?</div>
         <div class="quiz-options">
-          <button class="quiz-option" data-v="none">Ничего нет, нужно всё под ключ</button>
+          <button class="quiz-option" data-v="none">Ничего нет, нужно всё под ключ</button>
           <button class="quiz-option" data-v="part">Есть вводы: электричество, вода, газ</button>
           <button class="quiz-option" data-v="project">Есть проект инженерных систем</button>
-          <button class="quiz-option" data-v="?">Не знаю, нужна консультация</button>
+          <button class="quiz-option" data-v="?">Не знаю, нужна консультация</button>
         </div>
         <button class="quiz-back" type="button">← Назад</button>
       </div>
       <div class="quiz-question" data-key="project">
-        <div class="quiz-step-label">Вопрос 4 из 5</div>
+        <div class="quiz-step-label">Вопрос 4 из 5</div>
         <div class="quiz-q-text">Есть ли дизайн-проект?</div>
         <div class="quiz-options">
           <button class="quiz-option" data-v="ready">Есть готовый дизайн-проект</button>
-          <button class="quiz-option" data-v="refs">Есть планировки и референсы</button>
-          <button class="quiz-option" data-v="none">Нужен проект с нуля</button>
-          <button class="quiz-option" data-v="?">Не знаю, нужна консультация</button>
+          <button class="quiz-option" data-v="refs">Есть планировки и референсы</button>
+          <button class="quiz-option" data-v="none">Нужен проект с нуля</button>
+          <button class="quiz-option" data-v="?">Не знаю, нужна консультация</button>
         </div>
         <button class="quiz-back" type="button">← Назад</button>
       </div>
       <div class="quiz-question" data-key="dist">
-        <div class="quiz-step-label">Вопрос 5 из 5</div>
+        <div class="quiz-step-label">Вопрос 5 из 5</div>
         <div class="quiz-q-text">Где находится дом?</div>
         <div class="quiz-options">
-          <button class="quiz-option" data-v="15">До 15 км от МКАД</button>
-          <button class="quiz-option" data-v="30">15–30 км от МКАД</button>
-          <button class="quiz-option" data-v="50">30–50 км от МКАД</button>
+          <button class="quiz-option" data-v="15">До 15 км от МКАД</button>
+          <button class="quiz-option" data-v="30">15–30 км от МКАД</button>
+          <button class="quiz-option" data-v="50">30–50 км от МКАД</button>
           <button class="quiz-option" data-v="far">Дальше 50 км</button>
         </div>
         <button class="quiz-back" type="button">← Назад</button>
@@ -3749,15 +3817,15 @@ html { scroll-padding-top: 136px; }
       <form class="quiz-form" id="quizForm" novalidate>
         <div class="quiz-form-title">Ваш предварительный расчёт</div>
         <div class="quiz-result-preview" aria-live="polite">
-          <span id="qrLabel">Стоимость работ под ключ, ориентир</span>
+          <span id="qrLabel">Стоимость работ под ключ, ориентир</span>
           <div class="quiz-range" id="qrRange">—</div>
           <span id="qrNote" style="font-size:0.8rem;display:block"></span>
-          <div class="quiz-risks-title">Что ещё нужно для точной сметы:</div>
+          <div class="quiz-risks-title">Что ещё нужно для точной сметы:</div>
           <ul class="quiz-risks" id="qrNeed"></ul>
-          <div class="quiz-risks-title">На что я обращу внимание на вашем объекте:</div>
+          <div class="quiz-risks-title">На что я обращу внимание на вашем объекте:</div>
           <ul class="quiz-risks" id="qrRisks"></ul>
         </div>
-        <p style="font-size:0.86rem;color:var(--text-secondary);margin-bottom:18px">Куда прислать план по этапам и чек-лист «14 инженерных ошибок»? Заодно согласуем мой выезд.</p>
+        <p style="font-size:0.86rem;color:var(--text-secondary);margin-bottom:18px">Куда прислать план по этапам и чек-лист «14 инженерных ошибок»? Заодно согласуем мой выезд.</p>
         <div class="form-group">
           <label for="qPhone">Телефон</label>
           <input class="form-input" id="qPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
@@ -3771,10 +3839,10 @@ html { scroll-padding-top: 136px; }
             <button type="button" class="pill" aria-pressed="false">Звонок</button>
           </div>
         </div>
-        <button class="btn-primary" type="submit" style="width:100%">Получить расчёт и бонусы</button>
+        <button class="btn-primary" type="submit" style="width:100%">Получить расчёт и бонусы</button>
         <button class="quiz-back" type="button" id="quizRestart">← Изменить ответы</button>
-        <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>. Без спама и рассылок.</p>
-        <span class="todo">Ставки в расчёте: 90 000–125 000 ₽/м² работ; переделка после другого подрядчика ×1,1. Верхнюю границу 125 000 я поставил сам — подтвердить.</span>
+        <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>. Без спама и рассылок.</p>
+        <span class="todo">Ставки в расчёте: 90 000–125 000 ₽/м² работ; переделка после другого подрядчика ×1,1. Верхнюю границу 125 000 я поставил сам — подтвердить.</span>
       </form>
       </div>
     </div>
@@ -3785,24 +3853,24 @@ html { scroll-padding-top: 136px; }
 <!-- 8. STANDARD -->
 <section class="standard" id="standard">
   <div class="container">
-    <div class="standard-head"><span class="label-sm reveal">Что значит «честный» в моём бюро</span>
-      <h2 class="reveal">Стандарт честного ремонта: 5 правил и гарантия, записанные в договоре</h2></div>
+    <div class="standard-head"><span class="label-sm reveal">Что значит «честный» в моём бюро</span>
+      <h2 class="reveal">Стандарт честного ремонта: 5 правил и гарантия, записанные в договоре</h2></div>
     <div class="standard-grid">
       <div class="standard-aside">
-        <p class="lead-p reveal">Не обещания на сайте, а пункты, под которыми я ставлю свою подпись.</p>
+        <p class="lead-p reveal">Не обещания на сайте, а <b>пункты, под которыми я ставлю свою подпись</b>.</p>
         <a class="btn-outline contract-btn reveal" href="#" style="text-decoration:none;display:inline-block">Посмотреть образец договора</a>
-        <div class="photo reveal" style="aspect-ratio:4/3;margin-top:28px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><span class="ph-label">Фото: разворот договора, крупно пункт о цене и подпись</span></div>
+        <div class="photo reveal" style="aspect-ratio:4/3;margin-top:28px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><span class="ph-label">Фото: разворот договора, крупно пункт о цене и подпись</span></div>
       </div>
       <div>
         <ol class="rules">
-          <li class="rule reveal"><div><h3>Цена фиксируется в договоре</h3><p>Меняется только по вашему решению — и после вашей подписи под допсоглашением.</p></div></li>
-          <li class="rule reveal"><div><h3>Ни рубля вперёд</h3><p>Платите за принятую работу — по актам раз в 7–10 дней. Материалы и оборудование — поставщику напрямую. Безнал или наличные.</p></div></li>
-          <li class="rule reveal"><div><h3>Просрочку оплачиваю я</h3><p>График — в приложении к договору. За каждый день просрочки плачу 0,05% от стоимости работ.</p></div></li>
-          <li class="rule reveal"><div><h3>Гарантия 5 лет</h3><p>На отделку и инженерные сети. На котёл, насосы и септик — гарантия производителя, но обращаетесь вы ко мне.</p></div></li>
-          <li class="rule reveal"><div><h3>Выезд за 2–3 дня, устранение до 10 дней</h3><p>Срок реакции записан в договоре: гарантия без срока выезда ничего не стоит.</p></div></li>
+          <li class="rule reveal"><div><h3>Цена фиксируется в договоре</h3><p>Меняется только по вашему решению — и после вашей подписи под допсоглашением.</p></div></li>
+          <li class="rule reveal"><div><h3>Ни рубля вперёд</h3><p>Платите за принятую работу — по актам раз в 7–10 дней. Материалы и оборудование — поставщику напрямую. Безнал или наличные.</p></div></li>
+          <li class="rule reveal"><div><h3>Просрочку оплачиваю я</h3><p>График — в приложении к договору. За каждый день просрочки плачу <b>0,05% от стоимости работ</b>.</p></div></li>
+          <li class="rule reveal"><div><h3>Гарантия 5 лет</h3><p>На отделку и инженерные сети. На котёл, насосы и септик — гарантия производителя, но <b>обращаетесь вы ко мне</b>.</p></div></li>
+          <li class="rule reveal"><div><h3>Выезд за 2–3 дня, устранение до 10 дней</h3><p><b>Срок реакции записан в договоре</b>: гарантия без срока выезда ничего не стоит.</p></div></li>
         </ol>
-        <div class="ip-note reveal"><b>Почему договор со мной лично.</b> Я работаю как индивидуальный предприниматель и отвечаю по обязательствам всем своим имуществом (ст. 24 ГК РФ). Поэтому в названии бюро — моё имя.</div>
-        <span class="todo">Договор дорабатывается под эти пункты. Гарантия в формате «5 лет на отделку и сети, на оборудование — производителя» предложена мной — подтвердить. Срок гарантии на тёплый контур — уточнить.</span>
+        <div class="ip-note reveal"><b>Почему договор со мной лично.</b> Я работаю как индивидуальный предприниматель и отвечаю по обязательствам всем своим имуществом (ст. 24 ГК РФ). Поэтому в названии бюро — моё имя.</div>
+        <span class="todo">Договор дорабатывается под эти пункты. Гарантия в формате «5 лет на отделку и сети, на оборудование — производителя» предложена мной — подтвердить. Срок гарантии на тёплый контур — уточнить.</span>
       </div>
     </div>
   </div>
@@ -3812,18 +3880,18 @@ html { scroll-padding-top: 136px; }
 <section class="ally">
   <div class="container">
     <div class="ally-grid">
-      <div class="photo ally-photo reveal"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg><span class="ph-label">Фото: Владимир в котельной строящегося дома разбирает схему с прорабом</span></div>
+      <div class="photo ally-photo reveal"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg><span class="ph-label">Фото: Владимир в котельной строящегося дома разбирает схему с прорабом</span></div>
       <div>
-        <span class="label-sm reveal">Моя роль в вашем ремонте</span>
-        <h2 class="reveal">Свой человек на стройке, который играет за вас</h2>
-        <p class="lead-p reveal">На стройке десятки людей, у каждого свой интерес. Мой один: вы въезжаете в срок и по цене из договора.</p>
+        <span class="label-sm reveal">Моя роль в вашем ремонте</span>
+        <h2 class="reveal">Свой человек на стройке, который играет за вас</h2>
+        <p class="lead-p reveal">На стройке десятки людей, у каждого свой интерес. Мой один: <b>вы въезжаете в срок и по цене из договора</b>.</p>
         <div class="ally-rows">
-          <div class="ally-row reveal"><b>Объект</b><p>Я на площадке 2–3 раза в неделю. Прораб не меняется до сдачи.</p></div>
-          <div class="ally-row reveal"><b>Посёлок и охрана</b><p>Пропуска, режим работ, проезд техники, мусор — на мне.</p></div>
-          <div class="ally-row reveal"><b>Поставщики</b><p>Сроки, пересорт, брак, замены «на аналог» — спорю я.</p></div>
-          <div class="ally-row reveal"><b>Подрядчики по инженерии</b><p>Котельщиков и монтажников септика нахожу, проверяю и принимаю я.</p></div>
+          <div class="ally-row reveal"><b>Объект</b><p>Я на площадке 2–3 раза в неделю. Прораб не меняется до сдачи.</p></div>
+          <div class="ally-row reveal"><b>Посёлок и охрана</b><p>Пропуска, режим работ, проезд техники, мусор — на мне.</p></div>
+          <div class="ally-row reveal"><b>Поставщики</b><p>Сроки, пересорт, брак, замены «на аналог» — спорю я.</p></div>
+          <div class="ally-row reveal"><b>Подрядчики по инженерии</b><p>Котельщиков и монтажников септика нахожу, проверяю и принимаю я.</p></div>
         </div>
-        <p class="ally-close reveal">Вам остаётся принимать решения — а не разбираться в стройке.</p>
+        <p class="ally-close reveal">Вам остаётся принимать решения — а не разбираться в стройке.</p>
       </div>
     </div>
   </div>
@@ -3832,13 +3900,13 @@ html { scroll-padding-top: 136px; }
 <!-- 9. CONTROL + QUALITY -->
 <section class="control">
   <div class="container">
-    <h2 class="section-heading reveal">Вы видите каждый этап — и не ездите за город по выходным</h2>
-    <p class="section-intro reveal">О проблеме вы узнаёте первым — а не когда её закрыли гипсокартоном.</p>
+    <h2 class="section-heading reveal">Вы видите каждый этап — и не ездите за город по выходным</h2>
+    <p class="section-intro reveal"><b>О проблеме вы узнаёте первым</b> — а не когда её закрыли гипсокартоном.</p>
     <div class="control-split">
       <div class="control-list">
-        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Статус и видеообход каждую пятницу</h3><p>Что сделано, что проверено, что дальше — и видео с объекта.</p></div>
-        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Фотоархив скрытых работ</h3><p>Электрика и инженерия — с привязкой к плану. Архив и схемы остаются у вас.</p></div>
-        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></span><h3>Мой телефон у вас</h3><p>Любой вопрос — напрямую мне, без менеджеров.</p></div>
+        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Статус и видеообход каждую пятницу</h3><p>Что сделано, что проверено, что дальше — и видео с объекта.</p></div>
+        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Фотоархив скрытых работ</h3><p>Электрика и инженерия — с привязкой к плану. Архив и схемы остаются у вас.</p></div>
+        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></span><h3>Мой телефон у вас</h3><p>Любой вопрос — напрямую мне, без менеджеров.</p></div>
       </div>
       <div>
         <div class="tg-mockup reveal" aria-label="Пример еженедельного отчёта">
@@ -3846,25 +3914,25 @@ html { scroll-padding-top: 136px; }
             <div class="tg-avatar">R</div>
             <div><div class="tg-chat-name">Дом 260 м² · чат проекта</div><div class="tg-chat-sub">Пример еженедельного отчёта</div></div>
           </div>
-          <div class="tg-msg from-team">Статус за неделю 16–20 сентября:<br>— Котельная обвязана, опрессовка 6 бар держится сутки<br>— Воздуховоды первого этажа смонтированы, потолки закрываем после проверки<br>— В альбоме 31 фото скрытых работ и видеообход<div class="tg-msg-time">Пт, 18:30</div></div>
+          <div class="tg-msg from-team">Статус за неделю 16–20 сентября:<br>— Котельная обвязана, опрессовка 6 бар держится сутки<br>— Воздуховоды первого этажа смонтированы, потолки закрываем после проверки<br>— В альбоме 31 фото скрытых работ и видеообход<div class="tg-msg-time">Пт, 18:30</div></div>
           <div class="tg-msg from-client">Спасибо! Когда можно приехать посмотреть?<div class="tg-msg-time">Пт, 19:15</div></div>
-          <div class="tg-msg from-team">В четверг с 11 буду на объекте, пройдём всё вместе. — Владимир<div class="tg-msg-time">Пт, 19:22</div></div>
+          <div class="tg-msg from-team">В четверг с 11 буду на объекте, пройдём всё вместе. — Владимир<div class="tg-msg-time">Пт, 19:22</div></div>
         </div>
       </div>
     </div>
     <div class="quality2 reveal">
       <div class="q2-head">
-        <span class="label-sm">Работаю по нормам, а не «как привык»</span>
+        <span class="label-sm">Работаю по нормам, а не «как привык»</span>
         <h3 class="q2-title">Проверьте мою работу любым независимым экспертом</h3>
-        <p class="lead-p">Работы сделаны по нормам и технологическим картам: качество можно измерить, а не принимать на веру.</p>
+        <p class="lead-p">Работы сделаны по нормам и технологическим картам: <b>качество можно измерить</b>, а не принимать на веру.</p>
       </div>
       <div class="q2-cards">
-        <div class="q2-card"><span class="q2-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 3v18M5 21h14M4 7h16"/><path d="M4 7l-2.5 6a3 3 0 005 0L4 7zM20 7l-2.5 6a3 3 0 005 0L20 7z"/></svg></span><span class="q2-n">01</span><h4>Спор решает экспертиза, а не «на глаз»</h4><p>Вопрос по качеству решает независимая экспертиза, а не слово против слова.</p></div>
-        <div class="q2-card"><span class="q2-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span><span class="q2-n">02</span><h4>Результат не зависит от мастера</h4><p>На каждый вид работ — технологическая карта: порядок, материалы, допуски.</p></div>
-        <div class="q2-card"><span class="q2-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 6h6l2 2h10v11H3z"/><path d="M7 13h10M7 16h6"/></svg></span><span class="q2-n">03</span><h4>Документы, которые пригодятся потом</h4><p>Схемы и фотоархив скрытых работ — для ремонта, протечки или продажи дома.</p></div>
+        <div class="q2-card"><span class="q2-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M12 3v18M5 21h14M4 7h16"/><path d="M4 7l-2.5 6a3 3 0 005 0L4 7zM20 7l-2.5 6a3 3 0 005 0L20 7z"/></svg></span><span class="q2-n">01</span><h4>Спор решает экспертиза, а не «на глаз»</h4><p>Вопрос по качеству решает независимая экспертиза, а не слово против слова.</p></div>
+        <div class="q2-card"><span class="q2-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></span><span class="q2-n">02</span><h4>Результат не зависит от мастера</h4><p>На каждый вид работ — технологическая карта: порядок, материалы, допуски.</p></div>
+        <div class="q2-card"><span class="q2-ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 6h6l2 2h10v11H3z"/><path d="M7 13h10M7 16h6"/></svg></span><span class="q2-n">03</span><h4>Документы, которые пригодятся потом</h4><p>Схемы и фотоархив скрытых работ — для ремонта, протечки или продажи дома.</p></div>
       </div>
       <div class="q2-norms">
-        <span><b>СП 71.13330</b>Отделочные покрытия</span><span><b>СП 29.13330</b>Полы</span><span><b>СП 30.13330</b>Водопровод и канализация</span><span><b>СП 60.13330</b>Отопление и вентиляция</span><span><b>СП 256.1325800</b>Электроустановки</span><span><b>ПУЭ</b>Электробезопасность</span><span><b>ГОСТ</b>Материалы</span>
+        <span><b>СП 71.13330</b>Отделочные покрытия</span><span><b>СП 29.13330</b>Полы</span><span><b>СП 30.13330</b>Водопровод и канализация</span><span><b>СП 60.13330</b>Отопление и вентиляция</span><span><b>СП 256.1325800</b>Электроустановки</span><span><b>ПУЭ</b>Электробезопасность</span><span><b>ГОСТ</b>Материалы</span>
       </div>
     </div>
   </div>
@@ -3873,140 +3941,140 @@ html { scroll-padding-top: 136px; }
 <!-- 10. FOUNDER & TEAM -->
 <section class="founder-sec team-section" id="team">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:24ch">Каждый объект веду я лично. Моё имя — в договоре, мой телефон — у вас</h2>
+    <h2 class="section-heading reveal" style="max-width:24ch">Каждый объект веду я лично. Моё имя — в договоре, мой телефон — у вас</h2>
     <div class="team-founder reveal">
-      <div class="photo founder-photo"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg><span class="ph-label">Владимир Романов на объекте</span></div>
+      <div class="photo founder-photo"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg><span class="ph-label">Владимир Романов на объекте</span></div>
       <div class="founder-info">
         <h3>Владимир Романов</h3>
-        <p><strong style="color:var(--bronze)">Основатель бюро · 20 лет в ремонте</strong></p>
-        <p>Договор — со мной, и за результат отвечаю я: проверяю скрытые работы, принимаю решения на площадке, отвечаю на ваши вопросы.</p>
-        <p class="founder-quote">«Цитата Владимира его собственными словами — почему бюро называется „честных интерьеров“».</p>
-        <span class="todo">Записать цитату со слов Романова.</span>
+        <p><strong style="color:var(--bronze)">Основатель бюро · 20 лет в ремонте</strong></p>
+        <p>Договор — со мной, и <b>за результат отвечаю я</b>: проверяю скрытые работы, принимаю решения на площадке, отвечаю на ваши вопросы.</p>
+        <p class="founder-quote">«Цитата Владимира его собственными словами — почему бюро называется „честных интерьеров“».</p>
+        <span class="todo">Записать цитату со слов Романова.</span>
         <div class="founder-facts">
-      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg></span><h3>60+ мастеров в штате</h3><p>Электрики, сантехники, плиточники, маляры, столяры. Подрядчики — только на котельную и септик, под мою ответственность.</p></div>
-      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 16a8 8 0 0116 0"/><path d="M2 16h20v3H2z"/><path d="M12 8V5"/></svg></span><h3>Прораб — каждый день, я — 2–3 раза в неделю</h3><p>Прораб постоянный и не меняется до сдачи. Ключевые проверки — за мной.</p></div>
-      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Новичок — не на вашем объекте</h3><p>Новый мастер начинает на неответственном участке.</p></div>
+      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg></span><h3>60+ мастеров в штате</h3><p>Электрики, сантехники, плиточники, маляры, столяры. Подрядчики — только на котельную и септик, под мою ответственность.</p></div>
+      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 16a8 8 0 0116 0"/><path d="M2 16h20v3H2z"/><path d="M12 8V5"/></svg></span><h3>Прораб — каждый день, я — 2–3 раза в неделю</h3><p>Прораб постоянный и не меняется до сдачи. Ключевые проверки — за мной.</p></div>
+      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Новичок — не на вашем объекте</h3><p>Новый мастер начинает на неответственном участке.</p></div>
     </div>
       </div>
     </div>
     <div class="certs2 reveal"><div class="certs2-title">Мастера сертифицированы производителями</div><div class="certs2-grid"><span>KNAUF</span><span>REHAU</span><span>TIKKURILA</span><span>SCHNEIDER ELECTRIC</span></div></div>
-    <span class="todo">Сейчас названия набраны текстом. Официальные логотипы поставлю из брендбуков производителей, когда Романов пришлёт сертификаты и подтвердит право использовать знаки.</span>
+    <span class="todo">Сейчас названия набраны текстом. Официальные логотипы поставлю из брендбуков производителей, когда Романов пришлёт сертификаты и подтвердит право использовать знаки.</span>
     <div class="crew">
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Прораб · стаж ___ лет</p></div>
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Прораб · стаж ___ лет</p></div>
-      <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Инженер по отоплению и вентиляции</p></div>
+      <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Инженер по отоплению и вентиляции</p></div>
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Инженер-сметчик</p></div>
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Дизайнер-архитектор</p></div>
     </div>
     <h2 class="section-heading rev-mini-title reveal">97% клиентов рекомендуют меня друзьям</h2>
     <div class="rev-mini">
-      <article class="rev-card reveal"><div class="rev-body"><span class="rev-type">Владелец дома</span><blockquote>«Чего боялись до стройки и что оказалось по факту: сроки, смета, общение с Владимиром».</blockquote><div class="rev-author"><div class="rev-avatar"></div><div class="rev-meta"><b>Имя Фамилия</b>Дом ___ м², ___ направление</div></div></div></article>
-      <article class="rev-card reveal"><div class="rev-body"><span class="rev-type">Архитектор проекта</span><blockquote>«Проект реализован без упрощений, узлы совпали с чертежами, материалы не меняли „на аналог“».</blockquote><div class="rev-author"><div class="rev-avatar"></div><div class="rev-meta"><b>Имя Фамилия</b>Бюро ___</div></div></div></article>
-      <article class="rev-card reveal"><div class="rev-body"><span class="rev-type">Гарантийный случай</span><blockquote>«Как быстро приехали и устранили после сдачи дома».</blockquote><div class="rev-author"><div class="rev-avatar"></div><div class="rev-meta"><b>Имя Фамилия</b>Дом ___ м²</div></div></div></article>
+      <article class="rev-card reveal"><div class="rev-body"><span class="rev-type">Владелец дома</span><blockquote>«Чего боялись до стройки и что оказалось по факту: сроки, смета, общение с Владимиром».</blockquote><div class="rev-author"><div class="rev-avatar"></div><div class="rev-meta"><b>Имя Фамилия</b>Дом ___ м², ___ направление</div></div></div></article>
+      <article class="rev-card reveal"><div class="rev-body"><span class="rev-type">Архитектор проекта</span><blockquote>«Проект реализован без упрощений, узлы совпали с чертежами, материалы не меняли „на аналог“».</blockquote><div class="rev-author"><div class="rev-avatar"></div><div class="rev-meta"><b>Имя Фамилия</b>Бюро ___</div></div></div></article>
+      <article class="rev-card reveal"><div class="rev-body"><span class="rev-type">Гарантийный случай</span><blockquote>«Как быстро приехали и устранили после сдачи дома».</blockquote><div class="rev-author"><div class="rev-avatar"></div><div class="rev-meta"><b>Имя Фамилия</b>Дом ___ м²</div></div></div></article>
     </div>
-    <span class="todo">Нужны 2–3 реальных отзыва владельцев домов (лучше видео). Если по домам отзывов нет — ставим отзывы владельцев квартир и честно подписываем.</span>
+    <span class="todo">Нужны 2–3 реальных отзыва владельцев домов (лучше видео). Если по домам отзывов нет — ставим отзывы владельцев квартир и честно подписываем.</span>
   </div>
 </section>
 
 <!-- 11. PRICE -->
 <section class="price-sec format-section" id="price">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:24ch">С чем можно прийти — и что входит в цену</h2>
+    <h2 class="section-heading reveal" style="max-width:24ch">С чем можно прийти — и что входит в цену</h2>
     <div class="format-scenarios reveal" style="margin:0 0 48px">
-      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: коробка дома без окон и кровли</span></div><h3>Коробка без контура</h3><p>Закрою контур сам: окна, кровля, утепление. Дальше — инженерия и отделка в том же договоре.</p></div>
-      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: дом с окнами и кровлей, внутри черновые стены</span></div><h3>Готовый тёплый контур</h3><p>Проверю коробку и вводы, запущу инженерию до холодов, отделку поведу в тёплом доме.</p></div>
-      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: листы дизайн-проекта и визуализация на столе</span></div><h3>С проектом или без</h3><p>Ваш проект реализую без упрощений. Нет проекта — сделаем: от 5 000 ₽/м², около двух месяцев.</p></div>
+      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: коробка дома без окон и кровли</span></div><h3>Коробка без контура</h3><p>Закрою контур сам: окна, кровля, утепление. Дальше — инженерия и отделка в том же договоре.</p></div>
+      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: дом с окнами и кровлей, внутри черновые стены</span></div><h3>Готовый тёплый контур</h3><p>Проверю коробку и вводы, запущу инженерию до холодов, отделку поведу в тёплом доме.</p></div>
+      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: листы дизайн-проекта и визуализация на столе</span></div><h3>С проектом или без</h3><p>Ваш проект реализую без упрощений. Нет проекта — сделаем: от 5 000 ₽/м², около двух месяцев.</p></div>
     </div>
     <div class="format-main reveal">
       <div>
-        <div class="format-title">Дом под ключ</div>
-        <div class="format-price">от 90 000 ₽ / м²</div>
-        <div class="format-desc">Стоимость работ: инженерия и отделка. Фиксируется в договоре. Материалы, оборудование и проект — отдельно.</div>
+        <div class="format-title">Дом под ключ</div>
+        <div class="format-price">от 90 000 ₽ / м²</div>
+        <div class="format-desc">Стоимость работ: инженерия и отделка. <b>Фиксируется в договоре.</b> Материалы, оборудование и проект — отдельно.</div>
         <div class="price-example">
-          <div class="price-example-title">Пример: дом 250 м², с готового тёплого контура</div>
-          <div class="price-example-row"><span>Работы под ключ</span><b>от 22,5 млн ₽</b></div>
-          <div class="price-example-row"><span>Срок по графику</span><b>10–12 месяцев</b></div>
-          <div class="price-example-row"><span>Платёж по акту раз в 7–10 дней</span><b>≈ 500–700 тыс. ₽</b></div>
-          <div class="price-example-row"><span style="font-size:0.78rem;color:var(--text-muted)">Суммы этапов зависят от графика вашего объекта</span><b></b></div>
+          <div class="price-example-title">Пример: дом 250 м², с готового тёплого контура</div>
+          <div class="price-example-row"><span>Работы под ключ</span><b>от 22,5 млн ₽</b></div>
+          <div class="price-example-row"><span>Срок по графику</span><b>10–12 месяцев</b></div>
+          <div class="price-example-row"><span>Платёж по акту раз в 7–10 дней</span><b>≈ 500–700 тыс. ₽</b></div>
+          <div class="price-example-row"><span style="font-size:0.78rem;color:var(--text-muted)">Суммы этапов зависят от графика вашего объекта</span><b></b></div>
         </div>
         <button class="btn-primary" data-scroll="quiz" style="margin-top:28px">Рассчитать стоимость моего дома</button>
       </div>
       <div class="price-split">
         <div>
-          <h3>Входит в стоимость работ</h3>
+          <h3>Входит в стоимость работ</h3>
           <ul>
             <li>Технический аудит проекта</li>
             <li>Отопление, котельная, тёплые полы</li>
-            <li>Вентиляция и кондиционирование</li>
+            <li>Вентиляция и кондиционирование</li>
             <li>Электрика, слаботочные сети, автоматика</li>
             <li>Водоснабжение, канализация, септик</li>
-            <li>Черновая и чистовая отделка</li>
-            <li>Столярные и декоративные работы</li>
-            <li>Пусконаладка и испытания систем</li>
+            <li>Черновая и чистовая отделка</li>
+            <li>Столярные и декоративные работы</li>
+            <li>Пусконаладка и испытания систем</li>
             <li>Закупки, логистика, пропуска, вывоз мусора</li>
             <li>Акты, фотоархив, исполнительные схемы</li>
-            <li>Клининг и передача по акту</li>
+            <li>Клининг и передача по акту</li>
             <li>Гарантия 5 лет</li>
           </ul>
         </div>
         <div class="extra">
           <h3>Оплачивается отдельно</h3>
           <ul>
-            <li>Материалы и оборудование — вы платите поставщику напрямую</li>
-            <li>Тёплый контур, если его ещё нет, — отдельной сметой в том же договоре</li>
-            <li>Дизайн-проект — от 5 000 ₽/м², если его нет</li>
-            <li>Мебель и техника — подбор и координация</li>
+            <li>Материалы и оборудование — вы платите поставщику напрямую</li>
+            <li>Тёплый контур, если его ещё нет, — отдельной сметой в том же договоре</li>
+            <li>Дизайн-проект — от 5 000 ₽/м², если его нет</li>
+            <li>Мебель и техника — подбор и координация</li>
           </ul>
         </div>
       </div>
     </div>
-    <span class="todo">Пример на 250 м² посчитан от ставки 90 000 ₽/м²; срок и размер платежа — моя оценка, подтвердить.</span>
+    <span class="todo">Пример на 250 м² посчитан от ставки 90 000 ₽/м²; срок и размер платежа — моя оценка, подтвердить.</span>
   </div>
 </section>
 
 <!-- 12. ERRORS -->
 <section class="errors" id="errors">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:24ch">Три ошибки, которые в доме всплывают уже после отделки</h2>
-    <p class="section-intro reveal">О них пишут владельцы домов — и их же я вижу после других подрядчиков.</p>
+    <h2 class="section-heading reveal" style="max-width:24ch">Три ошибки, которые в доме всплывают уже после отделки</h2>
+    <p class="section-intro reveal">О них пишут владельцы домов — и их же я вижу после других подрядчиков.</p>
     <div class="err-grid three">
       <article class="err-card reveal">
-        <div class="photo solo"><span class="ph-label">Фото: вскрытый потолок, воздуховод прокладывают по готовой отделке</span></div>
+        <div class="photo solo"><span class="ph-label">Фото: вскрытый потолок, воздуховод прокладывают по готовой отделке</span></div>
         <div class="err-body">
           <h3>Вентиляцию вспомнили, когда потолки уже покрасили</h3>
-          <p>Без приточки в доме душно, стёкла потеют. Поставить её после отделки — значит вскрыть потолки.</p>
-          <p class="fix"><b>Как у меня:</b> закладываю в проект до черновых работ.</p>
+          <p>Без приточки в доме душно, стёкла потеют. Поставить её после отделки — значит вскрыть потолки.</p>
+          <p class="fix"><b>Как у меня:</b> закладываю в проект до черновых работ.</p>
           <div class="err-cost"><span>Цена ошибки</span><b>потолки всего этажа</b></div>
         </div>
       </article>
       <article class="err-card reveal">
-        <div class="photo solo"><span class="ph-label">Фото: манометр на коллекторе, опрессовка контуров</span></div>
+        <div class="photo solo"><span class="ph-label">Фото: манометр на коллекторе, опрессовка контуров</span></div>
         <div class="err-body">
-          <h3>Тёплый пол залили без опрессовки</h3>
-          <p>Течь находят, когда паркет уже лежит: пятно на потолке или падающее давление.</p>
-          <p class="fix"><b>Как у меня:</b> опрессовка сутки и балансировка — до стяжки.</p>
-          <div class="err-cost"><span>Цена ошибки</span><b>пол и стяжка комнаты</b></div>
+          <h3>Тёплый пол залили без опрессовки</h3>
+          <p>Течь находят, когда паркет уже лежит: пятно на потолке или падающее давление.</p>
+          <p class="fix"><b>Как у меня:</b> опрессовка сутки и балансировка — до стяжки.</p>
+          <div class="err-cost"><span>Цена ошибки</span><b>пол и стяжка комнаты</b></div>
         </div>
       </article>
       <article class="err-card reveal">
-        <div class="photo solo"><span class="ph-label">Фото: участок, септик и подъезд для откачки на плане</span></div>
+        <div class="photo solo"><span class="ph-label">Фото: участок, септик и подъезд для откачки на плане</span></div>
         <div class="err-body">
-          <h3>Септик поставили там, куда не подъедет машина</h3>
-          <p>Без якорения септик весной всплывает. Без фанового стояка запах идёт в дом.</p>
-          <p class="fix"><b>Как у меня:</b> место, якорение и подъезд — до земляных работ.</p>
-          <div class="err-cost"><span>Цена ошибки</span><b>участок и новый монтаж</b></div>
+          <h3>Септик поставили там, куда не подъедет машина</h3>
+          <p>Без якорения септик весной всплывает. Без фанового стояка запах идёт в дом.</p>
+          <p class="fix"><b>Как у меня:</b> место, якорение и подъезд — до земляных работ.</p>
+          <div class="err-cost"><span>Цена ошибки</span><b>участок и новый монтаж</b></div>
         </div>
       </article>
     </div>
     <div class="lm-card wide reveal">
-      <div class="lm-mock list" aria-hidden="true"><span class="lm-page p2"></span><span class="lm-cover sheet"><b>14 ошибок</b><small>инженерии в доме</small><i class="ln"></i><i class="ln"></i><i class="ln s"></i><i class="ln"></i><i class="ln s"></i></span></div>
+      <div class="lm-mock list" aria-hidden="true"><span class="lm-page p2"></span><span class="lm-cover sheet"><b>14 ошибок</b><small>инженерии в доме</small><i class="ln"></i><i class="ln"></i><i class="ln s"></i><i class="ln"></i><i class="ln s"></i></span></div>
       <div class="lm-body">
-        <b>14 инженерных ошибок, которые в доме находят после отделки</b>
-        <p>Проверьте свой проект сами — до закупки оборудования.</p>
-        <div class="lm-actions"><a class="btn-primary" href="#" style="text-decoration:none">Получить чек-лист в Telegram</a><button class="btn-outline" data-scroll="final">Прислать проект на проверку</button></div>
+        <b>14 инженерных ошибок, которые в доме находят после отделки</b>
+        <p>Проверьте свой проект сами — <b>до закупки оборудования</b>.</p>
+        <div class="lm-actions"><a class="btn-primary" href="#" style="text-decoration:none">Получить чек-лист в Telegram</a><button class="btn-outline" data-scroll="final">Прислать проект на проверку</button></div>
       </div>
     </div>
-    <span class="todo">Три истории собраны по форумам (ForumHouse, Т—Ж, Habr), а не из практики Романова. Заменить на его случаи с цифрами переделок. Чек-лист «14 ошибок» ещё предстоит написать.</span>
+    <span class="todo">Три истории собраны по форумам (ForumHouse, Т—Ж, Habr), а не из практики Романова. Заменить на его случаи с цифрами переделок. Чек-лист «14 ошибок» ещё предстоит написать.</span>
   </div>
 </section>
 
@@ -4015,18 +4083,18 @@ html { scroll-padding-top: 136px; }
   <div class="container">
     <div class="route8-grid">
       <div class="route8-aside stretch">
-        <h2 class="reveal">Контур и инженерия — до холодов, отделка — в тёплом доме</h2>
-        <p class="lead-p reveal">Семь шагов. Что должно быть сделано до морозов, вы знаете до договора.</p>
-        <div class="photo reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: готовый дом вечером, свет в окнах, ключи на столе</span></div>
+        <h2 class="reveal">Контур и инженерия — до холодов, отделка — в тёплом доме</h2>
+        <p class="lead-p reveal">Семь шагов. Что должно быть сделано <b>до морозов</b>, вы знаете до договора.</p>
+        <div class="photo reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: готовый дом вечером, свет в окнах, ключи на столе</span></div>
       </div>
       <ol class="route8-list">
-        <li class="reveal"><div class="r8-body"><h3>Заявка и разговор <span>в день заявки</span></h3><p>15–20 минут: площадь, стадия дома, проект, бюджет. Сразу скажу, подхожу ли я вам.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Мой выезд на объект <span>2–3 дня</span></h3><p>Бесплатно, до 50 км от МКАД: осмотр коробки, вводов и проекта, обмеры, первые замечания.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Смета и график <span>после выезда</span></h3><p>Построчная смета с объёмами и график работ, привязанный к сезону.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Договор <span>3–7 дней</span></h3><p>Фиксированная цена, график, неустойка, гарантия, порядок актов — всё письменно.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Контур и инженерия <span>до холодов</span></h3><p>Закрываю контур, монтирую и испытываю отопление, вентиляцию, электрику и воду. Запускаю тепло.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Отделка <span>в тёплом доме</span></h3><p>Черновые и чистовые работы при стабильной температуре и влажности. Акты каждые 7–10 дней, статус по пятницам.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Ключи <span>по акту</span></h3><p>Пусконаладка систем, сверка с проектом, клининг, исполнительные схемы и гарантийный паспорт дома.</p></div></li>
+        <li class="reveal"><div class="r8-body"><h3>Заявка и разговор <span>в день заявки</span></h3><p>15–20 минут: площадь, стадия дома, проект, бюджет. Сразу скажу, подхожу ли я вам.</p></div></li>
+        <li class="reveal"><div class="r8-body"><h3>Мой выезд на объект <span>2–3 дня</span></h3><p>Бесплатно, до 50 км от МКАД: осмотр коробки, вводов и проекта, обмеры, первые замечания.</p></div></li>
+        <li class="reveal"><div class="r8-body"><h3>Смета и график <span>после выезда</span></h3><p>Построчная смета с объёмами и график работ, привязанный к сезону.</p></div></li>
+        <li class="reveal"><div class="r8-body"><h3>Договор <span>3–7 дней</span></h3><p>Фиксированная цена, график, неустойка, гарантия, порядок актов — всё письменно.</p></div></li>
+        <li class="reveal"><div class="r8-body"><h3>Контур и инженерия <span>до холодов</span></h3><p>Закрываю контур, монтирую и испытываю отопление, вентиляцию, электрику и воду. Запускаю тепло.</p></div></li>
+        <li class="reveal"><div class="r8-body"><h3>Отделка <span>в тёплом доме</span></h3><p>Черновые и чистовые работы при стабильной температуре и влажности. Акты каждые 7–10 дней, статус по пятницам.</p></div></li>
+        <li class="reveal"><div class="r8-body"><h3>Ключи <span>по акту</span></h3><p>Пусконаладка систем, сверка с проектом, клининг, исполнительные схемы и гарантийный паспорт дома.</p></div></li>
       </ol>
     </div>
   </div>
@@ -4037,22 +4105,22 @@ html { scroll-padding-top: 136px; }
   <div class="container">
     <div class="faq-grid">
     <div class="faq-aside">
-      <h2 class="section-heading reveal">Вопросы, которые мне задают до договора</h2>
-      <p class="lead-p reveal">Не нашли свой вопрос? Спросите меня напрямую — отвечаю сам, без менеджеров.</p>
-      <a class="btn-outline reveal" href="#" style="text-decoration:none;display:inline-block;margin-top:22px">Задать вопрос в Telegram</a>
+      <h2 class="section-heading reveal">Вопросы, которые мне задают до договора</h2>
+      <p class="lead-p reveal">Не нашли свой вопрос? Спросите меня напрямую — отвечаю сам, без менеджеров.</p>
+      <a class="btn-outline reveal" href="#" style="text-decoration:none;display:inline-block;margin-top:22px">Задать вопрос в Telegram</a>
     </div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Успеете закрыть контур и запустить отопление до зимы?</button><div class="faq-a"><p>Зависит от месяца старта. На выезде скажу честно: если до холодов не успеваем, предложу график с временным отоплением или зимней паузой — а не пообещаю невозможное.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Почему ваша смета выше, чем у бригады?</button><div class="faq-a"><p>В моей смете сразу есть то, что у бригады появляется допсметами: обвязка котельной, пусконаладка, ревизии, вывоз мусора. Пришлите их смету — отмечу, где она вырастет.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что входит в «под ключ»?</button><div class="faq-a"><p>Инженерные системы, черновая и чистовая отделка, столярные работы, закупки, пусконаладка и клининг. Отдельно оплачиваются материалы и оборудование, дизайн-проект и мебель.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Нужно ли платить аванс?</button><div class="faq-a"><p>Нет, ни рубля вперёд. Вы оплачиваете только принятую работу — по актам каждые 7–10 дней после фотоотчёта. Оборудование и материалы — по счетам поставщиков. Безналично или наличными.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Кто отвечает за котельную и септик?</button><div class="faq-a"><p>Я. Их монтируют профильные подрядчики, но договор у вас один — со мной, и по гарантии вы тоже обращаетесь ко мне.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Как вы работаете в посёлке с режимом?</button><div class="faq-a"><p>Пропуска, проезд техники, часы шумных работ и вывоз мусора беру на себя. Правила вашего посёлка закладываю в график ещё до договора.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Рабочие будут жить в доме?</button><div class="faq-a"><p>В доме — нет. На удалённых объектах бригада может жить в бытовке на участке, это обсуждаем до договора.<span class="todo">Подтвердить, как Романов решает вопрос проживания на загородных объектах.</span></p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Можно привести своего мебельщика?</button><div class="faq-a"><p>Да. Координирую его с проектом и заранее фиксирую зависимые этапы в графике, чтобы сторонняя поставка не остановила сдачу дома.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что с гарантией после сдачи?</button><div class="faq-a"><p>5 лет на отделку и инженерные сети. На оборудование — гарантия производителя, но обращаетесь вы ко мне. Выезд за 2–3 дня, устранение — до 10 дней, это записано в договоре.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Сколько длится ремонт дома?</button><div class="faq-a"><p>Дом 250–300 м² под ключ — 10–14 месяцев по графику. Сжать срок можно только за счёт технологии — например, класть паркет на невысохшую стяжку. Этого я не делаю.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что будет после заявки?</button><div class="faq-a"><p>В рабочее время отвечу за 5–10 минут, поговорим 15–20 минут — и через 2–3 дня я приеду на объект. Смету и график получите после выезда.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Успеете закрыть контур и запустить отопление до зимы?</button><div class="faq-a"><p>Зависит от месяца старта. На выезде скажу честно: если до холодов не успеваем, предложу график с временным отоплением или зимней паузой — а не пообещаю невозможное.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Почему ваша смета выше, чем у бригады?</button><div class="faq-a"><p>В моей смете сразу есть то, что у бригады появляется допсметами: обвязка котельной, пусконаладка, ревизии, вывоз мусора. Пришлите их смету — отмечу, где она вырастет.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что входит в «под ключ»?</button><div class="faq-a"><p>Инженерные системы, черновая и чистовая отделка, столярные работы, закупки, пусконаладка и клининг. Отдельно оплачиваются материалы и оборудование, дизайн-проект и мебель.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Нужно ли платить аванс?</button><div class="faq-a"><p>Нет, ни рубля вперёд. Вы оплачиваете только принятую работу — по актам каждые 7–10 дней после фотоотчёта. Оборудование и материалы — по счетам поставщиков. Безналично или наличными.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Кто отвечает за котельную и септик?</button><div class="faq-a"><p>Я. Их монтируют профильные подрядчики, но договор у вас один — со мной, и по гарантии вы тоже обращаетесь ко мне.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Как вы работаете в посёлке с режимом?</button><div class="faq-a"><p>Пропуска, проезд техники, часы шумных работ и вывоз мусора беру на себя. Правила вашего посёлка закладываю в график ещё до договора.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Рабочие будут жить в доме?</button><div class="faq-a"><p>В доме — нет. На удалённых объектах бригада может жить в бытовке на участке, это обсуждаем до договора.<span class="todo">Подтвердить, как Романов решает вопрос проживания на загородных объектах.</span></p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Можно привести своего мебельщика?</button><div class="faq-a"><p>Да. Координирую его с проектом и заранее фиксирую зависимые этапы в графике, чтобы сторонняя поставка не остановила сдачу дома.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что с гарантией после сдачи?</button><div class="faq-a"><p>5 лет на отделку и инженерные сети. На оборудование — гарантия производителя, но обращаетесь вы ко мне. Выезд за 2–3 дня, устранение — до 10 дней, это записано в договоре.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Сколько длится ремонт дома?</button><div class="faq-a"><p>Дом 250–300 м² под ключ — 10–14 месяцев по графику. Сжать срок можно только за счёт технологии — например, класть паркет на невысохшую стяжку. Этого я не делаю.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что будет после заявки?</button><div class="faq-a"><p>В рабочее время отвечу за 5–10 минут, поговорим 15–20 минут — и через 2–3 дня я приеду на объект. Смету и график получите после выезда.</p></div></div>
     </div>
     </div>
   </div>
@@ -4064,17 +4132,17 @@ html { scroll-padding-top: 136px; }
     <div class="final8-grid">
       <div class="photo final8-photo reveal">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
-        <span class="ph-label">Портрет Владимира Романова, тот же стиль, что на первом экране</span>
-        <div class="portrait-badge"><div class="portrait-badge-name">Владимир Романов</div><div class="portrait-badge-role">Отвечаю за результат своим именем</div></div>
+        <span class="ph-label">Портрет Владимира Романова, тот же стиль, что на первом экране</span>
+        <div class="portrait-badge"><div class="portrait-badge-name">Владимир Романов</div><div class="portrait-badge-role">Отвечаю за результат своим именем</div></div>
       </div>
       <div>
-        <h2 class="reveal">Пришлите проект или смету — я лично покажу, где дом подорожает</h2>
-        <p class="lead-p reveal">Проект, смета другого подрядчика или просто планировки. За 1 рабочий день назову стоимость и отмечу, где прячутся переделки. Через 2–3 дня приеду на объект. Разбор останется у вас.</p>
-        <p class="geo-line reveal"><b>Выезжаю до 50 км от МКАД:</b> Одинцово, Рублёвка и Барвиха, Новая Рига, Истра, Красногорск, Мытищи, Пушкино и другие направления.</p>
+        <h2 class="reveal">Пришлите проект или смету — я лично покажу, где дом подорожает</h2>
+        <p class="lead-p reveal">Проект, смета другого подрядчика или просто планировки. <b>За 1 рабочий день</b> назову стоимость и отмечу, где прячутся переделки. <b>Через 2–3 дня приеду на объект</b>. Разбор останется у вас.</p>
+        <p class="geo-line reveal"><b>Выезжаю до 50 км от МКАД:</b> Одинцово, Рублёвка и Барвиха, Новая Рига, Истра, Красногорск, Мытищи, Пушкино и другие направления.</p>
         <form class="lead-form-card reveal" novalidate>
           <div class="form-group">
-            <label for="fWhat">Что прислать на разбор</label>
-            <select class="form-input" id="fWhat" name="what"><option>Проект дома</option><option>Смету другого подрядчика</option><option>И то и другое</option><option>Пока ничего — нужен выезд и консультация</option></select>
+            <label for="fWhat">Что прислать на разбор</label>
+            <select class="form-input" id="fWhat" name="what"><option>Проект дома</option><option>Смету другого подрядчика</option><option>И то и другое</option><option>Пока ничего — нужен выезд и консультация</option></select>
           </div>
           <div class="form-group"><label for="fPhone">Телефон</label><input class="form-input" id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required></div>
           <div class="form-group">
@@ -4086,10 +4154,10 @@ html { scroll-padding-top: 136px; }
               <button type="button" class="pill" aria-pressed="false">Звонок</button>
             </div>
           </div>
-          <button class="btn-primary" type="submit" style="width:100%">Получить расчёт и выезд</button>
+          <button class="btn-primary" type="submit" style="width:100%">Получить расчёт и выезд</button>
           <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p>
         </form>
-        <p class="final8-alt reveal">Проекта пока нет? <button type="button" data-scroll="quiz">Рассчитать стоимость с нуля</button></p>
+        <p class="final8-alt reveal">Проекта пока нет? <button type="button" data-scroll="quiz">Рассчитать стоимость с нуля</button></p>
       </div>
     </div>
   </div>
@@ -4101,18 +4169,18 @@ html { scroll-padding-top: 136px; }
   <div class="footer-monogram"><span>R</span></div>
   <div class="footer-logo">РОМАНОВЪ</div>
   <div class="footer-tagline">Бюро честных интерьеров Владимира Романова</div>
-  <p>Отвечаем за результат своим именем.</p>
-  <div class="footer-dirs"><a href="index.html">Ремонт квартир</a><span aria-current="page">Ремонт домов и коттеджей</span><span>Коммерческие помещения — скоро</span></div>
-  <p style="margin-top:12px">Москва и область, до 50 км от МКАД · +7 (___) ___-__-__ · hello@romanov-buro.ru</p>
+  <p>Отвечаем за результат своим именем.</p>
+  <div class="footer-dirs"><a href="index.html">Ремонт квартир</a><span aria-current="page">Ремонт домов и коттеджей</span><span>Коммерческие помещения — скоро</span></div>
+  <p style="margin-top:12px">Москва и область, до 50 км от МКАД · +7 (___) ___-__-__ · hello@romanov-buro.ru</p>
   <p class="footer-req">ИП Романов В. В. · ОГРНИП ___ · ИНН ___<br><a href="#">Политика обработки персональных данных</a> · © 2026</p>
-<span class="todo" style="max-width:640px;margin:18px auto 0">Почта, телефон и часы работы в шапке и подвале — заглушки.</span>
+<span class="todo" style="max-width:640px;margin:18px auto 0">Почта, телефон и часы работы в шапке и подвале — заглушки.</span>
 </footer>
 
 <div class="mobile-bar">
   <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
   <a class="btn-outline" href="#" aria-label="Написать в Telegram" style="text-decoration:none">TG</a>
 </div>
-<button class="todo-toggle" type="button" id="todoToggle">Скрыть пометки для клиента</button>
+<button class="todo-toggle" type="button" id="todoToggle">Показать пометки для клиента</button>
 
 <script>
 (function(){
@@ -4144,6 +4212,7 @@ html { scroll-padding-top: 136px; }
     items.forEach(function(el){ io.observe(el); });
   }
 
+  document.body.classList.add('hide-todo');
   /* ----- Header: compact on scroll, mobile drawer, scroll-spy ----- */
   var hdr = document.getElementById('hdr'), ticking = false;
   var burger = document.getElementById('hdrBurger'), drawer = document.getElementById('hdrDrawer');
@@ -4272,10 +4341,10 @@ html { scroll-padding-top: 136px; }
 
   /* ----- PORTFOLIO TABS (data-driven: add cases to this list) ----- */
   var CASES = [
-    {tab:'Дом 196 м²', sub:'клеёный брус · Подмосковье', title:'Дом 196 м² из клеёного бруса и керамоблока', chips:['196 м²','2 этажа','Сауна','4 санузла'], term:['___ мес','___ мес'], rate:['___ ₽/м²','___ ₽/м²'], works:'Под ключ: отопление и котельная, тёплые полы на двух этажах, электрика, водоснабжение и канализация, черновая и чистовая отделка 14 помещений.', feature:'Второй этаж из клеёного бруса даёт усадку 1–2% в первые годы. Перегородки и отделку собирал на скользящих креплениях с зазорами — поэтому плитка и потолки не трескаются.', photos:['Гостиная','Кухня-столовая','Сауна','Котельная','Спальня']},
-    {tab:'Papushevo Park', sub:'___ м² · Одинцово', title:'Дом ___ м², КП Papushevo Park', chips:['___ м²','2 этажа','Панорамное остекление'], term:['___ мес','___ мес'], rate:['___ ₽/м²','___ ₽/м²'], works:'Под ключ по рабочей документации дизайн-проекта: инженерия, тёплые полы, отделка, скрытые двери, встроенная мебель.', feature:'Двери в одной плоскости со стеной, входная группа высотой 3,4 м и стеклянная раздвижная перегородка работают с допуском 1–2 мм — геометрию стен выводил ещё на черновом этапе.', photos:['Гостиная с остеклением','Кухня','Мастер-спальня','Санузел','Входная группа']},
-    {tab:'Новая Рига', sub:'320 м² · с тёплого контура', title:'Дом 320 м², Новая Рига', chips:['320 м²','С тёплого контура','Котельная и приточка'], demo:true, term:['11 мес','11 мес'], rate:['92 000 ₽/м²','92 000 ₽/м²'], works:'Котельная, приточно-вытяжная вентиляция, тёплые полы, электрика и автоматика, чистовая отделка, столярные работы.', feature:'Зашёл на готовый контур в сентябре: инженерию запустил до морозов, отделку вёл зимой в отапливаемом доме.', photos:['Гостиная','Кухня','Котельная','Спальня','Скрытые работы']},
-    {tab:'Дом с баней', sub:'240 м² · Рублёвское направление', title:'Дом с баней 240 м², Рублёвское направление', chips:['240 м²','Банный блок','Переделка инженерии'], demo:true, term:['9 мес','9 мес'], rate:['104 000 ₽/м²','104 000 ₽/м²'], works:'Аудит работ прежнего подрядчика, переделка обвязки котельной и вентиляции, отделка дома и банного блока.', feature:'Принял дом после другой бригады: вентиляции в проекте не было, котёл подобран без запаса. Исправил до отделки, а не после.', photos:['Гостиная','Банный блок','Котельная до и после','Спальня','Детали']}
+    {tab:'Дом из клеёного бруса', sub:'196 м² · Подмосковье', title:'Дом 196 м² из клеёного бруса и керамоблока', chips:['196 м²','2 этажа','Сауна','4 санузла'], term:['___ мес','___ мес'], rate:['___ ₽/м²','___ ₽/м²'], works:'Под ключ: отопление и котельная, тёплые полы на двух этажах, электрика, водоснабжение и канализация, черновая и чистовая отделка 14 помещений.', feature:'Второй этаж из клеёного бруса даёт усадку 1–2% в первые годы. Перегородки и отделку собирал на скользящих креплениях с зазорами — поэтому плитка и потолки не трескаются.', photos:['Гостиная','Кухня-столовая','Сауна','Котельная','Спальня']},
+    {tab:'Дом в Papushevo Park', sub:'___ м² · Одинцово', title:'Дом ___ м², КП Papushevo Park', chips:['___ м²','2 этажа','Панорамное остекление'], term:['___ мес','___ мес'], rate:['___ ₽/м²','___ ₽/м²'], works:'Под ключ по рабочей документации дизайн-проекта: инженерия, тёплые полы, отделка, скрытые двери, встроенная мебель.', feature:'Двери в одной плоскости со стеной, входная группа высотой 3,4 м и стеклянная раздвижная перегородка работают с допуском 1–2 мм — геометрию стен выводил ещё на черновом этапе.', photos:['Гостиная с остеклением','Кухня','Мастер-спальня','Санузел','Входная группа']},
+    {tab:'Дом с тёплого контура', sub:'320 м² · Новая Рига', title:'Дом 320 м², Новая Рига', chips:['320 м²','С тёплого контура','Котельная и приточка'], demo:true, term:['11 мес','11 мес'], rate:['92 000 ₽/м²','92 000 ₽/м²'], works:'Котельная, приточно-вытяжная вентиляция, тёплые полы, электрика и автоматика, чистовая отделка, столярные работы.', feature:'Зашёл на готовый контур в сентябре: инженерию запустил до морозов, отделку вёл зимой в отапливаемом доме.', photos:['Гостиная','Кухня','Котельная','Спальня','Скрытые работы']},
+    {tab:'Дом с баней', sub:'240 м² · Рублёвское направление', title:'Дом с баней 240 м², Рублёвское направление', chips:['240 м²','Банный блок','Переделка инженерии'], demo:true, term:['9 мес','9 мес'], rate:['104 000 ₽/м²','104 000 ₽/м²'], works:'Аудит работ прежнего подрядчика, переделка обвязки котельной и вентиляции, отделка дома и банного блока.', feature:'Принял дом после другой бригады: вентиляции в проекте не было, котёл подобран без запаса. Исправил до отделки, а не после.', photos:['Гостиная','Банный блок','Котельная до и после','Спальня','Детали']}
   ];
   var pfTabs = document.getElementById('pfTabs');
   if (pfTabs){
