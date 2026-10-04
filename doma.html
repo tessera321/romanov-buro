@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Романовъ · Дома</title>
 <meta name="robots" content="noindex, nofollow">
+<meta name="format-detection" content="telephone=no">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;1,400&display=swap">
 <style>
 @font-face {
@@ -3293,6 +3294,107 @@ html { scroll-padding-top: 136px; }
 .hero7 h1 { font-size: clamp(2rem, 4.1vw, 4.3rem); }
 .scenario-card .photo { aspect-ratio: 16/10; margin-bottom: 18px; }
 
+/* ===== H3: houses page, round of edits 3 ===== */
+/* hero */
+.hero7-facts { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 26px; margin: 14px 0 0; padding: 0; font-size: 0.9rem; color: var(--text-primary); }
+.hero7-facts li { position: relative; padding-left: 16px; }
+.hero7-facts li::before { content: ''; position: absolute; left: 0; top: 0.5em; width: 6px; height: 6px; background: var(--bronze); }
+.hero-cta-note { font-size: 0.95rem; color: rgba(245,240,232,0.82); line-height: 1.55; max-width: 56ch; margin-top: 18px; }
+.hero-cta-note b { color: var(--bronze-hover); font-weight: 600; }
+
+/* case tabs: outlined, active filled */
+.pf-tabs { gap: 10px; border-bottom: none; padding-bottom: 2px; }
+.pf-tab { border: 1px solid var(--border-accent); border-bottom: 1px solid var(--border-accent); padding: 12px 18px; color: var(--text-primary); background: transparent; text-align: left; }
+.pf-tab small { color: var(--text-secondary); }
+.pf-tab:hover { background: var(--bronze-glow); }
+.pf-tab[aria-selected="true"] { background: var(--bronze); border-color: var(--bronze); color: #0D0D0D; }
+.pf-tab[aria-selected="true"] small { color: rgba(13,13,13,0.72); }
+.pf-table td:first-child { width: 32%; }
+
+/* trust: honest heading, quality card without the grid pattern */
+.quality2 { background: linear-gradient(135deg, #17150F, #0F0E0D); }
+.ally-close { font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0; }
+
+/* control list with icons */
+.control .section-intro { margin-bottom: 0; }
+.control-split { grid-template-columns: 1fr 1fr; margin-top: clamp(28px, 3vw, 40px); align-items: stretch; }
+.control-list { align-content: start; }
+.control-list > .cl-row { display: grid; grid-template-columns: 52px 1fr; gap: 4px 18px; padding-block: 24px; }
+.control-list > .cl-row .p-ic { grid-row: span 2; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--border-accent); color: var(--bronze); }
+.control-list > .cl-row h3 { font-size: clamp(1.1rem, 1.4vw, 1.3rem); margin: 2px 0 0; }
+.control-list > .cl-row p { font-size: 0.94rem; }
+.control-split .tg-mockup { height: 100%; }
+
+/* founder: photo on the grid, facts in the right column */
+.team-founder { grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.38fr); align-items: stretch; margin-bottom: clamp(36px, 4vw, 56px); }
+.founder-photo { max-width: none; width: 100%; height: 100%; aspect-ratio: auto; min-height: 420px; }
+.founder-info { display: flex; flex-direction: column; }
+.founder-info .founder-facts { margin: auto 0 0; padding-top: 28px; }
+
+/* certificates */
+.certs2 { margin: 0 0 8px; }
+.certs2-title { font-family: 'Actay', sans-serif; font-size: clamp(1.05rem, 1.4vw, 1.3rem); color: var(--text-primary); margin-bottom: 16px; }
+.certs2-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.certs2-grid span { display: flex; align-items: center; justify-content: center; min-height: 84px; padding: 14px; border: 1px solid rgba(245,240,232,0.26); font-family: 'Actay Wide', sans-serif; font-weight: 700; font-size: clamp(0.82rem, 1.1vw, 1.05rem); letter-spacing: 0.08em; color: rgba(245,240,232,0.78); text-align: center; }
+
+/* reviews heading = regular section heading */
+.rev-mini-title { font-family: 'Actay Wide', sans-serif; font-weight: 700; margin-top: clamp(56px, 7vw, 96px); margin-bottom: 0; }
+.rev-mini .rev-card { min-height: 320px; }
+
+/* price: wider what-is-included, compact example */
+.format-main { grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: clamp(32px, 4vw, 64px); }
+.price-split > div { padding: clamp(24px, 2.8vw, 40px); }
+.price-split h3 { font-size: 1.15rem; }
+.price-split li { font-size: 1rem; }
+.price-split ul { gap: 13px; }
+.price-example { margin-top: 22px; padding: 14px 16px; }
+.price-example-row { font-size: 0.8rem; padding: 6px 0; }
+.price-example-title { font-size: 0.72rem; }
+
+.standard-head { margin-bottom: clamp(32px, 4vw, 56px); }
+.standard-head h2 { max-width: 24ch; }
+.d-br { display: none; }
+
+@media (min-width: 901px) {
+  section h2, section .section-heading { font-size: clamp(2.1rem, 3.9vw, 3.6rem); line-height: 1; }
+  .h2-two { max-width: none !important; font-size: clamp(1.9rem, 3.25vw, 3.05rem) !important; text-wrap: wrap; }
+  .d-br { display: inline; }
+  .standard-head h2 { max-width: 26ch; }
+  .rev-mini-title { font-size: clamp(2.1rem, 3.9vw, 3.6rem); }
+  .founder-info > h3 { font-size: clamp(1.6rem, 2.4vw, 2.2rem); }
+  .founder-info > p { font-size: 1rem; }
+  .hero7-facts { order: 0; }
+}
+
+@media (max-width: 900px) {
+  /* hero order: offer → price → photo → facts → subtitle → buttons */
+  .hero7 { padding-top: var(--hdr-h); }
+  .hero7-inner { display: contents; }
+  .hero7 .hero7-inner > * { margin-left: 4vw !important; margin-right: 4vw !important; }
+  .hero7 h1 { order: 1; margin-top: 26px; }
+  .hero7-price { order: 2; margin-top: 16px; margin-bottom: 20px; }
+  .hero7-photo { order: 3; height: 74vw; min-height: 280px; }
+  .hero7-facts { order: 4; margin-top: 16px; font-size: 0.95rem; }
+  .hero7 .hero-sub { order: 5; margin-top: 18px; }
+  .hero7 .hero-cta-row { order: 6; margin-top: 22px !important; }
+  .hero7 .hero-cta-note { order: 7; margin-bottom: 28px; }
+  .hero7-features-wrap { order: 8; }
+  .hero7-scrim { display: none; }
+
+  .pf-tabs { gap: 8px; margin-right: -4vw; padding-right: 4vw; }
+  .pf-tab { padding: 10px 14px; }
+  .control-split, .team-founder, .format-main { grid-template-columns: 1fr; }
+  .founder-photo { aspect-ratio: 4/5; min-height: 0; height: auto; }
+  .founder-info .founder-facts { grid-template-columns: 1fr; }
+  .certs2-grid { grid-template-columns: 1fr 1fr; }
+  .certs2-grid span { min-height: 68px; font-size: 0.8rem; }
+  .rev-mini-title { font-size: clamp(1.62rem, 7.3vw, 1.95rem); margin-bottom: 20px; }
+  .rev-mini { display: flex; grid-template-columns: none; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: -4vw; padding-right: 4vw; margin-top: 0; }
+  .rev-mini > .rev-card { flex: 0 0 88%; width: 88%; scroll-snap-align: start; min-height: 0; }
+  .price-split li { font-size: 0.92rem; }
+}
+.founder-info .founder-facts h3 { font-size: 1.05rem; }
+
 </style>
 </head>
 <body>
@@ -3323,10 +3425,9 @@ html { scroll-padding-top: 136px; }
         </div>
       </a>
       <nav class="seg" aria-label="Направления: что ремонтируем">
-        <span class="seg-cap" aria-hidden="true">Что ремонтируем</span>
-        <a class="seg-item" href="index.html"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="5" y="3" width="14" height="18"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg><b>Квартиры</b></a>
-        <a class="seg-item" href="#top" data-scroll="top" aria-current="page"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg><b>Дома и коттеджи</b></a>
-        <span class="seg-item soon" aria-disabled="true" title="Страница готовится"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 21V8l7-4v17M10 21V10h11v11M2 21h20"/><path d="M14 14h3M14 17h3"/></svg><b>Коммерция <i>скоро</i></b></span>
+        <a class="seg-item" href="index.html"><b>Квартиры</b></a>
+        <a class="seg-item" href="#top" data-scroll="top" aria-current="page"><b>Дома и коттеджи</b></a>
+        <span class="seg-item soon" aria-disabled="true" title="Страница готовится"><b>Коммерция <i>скоро</i></b></span>
       </nav>
       <div class="hdr-contacts">
         <a class="hdr-phone" href="tel:+70000000000"><b>+7 (___) ___-__-__</b><small>Отвечаю лично, без колл-центра</small></a>
@@ -3366,12 +3467,13 @@ html { scroll-padding-top: 136px; }
 
     <h1 style="max-width:21ch">Въезжайте в дом точно по проекту: инженерия и отделка в одном договоре, без аванса и роста сметы</h1>
     <div class="hero7-price">от 90 000 ₽/м²<span>дома от 150 м² · цена работ фиксируется в договоре</span></div>
-    <p class="hero-sub">Я, Владимир Романов, лично веду ваш дом — от котельной и вентиляции до последнего плинтуса. Один договор и одна гарантия на инженерию и отделку.<span class="muted" style="display:block;margin-top:8px">Основатель бюро · 20 лет практики · на вашем объекте 2–3 раза в неделю</span></p>
+    <p class="hero-sub">Я, Владимир Романов, лично веду ваш дом — от котельной и вентиляции до последнего плинтуса. Один договор и одна гарантия на инженерию и отделку.</p>
+    <ul class="hero7-facts"><li>Основатель бюро</li><li>20 лет практики</li></ul>
     <div class="hero-cta-row" style="margin-top:30px">
       <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
       <a class="btn-outline" href="#" style="text-decoration:none">Обсудить дом в Telegram</a>
     </div>
-    <p class="hero-cta-note">5 вопросов, 2 минуты. Ориентир — сразу на экране. Бонусом: чек-лист «14 инженерных ошибок» и мой выезд на объект.</p>
+    <p class="hero-cta-note">5 вопросов, 2 минуты. <b>Ориентир стоимости — сразу на экране.</b> Бонусом: чек-лист «14 инженерных ошибок» и мой выезд на объект.</p>
   </div>
   <div class="hero7-features-wrap"><div class="hero7-features">
     <div class="hero7-feature">
@@ -3396,7 +3498,7 @@ html { scroll-padding-top: 136px; }
 <!-- 2. PROOF BAND -->
 <section class="proof2" aria-label="Факты о бюро">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:22ch">20 лет и 115+ объектов: ваш дом не станет экспериментом новой бригады</h2>
+    <h2 class="section-heading reveal h2-two">20 лет и 115+ объектов: ваш дом<br class="d-br"> не станет экспериментом новой бригады</h2>
     <div class="p2-grid">
       <div class="p2-cell p2-main reveal">
         <div class="p2-num big"><span class="cnt" data-to="20">20</span><span class="u"> лет</span></div>
@@ -3427,7 +3529,7 @@ html { scroll-padding-top: 136px; }
 <section class="portfolio" id="portfolio">
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:22ch">Дома, в которых уже живут, а не доделывают инженерию</h2>
-    <p class="section-intro reveal">Срок по договору и по факту — по каждому дому. Адреса и бюджеты не раскрываю.</p>
+    <p class="section-intro reveal">Срок и цена за м² — по договору и по факту. Адреса не раскрываю.</p>
     <div class="pf-tabs" role="tablist" aria-label="Объекты" id="pfTabs"></div>
     <div class="pf-panel" role="tabpanel" id="pfPanel" aria-live="polite">
       <div>
@@ -3458,17 +3560,17 @@ html { scroll-padding-top: 136px; }
 <section class="honest">
   <div class="container">
     <span class="label-sm reveal">Сразу честно</span>
-    <h2 class="reveal" style="max-width:18ch">Мы не для всех. И это нормально.</h2>
-    <p class="lead-p reveal" style="margin-top:18px">Беру не каждый объект — и говорю об этом до первой встречи.</p>
+    <h2 class="reveal">Мы не для всех.<br>И это нормально.</h2>
+    <p class="lead-p reveal" style="margin-top:18px">Беру дома от 150 м² с бюджетом на работы от 90 000 ₽/м² — и говорю об этом до первой встречи.</p>
     <div class="fit-grid reveal">
       <div class="fit-col">
         <h3>Я вам подойду, если</h3>
         <ul>
-          <li>дом от 150 м², бюджет на работы от 90 000 ₽/м²</li>
-          <li>нужен один ответственный за инженерию и отделку</li>
-          <li>не готовы год ездить на стройку и вникать в котлы и стяжки</li>
-          <li>уже обжигались на подрядчиках</li>
-          <li>нужен дом точно по проекту, который работает с первой зимы</li>
+          <li>хотите переехать в дом, где всё работает и выглядит как задумано, — и проводить вечера и выходные с семьёй, а не управлять стройкой</li>
+          <li>вам нужен не ещё один красивый рендер, а человек, который соберёт дом, не даст забыть про вентиляцию и не будет звонить по каждому саморезу</li>
+          <li>в проекте камень, дерево, теневые зазоры и встроенная мебель — и вы хотите реализовать их без компромиссов, как на визуализации</li>
+          <li>хотите, чтобы дом работал с первой зимы: тепло, воздух и вода — без доделок после въезда</li>
+          <li>уже обжигались на подрядчиках и хотите закончить дом без второго провала</li>
         </ul>
       </div>
       <div class="fit-col no">
@@ -3662,10 +3764,6 @@ html { scroll-padding-top: 136px; }
           <input class="form-input" id="qPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
         </div>
         <div class="form-group">
-          <label for="qName">Имя <span style="text-transform:none;letter-spacing:0">(необязательно)</span></label>
-          <input class="form-input" id="qName" name="name" type="text" autocomplete="name" placeholder="Как к вам обращаться">
-        </div>
-        <div class="form-group">
           <label>Удобнее получить в</label>
           <div class="pills" data-pills>
             <button type="button" class="pill" aria-pressed="true">Telegram</button>
@@ -3688,10 +3786,10 @@ html { scroll-padding-top: 136px; }
 <!-- 8. STANDARD -->
 <section class="standard" id="standard">
   <div class="container">
+    <div class="standard-head"><span class="label-sm reveal">Что значит «честный» в моём бюро</span>
+      <h2 class="reveal">Стандарт честного ремонта: 5 правил и гарантия, записанные в договоре</h2></div>
     <div class="standard-grid">
       <div class="standard-aside">
-        <span class="label-sm reveal">Что значит «честный» в моём бюро</span>
-        <h2 class="reveal">Стандарт честного ремонта: 5 правил и гарантия, записанные в договоре</h2>
         <p class="lead-p reveal">Не обещания на сайте, а пункты, под которыми я ставлю свою подпись.</p>
         <a class="btn-outline contract-btn reveal" href="#" style="text-decoration:none;display:inline-block">Посмотреть образец договора</a>
         <div class="photo reveal" style="aspect-ratio:4/3;margin-top:28px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><span class="ph-label">Фото: разворот договора, крупно пункт о цене и подпись</span></div>
@@ -3739,9 +3837,9 @@ html { scroll-padding-top: 136px; }
     <p class="section-intro reveal">О проблеме вы узнаёте первым — а не когда её закрыли гипсокартоном.</p>
     <div class="control-split">
       <div class="control-list">
-        <div class="reveal"><h3>Статус и видеообход каждую пятницу</h3><p>Что сделано, что проверено, что дальше — и видео с объекта.</p></div>
-        <div class="reveal"><h3>Фотоархив скрытых работ</h3><p>Электрика и инженерия — с привязкой к плану. Архив и схемы остаются у вас.</p></div>
-        <div class="reveal"><h3>Мой телефон у вас</h3><p>Любой вопрос — напрямую мне, без менеджеров.</p></div>
+        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Статус и видеообход каждую пятницу</h3><p>Что сделано, что проверено, что дальше — и видео с объекта.</p></div>
+        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Фотоархив скрытых работ</h3><p>Электрика и инженерия — с привязкой к плану. Архив и схемы остаются у вас.</p></div>
+        <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></span><h3>Мой телефон у вас</h3><p>Любой вопрос — напрямую мне, без менеджеров.</p></div>
       </div>
       <div>
         <div class="tg-mockup reveal" aria-label="Пример еженедельного отчёта">
@@ -3785,14 +3883,15 @@ html { scroll-padding-top: 136px; }
         <p>Договор — со мной, и за результат отвечаю я: проверяю скрытые работы, принимаю решения на площадке, отвечаю на ваши вопросы.</p>
         <p class="founder-quote">«Цитата Владимира его собственными словами — почему бюро называется „честных интерьеров“».</p>
         <span class="todo">Записать цитату со слов Романова.</span>
-      </div>
-    </div>
-    <div class="founder-facts">
+        <div class="founder-facts">
       <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg></span><h3>60+ мастеров в штате</h3><p>Электрики, сантехники, плиточники, маляры, столяры. Подрядчики — только на котельную и септик, под мою ответственность.</p></div>
       <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 16a8 8 0 0116 0"/><path d="M2 16h20v3H2z"/><path d="M12 8V5"/></svg></span><h3>Прораб — каждый день, я — 2–3 раза в неделю</h3><p>Прораб постоянный и не меняется до сдачи. Ключевые проверки — за мной.</p></div>
       <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Новичок — не на вашем объекте</h3><p>Новый мастер начинает на неответственном участке.</p></div>
     </div>
-    <div class="certs reveal" style="margin:0 0 8px"><span>Мастера сертифицированы производителями:</span><b>KNAUF</b><b>REHAU</b><b>TIKKURILA</b><b>SCHNEIDER ELECTRIC</b></div>
+      </div>
+    </div>
+    <div class="certs2 reveal"><div class="certs2-title">Мастера сертифицированы производителями</div><div class="certs2-grid"><span>KNAUF</span><span>REHAU</span><span>TIKKURILA</span><span>SCHNEIDER ELECTRIC</span></div></div>
+    <span class="todo">Сейчас названия набраны текстом. Официальные логотипы поставлю из брендбуков производителей, когда Романов пришлёт сертификаты и подтвердит право использовать знаки.</span>
     <div class="crew">
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Прораб · стаж ___ лет</p></div>
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Прораб · стаж ___ лет</p></div>
@@ -3800,7 +3899,7 @@ html { scroll-padding-top: 136px; }
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Инженер-сметчик</p></div>
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Дизайнер-архитектор</p></div>
     </div>
-    <h3 class="rev-mini-title reveal">97% клиентов рекомендуют меня друзьям</h3>
+    <h2 class="section-heading rev-mini-title reveal">97% клиентов рекомендуют меня друзьям</h2>
     <div class="rev-mini">
       <article class="rev-card reveal"><div class="rev-body"><span class="rev-type">Владелец дома</span><blockquote>«Чего боялись до стройки и что оказалось по факту: сроки, смета, общение с Владимиром».</blockquote><div class="rev-author"><div class="rev-avatar"></div><div class="rev-meta"><b>Имя Фамилия</b>Дом ___ м², ___ направление</div></div></div></article>
       <article class="rev-card reveal"><div class="rev-body"><span class="rev-type">Архитектор проекта</span><blockquote>«Проект реализован без упрощений, узлы совпали с чертежами, материалы не меняли „на аналог“».</blockquote><div class="rev-author"><div class="rev-avatar"></div><div class="rev-meta"><b>Имя Фамилия</b>Бюро ___</div></div></div></article>
@@ -3862,7 +3961,6 @@ html { scroll-padding-top: 136px; }
         </div>
       </div>
     </div>
-    <div class="ip-note reveal"><b>Честная оговорка.</b> Сроки мебельных фабрик я не контролирую — но закладываю их в график и принимаю монтаж сам.</div>
     <span class="todo">Пример на 250 м² посчитан от ставки 90 000 ₽/м²; срок и размер платежа — моя оценка, подтвердить.</span>
   </div>
 </section>
@@ -4175,10 +4273,10 @@ html { scroll-padding-top: 136px; }
 
   /* ----- PORTFOLIO TABS (data-driven: add cases to this list) ----- */
   var CASES = [
-    {tab:'Дом 196 м²', sub:'клеёный брус · Подмосковье', title:'Дом 196 м² из клеёного бруса и керамоблока', chips:['196 м²','2 этажа','Сауна','4 санузла'], term:['___ мес','___ мес'], mine:'0 ₽', client:'___', works:'Под ключ: отопление и котельная, тёплые полы на двух этажах, электрика, водоснабжение и канализация, черновая и чистовая отделка 14 помещений.', feature:'Второй этаж из клеёного бруса даёт усадку 1–2% в первые годы. Перегородки и отделку собирал на скользящих креплениях с зазорами — поэтому плитка и потолки не трескаются.', photos:['Гостиная','Кухня-столовая','Сауна','Котельная','Спальня']},
-    {tab:'Papushevo Park', sub:'___ м² · Одинцово', title:'Дом ___ м², КП Papushevo Park', chips:['___ м²','2 этажа','Панорамное остекление'], term:['___ мес','___ мес'], mine:'0 ₽', client:'___', works:'Под ключ по рабочей документации дизайн-проекта: инженерия, тёплые полы, отделка, скрытые двери, встроенная мебель.', feature:'Двери в одной плоскости со стеной, входная группа высотой 3,4 м и стеклянная раздвижная перегородка работают с допуском 1–2 мм — геометрию стен выводил ещё на черновом этапе.', photos:['Гостиная с остеклением','Кухня','Мастер-спальня','Санузел','Входная группа']},
-    {tab:'Новая Рига', sub:'320 м² · с тёплого контура', title:'Дом 320 м², Новая Рига', chips:['320 м²','С тёплого контура','Котельная и приточка'], demo:true, term:['11 мес','11 мес'], mine:'0 ₽', client:'+ винная комната (допсоглашение)', works:'Котельная, приточно-вытяжная вентиляция, тёплые полы, электрика и автоматика, чистовая отделка, столярные работы.', feature:'Зашёл на готовый контур в сентябре: инженерию запустил до морозов, отделку вёл зимой в отапливаемом доме.', photos:['Гостиная','Кухня','Котельная','Спальня','Скрытые работы']},
-    {tab:'Дом с баней', sub:'240 м² · Рублёвское направление', title:'Дом с баней 240 м², Рублёвское направление', chips:['240 м²','Банный блок','Переделка инженерии'], demo:true, term:['9 мес','9 мес'], mine:'0 ₽', client:'без изменений', works:'Аудит работ прежнего подрядчика, переделка обвязки котельной и вентиляции, отделка дома и банного блока.', feature:'Принял дом после другой бригады: вентиляции в проекте не было, котёл подобран без запаса. Исправил до отделки, а не после.', photos:['Гостиная','Банный блок','Котельная до и после','Спальня','Детали']}
+    {tab:'Дом 196 м²', sub:'клеёный брус · Подмосковье', title:'Дом 196 м² из клеёного бруса и керамоблока', chips:['196 м²','2 этажа','Сауна','4 санузла'], term:['___ мес','___ мес'], rate:['___ ₽/м²','___ ₽/м²'], works:'Под ключ: отопление и котельная, тёплые полы на двух этажах, электрика, водоснабжение и канализация, черновая и чистовая отделка 14 помещений.', feature:'Второй этаж из клеёного бруса даёт усадку 1–2% в первые годы. Перегородки и отделку собирал на скользящих креплениях с зазорами — поэтому плитка и потолки не трескаются.', photos:['Гостиная','Кухня-столовая','Сауна','Котельная','Спальня']},
+    {tab:'Papushevo Park', sub:'___ м² · Одинцово', title:'Дом ___ м², КП Papushevo Park', chips:['___ м²','2 этажа','Панорамное остекление'], term:['___ мес','___ мес'], rate:['___ ₽/м²','___ ₽/м²'], works:'Под ключ по рабочей документации дизайн-проекта: инженерия, тёплые полы, отделка, скрытые двери, встроенная мебель.', feature:'Двери в одной плоскости со стеной, входная группа высотой 3,4 м и стеклянная раздвижная перегородка работают с допуском 1–2 мм — геометрию стен выводил ещё на черновом этапе.', photos:['Гостиная с остеклением','Кухня','Мастер-спальня','Санузел','Входная группа']},
+    {tab:'Новая Рига', sub:'320 м² · с тёплого контура', title:'Дом 320 м², Новая Рига', chips:['320 м²','С тёплого контура','Котельная и приточка'], demo:true, term:['11 мес','11 мес'], rate:['92 000 ₽/м²','92 000 ₽/м²'], works:'Котельная, приточно-вытяжная вентиляция, тёплые полы, электрика и автоматика, чистовая отделка, столярные работы.', feature:'Зашёл на готовый контур в сентябре: инженерию запустил до морозов, отделку вёл зимой в отапливаемом доме.', photos:['Гостиная','Кухня','Котельная','Спальня','Скрытые работы']},
+    {tab:'Дом с баней', sub:'240 м² · Рублёвское направление', title:'Дом с баней 240 м², Рублёвское направление', chips:['240 м²','Банный блок','Переделка инженерии'], demo:true, term:['9 мес','9 мес'], rate:['104 000 ₽/м²','104 000 ₽/м²'], works:'Аудит работ прежнего подрядчика, переделка обвязки котельной и вентиляции, отделка дома и банного блока.', feature:'Принял дом после другой бригады: вентиляции в проекте не было, котёл подобран без запаса. Исправил до отделки, а не после.', photos:['Гостиная','Банный блок','Котельная до и после','Спальня','Детали']}
   ];
   var pfTabs = document.getElementById('pfTabs');
   if (pfTabs){
@@ -4211,8 +4309,7 @@ html { scroll-padding-top: 136px; }
       } else {
         th.innerHTML = '<tr><th></th><th>По договору</th><th>По факту</th></tr>';
         $('pfTable').innerHTML = '<tr><td>Срок</td><td>' + c.term[0] + '</td><td class="fact">' + c.term[1] + '</td></tr>'
-          + '<tr><td>Смета: по моей инициативе</td><td colspan="2" class="fact">' + c.mine + '</td></tr>'
-          + '<tr><td>Смета: по решению заказчика</td><td colspan="2">' + c.client + '</td></tr>';
+          + '<tr><td>Смета за м²</td><td>' + c.rate[0] + '</td><td class="fact">' + c.rate[1] + '</td></tr>';
       }
       $('pfWorks').textContent = c.works;
       $('pfFeature').textContent = c.feature;
