@@ -3614,7 +3614,7 @@ section p b, section li b, .hero-sub b { color: inherit; font-weight: inherit; }
         <a class="seg-item" href="#top" data-scroll="top" aria-current="page"><b>Коммерция</b></a>
       </nav>
       <div class="hdr-contacts">
-        <a class="hdr-phone" href="tel:+70000000000"><b>+7 (___) ___-__-__</b><small>Отвечаю лично, без колл-центра</small></a>
+        <a class="hdr-phone" href="tel:+70000000000"><b>+7 (___) ___-__-__</b><small>Отвечаем сами, без колл-центра</small></a>
         <button class="top-bar-cta" data-scroll="quiz">Рассчитать стоимость</button>
         <a class="hdr-call" href="tel:+70000000000" aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></a>
         <button class="hdr-burger" type="button" id="hdrBurger" aria-label="Меню" aria-expanded="false" aria-controls="hdrDrawer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
@@ -4382,7 +4382,8 @@ section p b, section li b, .hero-sub b { color: inherit; font-weight: inherit; }
       } else {
         th.innerHTML = '<tr><th></th><th>По договору</th><th>По факту</th></tr>';
         $('pfTable').innerHTML = '<tr><td>Срок</td><td>' + c.term[0] + '</td><td class="fact">' + c.term[1] + '</td></tr>'
-          + '<tr><td>Смета за м²</td><td>' + c.rate[0] + '</td><td class="fact">' + c.rate[1] + '</td></tr>';
+          + '<tr><td>Отклонение от сметы</td><td>—</td><td class="fact">' + (c.dev || '___ %') + '</td></tr>'
+          + '<tr><td>Год сдачи</td><td colspan="2" class="fact">' + (c.year || '20__') + '</td></tr>';
       }
       $('pfWorks').textContent = c.works;
       $('pfFeature').textContent = c.feature;
