@@ -3505,7 +3505,7 @@ section p b, section li b, .hero-sub b { color: inherit; font-weight: inherit; }
 .err-card .solo { aspect-ratio: 16/10; border: none; border-bottom: 1px solid var(--border-main); }
 
 /* reviews run off the right edge of the screen */
-.rev-track { margin-right: calc((100vw - min(1400px, 92vw)) / -2); padding-right: calc((100vw - min(1400px, 92vw)) / 2); scroll-padding-left: 0; }
+.rev-track { margin-right: calc((var(--vw100, 100vw) - min(1400px, 92vw)) / -2); padding-right: calc((var(--vw100, 100vw) - min(1400px, 92vw)) / 2); scroll-padding-left: 0; }
 .reviews { overflow: hidden; }
 
 /* compare: drag anywhere */
@@ -3606,7 +3606,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
 /* soft cards */
 .bonus-card, .bonus-row, .case-card, .condition-card, .err-card, .founder-facts > div, .guarantee-card, .lead-form-card, .lm-card,
 .price-example, .pt-col, .pt-check, .q2-card, .quality2, .quiz-card, .quiz-result-preview, .result-card, .rev-card, .review-card,
-.scenario-card, .see-card, .service-card, .team-card, .tg-mockup, .tour-card, .fit-col, .price-split, .standard-grid .rule, .eng-item, .warm-row, .eng-note, .certs2-grid span {
+.scenario-card, .see-card, .service-card, .team-card, .tg-mockup, .tour-card, .fit-col, .price-split, .eng-item, .warm-row, .eng-note, .certs2-grid span {
   border-radius: var(--r-card) !important; box-shadow: var(--shadow-card);
 }
 .price-split { overflow: hidden; }
@@ -3659,7 +3659,54 @@ body .warm-row h3, body .rev-mini-title { font-family: var(--display) !important
   .hdr.compact .hdr-phone small { display: none; }
   html { scroll-padding-top: 100px; }
 }
+
+/* ===== round 3: flat #1C1C1C everywhere, no shadows, bronze glow, fluid scale ===== */
+:root, :root[data-theme="dark"], :root:not([data-theme="dark"]) {
+  --bg-primary: #1C1C1C; --bg-elevated: #1C1C1C; --bg-surface: #1C1C1C; --bg-card: #1C1C1C; --bg-accent: #1C1C1C;
+  --shadow-card: none;
+  --card-glow: radial-gradient(90% 120% at 100% 0%, rgba(184,150,90,0.115), rgba(184,150,90,0.03) 46%, transparent 72%);
+  --card-pad: clamp(22px, 2.1vw, 34px);
+}
+.hdr-top, .hdr-drawer, .seg-cap { background: #1C1C1C; }
+.hdr { background: rgba(28,28,28,0.9); }
+body, footer, body > section { background-color: #1C1C1C !important; }
+body > section:not(.hero7) { background-image: radial-gradient(46% 42% at 3% 0%, rgba(184,150,90,0.085), transparent 70%) !important; }
+body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient(44% 40% at 99% 4%, rgba(184,150,90,0.07), transparent 70%) !important; }
+
+/* cards: no shadow, hairline border, faint bronze light from the top-right corner */
+.bonus-card, .bonus-row, .case-card, .condition-card, .err-card, .founder-facts > div, .guarantee-card, .lead-form-card, .lm-card,
+.price-example, .pt-col, .pt-check, .q2-card, .quality2, .quiz-card, .quiz-result-preview, .result-card, .rev-card, .review-card,
+.scenario-card, .see-card, .service-card, .team-card, .tg-mockup, .tour-card, .fit-col, .price-split, .eng-item, .warm-row, .eng-note, .certs2-grid span, .p2-grid {
+  box-shadow: none !important; background-color: #1C1C1C !important; background-image: var(--card-glow) !important; border: 1px solid rgba(255,255,255,0.085) !important;
+}
+.fit-col.yes, .fit-col:first-child, .pt-col.mine, .pt-col:last-child { border-color: rgba(184,150,90,0.34) !important; --card-glow: radial-gradient(100% 130% at 100% 0%, rgba(184,150,90,0.17), rgba(184,150,90,0.045) 50%, transparent 78%); }
+.btn-primary, .top-bar-cta, .btn-secondary, .btn-outline, .btn-primary:hover, .top-bar-cta:hover { box-shadow: none !important; }
+.p2-grid { border-radius: var(--r-card); overflow: hidden; }
+
+/* inner padding audit */
+.eng-list { gap: 12px !important; border-top: none !important; }
+.eng-item { padding: clamp(18px, 1.7vw, 26px) !important; border-bottom: 1px solid rgba(255,255,255,0.085) !important; }
+.q2-n { top: 24px !important; right: 26px !important; }
+.q2-card { padding: clamp(26px, 2.6vw, 36px) !important; }
+.bonus-row { padding: 18px !important; }
+.eng-note, .warm-row { padding: var(--card-pad) !important; }
+@media (max-width: 900px) {
+  .p2-cell { padding: 22px 20px !important; }
+  .eng-item { padding: 18px 20px !important; }
+}
+@media (max-width: 1120px) { .hdr-meta .mailwrap { display: none !important; } }
+@media (min-width: 981px) and (max-width: 1240px) {
+  .hdr .seg-item { padding-inline: 12px !important; }
+  .hdr .seg-item b { font-size: 0.8rem; }
+  .hdr .top-bar-cta { padding-inline: 16px !important; font-size: 0.68rem; letter-spacing: 0.04em; }
+  .hdr-phone b { font-size: 0.92rem; }
+  .hdr-wrap { gap: 14px; }
+  .hdr .logo-sub { display: none; }
+}
+.q2-n { top: 28px !important; right: 28px !important; }
+@media (max-width: 900px) { .p2-cell { padding: 26px 22px 22px !important; } }
 </style>
+<script>(function(){var d=document.documentElement;function fit(){var w=window.innerWidth,z=w>1440?Math.min(w/1440,2.4):1;d.style.zoom=z===1?'':z;d.style.setProperty('--vw100',(w/z)+'px');}fit();window.addEventListener('resize',fit);})();</script>
 </head>
 <body>
 
