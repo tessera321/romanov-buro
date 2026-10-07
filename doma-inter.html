@@ -6,7 +6,7 @@
 <title>Романовъ · Дома · Inter</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="format-detection" content="telephone=no">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Onest:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
 <style>
 
 
@@ -3622,6 +3622,43 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
 .btn-primary:hover, .top-bar-cta:hover { box-shadow: 0 18px 40px -14px rgba(184,150,90,0.7), inset 0 1px 0 rgba(255,255,255,0.3); }
 .hero7-features { border-color: var(--border-main); }
 .pt-col li b { white-space: nowrap; }
+
+/* ===== round 2: caps grotesque headings, type scale, calmer accents ===== */
+:root { --display: 'TT Hoves Pro', 'TTHovesPro', 'Onest', 'Inter', sans-serif; }
+body h1, body h2 { font-family: var(--display) !important; text-transform: uppercase; font-weight: 400 !important; letter-spacing: -0.035em !important; line-height: 1.1 !important; text-wrap: balance; }
+body .hero7 h1 { font-size: clamp(1.75rem, 4.15vw, 3.9rem) !important; max-width: 25ch; }
+body section h2, body h2.section-heading { font-size: clamp(1.5rem, 3.1vw, 2.9rem) !important; max-width: 26ch; }
+body .warm-row h3, body .rev-mini-title { font-family: var(--display) !important; text-transform: uppercase; font-weight: 400 !important; letter-spacing: -0.03em !important; }
+.eng-head { margin-bottom: clamp(28px, 3.4vw, 48px); }
+.eng-head h2 { max-width: 30ch !important; }
+.eng-head .lead-p { max-width: 62ch; }
+#quizStart { scroll-margin-top: 150px; }
+
+/* readable secondary text */
+@media (min-width: 901px) {
+  .section-intro, .lead-p, .hero-sub { font-size: 1.0625rem !important; line-height: 1.6; }
+  .eng-item p, .rule p, .fit-col li, .p2-label, .q2-card p, .ally-row p, .guarantee-detail, .faq-a p, .route8-list p, .err-card p,
+  .honest-rules p, .hero7-feature p, .founder-facts p, .pt-col li span, .price-split li, .eng-note, .warm-row p, .control p, .ctl-item p { font-size: 0.97rem !important; line-height: 1.55; }
+  .eng-item h3 { font-size: 1.1rem; }
+}
+
+/* active direction: quiet marker, fill is reserved for the main action */
+.seg-item[aria-current="page"] { background: rgba(184,150,90,0.10) !important; box-shadow: inset 0 -2px 0 var(--bronze); }
+.seg-item[aria-current="page"] b, .seg-item[aria-current="page"] svg { color: var(--text-primary) !important; }
+.seg-item[aria-current="page"] small { color: var(--text-muted) !important; }
+
+/* compact header on scroll: 88px */
+@media (min-width: 981px) {
+  .hdr.compact .hdr-main .hdr-wrap { height: 54px !important; }
+  .hdr.compact .hdr-nav .hdr-wrap { height: 34px !important; }
+  .hdr.compact .hdr-links a { line-height: 32px; font-size: 0.78rem; }
+  .hdr.compact .logo-monogram { width: 34px !important; height: 34px !important; }
+  .hdr.compact .logo-sub { display: none !important; }
+  .hdr.compact .seg-item { min-height: 36px !important; padding-block: 4px; }
+  .hdr.compact .top-bar-cta { padding: 9px 18px !important; }
+  .hdr.compact .hdr-phone small { display: none; }
+  html { scroll-padding-top: 100px; }
+}
 </style>
 </head>
 <body>
@@ -3633,7 +3670,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
       <ul class="hdr-proof" aria-label="Факты о бюро">
         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>20 лет</b> в премиальном ремонте</span></li>
         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/></svg><span><b>115+</b> сданных объектов</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>до 5 лет</b> по договору</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>5 лет</b> по договору</span></li>
       </ul>
       <div class="hdr-meta">
         <span class="hdr-msg"><a href="#" aria-label="Написать в Telegram">Telegram</a><a href="#" aria-label="Написать в WhatsApp">WhatsApp</a><a href="#" aria-label="Написать в MAX">MAX</a></span>
@@ -3658,7 +3695,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
       </nav>
       <div class="hdr-contacts">
         <a class="hdr-phone" href="tel:+70000000000"><b>+7 (___) ___-__-__</b><small>Отвечаем сами, без колл-центра</small></a>
-        <button class="top-bar-cta" data-scroll="quiz">Рассчитать стоимость</button>
+        <button class="top-bar-cta" data-scroll="quizStart">Рассчитать стоимость</button>
         <a class="hdr-call" href="tel:+70000000000" aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></a>
         <button class="hdr-burger" type="button" id="hdrBurger" aria-label="Меню" aria-expanded="false" aria-controls="hdrDrawer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
       </div>
@@ -3667,18 +3704,18 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
   <nav class="hdr-nav" aria-label="Разделы страницы">
     <div class="hdr-wrap">
       <span class="hdr-desc">Ремонт домов и коттеджей от 150 м² под ключ</span>
-      <div class="hdr-links"><a href="#portfolio" data-scroll="portfolio" data-spy="portfolio">Объекты</a><a href="#honest-price" data-scroll="honest-price" data-spy="honest-price">Цена</a><a href="#standard" data-scroll="standard" data-spy="standard">Гарантии</a><a href="#team" data-scroll="team" data-spy="team">Команда</a><a href="#faq" data-scroll="faq" data-spy="faq">Вопросы</a></div>
+      <div class="hdr-links"><a href="#portfolio" data-scroll="portfolio" data-spy="portfolio">Объекты</a><a href="#price" data-scroll="honest-price" data-spy="honest-price">Цена</a><a href="#standard" data-scroll="standard" data-spy="standard">Гарантии</a><a href="#team" data-scroll="team" data-spy="team">Команда</a><a href="#faq" data-scroll="faq" data-spy="faq">Вопросы</a></div>
     </div>
   </nav>
   <div class="hdr-drawer" id="hdrDrawer" hidden>
-    <a class="dl" href="#portfolio" data-scroll="portfolio">Объекты</a><a class="dl" href="#honest-price" data-scroll="honest-price">Цена</a><a class="dl" href="#standard" data-scroll="standard">Гарантии</a><a class="dl" href="#team" data-scroll="team">Команда</a><a class="dl" href="#faq" data-scroll="faq">Вопросы</a>
+    <a class="dl" href="#portfolio" data-scroll="portfolio">Объекты</a><a class="dl" href="#price" data-scroll="honest-price">Цена</a><a class="dl" href="#standard" data-scroll="standard">Гарантии</a><a class="dl" href="#team" data-scroll="team">Команда</a><a class="dl" href="#faq" data-scroll="faq">Вопросы</a>
     <ul class="hdr-proof">
         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>20 лет</b> в премиальном ремонте</span></li>
         <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/></svg><span><b>115+</b> сданных объектов</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>до 5 лет</b> по договору</span></li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>5 лет</b> по договору</span></li>
     </ul>
     <div class="dc"><b>+7 (___) ___-__-__</b><span>hello@romanov-buro.ru</span><span>Пн–Сб 9:00–20:00 · Telegram · WhatsApp · MAX</span></div>
-    <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость</button>
+    <button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость</button>
   </div>
 </header>
 
@@ -3692,12 +3729,12 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
   <div class="hero7-scrim"></div>
   <div class="hero7-inner">
 
-    <h1 style="max-width:21ch">Въезжайте в дом точно по проекту: инженерия и отделка в одном договоре, без аванса и роста сметы</h1>
+    <h1 style="max-width:21ch">Въезжайте в дом точно по проекту: инженерия и отделка в одном договоре, без аванса за работы и роста сметы</h1>
     <div class="hero7-price">от 90 000 ₽/м²<span>дома от 150 м² · цена работ фиксируется в договоре</span></div>
     <p class="hero-sub">Я, Владимир Романов, отвечаю за ваш дом по договору, а ведёт его моя команда — от котельной и вентиляции до последнего плинтуса. <span class="hl">Один договор и одна гарантия на инженерию и отделку.</span></p>
     <ul class="hero7-facts"><li>Основатель бюро</li><li>20 лет практики</li></ul>
     <div class="hero-cta-row" style="margin-top:30px">
-      <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
+      <button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость ремонта</button>
       <a class="btn-outline" href="#" style="text-decoration:none">Обсудить дом в Telegram</a>
     </div>
     <p class="hero-cta-note">5 вопросов, 2 минуты. <b>Ориентир стоимости — сразу на экране.</b> Бонусом: чек-лист «14 инженерных ошибок» и мой выезд на объект.</p>
@@ -3710,7 +3747,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
     </div>
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <h3>Без аванса — ни рубля вперёд</h3>
+      <h3>Без аванса за работы</h3>
       <p>Платите за принятую работу — <span class="hl">по актам раз в 7–10 дней</span>.</p>
     </div>
     <div class="hero7-feature">
@@ -3740,7 +3777,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
         <div class="p2-label">клиентов рекомендуют нас своим друзьям</div>
       </div>
       <div class="p2-cell reveal">
-        <div class="p2-num">до <span class="cnt" data-to="5">5</span></div>
+        <div class="p2-num"><span class="cnt" data-to="5">5</span></div>
         <div class="p2-label">лет гарантии на отделку и инженерные сети</div>
       </div>
       <div class="p2-cell reveal">
@@ -3774,7 +3811,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
         <div class="pf-nav">
           <button class="arrow-btn" id="pfPrev" aria-label="Предыдущий объект"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
           <button class="arrow-btn" id="pfNext" aria-label="Следующий объект"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
-          <button class="btn-outline" type="button" data-scroll="quiz">Рассчитать похожий</button>
+          <button class="btn-outline" type="button" data-scroll="quizStart">Рассчитать похожий</button>
           <span class="pf-count" id="pfCount">01 / 08</span>
         </div>
       </div>
@@ -3823,12 +3860,12 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
 <!-- 5. ENGINEERING -->
 <section class="eng eng-main" id="engineering">
   <div class="container">
+    <div class="eng-head"><span class="label-sm reveal">Главное отличие дома от квартиры</span>
+        <h2 class="section-heading reveal" style="margin-bottom:18px">Котельная, вентиляция и септик — в том же договоре, что и отделка</h2>
+        <p class="lead-p reveal">Инженерия и отделка — <span class="hl">один договор, один график, одна гарантия</span>. Искать виноватого между подрядчиками не придётся.</p></div>
     <div class="eng-grid">
       <div class="photo eng-photo reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: котельная «как по линейке» — обвязка котла, коллекторы, маркировка линий, свободный проход для обслуживания</span></div>
       <div>
-        <span class="label-sm reveal">Главное отличие дома от квартиры</span>
-        <h2 class="section-heading reveal" style="margin-bottom:18px">Котельная, вентиляция и септик — в том же договоре, что и отделка</h2>
-        <p class="lead-p reveal">Инженерия и отделка — <span class="hl">один договор, один график, одна гарантия</span>. Искать виноватого между подрядчиками не придётся.</p>
         <div class="eng-list">
           <div class="eng-item reveal"><h3>Отопление и котельная</h3><p>Мощность — по теплопотерям, <span class="hl">с запасом на вентиляцию и горячую воду</span>. В котельной есть место для обслуживания.</p></div>
           <div class="eng-item reveal"><h3>Вентиляция — до чистовой отделки</h3><p>Закладываю в проект <span class="hl">до потолков</span>. Позже — только вскрывая отделку.</p></div>
@@ -3841,8 +3878,8 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
       </div>
     </div>
     <div class="warm-row reveal">
-      <div><h3>Тёплый контур — до зимы</h3><p>Нет окон и кровли — <span class="hl">закрою контур сам</span>. Инженерия запустится до холодов, отделка пойдёт в тёплом доме. Контур готов — начну с проверки коробки и вводов.</p></div>
-      <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
+      <div><h3>Тёплый контур — до зимы</h3><p>Нет окон и кровли — <span class="hl">закрою контур сам</span>. При старте в сезон инженерия запустится до холодов, и отделка пойдёт в тёплом доме. Если не успеваем — предложу график с временным отоплением. Контур готов — начну с проверки коробки и вводов.</p></div>
+      <button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость ремонта</button>
     </div>
     <span class="todo">Подтвердить формулировку про подрядчиков по котельной и септику. Уточнить, даёт ли Романов гарантию на тёплый контур и на какой срок.</span>
   </div>
@@ -3911,7 +3948,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
         <div class="bonus-row" data-b="3"><span class="photo b-thumb"><span class="ph-label">Фото: Владимир на объекте</span></span><span><b>Мой личный выезд на ваш объект</b><small>До 50 км от МКАД, через 2–3 дня после заявки. Бесплатно</small></span><span class="st">бонус</span></div>
       </div>
     </div>
-    <div class="quiz-card">
+    <div id="quizStart" class="quiz-card">
       <div class="quiz-container">
       <div class="quiz-progress" aria-hidden="true">
         <div class="quiz-progress-step active"></div><div class="quiz-progress-step"></div><div class="quiz-progress-step"></div><div class="quiz-progress-step"></div><div class="quiz-progress-step"></div>
@@ -4157,7 +4194,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
           <div class="price-example-row"><span>Платёж по акту раз в 7–10 дней</span><b>≈ 500–700 тыс. ₽</b></div>
           <div class="price-example-row"><span style="font-size:0.78rem;color:var(--text-muted)">Суммы этапов зависят от графика вашего объекта</span><b></b></div>
         </div>
-        <button class="btn-primary" data-scroll="quiz" style="margin-top:28px">Рассчитать стоимость моего дома</button>
+        <button class="btn-primary" data-scroll="quizStart" style="margin-top:28px">Рассчитать стоимость моего дома</button>
       </div>
       <div class="price-split">
         <div>
@@ -4298,14 +4335,15 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
       </div>
       <div>
         <h2 class="reveal">Пришлите проект или смету — покажем, где дом подорожает</h2>
-        <p class="lead-p reveal">Проект, смета другого подрядчика или просто планировки. <span class="hl">За 1 рабочий день</span> назову стоимость и отмечу, где прячутся переделки. <span class="hl">Через 2–3 дня приеду на объект</span>. Разбор останется у вас.</p>
+        <p class="lead-p reveal">Проект, смета другого подрядчика или просто планировки. <span class="hl">За 1 рабочий день</span> назову предварительный ориентир и отмечу, где прячутся переделки. <span class="hl">Через 2–3 дня приеду на объект</span>. Точную смету считаю после выезда. Разбор останется у вас.</p>
         <p class="geo-line reveal"><b>Выезжаю до 50 км от МКАД:</b> Одинцово, Рублёвка и Барвиха, Новая Рига, Истра, Красногорск, Мытищи, Пушкино и другие направления.</p>
         <form class="lead-form-card reveal" novalidate>
           <div class="form-group">
             <label for="fWhat">Что прислать на разбор</label>
             <select class="form-input" id="fWhat" name="what"><option>Проект дома</option><option>Смету другого подрядчика</option><option>И то и другое</option><option>Пока ничего — нужен выезд и консультация</option></select>
           </div>
-          <div class="form-group"><label for="fPhone">Телефон</label><input class="form-input" id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required></div>
+          <div class="form-group"><label for="fLink">Ссылка на проект или смету <span style="opacity:.6;text-transform:none;letter-spacing:0">— необязательно</span></label><input class="form-input" id="fLink" name="link" type="url" inputmode="url" placeholder="Яндекс Диск, Google Drive, облако"></div>
+<div class="form-group"><label for="fPhone">Телефон</label><input class="form-input" id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required></div>
           <div class="form-group">
             <label>Удобнее связаться в</label>
             <div class="pills" data-pills>
@@ -4318,7 +4356,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
           <button class="btn-primary" type="submit" style="width:100%">Получить расчёт и выезд</button>
           <p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p>
         </form>
-        <p class="final8-alt reveal">Проекта пока нет? <button type="button" data-scroll="quiz">Рассчитать стоимость с нуля</button></p>
+        <p class="final8-alt reveal">Проекта пока нет? <button type="button" data-scroll="quizStart">Рассчитать стоимость с нуля</button></p>
       </div>
     </div>
   </div>
@@ -4338,7 +4376,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
 </footer>
 
 <div class="mobile-bar">
-  <button class="btn-primary" data-scroll="quiz">Рассчитать стоимость ремонта</button>
+  <button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость ремонта</button>
   <a class="btn-outline" href="#" aria-label="Написать в Telegram" style="text-decoration:none">TG</a>
 </div>
 <button class="todo-toggle" type="button" id="todoToggle">Показать пометки для клиента</button>
@@ -4828,7 +4866,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
   /* ----- COUNT-UP for proof numbers ----- */
   (function(){
     var els = [].slice.call(document.querySelectorAll('.cnt'));
-    if (!els.length || reduced || window.innerWidth < 900 || !('IntersectionObserver' in window)) return;
+    if (!els.length || reduced || true || !('IntersectionObserver' in window)) return;
     var vh = window.innerHeight;
     els = els.filter(function(el){ return el.getBoundingClientRect().top > vh * 0.9; });
     els.forEach(function(el){ el.textContent = '0'; });
