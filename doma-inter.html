@@ -6,7 +6,7 @@
 <title>Романовъ · Дома · Inter</title>
 <meta name="robots" content="noindex, nofollow">
 <meta name="format-detection" content="telephone=no">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Onest:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Onest:wght@400;500&family=Raleway:wght@400;500&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap">
 <style>
 
 
@@ -3742,73 +3742,132 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
   .hero7 .hero-cta-note { display: none !important; }
   .hero7 .hero-sub { max-width: 78ch !important; }
 }
+
+/* ===== round 5: one-row glass header, burger menu, hero photo, Raleway headings ===== */
+:root { --display: 'Raleway', 'Inter', sans-serif; --hdr-h: 84px !important; }
+body h1, body h2, body .warm-row h3, body .rev-mini-title { font-family: var(--display) !important; font-weight: 400 !important; font-variant-numeric: lining-nums; letter-spacing: -0.02em !important; }
+html { scroll-padding-top: 100px !important; }
+
+/* glass header over the first screen */
+.hdr.gl { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding-top: env(safe-area-inset-top, 0px);
+  background: rgba(24,24,24,0.42) !important; -webkit-backdrop-filter: saturate(180%) blur(22px); backdrop-filter: saturate(180%) blur(22px);
+  border-bottom: 1px solid rgba(255,255,255,0.08); box-shadow: none !important; transition: background .3s, border-color .3s; }
+.hdr.gl.compact, .hdr.gl.open { background: rgba(24,24,24,0.72) !important; }
+.gl-row { width: min(var(--page-max), calc(100vw - 2 * var(--gut))); margin-inline: auto; height: 84px; display: flex; align-items: center; gap: clamp(16px, 2vw, 36px); transition: height .3s; }
+.hdr.gl.compact .gl-row { height: 68px; }
+.gl .logo-group { display: flex; align-items: center; gap: 14px; flex: none; text-decoration: none; }
+.gl .logo-monogram { width: 44px; height: 44px; }
+.gl .logo-name { font-size: 1.02rem; }
+.gl .logo-sub { display: block; font-size: 0.66rem; letter-spacing: 0.06em; text-transform: none; color: var(--text-secondary); margin-top: 3px; white-space: nowrap; }
+.gl-proof { list-style: none; margin: 0 0 0 auto; padding: 0 0 0 clamp(16px, 2vw, 36px); display: flex; gap: clamp(16px, 1.8vw, 32px); border-left: 1px solid rgba(255,255,255,0.1); }
+.gl-proof li { display: flex; flex-direction: column; line-height: 1.25; white-space: nowrap; }
+.gl-proof b { font-family: var(--serif); font-weight: 500; font-size: 1.12rem; color: var(--bronze); letter-spacing: 0; }
+.gl-proof span { font-size: 0.7rem; color: var(--text-secondary); }
+.gl-contact { display: flex; flex-direction: column; line-height: 1.3; padding-left: clamp(16px, 2vw, 36px); border-left: 1px solid rgba(255,255,255,0.1); white-space: nowrap; }
+.gl-phone { font-weight: 600; font-size: 1rem; color: var(--text-primary); text-decoration: none; letter-spacing: 0.01em; }
+.gl-phone:hover { color: var(--bronze-hover); }
+.gl-sub { font-size: 0.7rem; color: var(--text-secondary); }
+.gl-sub .mail { user-select: all; }
+.gl-soc { display: flex; gap: 6px; }
+.gl-soc a, .gl-dsoc a { min-width: 36px; height: 36px; padding: 0 9px; border-radius: 18px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.16); color: var(--text-primary); text-decoration: none; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.04em; transition: border-color .2s, background .2s; }
+.gl-soc a:hover, .gl-dsoc a:hover { border-color: var(--bronze); background: rgba(184,150,90,0.1); }
+.gl .top-bar-cta { flex: none; padding: 13px 20px; font-size: 0.7rem; }
+.gl .hdr-call { display: none; }
+.gl .hdr-burger { display: inline-flex !important; flex: none; width: 46px; height: 46px; border-radius: 23px !important; border: 1px solid rgba(255,255,255,0.18); background: rgba(255,255,255,0.04); color: var(--text-primary); align-items: center; justify-content: center; flex-direction: column; gap: 5px; cursor: pointer; }
+.gl .hdr-burger i { display: block; width: 18px; height: 1.5px; background: currentColor; transition: transform .3s var(--ease-out), opacity .2s; }
+.gl .hdr-burger[aria-expanded="true"] i:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.gl .hdr-burger[aria-expanded="true"] i:nth-child(2) { opacity: 0; }
+.gl .hdr-burger[aria-expanded="true"] i:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+.gl .hdr-burger:hover { border-color: var(--bronze); }
+
+/* drawer: the same glass, three columns */
+.gl-drawer { border-top: 1px solid rgba(255,255,255,0.08); max-height: calc(100svh - 84px); overflow-y: auto; padding: clamp(24px, 3vw, 44px) 0 clamp(28px, 3.4vw, 48px) !important; background: transparent !important; }
+.gl-dwrap { width: min(var(--page-max), calc(100vw - 2 * var(--gut))); margin-inline: auto; display: grid; grid-template-columns: 1fr 1.25fr 1fr; gap: clamp(24px, 4vw, 72px); }
+.gl-cap { display: block; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bronze); margin-bottom: 14px; }
+.gl-drawer a.dl { display: block; padding: 10px 0; font-family: var(--display); font-size: clamp(1.3rem, 1.8vw, 1.75rem); text-transform: uppercase; letter-spacing: -0.01em; color: var(--text-primary); text-decoration: none; border-bottom: none; transition: color .2s, padding .3s var(--ease-out); }
+.gl-drawer a.dl:hover, .gl-drawer a.dl[aria-current="true"] { color: var(--bronze); padding-left: 6px; }
+.gl-dirs { display: grid; gap: 10px; }
+.gl-dir { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 16px; padding: 16px 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); text-decoration: none; color: var(--text-primary); background-image: var(--card-glow); transition: border-color .2s; }
+.gl-dir b { font-weight: 600; font-size: 1rem; }
+.gl-dir small { grid-column: 1; font-size: 0.78rem; color: var(--text-secondary); }
+.gl-dir em { grid-row: 1 / span 2; grid-column: 2; font-style: normal; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.gl-dir:hover { border-color: rgba(184,150,90,0.5); }
+.gl-dir[aria-current="page"] { border-color: rgba(184,150,90,0.55); }
+.gl-dir[aria-current="page"] em { color: var(--bronze); }
+.gl-dcon { display: grid; gap: 8px; font-size: 0.92rem; color: var(--text-secondary); }
+.gl-dcon .gl-phone { font-size: 1.35rem; margin-bottom: 4px; }
+.gl-dsoc { display: flex; gap: 8px; margin: 10px 0 18px; }
+.gl-dcon .btn-primary { width: 100%; }
+
+/* priorities as the window narrows */
+@media (max-width: 1680px) { .gl-sub .mail, .gl-sub .dot { display: none; } }
+@media (max-width: 1500px) { .gl-soc { display: none; } }
+@media (max-width: 1320px) { .gl-proof li:nth-child(3) { display: none; } }
+@media (max-width: 1180px) { .gl-proof { display: none; } .gl-contact { margin-left: auto; } }
+@media (max-width: 980px) {
+  :root { --hdr-h: 64px !important; }
+  .gl-row { height: 64px; gap: 10px; }
+  .hdr.gl.compact .gl-row { height: 64px; }
+  .gl .logo-monogram { width: 38px; height: 38px; }
+  .gl .logo-sub { font-size: 0.6rem; }
+  .gl-contact, .gl .top-bar-cta { display: none; }
+  .gl .hdr-call { display: inline-flex !important; margin-left: auto; width: 46px; height: 46px; border-radius: 23px !important; border: 1px solid rgba(255,255,255,0.18); align-items: center; justify-content: center; color: var(--bronze); }
+  .gl-drawer { max-height: calc(100svh - 64px); padding: 18px 0 28px !important; }
+  .gl-dwrap { grid-template-columns: 1fr; gap: 28px; }
+  .gl-drawer a.dl { font-size: 1.3rem; padding: 8px 0; }
+}
+@media (max-width: 400px) { .gl .logo-sub { display: none; } }
+
+/* first screen: photo under the glass header */
+.hero7 { padding-top: var(--hdr-h) !important; background: #1C1C1C; }
+.hero7-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 68% 28%; display: block; }
+.hero7-photo .ph-label, .hero7-photo > svg { display: none !important; }
+@media (min-width: 981px) {
+  .hero7-photo { position: absolute !important; inset: 0 !important; height: auto !important; padding: 0 !important; border-radius: 0 !important; background: #1C1C1C !important; }
+  .hero7-scrim { display: block !important; position: absolute; inset: 0; z-index: 0; height: auto !important; background:
+    linear-gradient(90deg, rgba(28,28,28,0.94) 0%, rgba(28,28,28,0.82) 30%, rgba(28,28,28,0.38) 54%, rgba(28,28,28,0) 72%),
+    linear-gradient(0deg, rgba(28,28,28,0.96) 0%, rgba(28,28,28,0.5) 16%, rgba(28,28,28,0) 34%),
+    linear-gradient(180deg, rgba(28,28,28,0.5) 0%, rgba(28,28,28,0) 22%) !important; pointer-events: none; }
+  .hero7-features-wrap { background: rgba(24,24,24,0.38) !important; -webkit-backdrop-filter: saturate(160%) blur(18px); backdrop-filter: saturate(160%) blur(18px); border-top: 1px solid rgba(255,255,255,0.1) !important; }
+  .hero7-feature { border-right-color: rgba(255,255,255,0.1) !important; }
+  .hero7 h1 { text-shadow: 0 1px 24px rgba(0,0,0,0.25); }
+}
+@media (max-width: 980px) {
+  .hero7-photo { position: relative; overflow: hidden; height: 86vw !important; max-height: 520px; padding: 0 !important; border-radius: 14px !important; }
+  .hero7-photo img { object-position: 80% 30%; }
+}
 </style>
 </head>
 <body>
 
 <!-- HEADER (shared across pages) -->
-<header class="hdr" id="hdr">
-  <div class="hdr-top">
-    <div class="hdr-wrap">
-      <ul class="hdr-proof" aria-label="Факты о бюро">
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>20 лет</b> в премиальном ремонте</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/></svg><span><b>115+</b> сданных объектов</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>5 лет</b> по договору</span></li>
-      </ul>
-      <div class="hdr-meta">
-        <span class="hdr-msg"><a href="#" aria-label="Написать в Telegram">Telegram</a><a href="#" aria-label="Написать в WhatsApp">WhatsApp</a><a href="#" aria-label="Написать в MAX">MAX</a></span>
-        <span class="mailwrap"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></svg><span class="mail">hello@romanov-buro.ru</span></span>
-        <span class="hrs"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Пн–Сб 9:00–20:00</span>
-      </div>
-    </div>
+<header class="hdr gl" id="hdr">
+  <div class="gl-row">
+    <a class="logo-group" href="#top" data-scroll="top"><div class="logo-monogram"><span>R</span></div><div class="logo-text"><div class="logo-name">Романовъ</div><div class="logo-sub">Ремонт домов и коттеджей от 150 м²</div></div></a>
+    <ul class="gl-proof" aria-label="Факты о бюро"><li><b>20 лет</b><span>в премиальном ремонте</span></li><li><b>115+</b><span>сданных объектов</span></li><li><b>5 лет</b><span>гарантии по договору</span></li></ul>
+    <div class="gl-contact"><a class="gl-phone" href="tel:+70000000000">+7 (___) ___-__-__</a><span class="gl-sub"><span class="mail">hello@romanov-buro.ru</span><span class="dot"> · </span>Пн–Сб 9:00–20:00</span></div>
+    <div class="gl-soc"><a href="#" aria-label="Написать в Telegram">TG</a><a href="#" aria-label="Написать в WhatsApp">WA</a><a href="#" aria-label="Написать в MAX">MAX</a></div>
+    <button class="top-bar-cta" data-scroll="quizStart">Рассчитать стоимость</button>
+    <a class="hdr-call" href="tel:+70000000000" aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></a>
+    <button class="hdr-burger" type="button" id="hdrBurger" aria-label="Меню" aria-expanded="false" aria-controls="hdrDrawer"><i></i><i></i><i></i></button>
   </div>
-  <div class="hdr-main">
-    <div class="hdr-wrap">
-      <a class="logo-group" href="#top" data-scroll="top" style="text-decoration:none">
-        <div class="logo-monogram"><span>R</span></div>
-        <div class="logo-text">
-          <div class="logo-name">Романовъ</div>
-          <div class="logo-sub">Бюро честных интерьеров</div>
-        </div>
-      </a>
-      <nav class="seg" aria-label="Направления: что ремонтируем">
-        <a class="seg-item" href="index.html"><b>Квартиры</b></a>
-        <a class="seg-item" href="#top" data-scroll="top" aria-current="page"><b>Дома и коттеджи</b></a>
-        <a class="seg-item" href="commerce.html"><b>Коммерция</b></a>
-      </nav>
-      <div class="hdr-contacts">
-        <a class="hdr-phone" href="tel:+70000000000"><b>+7 (___) ___-__-__</b><small>Отвечаем сами, без колл-центра</small></a>
-        <button class="top-bar-cta" data-scroll="quizStart">Рассчитать стоимость</button>
-        <a class="hdr-call" href="tel:+70000000000" aria-label="Позвонить"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></a>
-        <button class="hdr-burger" type="button" id="hdrBurger" aria-label="Меню" aria-expanded="false" aria-controls="hdrDrawer"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
-      </div>
+  <div class="hdr-drawer gl-drawer" id="hdrDrawer" hidden>
+    <div class="gl-dwrap">
+      <nav aria-label="Разделы страницы"><span class="gl-cap">На этой странице</span><a class="dl" href="#portfolio" data-scroll="portfolio" data-spy="portfolio">Объекты</a><a class="dl" href="#price" data-scroll="price" data-spy="price">Цена</a><a class="dl" href="#standard" data-scroll="standard" data-spy="standard">Гарантии</a><a class="dl" href="#team" data-scroll="team" data-spy="team">Команда</a><a class="dl" href="#faq" data-scroll="faq" data-spy="faq">Вопросы</a></nav>
+      <div><span class="gl-cap">Что ремонтируем</span><div class="gl-dirs">
+        <a class="gl-dir" href="index.html"><b>Квартиры</b><small>от 60 000 ₽/м², 4–7 месяцев</small><em>Перейти</em></a>
+        <a class="gl-dir" href="#top" data-scroll="top" aria-current="page"><b>Дома и коттеджи</b><small>от 150 м², инженерия и отделка в одном договоре</small><em>Вы здесь</em></a>
+        <a class="gl-dir" href="commerce.html"><b>Коммерция</b><small>бары, лофты, шоурумы — открытие в срок</small><em>Перейти</em></a>
+      </div></div>
+      <div class="gl-dcon"><span class="gl-cap">Связаться</span><a class="gl-phone" href="tel:+70000000000">+7 (___) ___-__-__</a><span class="mail">hello@romanov-buro.ru</span><span>Пн–Сб 9:00–20:00 · отвечаем сами, без колл-центра</span><div class="gl-dsoc"><a href="#" aria-label="Написать в Telegram">TG</a><a href="#" aria-label="Написать в WhatsApp">WA</a><a href="#" aria-label="Написать в MAX">MAX</a></div><button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость</button></div>
     </div>
-  </div>
-  <nav class="hdr-nav" aria-label="Разделы страницы">
-    <div class="hdr-wrap">
-      <span class="hdr-desc">Ремонт домов и коттеджей от 150 м² под ключ</span>
-      <div class="hdr-links"><a href="#portfolio" data-scroll="portfolio" data-spy="portfolio">Объекты</a><a href="#price" data-scroll="honest-price" data-spy="honest-price">Цена</a><a href="#standard" data-scroll="standard" data-spy="standard">Гарантии</a><a href="#team" data-scroll="team" data-spy="team">Команда</a><a href="#faq" data-scroll="faq" data-spy="faq">Вопросы</a></div>
-    </div>
-  </nav>
-  <div class="hdr-drawer" id="hdrDrawer" hidden>
-    <a class="dl" href="#portfolio" data-scroll="portfolio">Объекты</a><a class="dl" href="#price" data-scroll="honest-price">Цена</a><a class="dl" href="#standard" data-scroll="standard">Гарантии</a><a class="dl" href="#team" data-scroll="team">Команда</a><a class="dl" href="#faq" data-scroll="faq">Вопросы</a>
-    <ul class="hdr-proof">
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>20 лет</b> в премиальном ремонте</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 11l9-7 9 7v9H3z"/><path d="M10 20v-6h4v6"/></svg><span><b>115+</b> сданных объектов</span></li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg><span>Гарантия <b>5 лет</b> по договору</span></li>
-    </ul>
-    <div class="dc"><b>+7 (___) ___-__-__</b><span>hello@romanov-buro.ru</span><span>Пн–Сб 9:00–20:00 · Telegram · WhatsApp · MAX</span></div>
-    <button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость</button>
   </div>
 </header>
 
 <main id="top">
 <!-- 1. HERO -->
 <section class="hero7">
-  <div class="photo hero7-photo" aria-hidden="true">
-    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
-    <span class="ph-label">Фото на всю ширину: Владимир Романов в готовом загородном доме (гостиная с панорамным остеклением), по пояс, взгляд в камеру. Естественный свет, лицо в правой трети кадра</span>
-  </div>
+  <div class="photo hero7-photo"><img src="img/hero-doma.jpg" alt="Загородный дом с подсветкой фасада вечером, на первом плане руководитель бюро" fetchpriority="high"></div>
   <div class="hero7-scrim"></div>
   <div class="hero7-inner">
 
@@ -4499,7 +4558,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
   var hdr = document.getElementById('hdr'), ticking = false;
   var burger = document.getElementById('hdrBurger'), drawer = document.getElementById('hdrDrawer');
   var mbar = document.querySelector('.mobile-bar');
-  function closeDrawer(){ drawer.hidden = true; burger.setAttribute('aria-expanded','false'); }
+  function closeDrawer(){ drawer.hidden = true; burger.setAttribute('aria-expanded','false'); hdr.classList.remove('open'); }
   function onScroll(){
     hdr.classList.toggle('compact', window.scrollY > 90 && drawer.hidden);
     if (mbar) mbar.classList.toggle('show', window.scrollY > 620);
@@ -4511,7 +4570,7 @@ body > section:nth-of-type(even):not(.hero7) { background-image: radial-gradient
   onScroll();
   burger.addEventListener('click', function(){
     var open = drawer.hidden;
-    drawer.hidden = !open; burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    drawer.hidden = !open; burger.setAttribute('aria-expanded', open ? 'true' : 'false'); hdr.classList.toggle('open', open);
     if (open) hdr.classList.remove('compact'); else onScroll();
   });
   drawer.addEventListener('click', function(e){ if (e.target.closest('[data-scroll]')) closeDrawer(); });
