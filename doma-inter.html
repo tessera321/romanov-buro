@@ -3957,6 +3957,63 @@ body h1, body h2, body .warm-row h3, body .rev-mini-title { line-height: 1.12 !i
 @media (max-width: 900px) {
   .pp-shade { background: linear-gradient(180deg, #1C1C1C 0%, rgba(28,28,28,0.88) 22%, rgba(28,28,28,0.55) 38%, rgba(28,28,28,0.9) 58%, #1C1C1C 100%) !important; }
 }
+
+/* ===== GL5: единая 12-колоночная сетка — все вертикали совпадают ===== */
+:root{ --cg: clamp(16px, 2vw, 40px); }
+/* разделители секций — по ширине контейнера */
+section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !important; }
+/* единый межколоночный шаг */
+.pp-nums{ column-gap: var(--cg) !important; }
+.fit-grid, .pt-grid{ gap: var(--cg) !important; }
+@media (min-width: 901px){
+  .format-scenarios, .err-grid, .err-grid.three, .rev-mini, .bonus-stack, .certs2-grid{ gap: var(--cg) !important; }
+  /* aside 1–5 · пустая колонка · main 7–12 */
+  .eng-grid, .standard-grid, .ally-grid, .route8-grid, .faq-grid, .final8-grid, .control-split,
+  .team-founder, .format-main, .pf-panel{
+    grid-template-columns: repeat(12, minmax(0, 1fr)) !important; column-gap: var(--cg) !important; row-gap: 0 !important;
+  }
+  .eng-grid > :first-child, .standard-grid > :first-child, .ally-grid > :first-child, .route8-grid > :first-child,
+  .faq-grid > :first-child, .final8-grid > :first-child, .control-split > :first-child{ grid-column: 1 / 6; }
+  .eng-grid > :nth-child(2), .standard-grid > :nth-child(2), .ally-grid > :nth-child(2), .route8-grid > :nth-child(2),
+  .faq-grid > :nth-child(2), .final8-grid > :nth-child(2), .control-split > :nth-child(2){ grid-column: 7 / 13; }
+  /* основатель: фото 1–4, факты 6–12 */
+  .team-founder > :first-child{ grid-column: 1 / 5; }
+  .team-founder > :nth-child(2){ grid-column: 6 / 13; }
+  /* цена: колонка 1 = первая карточка сценариев, таблица = карточки 2–3 */
+  .format-main > :first-child{ grid-column: 1 / 5; }
+  .format-main > :nth-child(2){ grid-column: 5 / 13; }
+  /* кейсы: фото 1–7, описание 8–12 */
+  .pf-panel > :first-child{ grid-column: 1 / 8; }
+  .pf-panel > :nth-child(2){ grid-column: 8 / 13; }
+  /* инженерия: верх фото = верх карточек */
+  .eng-grid .eng-list{ margin-top: 0 !important; }
+}
+/* принципы: колонки по той же сетке, линия — в середине межколонника */
+@media (min-width: 1101px){
+  .principles{ column-gap: var(--cg) !important; }
+  .principle, .principle + .principle{ padding-left: 0 !important; padding-right: 0 !important; border-left: none !important; position: relative; }
+  .principle + .principle::before{ content: ""; position: absolute; top: 0; bottom: 0; left: calc(var(--cg) / -2); width: 1px; background: var(--divider); }
+  .pp-nums{ grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+}
+/* команда: на десктопе 5 карточек ровно в контейнер, без обрезки */
+@media (min-width: 1181px){
+  .crew{ gap: var(--cg) !important; overflow: visible !important; }
+  .crew-card{ flex: 0 0 calc((100% - 4 * var(--cg)) / 5) !important; min-width: 0; }
+  .hs-nav:has(+ .crew){ display: none !important; }
+}
+@media (min-width: 901px) and (max-width: 1180px){
+  .team-founder > :first-child{ grid-column: 1 / 5; }
+  .team-founder > :nth-child(2){ grid-column: 5 / 13; }
+}
+@media (min-width: 901px){ .founder-facts > *{ min-width: 0; } }
+/* инженерия: текст плашки «Честно о подрядчиках» — на вертикали текста карточек */
+.eng-note{ padding-left: clamp(18px, 1.7vw, 34px) !important; padding-right: clamp(18px, 1.7vw, 34px) !important; }
+.eng-item{ padding-left: clamp(18px, 1.7vw, 34px) !important; padding-right: clamp(18px, 1.7vw, 34px) !important; }
+@media (min-width: 1181px){ .crew{ margin-top: clamp(32px, 3vw, 56px) !important; } }
+/* цена: текст таблицы — на вертикали текста карточек сценариев */
+@media (min-width: 901px){
+  .scenario-card, .price-split > div{ padding-left: clamp(20px, 2.25vw, 44px) !important; padding-right: clamp(20px, 2.25vw, 44px) !important; }
+}
 </style>
 </head>
 <body>
