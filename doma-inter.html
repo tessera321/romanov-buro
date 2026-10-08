@@ -3911,6 +3911,52 @@ body h1, body h2, body .warm-row h3, body .rev-mini-title { font-weight: 400 !im
 .btn-primary:focus-visible, .top-bar-cta:focus-visible { outline: 2px solid var(--bronze); outline-offset: 3px; }
 body section h2, body h2.section-heading, body section .h2-two { max-width: 34ch !important; }
 .proof2 h2, .proof2 .h2-two { max-width: 46ch !important; }
+
+/* ===== round 8 ===== */
+body h1, body h2, body .warm-row h3, body .rev-mini-title { line-height: 1.12 !important; letter-spacing: -0.022em !important; }
+@media (min-width: 981px) {
+  .hero7-scrim { background:
+    linear-gradient(90deg, rgba(28,28,28,0.97) 0%, rgba(28,28,28,0.9) 30%, rgba(28,28,28,0.6) 50%, rgba(28,28,28,0.14) 66%, rgba(28,28,28,0) 78%),
+    linear-gradient(0deg, rgba(28,28,28,0.96) 0%, rgba(28,28,28,0.5) 16%, rgba(28,28,28,0) 34%),
+    linear-gradient(180deg, rgba(28,28,28,0.5) 0%, rgba(28,28,28,0) 22%) !important; }
+}
+.hero-cta-note b { color: var(--text-primary) !important; font-weight: 500 !important; }
+.portfolio .section-intro { max-width: none !important; }
+.pf-main { max-height: none !important; }
+
+/* case photos (stock placeholders until real ones) */
+.pf-main.has-img, .pf-thumb.has-img { background-size: cover !important; background-position: center !important; }
+.pf-main.has-img > svg, .pf-main.has-img .ph-label { display: none !important; }
+.pf-main.has-img { position: relative; }
+.pf-main.has-img::after { content: attr(data-cap); position: absolute; left: 16px; bottom: 14px; padding: 6px 12px; border-radius: 999px; font-size: 0.74rem; color: var(--text-primary);
+  background: rgba(24,24,24,0.42); -webkit-backdrop-filter: blur(14px) saturate(160%); backdrop-filter: blur(14px) saturate(160%); border: 1px solid rgba(255,255,255,0.14); }
+.pf-thumb.has-img { color: transparent !important; font-size: 0 !important; }
+.pf-thumb.has-img[aria-pressed="true"] { box-shadow: inset 0 0 0 2px var(--bronze); }
+
+/* numbers over a photo of a finished house */
+.proof-photo { position: relative; overflow: hidden; padding: 0 !important; background: #1C1C1C !important; }
+.proof-photo::after { display: none !important; }
+.pp-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.pp-shade { position: absolute; inset: 0; background:
+  linear-gradient(180deg, #1C1C1C 0%, rgba(28,28,28,0.78) 14%, rgba(28,28,28,0.5) 40%, rgba(28,28,28,0.62) 62%, rgba(28,28,28,0.95) 88%, #1C1C1C 100%),
+  linear-gradient(90deg, rgba(28,28,28,0.55) 0%, rgba(28,28,28,0) 60%); }
+.pp-in { position: relative; z-index: 1; min-height: clamp(560px, 92svh, 1100px); display: flex; flex-direction: column; justify-content: space-between; padding-block: clamp(72px, 10svh, 140px) clamp(48px, 7svh, 96px); }
+.pp-in h2 { margin: 0 !important; }
+.pp-nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(20px, 3vw, 56px); border-top: 1px solid rgba(255,255,255,0.16); padding-top: clamp(22px, 3svh, 36px); }
+.pp-nums b { display: block; font-family: var(--display); font-weight: 400; font-size: clamp(2.8rem, 5.6vw, 6.2rem); line-height: 1; letter-spacing: -0.03em; color: var(--bronze); white-space: nowrap; }
+.pp-nums span { display: block; margin-top: 14px; max-width: 24ch; font-size: clamp(0.92rem, 1vw, 1.05rem); line-height: 1.45; color: rgba(245,240,232,0.82); }
+@media (max-width: 900px) {
+  .pp-nums { grid-template-columns: 1fr 1fr; row-gap: 28px; }
+  .pp-in { min-height: 0; padding-block: 64px 40px; gap: 220px; }
+  .pp-shade { background: linear-gradient(180deg, #1C1C1C 0%, rgba(28,28,28,0.6) 18%, rgba(28,28,28,0.35) 40%, rgba(28,28,28,0.9) 72%, #1C1C1C 100%); }
+}
+.pp-shade { background:
+  linear-gradient(180deg, #1C1C1C 0%, rgba(28,28,28,0.9) 18%, rgba(28,28,28,0.62) 34%, rgba(28,28,28,0.5) 50%, rgba(28,28,28,0.78) 70%, rgba(28,28,28,0.96) 90%, #1C1C1C 100%),
+  linear-gradient(90deg, rgba(28,28,28,0.45) 0%, rgba(28,28,28,0) 60%) !important; }
+.proof-photo .tone { color: rgba(245,240,232,0.62); }
+@media (max-width: 900px) {
+  .pp-shade { background: linear-gradient(180deg, #1C1C1C 0%, rgba(28,28,28,0.88) 22%, rgba(28,28,28,0.55) 38%, rgba(28,28,28,0.9) 58%, #1C1C1C 100%) !important; }
+}
 </style>
 </head>
 <body>
@@ -3961,7 +4007,7 @@ body section h2, body h2.section-heading, body section .h2-two { max-width: 34ch
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="3" width="16" height="18"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
       <h3>Железная смета</h3>
-      <p>Фиксирую на старте. Меняется только с вашей подписью.</p>
+      <p><span class="hl">Фиксирую на старте.</span> Меняется только с вашей подписью.</p>
     </div>
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
@@ -3971,39 +4017,25 @@ body section h2, body h2.section-heading, body section .h2-two { max-width: 34ch
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
       <h3>Гарантия 5 лет</h3>
-      <p>На отделку и инженерные сети. Выезд — за 2–3 дня.</p>
+      <p>На отделку и инженерные сети. <span class="hl">Выезд — за 2–3 дня.</span></p>
     </div>
   </div>
   </div>
 </section>
 
 <!-- 2. PROOF BAND -->
-<section class="proof2" aria-label="Факты о бюро">
-  <div class="container">
-    <h2 class="section-heading reveal h2-two">20 лет и 115+ объектов: <span class="tone">ваш дом  не станет экспериментом новой бригады</span></h2>
-    <div class="p2-grid">
-      <div class="p2-cell p2-main reveal">
-        <div class="p2-num big"><span class="cnt" data-to="20">20</span></div>
-        <div class="p2-label">лет опыта в премиальном ремонте. За каждый объект отвечаю я.</div>
-      </div>
-      <div class="p2-cell reveal">
-        <div class="p2-num"><span class="cnt" data-to="115">115</span>+</div>
-        <div class="p2-label">сданных объектов, из них ___ домов и коттеджей</div>
-      </div>
-      <div class="p2-cell reveal">
-        <div class="p2-num"><span class="cnt" data-to="97">97</span>%</div>
-        <div class="p2-label">клиентов рекомендуют нас своим друзьям</div>
-      </div>
-      <div class="p2-cell reveal">
-        <div class="p2-num"><span class="cnt" data-to="5">5</span></div>
-        <div class="p2-label">лет гарантии на отделку и инженерные сети</div>
-      </div>
-      <div class="p2-cell reveal">
-        <div class="p2-num"><span class="cnt" data-to="10">10</span>–<span class="cnt" data-to="14">14</span></div>
-        <div class="p2-label">месяцев — дом под ключ по графику в договоре</div>
-      </div>
+<section class="proof2 proof-photo" aria-label="Факты о бюро">
+  <img class="pp-bg" src="img/proof-doma.jpg" alt="Гостиная в готовом доме: стеновые панели из дерева, панорамное окно в сад" loading="lazy">
+  <div class="pp-shade"></div>
+  <div class="container pp-in">
+    <h2 class="section-heading reveal">20 лет и 115+ объектов: <span class="tone">ваш дом не станет экспериментом новой бригады</span></h2>
+    <div class="pp-nums">
+      <div class="reveal"><b>20 лет</b><span>в премиальном ремонте, за каждый объект отвечаю я</span></div>
+      <div class="reveal"><b>115+</b><span>сданных объектов, из них ___ домов и коттеджей</span></div>
+      <div class="reveal"><b>5 лет</b><span>гарантии на отделку и инженерные сети</span></div>
+      <div class="reveal"><b>10–14</b><span>месяцев — дом под ключ по графику в договоре</span></div>
     </div>
-    <span class="todo">Сколько из 115+ объектов — дома и коттеджи (ориентир ≈10)? Подставим точное число.</span>
+    <span class="todo">Фото — реальный проект этого дома. «97% рекомендуют» убрано из цифр, пока нет подтверждения. Сколько из 115+ объектов — дома и коттеджи?</span>
   </div>
 </section>
 
@@ -4788,8 +4820,10 @@ body section h2, body h2.section-heading, body section .h2-two { max-width: 34ch
     function renderPhoto(){
       var c = CASES[curCase];
       $('pfMain').innerHTML = '<svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото ' + (curPhoto + 1) + ' из ' + c.photos.length + ': ' + c.photos[curPhoto] + '</span>';
+      var pu = (PFIMG[curCase] || [])[curPhoto], pm = $('pfMain'); if (pu){ pm.style.backgroundImage = 'url(' + pu + ')'; pm.classList.add('has-img'); pm.setAttribute('data-cap', c.photos[curPhoto]); } else { pm.style.backgroundImage = ''; pm.classList.remove('has-img'); }
       [].forEach.call($('pfThumbs').children, function(t, k){ t.setAttribute('aria-pressed', k === curPhoto ? 'true' : 'false'); });
     }
+    var PFIMG = [['https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1758565811352-a439bd6f956e?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1712659604528-b179a3634560?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1769695832228-ab959c7c7e0d?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1765862835193-3c37388a409e?auto=format&fit=crop&w=1600&q=70'],['https://images.unsplash.com/photo-1724582586529-62622e50c0b3?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1764080582659-652c0000ff1d?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1783125126959-bcd87518b7d8?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?auto=format&fit=crop&w=1600&q=70'],['https://images.unsplash.com/photo-1628744876497-eb30460be9f6?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1699852676054-a55370ac4c7a?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1765862835282-cd3d9190d246?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=1600&q=70'],['https://images.unsplash.com/photo-1724582586458-a51791349977?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1713270176378-45fbf4a27099?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1639600993675-2281b2c939f0?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1765862835193-3c37388a409e?auto=format&fit=crop&w=1600&q=70','https://images.unsplash.com/photo-1777027518852-b83a78122b09?auto=format&fit=crop&w=1600&q=70']], PFTHB = [['https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1758565811352-a439bd6f956e?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1712659604528-b179a3634560?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1769695832228-ab959c7c7e0d?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1765862835193-3c37388a409e?auto=format&fit=crop&w=420&q=70'],['https://images.unsplash.com/photo-1724582586529-62622e50c0b3?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1764080582659-652c0000ff1d?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1783125126959-bcd87518b7d8?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1721815693498-cc28507c0ba2?auto=format&fit=crop&w=420&q=70'],['https://images.unsplash.com/photo-1628744876497-eb30460be9f6?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1699852676054-a55370ac4c7a?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1765862835282-cd3d9190d246?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?auto=format&fit=crop&w=420&q=70'],['https://images.unsplash.com/photo-1724582586458-a51791349977?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1713270176378-45fbf4a27099?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1639600993675-2281b2c939f0?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1765862835193-3c37388a409e?auto=format&fit=crop&w=420&q=70','https://images.unsplash.com/photo-1777027518852-b83a78122b09?auto=format&fit=crop&w=420&q=70']];
     function renderCase(i){
       curCase = (i + CASES.length) % CASES.length; curPhoto = 0;
       var c = CASES[curCase];
@@ -4812,7 +4846,7 @@ body section h2, body h2.section-heading, body section .h2-two { max-width: 34ch
       $('pfThumbs').innerHTML = '';
       c.photos.forEach(function(p, k){
         var t = document.createElement('button');
-        t.type = 'button'; t.className = 'photo pf-thumb'; t.textContent = p;
+        t.type = 'button'; t.className = 'photo pf-thumb'; t.textContent = p; var tu = (PFTHB[curCase] || [])[k]; if (tu){ t.style.backgroundImage = 'url(' + tu + ')'; t.classList.add('has-img'); }
         t.setAttribute('aria-label', 'Показать фото: ' + p);
         t.addEventListener('click', function(){ curPhoto = k; renderPhoto(); });
         $('pfThumbs').appendChild(t);
