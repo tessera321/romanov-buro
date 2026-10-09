@@ -4375,6 +4375,108 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   .eng-grid .eng-item h3{ margin-bottom: 2px !important; }
   .eng-grid .eng-item .ei-n{ top: 12px; }
 }
+
+/* ===== GL10 ===== */
+/* real photos in former placeholders */
+.photo.ph-img{ background-size: cover !important; background-repeat: no-repeat; background-color: #222 !important; }
+.photo.ph-img > svg, .photo.ph-img > .ph-label{ display: none !important; }
+.photo.ph-img::before, .photo.ph-img::after{ display: none !important; }
+
+/* media blocks: photo and text separated by the same gutter as the cards */
+@media (min-width: 901px){
+  .ally-grid > :first-child{ grid-column: 1 / 7 !important; }
+  .ally-grid > :nth-child(2){ grid-column: 7 / 13 !important; }
+  .team-founder > :first-child{ grid-column: 1 / 6 !important; }
+  .team-founder > :nth-child(2){ grid-column: 6 / 13 !important; }
+  .ally-photo{ min-height: clamp(460px, 42vw, 820px); }
+}
+
+/* FAQ: smooth accordion */
+.faq-aside{ position: static !important; }
+.faq-a{ display: grid !important; grid-template-rows: 0fr; max-height: none !important; padding: 0 !important; overflow: hidden; transition: grid-template-rows .42s cubic-bezier(.22,.8,.24,1) !important; }
+.faq-item.open .faq-a{ grid-template-rows: 1fr; }
+.faq-in{ min-height: 0; overflow: hidden; }
+.faq-in > p{ padding: 0 36px 22px 0; opacity: 0; transform: translateY(-4px); transition: opacity .3s ease, transform .42s cubic-bezier(.22,.8,.24,1); }
+.faq-item.open .faq-in > p{ opacity: 1; transform: none; }
+.faq-list{ overflow-anchor: none; }
+@media (prefers-reduced-motion: reduce){ .faq-a, .faq-in > p{ transition: none !important; } }
+
+/* FAQ map */
+.geo-live{ position: relative; width: 100%; aspect-ratio: 1 / 0.86; border-radius: var(--r-card, 14px); overflow: hidden; background: #191919; border: 1px solid rgba(255,255,255,.08); }
+.geo-live:not(.is-live){ aspect-ratio: auto; border: 0; background: none; border-radius: 0; }
+.geo-live.is-live .leaflet-tile-pane{ filter: sepia(.35) saturate(.55) brightness(1.05) contrast(.95); }
+.geo-live .leaflet-container, .geo-live.leaflet-container{ background: #191919; font: 400 11px 'Wix Madefor Text', sans-serif; }
+.geo-live .leaflet-control-attribution{ background: rgba(28,28,28,.7) !important; color: rgba(245,240,232,.45) !important; font-size: 9px; padding: 1px 6px; }
+.geo-live .leaflet-control-attribution a{ color: rgba(245,240,232,.6) !important; }
+.geo-t i{ position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%; background: #B5A18A; box-shadow: 0 0 0 3px rgba(181,161,138,.18); }
+.geo-t span{ position: absolute; top: -8px; white-space: nowrap; font-size: 11px; color: rgba(245,240,232,.78); text-shadow: 0 1px 6px #111, 0 0 2px #111; }
+.geo-l span{ right: 8px; } .geo-r span{ left: 8px; }
+.geo-c i{ width: 8px; height: 8px; left: -4px; top: -4px; background: #F5F0E8; box-shadow: none; }
+.geo-c span{ left: -24px; top: 8px; font-size: 12px; color: #F5F0E8; }
+.geo-km{ white-space: nowrap; font-size: 11px; color: #B5A18A; }
+.geo-map{ max-width: none !important; }
+
+/* footer */
+footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(36px + env(safe-area-inset-bottom, 0px)) !important; border-top: 1px solid var(--divider); color: var(--text-secondary); font-size: .9rem; }
+.ft-top{ display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--cg); row-gap: 40px; padding-bottom: clamp(48px, 5vw, 80px); }
+.ft-brand{ grid-column: 1 / 5; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+.ft-logo{ display: inline-flex; align-items: center; gap: 14px; text-decoration: none; color: inherit; }
+.ft-logo .lg-mono{ width: 44px; height: auto; }
+.ft-logo > span{ display: flex; flex-direction: column; gap: 6px; }
+.ft-logo > span svg{ width: 150px; height: auto; }
+.ft-logo small{ font-size: .62rem; letter-spacing: .2em; text-transform: uppercase; color: var(--stone); }
+.ft-brand p{ max-width: 36ch; line-height: 1.6; color: var(--text-secondary); margin: 0; }
+.ft-col{ display: flex; flex-direction: column; gap: 10px; }
+.ft-top > .ft-col:nth-child(2){ grid-column: 6 / 8; }
+.ft-top > .ft-col:nth-child(3){ grid-column: 8 / 10; }
+.ft-top > .ft-col:nth-child(4){ grid-column: 10 / 13; }
+.ft-cap{ font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--bronze); margin-bottom: 6px; }
+.ft-col a{ color: var(--text-secondary); text-decoration: none; width: fit-content; transition: color .2s; }
+.ft-col a:hover, .ft-col a[aria-current]{ color: var(--text-primary); }
+.ft-col a[aria-current]{ color: var(--bronze); }
+.ft-phone{ font-family: 'Wix Madefor Display', sans-serif; font-size: 1.35rem; color: var(--text-primary) !important; margin-bottom: 2px; }
+.ft-soc{ display: flex; gap: 8px; margin-top: 8px; }
+.ft-soc a{ display: inline-grid; place-items: center; min-width: 44px; height: 40px; padding: 0 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,.16); font-size: .72rem; letter-spacing: .06em; color: var(--text-primary); }
+.ft-soc a:hover{ border-color: var(--bronze); color: var(--bronze); }
+.ft-bottom{ display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 10px 32px; padding-top: 28px; border-top: 1px solid var(--divider); font-size: .78rem; color: var(--text-muted); }
+.ft-legal{ display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.ft-legal a{ color: var(--text-secondary); text-decoration: none; }
+.ft-legal a:hover{ color: var(--text-primary); }
+.ft-note{ flex-basis: 100%; margin: 4px 0 0; max-width: 90ch; line-height: 1.6; color: var(--text-muted); font-size: .74rem; }
+@media (max-width: 1100px){
+  .ft-brand{ grid-column: 1 / -1; }
+  .ft-top > .ft-col:nth-child(2){ grid-column: 1 / 5; } .ft-top > .ft-col:nth-child(3){ grid-column: 5 / 9; } .ft-top > .ft-col:nth-child(4){ grid-column: 9 / 13; }
+}
+@media (max-width: 700px){
+  .ft-top{ grid-template-columns: 1fr 1fr; row-gap: 36px; }
+  .ft-top > .ft-col:nth-child(2){ grid-column: 1; } .ft-top > .ft-col:nth-child(3){ grid-column: 2; } .ft-top > .ft-col:nth-child(4){ grid-column: 1 / -1; }
+  footer.ft{ padding-bottom: calc(110px + env(safe-area-inset-bottom, 0px)) !important; }
+  .ft-brand .btn-primary{ width: 100%; }
+}
+
+/* mobile swipe strips: horizontal only, no vertical drag, no reveal shift */
+@media (max-width: 900px){
+  .dt-strip, .err-grid, .err-grid.three, .rev-mini{ overflow-y: hidden !important; overscroll-behavior-x: contain; touch-action: pan-x pan-y; -webkit-overflow-scrolling: touch; }
+  .dt-strip .reveal, .err-grid .reveal, .rev-mini .reveal{ opacity: 1 !important; transform: none !important; transition: none !important; }
+  .dt-card:hover .dt-img{ transform: none; }
+}
+
+/* mobile engineering: model on top, system tabs, one description */
+.eng-tabs{ display: none; }
+@media (max-width: 900px){
+  .eng-cut{ position: relative !important; top: auto !important; }
+  .eng-tabs{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 14px 0 12px; }
+  .eng-tab{ display: flex; flex-direction: column; align-items: flex-start; gap: 3px; min-height: 52px; padding: 9px 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,.12);
+    background: transparent; color: var(--text-secondary); font: 500 .8rem/1.2 'Wix Madefor Text', sans-serif; text-align: left; cursor: pointer; transition: background .25s, color .25s, border-color .25s; }
+  .eng-tab b{ font-weight: 400; font-size: .66rem; letter-spacing: .08em; color: var(--stone); }
+  .eng-tab.on{ background: var(--bronze); border-color: var(--bronze); color: #1C1C1C; }
+  .eng-tab.on b{ color: rgba(28,28,28,.7); }
+  .eng-grid .eng-list{ display: block !important; }
+  .eng-grid .eng-item{ display: none !important; }
+  .eng-grid .eng-item.on{ display: block !important; animation: engIn .3s ease; }
+  .eng-grid .eng-item p{ display: block !important; }
+  @keyframes engIn{ from{ opacity: 0; transform: translateY(4px); } to{ opacity: 1; transform: none; } }
+}
 </style>
 </head>
 <body>
@@ -4548,7 +4650,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
     <div class="eng-grid">
       <figure class="eng-cut reveal"><svg class="cut cut3d" viewBox="-317 -229 730 562" role="group" aria-label="Дом в разрезе: шесть инженерных систем. Наведите на номер, чтобы подсветить систему."><g class="st"><polygon class="gnd" points="-26.0,-100.0 402.7,147.5 121.2,310.0 -307.4,62.5"/><polygon class="flr" points="0.0,0.0 194.9,112.5 32.5,206.2 -162.4,93.8"/><polygon class="cut" points="194.9,127.7 32.5,221.4 32.5,206.2 194.9,112.5"/><polygon class="cut" points="-162.4,108.9 32.5,221.4 32.5,206.2 -162.4,93.8"/><polygon class="wall" points="0.0,0.0 194.9,112.5 194.9,-106.9 0.0,-219.4"/><polygon class="wall" points="0.0,0.0 -162.4,93.8 -162.4,-125.6 0.0,-219.4"/><polygon class="win" points="105.7,41.2 179.3,83.8 179.3,12.9 105.7,-29.6"/><polygon class="win" points="73.2,-88.9 120.8,-61.4 120.8,-122.1 73.2,-149.6"/><polygon class="win" points="-16.9,-13.4 -77.5,21.6 -77.5,-45.9 -16.9,-80.9"/><polygon class="part" points="-95.3,55.0 -30.3,92.5 -30.3,-12.1 -95.3,-49.6"/><polygon class="part" points="-30.3,92.5 -47.6,102.5 -47.6,-2.1 -30.3,-12.1"/><polygon class="part" points="-67.1,113.8 -97.4,131.2 -97.4,26.6 -67.1,9.1"/><polygon class="part" points="-47.6,28.2 -67.1,39.5 -67.1,9.1 -47.6,-2.1"/><polygon class="stair fx" points="14.8,6.5 -9.0,20.2 -9.0,14.8 14.8,1.1"/><polygon class="stair fy" points="-16.2,16.1 -9.0,20.2 -9.0,14.8 -16.2,10.7"/><polygon class="stair ft" points="7.6,-3.1 14.8,1.1 -9.0,14.8 -16.2,10.7"/><polygon class="stair fx" points="22.0,1.9 -1.8,15.7 -1.8,10.3 22.0,-3.5"/><polygon class="stair fy" points="-9.0,11.5 -1.8,15.7 -1.8,10.3 -9.0,6.1"/><polygon class="stair ft" points="14.8,-7.6 22.0,-3.5 -1.8,10.3 -9.0,6.1"/><polygon class="stair fx" points="29.2,-2.6 5.4,11.1 5.4,5.7 29.2,-8.0"/><polygon class="stair fy" points="-1.8,7.0 5.4,11.1 5.4,5.7 -1.8,1.6"/><polygon class="stair ft" points="22.0,-12.2 29.2,-8.0 5.4,5.7 -1.8,1.6"/><polygon class="stair fx" points="36.4,-7.2 12.6,6.6 12.6,1.2 36.4,-12.6"/><polygon class="stair fy" points="5.4,2.4 12.6,6.6 12.6,1.2 5.4,-3.0"/><polygon class="stair ft" points="29.2,-16.8 36.4,-12.6 12.6,1.2 5.4,-3.0"/><polygon class="stair fx" points="43.7,-11.7 19.8,2.0 19.8,-3.4 43.7,-17.1"/><polygon class="stair fy" points="12.6,-2.2 19.8,2.0 19.8,-3.4 12.6,-7.6"/><polygon class="stair ft" points="36.4,-21.3 43.7,-17.1 19.8,-3.4 12.6,-7.6"/><polygon class="stair fx" points="50.9,-16.3 27.1,-2.5 27.1,-7.9 50.9,-21.7"/><polygon class="stair fy" points="19.8,-6.7 27.1,-2.5 27.1,-7.9 19.8,-12.1"/><polygon class="stair ft" points="43.7,-25.9 50.9,-21.7 27.1,-7.9 19.8,-12.1"/><polygon class="stair fx" points="58.1,-20.8 34.3,-7.1 34.3,-12.5 58.1,-26.2"/><polygon class="stair fy" points="27.1,-11.3 34.3,-7.1 34.3,-12.5 27.1,-16.7"/><polygon class="stair ft" points="50.9,-30.4 58.1,-26.2 34.3,-12.5 27.1,-16.7"/><polygon class="stair fx" points="65.3,-25.4 41.5,-11.6 41.5,-17.0 65.3,-30.8"/><polygon class="stair fy" points="34.3,-15.8 41.5,-11.6 41.5,-17.0 34.3,-21.2"/><polygon class="stair ft" points="58.1,-35.0 65.3,-30.8 41.5,-17.0 34.3,-21.2"/><polygon class="stair fx" points="72.5,-29.9 48.7,-16.2 48.7,-21.6 72.5,-35.3"/><polygon class="stair fy" points="41.5,-20.4 48.7,-16.2 48.7,-21.6 41.5,-25.8"/><polygon class="stair ft" points="65.3,-39.5 72.5,-35.3 48.7,-21.6 41.5,-25.8"/><polygon class="stair fx" points="79.7,-34.5 55.9,-20.7 55.9,-26.1 79.7,-39.9"/><polygon class="stair fy" points="48.7,-24.9 55.9,-20.7 55.9,-26.1 48.7,-30.3"/><polygon class="stair ft" points="72.5,-44.1 79.7,-39.9 55.9,-26.1 48.7,-30.3"/><polygon class="stair fx" points="87.0,-39.0 63.1,-25.3 63.1,-30.7 87.0,-44.4"/><polygon class="stair fy" points="55.9,-29.5 63.1,-25.3 63.1,-30.7 55.9,-34.9"/><polygon class="stair ft" points="79.7,-48.6 87.0,-44.4 63.1,-30.7 55.9,-34.9"/><polygon class="stair fx" points="94.2,-43.6 70.4,-29.9 70.4,-35.2 94.2,-49.0"/><polygon class="stair fy" points="63.1,-34.0 70.4,-29.9 70.4,-35.2 63.1,-39.4"/><polygon class="stair ft" points="87.0,-53.2 94.2,-49.0 70.4,-35.2 63.1,-39.4"/><path class="slab" fill-rule="evenodd" d="M0.0,-104.6 L194.9,7.9 L32.5,101.6 L-162.4,-10.9 Z M8.7,-99.6 L95.3,-49.6 L69.3,-34.6 L-17.3,-84.6 Z"/><polygon class="cut" points="194.9,16.3 32.5,110.1 32.5,101.6 194.9,7.9"/><polygon class="cut" points="-162.4,-2.4 32.5,110.1 32.5,101.6 -162.4,-10.9"/><polygon class="part" points="-95.3,-49.6 -30.3,-12.1 -30.3,-116.8 -95.3,-154.2"/><polygon class="part" points="-30.3,-12.1 -97.4,26.6 -97.4,-78.0 -30.3,-116.8"/><polygon class="part" points="134.2,-27.1 69.3,10.4 69.3,-94.3 134.2,-131.8"/><polygon class="part" points="69.3,10.4 129.9,45.4 129.9,-59.2 69.3,-94.3"/><polygon class="fix fx" points="178.6,2.3 164.5,10.4 164.5,-4.8 178.6,-12.9"/><polygon class="fix fy" points="153.7,4.1 164.5,10.4 164.5,-4.8 153.7,-11.1"/><polygon class="fix ft" points="167.8,-19.2 178.6,-12.9 164.5,-4.8 153.7,-11.1"/><polygon class="fix fx" points="159.1,-9.0 148.3,-2.8 148.3,-31.4 159.1,-37.7"/><polygon class="fix fy" points="126.7,-15.2 148.3,-2.8 148.3,-31.4 126.7,-43.9"/><polygon class="fix ft" points="137.5,-50.2 159.1,-37.7 148.3,-31.4 126.7,-43.9"/><polygon class="roof" points="0.0,-219.4 194.9,-106.9 166.7,-90.6 -28.1,-203.1"/><polygon class="roof" points="-28.1,-203.1 0.0,-186.9 -134.2,-109.4 -162.4,-125.6"/><polygon class="cut" points="0.0,-176.8 166.7,-80.5 166.7,-90.6 0.0,-186.9"/><polygon class="cut" points="0.0,-176.8 -134.2,-99.2 -134.2,-109.4 0.0,-186.9"/><polyline class="edge" points="194.9,112.5 194.9,-96.8"/><polyline class="edge" points="32.5,206.2 32.5,-3.0"/><polyline class="edge" points="-162.4,93.8 -162.4,-115.5"/><polyline class="edge dash" points="194.9,-96.8 32.5,-3.0 -162.4,-115.5"/></g><g class="sys" data-i="1"><polygon class="u fx" points="-126.0,92.2 -142.2,101.6 -142.2,57.7 -126.0,48.4"/><polygon class="u fy" points="-157.4,92.9 -142.2,101.6 -142.2,57.7 -157.4,49.0"/><polygon class="u ft" points="-141.2,39.6 -126.0,48.4 -142.2,57.7 -157.4,49.0"/><polygon class="u fx" points="-97.9,76.0 -113.0,84.8 -113.0,25.7 -97.9,16.9"/><polygon class="u fy" points="-128.2,76.0 -113.0,84.8 -113.0,25.7 -128.2,16.9"/><polygon class="u ft" points="-113.0,8.2 -97.9,16.9 -113.0,25.7 -128.2,16.9"/><polygon class="u fx" points="-39.4,50.2 -43.7,52.7 -43.7,34.1 -39.4,31.6"/><polygon class="u fy" points="-56.7,45.2 -43.7,52.7 -43.7,34.1 -56.7,26.6"/><polygon class="u ft" points="-52.4,24.1 -39.4,31.6 -43.7,34.1 -56.7,26.6"/><polyline class="p" points="-141.6,48.6 -141.6,-150.5"/><polygon class="u fx" points="-135.1,-150.5 -141.6,-146.8 -141.6,-150.8 -135.1,-154.6"/><polygon class="u fy" points="-148.1,-150.5 -141.6,-146.8 -141.6,-150.8 -148.1,-154.6"/><polygon class="u ft" points="-141.6,-158.3 -135.1,-154.6 -141.6,-150.8 -148.1,-154.6"/><polyline class="p" points="-133.6,57.5 -120.6,50.0"/><polyline class="p" points="-134.0,80.0 -100.0,99.6 -50.2,70.9 -50.2,48.9"/><polyline class="p" points="-48.7,29.5 -48.7,-26.2 -33.6,-34.9 -79.0,-61.2 -70.4,-69.6"/><polygon class="u fx" points="-38.5,-87.0 -71.0,-68.3 -71.0,-86.8 -38.5,-105.6"/><polygon class="u fy" points="-73.6,-69.8 -71.0,-68.3 -71.0,-86.8 -73.6,-88.3"/><polygon class="u ft" points="-41.1,-107.1 -38.5,-105.6 -71.0,-86.8 -73.6,-88.3"/><polyline class="p" points="-33.6,-34.9 13.0,-8.1 90.9,-53.1"/><polygon class="u fx" points="112.6,-47.3 110.0,-45.8 110.0,-64.3 112.6,-65.8"/><polygon class="u fy" points="75.3,-65.8 110.0,-45.8 110.0,-64.3 75.3,-84.3"/><polygon class="u ft" points="77.9,-85.8 112.6,-65.8 110.0,-64.3 75.3,-84.3"/></g><g class="sys" data-i="2"><polygon class="u fx" points="-75.8,-25.9 -116.9,-2.1 -116.9,-34.2 -75.8,-57.9"/><polygon class="u fy" points="-138.6,-14.6 -116.9,-2.1 -116.9,-34.2 -138.6,-46.7"/><polygon class="u ft" points="-97.4,-70.4 -75.8,-57.9 -116.9,-34.2 -138.6,-46.7"/><polyline class="d" points="-106.1,-57.0 -129.9,-70.8"/><polyline class="d" points="-127.7,-44.5 -151.6,-58.2"/><polyline class="d" points="-97.4,-31.9 -71.4,-16.9 -71.4,-92.9 -21.7,-121.6 95.3,-54.1"/><polyline class="d" points="21.7,-96.6 65.0,-121.6"/><polyline class="d" points="82.3,-61.6 129.9,-89.1"/><polyline class="d" points="-71.4,-16.9 -56.3,-8.2 -56.3,22.2 6.5,-14.1 112.6,47.2"/><polyline class="d" points="65.0,19.7 -13.0,64.7"/><polygon class="u" points="65.0,-127.4 77.9,-119.9 65.0,-112.4 52.0,-119.9"/><polygon class="u" points="95.3,-59.9 108.3,-52.4 95.3,-44.9 82.3,-52.4"/><polygon class="u" points="129.9,-94.9 142.9,-87.4 129.9,-79.9 116.9,-87.4"/><polygon class="u" points="112.6,41.4 125.6,48.9 112.6,56.4 99.6,48.9"/><polygon class="u" points="-13.0,58.9 0.0,66.4 -13.0,73.9 -26.0,66.4"/><polygon class="u" points="32.5,-4.9 45.5,2.6 32.5,10.1 19.5,2.6"/></g><g class="sys" data-i="3"><polygon class="u fx" points="-27.1,88.4 -44.4,98.4 -44.4,73.1 -27.1,63.1"/><polygon class="u fy" points="-48.7,95.9 -44.4,98.4 -44.4,73.1 -48.7,70.6"/><polygon class="u ft" points="-31.4,60.6 -27.1,63.1 -44.4,73.1 -48.7,70.6"/><polyline class="p thin" points="-29.2,88.0 -21.7,100.5 41.1,64.2 -77.9,133.0 -67.1,139.2 52.0,70.5 62.8,76.7 -56.3,145.5 -45.5,151.7 73.6,83.0 84.4,89.2 -34.6,158.0 -23.8,164.2 95.3,95.5 106.1,101.7 -13.0,170.5 -2.2,176.7 116.9,108.0 127.7,114.2 8.7,183.0 19.5,189.2 138.6,120.5 149.4,126.7 30.3,195.5 153.7,124.2 42.2,59.9 -33.6,103.6 -37.9,93.0"/><polyline class="p thin" points="-33.6,-34.9 54.1,15.7 75.8,9.6"/><polyline class="p thin" points="119.1,-12.9 82.3,8.3 90.9,13.4 127.7,-7.9 136.4,-2.9 99.6,18.3 108.3,23.4 145.1,2.1 153.7,7.1 116.9,28.3 125.6,33.4 162.4,12.1"/></g><g class="sys" data-i="4"><polyline class="p" points="-207.8,23.2 -207.8,35.0"/><polyline class="p bg" points="-207.8,35.0 -207.8,136.2"/><polygon class="u fx" points="-197.0,35.0 -207.8,41.2 -207.8,29.4 -197.0,23.2"/><polygon class="u fy" points="-218.7,35.0 -207.8,41.2 -207.8,29.4 -218.7,23.2"/><polygon class="u ft" points="-207.8,16.9 -197.0,23.2 -207.8,29.4 -218.7,23.2"/><polyline class="p bg" points="-207.8,89.0 -128.8,134.6 -128.8,80.6"/><polygon class="u fx" points="-89.0,62.4 -96.3,66.6 -96.3,21.1 -89.0,16.8"/><polygon class="u fy" points="-104.1,62.1 -96.3,66.6 -96.3,21.1 -104.1,16.6"/><polygon class="u ft" points="-96.8,12.3 -89.0,16.8 -96.3,21.1 -104.1,16.6"/><polygon class="u fx" points="-121.5,81.1 -128.8,85.4 -128.8,51.6 -121.5,47.4"/><polygon class="u fy" points="-136.6,80.9 -128.8,85.4 -128.8,51.6 -136.6,47.1"/><polygon class="u ft" points="-129.3,42.9 -121.5,47.4 -128.8,51.6 -136.6,47.1"/><polyline class="p" points="-92.7,59.4 -42.7,88.3 -18.4,74.3 101.8,143.7 174.3,101.8 174.3,-4.5"/><polyline class="p stack" points="177.5,147.5 177.5,-129.3"/><polyline class="p stack bg" points="177.5,147.5 236.0,215.9"/><polygon class="u bg fx" points="303.1,287.9 264.1,310.4 264.1,258.1 303.1,235.6"/><polygon class="u bg fy" points="216.5,282.9 264.1,310.4 264.1,258.1 216.5,230.6"/><polygon class="u bg ft" points="255.5,208.1 303.1,235.6 264.1,258.1 216.5,230.6"/><polyline class="p stack bg" points="259.8,233.1 259.8,185.8"/><polygon class="u" points="259.8,178.0 272.8,185.5 259.8,193.0 246.8,185.5"/><polyline class="p thin" points="255.5,262.1 311.8,294.6"/><polyline class="p thin" points="207.8,289.6 264.1,322.1"/></g><g class="sys" data-i="5"><polygon class="u fx" points="302.0,101.9 296.6,105.0 296.6,62.8 302.0,59.7"/><polygon class="u fy" points="286.9,99.4 296.6,105.0 296.6,62.8 286.9,57.2"/><polygon class="u ft" points="292.3,54.1 302.0,59.7 296.6,62.8 286.9,57.2"/><polyline class="p el" points="293.4,100.6 293.4,124.3 164.1,121.4 164.1,60.6"/><polygon class="u fx" points="172.6,64.5 168.2,67.0 168.2,33.2 172.6,30.7"/><polygon class="u fy" points="153.1,58.2 168.2,67.0 168.2,33.2 153.1,24.5"/><polygon class="u ft" points="157.4,22.0 172.6,30.7 168.2,33.2 153.1,24.5"/><polyline class="p el" points="163.5,27.2 163.5,0.2 45.5,68.4 -47.6,14.6"/><polyline class="p el" points="110.4,30.9 43.3,-7.9"/><polyline class="p el" points="163.5,0.2 188.4,14.6 188.4,-90.0 83.4,-29.4 -34.6,-97.5"/><circle class="u" cx="80.1" cy="48.4" r="3"/><circle class="u" cx="0.0" cy="42.1" r="3"/><circle class="u" cx="43.3" cy="-7.9" r="3"/><circle class="u" cx="21.7" cy="-65.0" r="3"/><circle class="u" cx="-21.7" cy="-90.0" r="3"/></g><g class="sys" data-i="6"><polygon class="z" points="-82.3,70.2 -42.2,93.4 -97.4,125.2 -137.5,102.1"/><polygon class="z" points="-69.3,-26.9 -42.2,-11.3 -97.4,20.6 -124.5,5.0"/><polygon class="h" points="65.0,7.3 82.3,17.3 65.0,27.3 47.6,17.3"/><polygon class="h" points="168.4,97.1 177.1,102.1 177.1,81.9 168.4,76.9"/></g><g class="hss"><g class="hs" data-i="1" tabindex="0" role="button" aria-label="Отопление и котельная" aria-pressed="false" transform="translate(-163.6 28.6)"><line class="hs-stem" x1="0" y1="0" x2="22.0" y2="20.0"/><g class="hs-in"><circle class="hs-hit" r="22"/><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="13"/><text class="hs-n" dy="4.5">1</text><g class="hs-tag"><rect x="19" y="-12" width="81" height="24" rx="12"/><text x="30" dy="4.2" text-anchor="start">Котельная</text></g></g></g><g class="hs" data-i="2" tabindex="0" role="button" aria-label="Вентиляция" aria-pressed="false" transform="translate(-137.2 -66.3)"><line class="hs-stem" x1="0" y1="0" x2="30.0" y2="14.0"/><g class="hs-in"><circle class="hs-hit" r="22"/><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="13"/><text class="hs-n" dy="4.5">2</text><g class="hs-tag"><rect x="19" y="-12" width="108" height="24" rx="12"/><text x="30" dy="4.2" text-anchor="start">Вентустановка</text></g></g></g><g class="hs" data-i="3" tabindex="0" role="button" aria-label="Тёплые полы" aria-pressed="false" transform="translate(13.0 145.5)"><line class="hs-stem" x1="0" y1="0" x2="0.0" y2="0.0"/><g class="hs-in"><circle class="hs-hit" r="22"/><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="13"/><text class="hs-n" dy="4.5">3</text><g class="hs-tag"><rect x="19" y="-12" width="95" height="24" rx="12"/><text x="30" dy="4.2" text-anchor="start">Тёплые полы</text></g></g></g><g class="hs" data-i="4" tabindex="0" role="button" aria-label="Вода, канализация, септик" aria-pressed="false" transform="translate(259.8 159.5)"><line class="hs-stem" x1="0" y1="0" x2="0.0" y2="26.0"/><g class="hs-in"><circle class="hs-hit" r="22"/><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="13"/><text class="hs-n" dy="4.5">4</text><g class="hs-tag"><rect x="19" y="-12" width="62" height="24" rx="12"/><text x="30" dy="4.2" text-anchor="start">Септик</text></g></g></g><g class="hs" data-i="5" tabindex="0" role="button" aria-label="Электрика и автоматика" aria-pressed="false" transform="translate(162.8 20.5)"><line class="hs-stem" x1="0" y1="0" x2="0.0" y2="24.0"/><g class="hs-in"><circle class="hs-hit" r="22"/><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="13"/><text class="hs-n" dy="4.5">5</text><g class="hs-tag"><rect x="19" y="-12" width="88" height="24" rx="12"/><text x="30" dy="4.2" text-anchor="start">Электрощит</text></g></g></g><g class="hs" data-i="6" tabindex="0" role="button" aria-label="Доступ к узлам" aria-pressed="false" transform="translate(-70.8 113.7)"><line class="hs-stem" x1="0" y1="0" x2="-18.0" y2="-16.0"/><g class="hs-in"><circle class="hs-hit" r="22"/><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="13"/><text class="hs-n" dy="4.5">6</text><g class="hs-tag"><rect x="19" y="-12" width="134" height="24" rx="12"/><text x="30" dy="4.2" text-anchor="start">Зоны обслуживания</text></g></g></g></g></svg><figcaption>Наведите на номер — подсвечу систему в доме и её описание</figcaption></figure>
       <div>
-        <div class="eng-list">
+        <div class="eng-tabs" role="tablist" aria-label="Инженерные системы"><button type="button" class="eng-tab" data-i="1" role="tab" aria-selected="false"><b>01</b>Котельная</button><button type="button" class="eng-tab" data-i="2" role="tab" aria-selected="false"><b>02</b>Вентиляция</button><button type="button" class="eng-tab" data-i="3" role="tab" aria-selected="false"><b>03</b>Тёплые полы</button><button type="button" class="eng-tab" data-i="4" role="tab" aria-selected="false"><b>04</b>Вода и септик</button><button type="button" class="eng-tab" data-i="5" role="tab" aria-selected="false"><b>05</b>Электрика</button><button type="button" class="eng-tab" data-i="6" role="tab" aria-selected="false"><b>06</b>Доступ</button></div><div class="eng-list">
           <div class="eng-item reveal" data-i="1"><span class="ei-n">01</span><h3>Отопление и котельная</h3><p>Мощность — по теплопотерям, <span class="hl">с запасом на вентиляцию и горячую воду</span>. В котельной есть место для обслуживания.</p></div>
           <div class="eng-item reveal" data-i="2"><span class="ei-n">02</span><h3>Вентиляция — до чистовой отделки</h3><p>Закладываю в проект <span class="hl">до потолков</span>. Позже — только вскрывая отделку.</p></div>
           <div class="eng-item reveal" data-i="3"><span class="ei-n">03</span><h3>Тёплые полы</h3><p>Опрессовка и балансировка — <span class="hl">до стяжки</span>. Акт испытаний у вас.</p></div>
@@ -4775,7 +4877,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 <section class="ally">
   <div class="container">
     <div class="ally-grid">
-      <div class="photo ally-photo reveal"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg><span class="ph-label">Фото: Владимир в котельной строящегося дома разбирает схему с прорабом</span></div>
+      <div class="photo ph-img ally-photo reveal" role="img" aria-label="Владимир Романов разбирает с заказчиком план дома" style="background-image:url(img/ally-doma.jpg);background-position:62% 30%"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg><span class="ph-label">Фото: Владимир в котельной строящегося дома разбирает схему с прорабом</span></div>
       <div>
         <span class="label-sm reveal">Моя роль в вашем ремонте</span>
         <h2 class="reveal">Свой человек на стройке, который играет за вас</h2>
@@ -4876,9 +4978,9 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:24ch">С чем можно прийти — <span class="tone">и что входит в цену</span></h2>
     <div class="format-scenarios reveal" style="margin:0 0 48px">
-      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: коробка дома без окон и кровли</span></div><h3>Коробка без контура</h3><p>Закрою контур сам: окна, кровля, утепление. Дальше — инженерия и отделка в том же договоре.</p></div>
-      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: дом с окнами и кровлей, внутри черновые стены</span></div><h3>Готовый тёплый контур</h3><p>Проверю коробку и вводы, запущу инженерию до холодов, отделку поведу в тёплом доме.</p></div>
-      <div class="scenario-card"><div class="photo"><span class="ph-label">Фото: листы дизайн-проекта и визуализация на столе</span></div><h3>С проектом или без</h3><p>Ваш проект реализую без упрощений. Нет проекта — сделаем: от 5 000 ₽/м², около двух месяцев.</p></div>
+      <div class="scenario-card"><div class="photo ph-img" role="img" aria-label="Каркас дома в лесах, без окон и кровли" style="background-image:url(https://images.unsplash.com/photo-1687169503260-85f00f122398?auto=format&fit=crop&w=1400&q=72);background-position:center"><span class="ph-label">Фото: коробка дома без окон и кровли</span></div><h3>Коробка без контура</h3><p>Закрою контур сам: окна, кровля, утепление. Дальше — инженерия и отделка в том же договоре.</p></div>
+      <div class="scenario-card"><div class="photo ph-img" role="img" aria-label="Дом с окнами, внутри черновые стены" style="background-image:url(https://images.unsplash.com/photo-1768321902290-54497eeb9cf6?auto=format&fit=crop&w=1400&q=72);background-position:center"><span class="ph-label">Фото: дом с окнами и кровлей, внутри черновые стены</span></div><h3>Готовый тёплый контур</h3><p>Проверю коробку и вводы, запущу инженерию до холодов, отделку поведу в тёплом доме.</p></div>
+      <div class="scenario-card"><div class="photo ph-img" role="img" aria-label="Архитектор работает над чертежами дома" style="background-image:url(https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=72);background-position:center"><span class="ph-label">Фото: листы дизайн-проекта и визуализация на столе</span></div><h3>С проектом или без</h3><p>Ваш проект реализую без упрощений. Нет проекта — сделаем: от 5 000 ₽/м², около двух месяцев.</p></div>
     </div>
     <div class="format-main reveal">
       <div>
@@ -4941,7 +5043,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
     <p class="section-intro reveal">О них пишут владельцы домов — и их же я вижу после других подрядчиков.</p>
     <div class="err-grid three">
       <article class="err-card reveal">
-        <div class="photo solo"><span class="ph-label">Фото: вскрытый потолок, воздуховод прокладывают по готовой отделке</span></div>
+        <div class="photo ph-img solo" role="img" aria-label="Вскрытая отделка ради прокладки инженерии" style="background-image:url(https://images.unsplash.com/photo-1736182615481-3795ea557614?auto=format&fit=crop&w=1400&q=72);background-position:center"><span class="ph-label">Фото: вскрытый потолок, воздуховод прокладывают по готовой отделке</span></div>
         <div class="err-body">
           <h3>Вентиляцию вспомнили, когда потолки уже покрасили</h3>
           <p>Без приточки в доме душно, стёкла потеют. Поставить её после отделки — значит вскрыть потолки.</p>
@@ -4950,7 +5052,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
         </div>
       </article>
       <article class="err-card reveal">
-        <div class="photo solo"><span class="ph-label">Фото: манометр на коллекторе, опрессовка контуров</span></div>
+        <div class="photo ph-img solo" role="img" aria-label="Коллектор и трубы с манометрами в котельной" style="background-image:url(https://images.unsplash.com/photo-1650551182991-b07558247564?auto=format&fit=crop&w=1400&q=72);background-position:center"><span class="ph-label">Фото: манометр на коллекторе, опрессовка контуров</span></div>
         <div class="err-body">
           <h3>Тёплый пол залили без опрессовки</h3>
           <p>Течь находят, когда паркет уже лежит: пятно на потолке или падающее давление.</p>
@@ -4959,7 +5061,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
         </div>
       </article>
       <article class="err-card reveal">
-        <div class="photo solo"><span class="ph-label">Фото: участок, септик и подъезд для откачки на плане</span></div>
+        <div class="photo ph-img solo" role="img" aria-label="Участок с отвалом грунта у строящегося дома" style="background-image:url(https://images.unsplash.com/photo-1687169512324-e447122cbd4f?auto=format&fit=crop&w=1400&q=72);background-position:center"><span class="ph-label">Фото: участок, септик и подъезд для откачки на плане</span></div>
         <div class="err-body">
           <h3>Септик поставили там, куда не подъедет машина</h3>
           <p>Без якорения септик весной всплывает. Без фанового стояка запах идёт в дом.</p>
@@ -4987,7 +5089,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
       <div class="route8-aside stretch">
         <h2 class="reveal">Контур и инженерия — <span class="tone">до холодов, отделка — в тёплом доме</span></h2>
         <p class="lead-p reveal">Семь шагов. Что должно быть сделано <span class="hl">до морозов</span>, вы знаете до договора.</p>
-        <div class="photo reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: готовый дом вечером, свет в окнах, ключи на столе</span></div>
+        <div class="photo ph-img reveal" role="img" aria-label="Готовый загородный дом вечером" style="background-image:url(https://images.unsplash.com/photo-1657346088167-b982455bf29a?auto=format&fit=crop&w=1400&q=72);background-position:center"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: готовый дом вечером, свет в окнах, ключи на столе</span></div>
       </div>
       <ol class="route8-list">
         <li class="reveal"><div class="r8-body"><h3>Заявка и разговор <span>в день заявки</span></h3><p>15–20 минут: площадь, стадия дома, проект, бюджет. Сразу скажу, подхожу ли я вам.</p></div></li>
@@ -5010,24 +5112,24 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
       <h2 class="section-heading reveal">Вопросы, которые мне задают до договора</h2>
       <p class="lead-p reveal">Не нашли свой вопрос? Спросите напрямую — отвечаем сами, без колл-центра.</p>
       <a class="btn-outline reveal" href="#" style="text-decoration:none;display:inline-block;margin-top:22px">Задать вопрос в Telegram</a>
-    <figure class="geo-map reveal"><svg viewBox="20 10 300 280" role="img" aria-label="Зона бесплатного выезда: до 50 км от МКАД">
+    <figure class="geo-map reveal"><div class="geo-live" id="geoMap" aria-label="Карта: зона выезда до 50 км от МКАД"><svg viewBox="20 10 300 280" role="img" aria-label="Зона бесплатного выезда: до 50 км от МКАД">
   <path class="hw" d="M200.0 150.0 L306.4 150.0"/><path class="hw" d="M196.0 135.0 L288.1 81.8"/><path class="hw" d="M184.1 123.5 L234.0 29.6"/><path class="hw" d="M164.8 120.5 L146.3 15.7"/><path class="hw" d="M151.5 126.4 L86.0 42.5"/><path class="hw" d="M141.8 139.7 L41.8 103.3"/><path class="hw" d="M140.0 151.0 L33.7 154.8"/><path class="hw" d="M145.4 167.2 L58.3 228.2"/><path class="hw" d="M159.7 178.2 L123.3 278.2"/><path class="hw" d="M180.3 178.2 L216.7 278.2"/><path class="hw" d="M196.0 165.0 L288.1 218.2"/><circle class="r50" cx="170" cy="150" r="125"/><circle class="mkad" cx="170" cy="150" r="30"/>
   <text class="msk" x="170" y="154" text-anchor="middle">Москва</text>
-  <text class="km" x="265" y="243">50 км</text><circle class="tw" cx="151.5" cy="115.1" r="2.6"/><text x="144.5" y="113.1" text-anchor="end">Красногорск</text><circle class="tw" cx="181.6" cy="114.2" r="2.6"/><text x="188.6" y="111.2" text-anchor="start">Мытищи</text><circle class="tw" cx="208.0" cy="93.6" r="2.6"/><text x="215.0" y="97.6" text-anchor="start">Пушкино</text><circle class="tw" cx="78.2" cy="97.0" r="2.6"/><text x="78.2" y="88.0" text-anchor="middle">Истра</text><circle class="tw" cx="95.1" cy="129.9" r="2.6"/><text x="88.1" y="132.9" text-anchor="end">Новая Рига</text><circle class="tw" cx="117.4" cy="154.6" r="2.6"/><text x="110.4" y="158.6" text-anchor="end">Рублёвка, Барвиха</text><circle class="tw" cx="132.5" cy="167.5" r="2.6"/><text x="125.5" y="177.5" text-anchor="end">Одинцово</text></svg>
+  <text class="km" x="265" y="243">50 км</text><circle class="tw" cx="151.5" cy="115.1" r="2.6"/><text x="144.5" y="113.1" text-anchor="end">Красногорск</text><circle class="tw" cx="181.6" cy="114.2" r="2.6"/><text x="188.6" y="111.2" text-anchor="start">Мытищи</text><circle class="tw" cx="208.0" cy="93.6" r="2.6"/><text x="215.0" y="97.6" text-anchor="start">Пушкино</text><circle class="tw" cx="78.2" cy="97.0" r="2.6"/><text x="78.2" y="88.0" text-anchor="middle">Истра</text><circle class="tw" cx="95.1" cy="129.9" r="2.6"/><text x="88.1" y="132.9" text-anchor="end">Новая Рига</text><circle class="tw" cx="117.4" cy="154.6" r="2.6"/><text x="110.4" y="158.6" text-anchor="end">Рублёвка, Барвиха</text><circle class="tw" cx="132.5" cy="167.5" r="2.6"/><text x="125.5" y="177.5" text-anchor="end">Одинцово</text></svg></div>
   <figcaption><b>Выезжаю до 50 км от МКАД</b>Бесплатно, через 2–3 дня после заявки. Дальше — по договорённости.</figcaption></figure>
     </div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Успеете закрыть контур и запустить отопление до зимы?</button><div class="faq-a"><p>Зависит от месяца старта. На выезде скажу честно: если до холодов не успеваем, предложу график с временным отоплением или зимней паузой — а не пообещаю невозможное.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Почему ваша смета выше, чем у бригады?</button><div class="faq-a"><p>В моей смете сразу есть то, что у бригады появляется допсметами: обвязка котельной, пусконаладка, ревизии. Пришлите их смету — отмечу, где она вырастет.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что входит в «под ключ»?</button><div class="faq-a"><p>Инженерные системы, черновая и чистовая отделка, столярные работы, закупки и пусконаладка; клининг перед сдачей — в подарок. Отдельно оплачиваются материалы и оборудование, вывоз мусора, дизайн-проект и мебель.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Нужно ли платить аванс?</button><div class="faq-a"><p>Нет, ни рубля вперёд. Вы оплачиваете только принятую работу — по актам каждые 7–10 дней после фотоотчёта. Оборудование и материалы — по счетам поставщиков. Безналично или наличными.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Кто отвечает за котельную и септик?</button><div class="faq-a"><p>Я. Их монтируют профильные подрядчики, но договор у вас один — со мной, и по гарантии вы тоже обращаетесь ко мне.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Как вы работаете в посёлке с режимом?</button><div class="faq-a"><p>Пропуска, проезд техники, часы шумных работ берём на себя. Вывоз мусора считаем отдельной строкой и показываем до договора. Правила вашего посёлка закладываю в график ещё до договора.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Рабочие будут жить в доме?</button><div class="faq-a"><p>В доме — нет. На удалённых объектах бригада может жить в бытовке на участке, это обсуждаем до договора.<span class="todo">Подтвердить, как Романов решает вопрос проживания на загородных объектах.</span></p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Можно привести своего мебельщика?</button><div class="faq-a"><p>Да. Координирую его с проектом и заранее фиксирую зависимые этапы в графике, чтобы сторонняя поставка не остановила сдачу дома.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что с гарантией после сдачи?</button><div class="faq-a"><p>5 лет на отделку и инженерные сети. На оборудование — гарантия производителя, но обращаетесь вы ко мне. Выезд за 2–3 дня, устранение — до 10 дней, это записано в договоре.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Сколько длится ремонт дома?</button><div class="faq-a"><p>Дом 250–300 м² под ключ — 10–14 месяцев по графику. Сжать срок можно только за счёт технологии — например, класть паркет на невысохшую стяжку. Этого я не делаю.</p></div></div>
-      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что будет после заявки?</button><div class="faq-a"><p>В рабочее время отвечу за 5–10 минут, поговорим 15–20 минут — и через 2–3 дня я приеду на объект. Смету и график получите после выезда.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Успеете закрыть контур и запустить отопление до зимы?</button><div class="faq-a"><div class="faq-in"><p>Зависит от месяца старта. На выезде скажу честно: если до холодов не успеваем, предложу график с временным отоплением или зимней паузой — а не пообещаю невозможное.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Почему ваша смета выше, чем у бригады?</button><div class="faq-a"><div class="faq-in"><p>В моей смете сразу есть то, что у бригады появляется допсметами: обвязка котельной, пусконаладка, ревизии. Пришлите их смету — отмечу, где она вырастет.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что входит в «под ключ»?</button><div class="faq-a"><div class="faq-in"><p>Инженерные системы, черновая и чистовая отделка, столярные работы, закупки и пусконаладка; клининг перед сдачей — в подарок. Отдельно оплачиваются материалы и оборудование, вывоз мусора, дизайн-проект и мебель.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Нужно ли платить аванс?</button><div class="faq-a"><div class="faq-in"><p>Нет, ни рубля вперёд. Вы оплачиваете только принятую работу — по актам каждые 7–10 дней после фотоотчёта. Оборудование и материалы — по счетам поставщиков. Безналично или наличными.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Кто отвечает за котельную и септик?</button><div class="faq-a"><div class="faq-in"><p>Я. Их монтируют профильные подрядчики, но договор у вас один — со мной, и по гарантии вы тоже обращаетесь ко мне.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Как вы работаете в посёлке с режимом?</button><div class="faq-a"><div class="faq-in"><p>Пропуска, проезд техники, часы шумных работ берём на себя. Вывоз мусора считаем отдельной строкой и показываем до договора. Правила вашего посёлка закладываю в график ещё до договора.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Рабочие будут жить в доме?</button><div class="faq-a"><div class="faq-in"><p>В доме — нет. На удалённых объектах бригада может жить в бытовке на участке, это обсуждаем до договора.<span class="todo">Подтвердить, как Романов решает вопрос проживания на загородных объектах.</span></p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Можно привести своего мебельщика?</button><div class="faq-a"><div class="faq-in"><p>Да. Координирую его с проектом и заранее фиксирую зависимые этапы в графике, чтобы сторонняя поставка не остановила сдачу дома.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что с гарантией после сдачи?</button><div class="faq-a"><div class="faq-in"><p>5 лет на отделку и инженерные сети. На оборудование — гарантия производителя, но обращаетесь вы ко мне. Выезд за 2–3 дня, устранение — до 10 дней, это записано в договоре.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Сколько длится ремонт дома?</button><div class="faq-a"><div class="faq-in"><p>Дом 250–300 м² под ключ — 10–14 месяцев по графику. Сжать срок можно только за счёт технологии — например, класть паркет на невысохшую стяжку. Этого я не делаю.</p></div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Что будет после заявки?</button><div class="faq-a"><div class="faq-in"><p>В рабочее время отвечу за 5–10 минут, поговорим 15–20 минут — и через 2–3 дня я приеду на объект. Смету и график получите после выезда.</p></div></div></div>
     </div>
     </div>
   </div>
@@ -5073,15 +5175,33 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 
 </main>
 
-<footer>
-  <div class="footer-monogram"><span>R</span></div>
-  <div class="footer-logo">РОМАНОВЪ</div>
-  <div class="footer-tagline">Бюро честных интерьеров Владимира Романова</div>
-  <p>Отвечаем за результат своим именем.</p>
-  <div class="footer-dirs"><a href="index.html">Ремонт квартир</a><span aria-current="page">Ремонт домов и коттеджей</span><a href="commerce.html">Коммерческие помещения</a></div>
-  <p style="margin-top:12px">Москва и область, до 50 км от МКАД · +7 (___) ___-__-__ · hello@romanov-buro.ru</p>
-  <p class="footer-req">ИП Романов В. В. · ОГРНИП ___ · ИНН ___<br><a href="#">Политика обработки персональных данных</a> · © 2026</p>
-<span class="todo" style="max-width:640px;margin:18px auto 0">Почта, телефон и часы работы в шапке и подвале — заглушки.</span>
+<footer class="ft">
+  <div class="container ft-top">
+    <div class="ft-brand">
+      <a class="ft-logo" href="#top" data-scroll="top" aria-label="Романовъ — наверх"><svg class="lg-mono" viewBox="0 0 72 78" aria-hidden="true"><g fill="#B5A18A" transform="translate(0 1)"><path d="M1.4 18.2 C5.6 18.4 9.4 19.8 12 21.8 L12 24 C9.8 22.7 7.8 21.9 5.4 21.5 L5.4 68.6 C4.2 69.1 2.8 69.4 1.4 69.6 C2.1 68.4 2.3 66.7 2.3 64.2 L2.3 23.2 C2.3 20.8 2 19.3 1.4 18.2 Z"/>
+<path d="M8.6 2.4 C17.8 2.5 24.2 1.3 32.2 1.6 C47.9 2.1 57.5 8.8 57.5 20.8 C57.5 32.5 49.1 39.4 37.9 40.6 C46.3 37.7 50.5 31 50.5 21 C50.5 9.3 44.6 3.3 32.5 3.2 C27.5 3.1 23.4 3.6 20.1 4.8 C18.6 5.4 18.1 6.4 18.1 8.5 L18.1 65.8 C18.1 69.3 18.4 71.2 19.9 72.5 L12.6 71.4 C13.1 69.9 13.2 67.8 13.2 65.3 L13.2 9 C13.2 5.4 12.7 4.2 8.6 3.6 Z"/>
+<path d="M24.2 37.4 C32.8 37.9 40.1 41.1 45.9 47.8 C51.1 53.8 56.5 61.3 61.7 67.8 C64.5 71.1 66.6 73.5 69.3 75 L60.7 75 C55.1 68.9 50.1 61.7 44.7 54.9 C38.5 47.1 32.6 42.2 24.2 40.2 C22.6 39.8 22.5 38 24.2 37.4 Z"/></g></svg><span><svg class="lg-name" viewBox="38 115.5 304 29" aria-hidden="true"><g fill="#B5A18A"><path d="M46.0554 139.2018Q46.0554 140.3765 46.3777 140.9834Q46.6999 141.5904 47.7264 141.8253Q48.7529 142.0602 50.7978 142.0602Q50.9172 142.0602 50.9172 142.2952Q50.9172 142.5301 50.7978 142.5301Q49.5247 142.5301 48.0327 142.491Q46.5408 142.4518 44.7902 142.4518Q43.4852 142.4518 42.2718 142.491Q41.0583 142.5301 40.0875 142.5301Q40 142.5301 40 142.2952Q40 142.0602 40.0875 142.0602Q41.5437 142.0602 42.2678 141.8645Q42.9919 141.6687 43.2385 141.0813Q43.4852 140.494 43.4852 139.3584V121.2289Q43.4852 120.0934 43.2385 119.5256Q42.9919 118.9578 42.2678 118.7425Q41.5437 118.5271 40.0875 118.5271Q40 118.5271 40 118.2922Q40 118.0572 40.0875 118.0572Q41.0583 118.0572 42.2519 118.116Q43.4454 118.1747 44.7504 118.1747Q45.7689 118.1747 47.2569 118.0572Q48.7449 117.9398 50.2886 117.9398Q52.5405 117.9398 54.3587 118.6015Q56.1769 119.2633 57.2511 120.6729Q58.3253 122.0825 58.3412 124.3614Q58.3571 126.4211 57.5734 127.909Q56.7896 129.397 55.4965 130.3602Q54.2035 131.3235 52.6479 131.7973Q51.0923 132.2711 49.5725 132.2711Q49.0791 132.2711 48.5818 132.2319Q48.0845 132.1928 47.6389 132.0753Q47.4877 132.0361 47.5434 131.7816Q47.5991 131.5271 47.7264 131.5663Q48.0765 131.6446 48.4585 131.6837Q48.8404 131.7229 49.1428 131.7229Q50.774 131.7229 52.2063 131.0181Q53.6385 130.3133 54.5218 128.8488Q55.405 127.3843 55.405 125.1681Q55.405 123.0301 54.6013 121.5539Q53.7977 120.0777 52.4211 119.2985Q51.0445 118.5193 49.3019 118.5193Q48.0128 118.5193 47.3086 118.6681Q46.6044 118.8169 46.3299 119.3964Q46.0554 119.9759 46.0554 121.3072Z M86.1196 143Q83.255 143 80.9275 142.0015Q78.6001 141.003 76.949 139.241Q75.2979 137.4789 74.4027 135.1883Q73.5075 132.8976 73.5075 130.3133Q73.5075 127.1416 74.7608 124.753Q76.014 122.3645 78.0829 120.7786Q80.1517 119.1928 82.6184 118.4096Q85.0851 117.6265 87.5121 117.6265Q90.4562 117.6265 92.7837 118.6642Q95.1111 119.7018 96.7423 121.4639Q98.3736 123.2259 99.229 125.4578Q100.0843 127.6898 100.0843 130.0392Q100.0843 132.7801 98.9703 135.1295Q97.8563 137.4789 95.9267 139.241Q93.9971 141.003 91.4707 142.0015Q88.9444 143 86.1196 143ZM87.528 142.1777Q90.2016 142.1777 92.3659 140.909Q94.5302 139.6404 95.7994 137.1657Q97.0686 134.691 97.0686 131.1434Q97.0686 127.447 95.684 124.6121Q94.2995 121.7771 91.785 120.1521Q89.2706 118.5271 85.857 118.5271Q81.4408 118.5271 78.982 121.3229Q76.5233 124.1187 76.5233 128.9584Q76.5233 131.7229 77.311 134.131Q78.0988 136.5392 79.5669 138.3521Q81.035 140.1651 83.0521 141.1714Q85.0692 142.1777 87.528 142.1777Z M118.3221 138.2777 118.72 118.9578 119.6509 119.0361 119.277 138.2777Q119.2372 140.2904 119.9732 141.1753Q120.7093 142.0602 122.6269 142.0602Q122.7144 142.0602 122.7144 142.2952Q122.7144 142.5301 122.6269 142.5301Q121.7516 142.5301 120.8206 142.491Q119.8897 142.4518 118.7677 142.4518Q117.7492 142.4518 116.8421 142.491Q115.935 142.5301 115.1233 142.5301Q115.0358 142.5301 115.0358 142.2952Q115.0358 142.0602 115.1233 142.0602Q116.7864 142.0602 117.5343 141.1753Q118.2823 140.2904 118.3221 138.2777ZM145.8856 142.0602Q145.997 142.0602 145.997 142.2952Q145.997 142.5301 145.8856 142.5301Q144.9149 142.5301 143.7133 142.491Q142.5118 142.4518 141.175 142.4518Q139.8939 142.4518 138.8117 142.491Q137.7296 142.5301 136.8543 142.5301Q136.7667 142.5301 136.7667 142.2952Q136.7667 142.0602 136.8543 142.0602Q138.8197 142.0602 139.3886 141.5512Q139.9576 141.0422 139.87 139.3584L139.1141 120.438L140.4429 118.6524L130.0748 142.256Q130.035 142.4127 129.7605 142.4127Q129.486 142.4127 129.4064 142.256L119.4043 121.3072Q118.0834 118.5271 115.4018 118.5271Q115.3143 118.5271 115.3143 118.2922Q115.3143 118.0572 115.4018 118.0572Q116.0464 118.0572 116.7705 118.0964Q117.4946 118.1355 117.972 118.1355Q118.6245 118.1355 119.1616 118.0964Q119.6987 118.0572 119.9772 118.0572Q120.5342 118.0572 120.8485 118.4175Q121.1628 118.7777 121.8074 120.0934L130.8785 138.8885L129.6531 140.909L139.3449 119.0361Q139.5517 118.5819 139.874 118.3196Q140.1963 118.0572 140.5384 118.0572Q140.7771 118.0572 141.183 118.0964Q141.5888 118.1355 142.1219 118.1355Q143.2041 118.1355 143.8924 118.0964Q144.5807 118.0572 145.3286 118.0572Q145.4162 118.0572 145.4162 118.2922Q145.4162 118.5271 145.3286 118.5271Q143.403 118.5271 142.4999 119.0675Q141.5967 119.6078 141.6445 121.2368L142.4402 139.3584Q142.488 140.494 142.7386 141.0813Q142.9893 141.6687 143.7133 141.8645Q144.4374 142.0602 145.8856 142.0602Z M166.057 131.7464 166.4628 130.9633H176.998L177.2765 131.7464ZM186.1249 142.0602Q186.292 142.0602 186.292 142.2952Q186.292 142.5301 186.1249 142.5301Q184.995 142.5301 183.7974 142.4518Q182.5999 142.3735 181.5018 142.3735Q180.2446 142.3735 179.3295 142.4518Q178.4144 142.5301 177.3084 142.5301Q177.1492 142.5301 177.1492 142.2952Q177.1492 142.0602 177.3084 142.0602Q179.417 142.0602 179.9302 141.4611Q180.4435 140.862 179.6398 139.1626L170.8312 120.7982L171.8259 119.5922L164.0995 137.5651Q163.089 139.9458 163.9643 141.003Q164.8395 142.0602 167.4495 142.0602Q167.6484 142.0602 167.6484 142.2952Q167.6484 142.5301 167.4495 142.5301Q166.2559 142.5301 165.2613 142.4518Q164.2666 142.3735 162.7548 142.3735Q161.3304 142.3735 160.4591 142.4518Q159.5878 142.5301 158.3624 142.5301Q158.2033 142.5301 158.2033 142.2952Q158.2033 142.0602 158.3624 142.0602Q159.4366 142.0602 160.2284 141.6569Q161.0201 141.2536 161.7323 140.2003Q162.4444 139.147 163.2799 137.2048L171.6588 117.7127Q171.7304 117.5952 171.9373 117.5913Q172.1442 117.5874 172.184 117.7127L181.5575 137.1657Q182.4805 139.1 183.1927 140.1768Q183.9048 141.2536 184.6011 141.6569Q185.2973 142.0602 186.1249 142.0602Z M220.5156 121.3072Q220.5156 120.1717 220.2801 119.5843Q220.0446 118.997 219.2989 118.762Q218.5531 118.5271 217.0224 118.5271Q216.9031 118.5271 216.9031 118.2922Q216.9031 118.0572 217.0224 118.0572Q217.962 118.0572 219.1672 118.116Q220.3724 118.1747 221.8206 118.1747Q223.1256 118.1747 224.3629 118.116Q225.6002 118.0572 226.5392 118.0572Q226.6585 118.0572 226.6585 118.2922Q226.6585 118.5271 226.5392 118.5271Q225.0676 118.5271 224.3125 118.7425Q223.5574 118.9578 223.3057 119.5256Q223.054 120.0934 223.054 121.2289V139.3584Q223.054 140.494 223.3057 141.0813Q223.5574 141.6687 224.3125 141.8645Q225.0676 142.0602 226.5392 142.0602Q226.6585 142.0602 226.6585 142.2952Q226.6585 142.5301 226.5392 142.5301Q225.6002 142.5301 224.3629 142.491Q223.1256 142.4518 221.8206 142.4518Q220.3724 142.4518 219.1672 142.491Q217.962 142.5301 217.0224 142.5301Q216.9031 142.5301 216.9031 142.2952Q216.9031 142.0602 217.0224 142.0602Q218.5531 142.0602 219.2989 141.8645Q220.0446 141.6687 220.2801 141.0813Q220.5156 140.494 220.5156 139.3584ZM203.8534 130.1958V129.3813H221.6217V130.1958ZM202.6757 139.3584V121.2289Q202.6757 120.0934 202.4241 119.5256Q202.1724 118.9578 201.4369 118.7425Q200.7014 118.5271 199.2303 118.5271Q199.1427 118.5271 199.1427 118.2922Q199.1427 118.0572 199.2303 118.0572Q200.201 118.0572 201.4031 118.116Q202.6052 118.1747 203.9091 118.1747Q205.3891 118.1747 206.5885 118.116Q207.7878 118.0572 208.7391 118.0572Q208.8186 118.0572 208.8186 118.2922Q208.8186 118.5271 208.7391 118.5271Q207.2476 118.5271 206.5019 118.762Q205.7561 118.997 205.501 119.5843Q205.2459 120.1717 205.2459 121.3072V139.3584Q205.2459 140.494 205.4846 141.0813Q205.7233 141.6687 206.487 141.8645Q207.2508 142.0602 208.7391 142.0602Q208.8186 142.0602 208.8186 142.2952Q208.8186 142.5301 208.7391 142.5301Q207.7465 142.5301 206.5678 142.491Q205.3891 142.4518 203.9091 142.4518Q202.6027 142.4518 201.378 142.491Q200.1533 142.5301 199.1825 142.5301Q199.103 142.5301 199.103 142.2952Q199.103 142.0602 199.1825 142.0602Q200.6626 142.0602 201.4145 141.8645Q202.1665 141.6687 202.4211 141.0813Q202.6757 140.494 202.6757 139.3584Z M254.0947 143Q251.2302 143 248.9027 142.0015Q246.5752 141.003 244.9241 139.241Q243.273 137.4789 242.3779 135.1883Q241.4827 132.8976 241.4827 130.3133Q241.4827 127.1416 242.7359 124.753Q243.9892 122.3645 246.058 120.7786Q248.1269 119.1928 250.5936 118.4096Q253.0603 117.6265 255.4872 117.6265Q258.4314 117.6265 260.7588 118.6642Q263.0863 119.7018 264.7175 121.4639Q266.3487 123.2259 267.2041 125.4578Q268.0595 127.6898 268.0595 130.0392Q268.0595 132.7801 266.9455 135.1295Q265.8315 137.4789 263.9019 139.241Q261.9723 141.003 259.4459 142.0015Q256.9195 143 254.0947 143ZM255.5031 142.1777Q258.1767 142.1777 260.3411 140.909Q262.5054 139.6404 263.7746 137.1657Q265.0437 134.691 265.0437 131.1434Q265.0437 127.447 263.6592 124.6121Q262.2747 121.7771 259.7602 120.1521Q257.2458 118.5271 253.8322 118.5271Q249.416 118.5271 246.9572 121.3229Q244.4985 124.1187 244.4985 128.9584Q244.4985 131.7229 245.2862 134.131Q246.074 136.5392 247.5421 138.3521Q249.0101 140.1651 251.0273 141.1714Q253.0444 142.1777 255.5031 142.1777Z M293.4667 129.1307 293.9043 128.7078Q296.2676 128.7078 298.038 129.5693Q299.8085 130.4307 300.7793 131.9226Q301.7501 133.4145 301.7501 135.3175Q301.7501 137.4163 300.7156 139.0922Q299.6812 140.7681 297.8789 141.7274Q296.0766 142.6867 293.8327 142.6867Q292.5675 142.6867 290.9641 142.5693Q289.3608 142.4518 287.9762 142.4518Q286.6713 142.4518 285.4578 142.491Q284.2443 142.5301 283.2736 142.5301Q283.186 142.5301 283.186 142.2952Q283.186 142.0602 283.2736 142.0602Q284.7058 142.0602 285.4498 141.8645Q286.1938 141.6687 286.4683 141.0813Q286.7429 140.494 286.7429 139.3584V121.2289Q286.7429 120.0934 286.4882 119.5256Q286.2336 118.9578 285.5055 118.7425Q284.7774 118.5271 283.3452 118.5271Q283.2338 118.5271 283.2338 118.2922Q283.2338 118.0572 283.3452 118.0572Q284.2841 118.0572 285.4777 118.116Q286.6713 118.1747 287.9762 118.1747Q289.0345 118.1747 290.3793 118.0572Q291.724 117.9398 292.6789 117.9398Q295.0342 117.9398 296.5023 118.6328Q297.9704 119.3259 298.6627 120.4889Q299.355 121.6518 299.355 123.1163Q299.355 125.3325 297.7158 126.9105Q296.0766 128.4886 293.4667 129.1307ZM291.8275 118.5193Q290.9124 118.5193 290.3435 118.6759Q289.7746 118.8325 289.5319 119.4081Q289.2892 119.9837 289.2892 121.3072V128.9819L288.0399 128.6765Q289.321 128.747 290.1565 128.7666Q290.992 128.7861 291.1034 128.7861Q294.1748 128.7861 295.4718 127.2316Q296.7689 125.6771 296.7689 123.406Q296.7689 122.0434 296.2795 120.9313Q295.7901 119.8193 294.7119 119.1693Q293.6338 118.5193 291.8275 118.5193ZM293.2518 141.9898Q296.2198 141.9898 297.5964 140.4744Q298.973 138.959 298.973 136.2886Q298.973 133.3596 297.2264 131.4919Q295.4798 129.6241 292.3129 129.5928Q291.3421 129.5615 290.2918 129.5967Q289.2414 129.6319 288.1672 129.7964L289.2892 129.3578V139.3584Q289.2892 140.2982 289.5796 140.8895Q289.87 141.4807 290.7214 141.7352Q291.5729 141.9898 293.2518 141.9898Z M331.9633 142.6867Q331.3108 142.6867 330.2963 142.628Q329.2817 142.5693 328.1995 142.5105Q327.1174 142.4518 326.1864 142.4518Q324.7064 142.4518 323.3457 142.491Q321.985 142.5301 321.1734 142.5301Q321.062 142.5301 321.062 142.2952Q321.062 142.0602 321.1734 142.0602Q322.7569 142.0602 323.5804 141.8645Q324.404 141.6687 324.6865 141.0813Q324.9689 140.494 324.9689 139.3584V121.2289Q324.9689 120.0542 324.8217 119.5334Q324.6745 119.0127 324.0459 118.8756Q323.4173 118.7386 321.985 118.7386Q320.4095 118.7386 319.3114 119.3102Q318.2133 119.8819 317.5609 121.0762Q316.9084 122.2705 316.6458 124.1735Q316.614 124.291 316.411 124.2753Q316.2081 124.2596 316.2081 124.1735Q316.2877 123.6958 316.3673 122.7874Q316.4469 121.8789 316.5463 120.8256Q316.6458 119.7723 316.7055 118.8012Q316.7651 117.8301 316.7651 117.1958Q316.7651 117 316.984 117Q317.2028 117 317.2028 117.1958Q317.2028 117.5873 317.6086 117.8223Q318.0144 118.0572 319.0966 118.1355Q320.0435 118.1747 321.7543 118.1747Q323.4651 118.1747 326.1705 118.1747Q327.6505 118.1747 328.8799 118.116Q330.1093 118.0572 331.0323 118.0572Q331.1198 118.0572 331.1198 118.2922Q331.1198 118.5271 331.0323 118.5271Q329.5443 118.5271 328.7963 118.762Q328.0484 118.997 327.7937 119.5843Q327.5391 120.1717 327.5391 121.3072V139.3584Q327.5391 140.1886 327.8017 140.7798Q328.0643 141.3711 328.8441 141.6804Q329.6239 141.9898 331.1914 141.9898Q334.43 141.9898 335.8265 140.5214Q337.2229 139.053 337.2229 136.0771Q337.2229 133.6024 336.471 132.1614Q335.719 130.7205 334.3226 130.1057Q332.9261 129.491 331.0005 129.491Q329.8865 129.491 328.7446 129.675Q327.6028 129.859 326.4649 130.1566L326.3853 129.3813Q327.738 129.0602 329.1465 128.884Q330.5549 128.7078 332.0031 128.7078Q334.3425 128.7078 336.1448 129.3069Q337.9471 129.906 338.9735 131.3039Q340 132.7018 340 135.1295Q340 137.3771 338.9894 139.0804Q337.9789 140.7837 336.1726 141.7352Q334.3663 142.6867 331.9633 142.6867Z"/></g></svg><small>Бюро честных интерьеров</small></span></a>
+      <p>Ремонт домов и коттеджей под ключ: инженерия и отделка в одном договоре. Отвечаю за результат своим именем.</p>
+      <button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость</button>
+    </div>
+    <nav class="ft-col" aria-label="Разделы страницы"><span class="ft-cap">На этой странице</span>
+      <a href="#portfolio" data-scroll="portfolio">Объекты</a><a href="#engineering" data-scroll="engineering">Инженерия</a><a href="#price" data-scroll="price">Цена</a><a href="#standard" data-scroll="standard">Гарантии</a><a href="#team" data-scroll="team">Команда</a><a href="#route" data-scroll="route">Этапы</a><a href="#faq" data-scroll="faq">Вопросы</a></nav>
+    <nav class="ft-col" aria-label="Направления"><span class="ft-cap">Что ремонтируем</span>
+      <a href="index.html">Квартиры</a><a href="#top" data-scroll="top" aria-current="page">Дома и коттеджи</a><a href="commerce.html">Коммерция</a></nav>
+    <div class="ft-col ft-con"><span class="ft-cap">Связаться</span>
+      <a class="ft-phone" href="tel:+70000000000">+7 (___) ___-__-__</a>
+      <a href="mailto:hello@romanov-buro.ru">hello@romanov-buro.ru</a>
+      <span>Пн–Сб 9:00–20:00</span>
+      <span>Москва и область, выезд до 50 км от МКАД</span>
+      <div class="ft-soc"><a href="#" aria-label="Написать в Telegram">TG</a><a href="#" aria-label="Написать в WhatsApp">WA</a><a href="#" aria-label="Написать в MAX">MAX</a></div>
+    </div>
+  </div>
+  <div class="container ft-bottom">
+    <span>© 2026 Бюро «Романовъ» · ИП Романов В.&nbsp;В. · ОГРНИП ___ · ИНН ___</span>
+    <span class="ft-legal"><a href="#">Политика обработки персональных данных</a><a href="#">Согласие на обработку данных</a><a href="#">Реквизиты</a></span>
+    <p class="ft-note">Информация на сайте носит справочный характер и не является публичной офертой (ст.&nbsp;437 ГК РФ). Стоимость работ фиксируется в договоре после выезда и сметы.</p>
+    <span class="todo" style="max-width:640px;margin:18px auto 0">Почта, телефон и часы работы в шапке и подвале — заглушки.</span>
+  </div>
 </footer>
 
 <div class="mobile-bar">
@@ -5189,7 +5309,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 
   /* ----- Mobile: secondary descriptions collapse into tap-to-open rows ----- */
   if (isMobile){
-    document.querySelectorAll('.eng-item, .rule').forEach(function(it){
+    document.querySelectorAll('.rule').forEach(function(it){
       var h = it.querySelector('h3'), p = it.querySelector('p'); if (!h || !p) return;
       it.classList.add('acc');
       var first = !it.previousElementSibling;
@@ -5205,11 +5325,8 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   document.querySelectorAll('.faq-q').forEach(function(btn){
     btn.addEventListener('click', function(){
       var item = btn.closest('.faq-item');
-      var open = item.classList.contains('open');
-      item.parentNode.querySelectorAll('.faq-item').forEach(function(i){
-        i.classList.remove('open'); i.querySelector('.faq-q').setAttribute('aria-expanded','false');
-      });
-      if (!open){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
   });
 
@@ -5724,18 +5841,24 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   var svg = fig.querySelector('.cut3d'), items = document.querySelectorAll('.eng-item[data-i]'), hs = fig.querySelectorAll('.hs'), sys = fig.querySelectorAll('.sys'), pinned = null;
   function act(i, scroll){
     [].forEach.call(items, function(e){ e.classList.toggle('on', e.dataset.i === i); });
+    [].forEach.call(document.querySelectorAll('.eng-tab'), function(e){ var on = e.dataset.i === i; e.classList.toggle('on', on); e.setAttribute('aria-selected', on ? 'true' : 'false'); });
     [].forEach.call(hs, function(e){ var on = e.dataset.i === i; e.classList.toggle('on', on); e.setAttribute('aria-pressed', on ? 'true' : 'false'); });
     [].forEach.call(sys, function(e){ e.classList.toggle('on', e.dataset.i === i); });
     svg.classList.toggle('has-on', !!i);
     if (scroll && i && window.innerWidth < 901){ var it = document.querySelector('.eng-item[data-i="' + i + '"]'); if (it){ if (it.classList.contains('acc')) it.classList.add('open'); it.scrollIntoView({behavior: 'smooth', block: 'nearest'}); } }
   }
+  function mob(){ return window.matchMedia('(max-width: 900px)').matches; }
+  [].forEach.call(document.querySelectorAll('.eng-tab'), function(b){ b.addEventListener('click', function(){ pinned = b.dataset.i; act(pinned); }); });
+  function sync(){ if (mob()){ if (!pinned) pinned = '1'; act(pinned); } else if (pinned && !fig.matches(':hover')) { pinned = null; act(null); } }
+  sync(); window.addEventListener('resize', sync);
   [].forEach.call(hs, function(h){
     var i = h.dataset.i;
     h.addEventListener('pointerenter', function(e){ if (e.pointerType === 'mouse') act(i); });
     h.addEventListener('pointerleave', function(e){ if (e.pointerType === 'mouse') act(pinned); });
+    h.addEventListener('blur', function(){ if (mob()) act(pinned); });
     h.addEventListener('focus', function(){ act(i); });
     h.addEventListener('blur', function(){ act(pinned); });
-    h.addEventListener('pointerup', function(e){ if (e.pointerType !== 'mouse'){ pinned = pinned === i ? null : i; act(pinned, true); } });
+    h.addEventListener('pointerup', function(e){ if (e.pointerType !== 'mouse'){ pinned = mob() ? i : (pinned === i ? null : i); act(pinned); } });
     h.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); pinned = pinned === i ? null : i; act(pinned || i, true); } if (e.key === 'Escape'){ pinned = null; act(null); h.blur(); } });
   });
 })();
@@ -5750,6 +5873,32 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   b.addEventListener('click', function(){ if (d.showModal) d.showModal(); else d.setAttribute('open', ''); });
   d.querySelector('.fv-close').addEventListener('click', function(){ d.close(); });
   d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>
+(function(){
+  var box = document.getElementById('geoMap'); if (!box || !window.L) return;
+  var fallback = box.innerHTML, ok = false, fails = 0;
+  box.innerHTML = ''; box.classList.add('is-live');
+  var C = [55.7517, 37.6178];
+  var map = L.map(box, {zoomControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false, touchZoom: false, tap: false, attributionControl: true});
+  var t = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {subdomains: 'abcd', maxZoom: 12,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
+  t.on('tileload', function(){ ok = true; });
+  t.on('tileerror', function(){ if (++fails > 4 && !ok){ map.remove(); box.classList.remove('is-live'); box.innerHTML = fallback; } });
+  var zone = L.circle(C, {radius: 68000, color: '#B5A18A', weight: 1.2, dashArray: '5 6', fillColor: '#B5A18A', fillOpacity: .07, interactive: false}).addTo(map);
+  L.circle(C, {radius: 17500, color: '#F5F0E8', opacity: .55, weight: 1.2, fillColor: '#1C1C1C', fillOpacity: .35, interactive: false}).addTo(map);
+  var towns = [['Москва', 55.7517, 37.6178, 'c'], ['Красногорск', 55.831, 37.33, 'l'], ['Химки', 55.889, 37.445, 'l'], ['Мытищи', 55.911, 37.73, 'r'],
+    ['Пушкино', 56.011, 37.847, 'r'], ['Истра', 55.915, 36.86, 'l'], ['Новая Рига', 55.80, 37.02, 'l'], ['Барвиха', 55.737, 37.27, 'l'],
+    ['Одинцово', 55.678, 37.264, 'l'], ['Звенигород', 55.733, 36.857, 'l'], ['Домодедово', 55.437, 37.766, 'r']];
+  towns.forEach(function(tw){
+    L.marker([tw[1], tw[2]], {interactive: false, keyboard: false, icon: L.divIcon({className: 'geo-t geo-' + tw[3], html: '<i></i><span>' + tw[0] + '</span>', iconSize: [0, 0]})}).addTo(map);
+  });
+  L.marker([C[0] - 0.43, C[1] + 0.82], {interactive: false, icon: L.divIcon({className: 'geo-km', html: '50 км от МКАД', iconSize: [0, 0]})}).addTo(map);
+  map.fitBounds(zone.getBounds(), {padding: [6, 6]});
+  window.addEventListener('resize', function(){ map.invalidateSize(); map.fitBounds(zone.getBounds(), {padding: [6, 6]}); });
 })();
 </script>
 </body>
