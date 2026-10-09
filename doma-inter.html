@@ -4197,7 +4197,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 
 /* --- карта выезда --- */
 .geo-map{ margin: clamp(32px, 4vw, 56px) 0 0; max-width: 420px; }
-.geo-map svg{ width: 100%; height: auto; display: block; }
+.geo-map .geo-live:not(.is-live) > svg{ width: 100%; height: auto; display: block; }
 .geo-map .hw{ stroke: rgba(245,240,232,.10); stroke-width: 1; vector-effect: non-scaling-stroke; }
 .geo-map .r50{ fill: rgba(181,161,138,.06); stroke: var(--bronze); stroke-width: 1; stroke-dasharray: 4 4; vector-effect: non-scaling-stroke; }
 .geo-map .mkad{ fill: #1C1C1C; stroke: rgba(245,240,232,.5); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
@@ -4404,7 +4404,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 /* FAQ map */
 .geo-live{ position: relative; width: 100%; aspect-ratio: 1 / 0.86; border-radius: var(--r-card, 14px); overflow: hidden; background: #191919; border: 1px solid rgba(255,255,255,.08); }
 .geo-live:not(.is-live){ aspect-ratio: auto; border: 0; background: none; border-radius: 0; }
-.geo-live.is-live .leaflet-tile-pane{ filter: sepia(.35) saturate(.55) brightness(1.05) contrast(.95); }
+.geo-live.is-live .leaflet-tile-pane{ filter: invert(1) hue-rotate(180deg) grayscale(1) sepia(.28) brightness(.82) contrast(.9); }
 .geo-live .leaflet-container, .geo-live.leaflet-container{ background: #191919; font: 400 11px 'Wix Madefor Text', sans-serif; }
 .geo-live .leaflet-control-attribution{ background: rgba(28,28,28,.7) !important; color: rgba(245,240,232,.45) !important; font-size: 9px; padding: 1px 6px; }
 .geo-live .leaflet-control-attribution a{ color: rgba(245,240,232,.6) !important; }
@@ -5886,15 +5886,13 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   var map = L.map(box, {zoomControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false, touchZoom: false, tap: false, attributionControl: true}).setView(C, 8);
   map.attributionControl.setPrefix(false);
   var ZB = L.latLng(C).toBounds(136000);
-  var t = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {subdomains: 'abcd', maxZoom: 12,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
+  var t = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 12,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>'}).addTo(map);
   t.on('tileload', function(){ ok = true; });
   t.on('tileerror', function(){ if (++fails > 4 && !ok){ map.remove(); box.classList.remove('is-live'); box.innerHTML = fallback; } });
   var zone = L.circle(C, {radius: 68000, color: '#B5A18A', weight: 1.2, dashArray: '5 6', fillColor: '#B5A18A', fillOpacity: .07, interactive: false}).addTo(map);
   L.circle(C, {radius: 17500, color: '#F5F0E8', opacity: .55, weight: 1.2, fillColor: '#1C1C1C', fillOpacity: .35, interactive: false}).addTo(map);
-  var towns = [['Москва', 55.7517, 37.6178, 'c'], ['Красногорск', 55.831, 37.33, 'l'], ['Химки', 55.889, 37.445, 'l'], ['Мытищи', 55.911, 37.73, 'r'],
-    ['Пушкино', 56.011, 37.847, 'r'], ['Истра', 55.915, 36.86, 'l'], ['Новая Рига', 55.80, 37.02, 'l'], ['Барвиха', 55.737, 37.27, 'l'],
-    ['Одинцово', 55.678, 37.264, 'l'], ['Звенигород', 55.733, 36.857, 'l'], ['Домодедово', 55.437, 37.766, 'r']];
+  var towns = [['Рублёвка', 55.742, 37.18, 'l'], ['Новая Рига', 55.835, 37.02, 'l']];
   towns.forEach(function(tw){
     L.marker([tw[1], tw[2]], {interactive: false, keyboard: false, icon: L.divIcon({className: 'geo-t geo-' + tw[3], html: '<i></i><span>' + tw[0] + '</span>', iconSize: [0, 0]})}).addTo(map);
   });
