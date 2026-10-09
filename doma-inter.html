@@ -4075,6 +4075,190 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   .quiz-grid > .quiz-card{ grid-column: 1 / 8; }
   .quiz-aside > .bonus-stack{ grid-column: 8 / 13; }
 }
+
+/* ===== GL7: ритм страницы — паузы, до/после, детали, разрез, видео, документы, карта, сезон ===== */
+
+/* --- фото-паузы во всю ширину --- */
+.pause{ position: relative; padding: 0 !important; min-height: clamp(380px, 74svh, 960px); display: flex; align-items: flex-end; overflow: hidden; background: #1C1C1C; }
+.pause::after{ display: none !important; }
+.pause-img{ position: absolute; inset: 0; background-size: cover; background-repeat: no-repeat; }
+.pause::before{ content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, #1C1C1C 0%, rgba(28,28,28,0) 22%, rgba(28,28,28,0) 52%, rgba(28,28,28,.82) 88%, #1C1C1C 100%); }
+.pause-cap{ position: relative; z-index: 2; padding-bottom: clamp(36px, 6vw, 96px); }
+.pause-cap p{ font-family: var(--display, 'Wix Madefor Display'), sans-serif; font-weight: 400; font-size: clamp(1.35rem, 2.3vw, 2.6rem); line-height: 1.18; letter-spacing: -0.02em; color: #F5F0E8; max-width: 26ch; text-wrap: balance; }
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .pause-img{ animation: pauseZoom linear both; animation-timeline: view(); animation-range: entry 0% exit 100%; }
+    @keyframes pauseZoom{ from{ transform: scale(1.12); } to{ transform: scale(1); } }
+  }
+}
+
+/* --- до / после в кейсах --- */
+.pf-stage{ position: relative; }
+.pf-ba{ position: absolute; inset: 0; z-index: 3; overflow: hidden; border-radius: inherit; --p: 50%; background: #141414; border-radius: var(--r-card, 14px); }
+.pf-ba[hidden]{ display: none !important; }
+.ba-img{ position: absolute; inset: 0; background-size: cover; background-position: center; }
+.ba-before{ clip-path: inset(0 calc(100% - var(--p)) 0 0); filter: saturate(.85); }
+.ba-line{ position: absolute; top: 0; bottom: 0; left: var(--p); width: 1px; background: #F5F0E8; pointer-events: none; }
+.ba-line i{ position: absolute; top: 50%; left: 50%; width: 44px; height: 44px; transform: translate(-50%, -50%); border-radius: 50%;
+  background: rgba(28,28,28,.55); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(245,240,232,.7); }
+.ba-line i::before, .ba-line i::after{ content: ""; position: absolute; top: 50%; width: 7px; height: 7px; border: solid #F5F0E8; border-width: 0 0 1.5px 1.5px; }
+.ba-line i::before{ left: 11px; transform: translateY(-50%) rotate(45deg); }
+.ba-line i::after{ right: 11px; transform: translateY(-50%) rotate(-135deg); }
+.ba-tag{ position: absolute; top: 16px; padding: 6px 12px; border-radius: 999px; font-size: .74rem; letter-spacing: .04em; color: #F5F0E8;
+  background: rgba(28,28,28,.5); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); pointer-events: none; }
+.ba-tag.l{ left: 16px; } .ba-tag.r{ right: 16px; top: auto; bottom: 16px; }
+.ba-range{ position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
+.ba-range:focus-visible ~ .ba-line i, .pf-ba:focus-within .ba-line i{ outline: 2px solid var(--bronze); outline-offset: 3px; }
+.pf-ba.hint{ animation: baHint 1.4s cubic-bezier(.65,0,.35,1) .15s 1; }
+@keyframes baHint{ 0%{ --p: 50%; } 35%{ --p: 32%; } 70%{ --p: 64%; } 100%{ --p: 50%; } }
+@property --p{ syntax: '<percentage>'; inherits: true; initial-value: 50%; }
+.pf-ba-btn{ position: absolute; top: 14px; right: 14px; z-index: 4; display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px 9px 12px;
+  border-radius: 999px; border: 1px solid rgba(245,240,232,.35); color: #F5F0E8; font: 500 .78rem/1 'Wix Madefor Text', sans-serif; letter-spacing: .02em; cursor: pointer;
+  background: rgba(28,28,28,.55); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transition: background .25s, border-color .25s, color .25s; }
+.pf-ba-btn svg{ width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.pf-ba-btn:hover{ border-color: var(--bronze); }
+.pf-ba-btn.on{ background: var(--bronze); border-color: var(--bronze); color: #1C1C1C; }
+.pf-ba-btn:focus-visible{ outline: 2px solid var(--bronze); outline-offset: 3px; }
+.pf-ba.hint ~ .pf-ba-btn{ }
+@media (prefers-reduced-motion: reduce){ .pf-ba.hint{ animation: none; } }
+
+/* --- лента деталей --- */
+.dt-strip{ display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: var(--cg); margin-top: clamp(32px, 4vw, 56px); }
+.dt-card{ margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.dt-img{ aspect-ratio: 3 / 4; border-radius: var(--r-card, 14px); background-size: cover; background-position: center; background-color: #222;
+  border: 1px solid rgba(255,255,255,.06); transition: transform .6s cubic-bezier(.16,1,.3,1); }
+.dt-card:hover .dt-img{ transform: scale(1.015); }
+.dt-card figcaption b{ display: block; font: 500 1rem/1.3 'Wix Madefor Text', sans-serif; color: var(--text-primary); }
+.dt-card figcaption span{ display: block; margin-top: 6px; font-size: .86rem; line-height: 1.5; color: var(--text-secondary); }
+@media (max-width: 1180px){ .dt-strip{ grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 36px; } }
+@media (max-width: 900px){
+  .dt-strip{ display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-right: calc(-1 * var(--gut, 16px)); padding-right: var(--gut, 16px); }
+  .dt-strip::-webkit-scrollbar{ display: none; }
+  .dt-card{ flex: 0 0 64%; scroll-snap-align: start; }
+}
+
+/* --- разрез дома с точками --- */
+.eng-cut{ margin: 0; display: flex; flex-direction: column; gap: 14px; padding: clamp(16px, 1.8vw, 28px); border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r-card, 14px); background: #1C1C1C var(--card-glow, none); }
+.eng-cut svg.cut{ width: 100%; height: auto; flex: 1; max-height: 100%; overflow: visible; }
+.eng-cut .st path, .eng-cut .st rect{ fill: none; stroke: rgba(245,240,232,.30); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.eng-cut .st .gr{ stroke: rgba(245,240,232,.14); }
+.eng-cut .sys path, .eng-cut .sys rect, .eng-cut .sys circle{ fill: none; stroke: rgba(181,161,138,.55); stroke-width: 1.3; vector-effect: non-scaling-stroke; transition: stroke .3s, opacity .3s; }
+.eng-cut.has-on .sys{ opacity: .35; transition: opacity .3s; }
+.eng-cut .sys.on{ opacity: 1 !important; }
+.eng-cut .sys.on path, .eng-cut .sys.on rect, .eng-cut .sys.on circle{ stroke: #D9C7AE; stroke-width: 1.8; }
+.eng-cut .lbl text{ fill: rgba(245,240,232,.42); font: 400 10px 'Wix Madefor Text', sans-serif; letter-spacing: .04em; }
+.eng-cut .hs{ cursor: pointer; outline: none; }
+.eng-cut .hs-dot{ fill: #1C1C1C; stroke: var(--bronze); stroke-width: 1.2; transition: fill .25s; }
+.eng-cut .hs text{ fill: var(--bronze); font: 500 11px 'Wix Madefor Text', sans-serif; text-anchor: middle; pointer-events: none; transition: fill .25s; }
+.eng-cut .hs-pulse{ fill: none; stroke: var(--bronze); stroke-width: 1; opacity: 0; transform-box: fill-box; transform-origin: center; }
+.eng-cut .hs:hover .hs-dot, .eng-cut .hs.on .hs-dot, .eng-cut .hs:focus-visible .hs-dot{ fill: var(--bronze); }
+.eng-cut .hs:hover text, .eng-cut .hs.on text, .eng-cut .hs:focus-visible text{ fill: #1C1C1C; }
+.eng-cut .hs:focus-visible .hs-dot{ stroke: #F5F0E8; stroke-width: 2; }
+@media (prefers-reduced-motion: no-preference){
+  .eng-cut .hs:not(.on) .hs-pulse{ animation: hsPulse 2.8s ease-out infinite; }
+  .eng-cut .hs[data-i="2"] .hs-pulse{ animation-delay: .45s; } .eng-cut .hs[data-i="3"] .hs-pulse{ animation-delay: .9s; }
+  .eng-cut .hs[data-i="4"] .hs-pulse{ animation-delay: 1.35s; } .eng-cut .hs[data-i="5"] .hs-pulse{ animation-delay: 1.8s; } .eng-cut .hs[data-i="6"] .hs-pulse{ animation-delay: 2.25s; }
+  @keyframes hsPulse{ 0%{ opacity: .7; transform: scale(1); } 70%,100%{ opacity: 0; transform: scale(1.9); } }
+}
+.eng-cut figcaption{ font-size: .8rem; color: var(--stone); line-height: 1.45; }
+.eng-item{ position: relative; transition: border-color .3s, background-color .3s; }
+.eng-item .ei-n{ position: absolute; top: 14px; right: 16px; font: 400 .74rem/1 'Wix Madefor Text', sans-serif; letter-spacing: .06em; color: var(--stone); transition: color .3s; }
+.eng-item h3{ padding-right: 28px; }
+.eng-item.on{ border-color: rgba(181,161,138,.55) !important; }
+.eng-item.on .ei-n{ color: var(--bronze); }
+@media (max-width: 900px){ .eng-cut svg.cut{ max-height: 70svh; } .eng-item .ei-n{ display: none; } .eng-item h3{ padding-right: 34px; } }
+
+/* --- видео-обращение основателя --- */
+.founder-video{ font-family: 'Wix Madefor Text', sans-serif; position: relative; display: block; width: 100%; min-height: clamp(380px, 40vw, 720px); padding: 0; border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--r-card, 14px); overflow: hidden; cursor: pointer; background-color: #222; background-size: cover; background-position: 79% 30%; text-align: left; color: #F5F0E8; }
+.founder-video::before{ content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,28,28,0) 45%, rgba(28,28,28,.88) 100%); transition: background-color .4s; }
+.founder-video:hover::before{ background-color: rgba(28,28,28,.12); }
+.fv-play{ position: absolute; left: 24px; bottom: 96px; width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(28,28,28,.4); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); border: 1px solid rgba(245,240,232,.6);
+  transition: background-color .35s, border-color .35s, transform .35s cubic-bezier(.16,1,.3,1); }
+.fv-play svg{ width: 22px; height: 22px; fill: #F5F0E8; margin-left: 3px; transition: fill .35s; }
+.founder-video:hover .fv-play, .founder-video:focus-visible .fv-play{ background: var(--bronze); border-color: var(--bronze); transform: scale(1.06); }
+.founder-video:hover .fv-play svg, .founder-video:focus-visible .fv-play svg{ fill: #1C1C1C; }
+.founder-video:focus-visible{ outline: 2px solid var(--bronze); outline-offset: 3px; }
+.fv-cap{ position: absolute; left: 24px; right: 24px; bottom: 24px; font-size: .95rem; line-height: 1.4; color: #F5F0E8; }
+.fv-cap b{ display: block; margin-bottom: 4px; font-weight: 500; font-size: .74rem; letter-spacing: .06em; color: var(--bronze); }
+.fv-dlg{ width: min(1100px, calc(100vw - 32px)); padding: 0; border: 1px solid rgba(255,255,255,.12); border-radius: var(--r-card, 14px); background: #141414; color: #F5F0E8; overflow: visible; }
+.fv-dlg::backdrop{ background: rgba(10,10,10,.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.fv-frame{ aspect-ratio: 16 / 9; display: grid; place-items: center; padding: 24px; text-align: center; color: var(--text-secondary); font-size: 1rem; }
+.fv-close{ position: absolute; top: -48px; right: 0; width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(245,240,232,.4); background: rgba(28,28,28,.6); color: #F5F0E8; font-size: 22px; line-height: 1; cursor: pointer; }
+
+/* --- документы веером --- */
+.docs-fan{ position: relative; aspect-ratio: 4 / 3.4; margin-top: 32px; }
+.doc{ position: absolute; width: 62%; padding: 18px 18px 16px; border-radius: 6px; background: #F1ECE3; color: #2A2723; box-shadow: 0 24px 50px -20px rgba(0,0,0,.65), 0 2px 6px rgba(0,0,0,.25);
+  font: 400 clamp(8.5px, .62vw, 11px)/1.45 'Wix Madefor Text', sans-serif; transition: transform .6s cubic-bezier(.16,1,.3,1); }
+.doc-h{ font-weight: 600; font-size: 1.1em; letter-spacing: .01em; margin-bottom: 8px; }
+.doc-s{ color: #8A8378; margin: -4px 0 10px; }
+.doc p{ margin: 0 0 6px; }
+.doc .doc-hl{ background: rgba(181,161,138,.32); box-shadow: -4px 0 0 rgba(181,161,138,.32), 4px 0 0 rgba(181,161,138,.32); border-radius: 2px; }
+.doc-sign{ display: flex; justify-content: space-between; align-items: baseline; margin-top: 12px; padding-top: 8px; border-top: 1px solid rgba(42,39,35,.2); color: #8A8378; }
+.doc-sign i{ font-family: 'Wix Madefor Text', sans-serif; font-style: italic; font-size: 1.35em; color: #2A2723; }
+.doc-t{ display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid rgba(42,39,35,.14); }
+.doc-t b{ font-weight: 600; white-space: nowrap; }
+.doc-stamp{ position: absolute; right: 16px; bottom: 14px; padding: 4px 10px; border: 1.5px solid #8C6E4A; color: #8C6E4A; border-radius: 4px; font-weight: 600; font-size: 1em; letter-spacing: .12em; text-transform: uppercase; transform: rotate(-8deg); }
+.doc svg{ width: 100%; height: auto; }
+.doc svg path{ fill: none; stroke: rgba(42,39,35,.45); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.doc svg .ln{ fill: none; stroke: #9C7B52; stroke-width: 1.6; }
+.doc svg text{ fill: #6F675C; font-size: 8px; }
+.doc-f{ margin-top: 6px; color: #8A8378; }
+.d3{ top: 0; right: 0; transform: rotate(5deg); }
+.d2{ top: 14%; right: 14%; padding-bottom: 46px; transform: rotate(-2.5deg); }
+.d1{ left: 0; bottom: 0; transform: rotate(-5deg); }
+.docs-fan:hover .d1{ transform: rotate(-6.5deg) translate(-6px, 4px); }
+.docs-fan:hover .d3{ transform: rotate(7deg) translate(6px, -4px); }
+@media (max-width: 900px){ .docs-fan{ aspect-ratio: 4 / 3.8; } .doc{ width: 72%; font-size: 9px; } }
+
+/* --- карта выезда --- */
+.geo-map{ margin: clamp(32px, 4vw, 56px) 0 0; max-width: 420px; }
+.geo-map svg{ width: 100%; height: auto; display: block; }
+.geo-map .hw{ stroke: rgba(245,240,232,.10); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.geo-map .r50{ fill: rgba(181,161,138,.06); stroke: var(--bronze); stroke-width: 1; stroke-dasharray: 4 4; vector-effect: non-scaling-stroke; }
+.geo-map .mkad{ fill: #1C1C1C; stroke: rgba(245,240,232,.5); stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+.geo-map text{ fill: rgba(245,240,232,.62); font: 400 9.5px 'Wix Madefor Text', sans-serif; }
+.geo-map .msk{ fill: rgba(245,240,232,.85); font-size: 10px; }
+.geo-map .km{ fill: var(--bronze); font-size: 10px; }
+.geo-map .tw{ fill: var(--bronze); }
+.geo-map figcaption{ margin-top: 14px; font-size: .88rem; line-height: 1.5; color: var(--text-secondary); }
+.geo-map figcaption b{ display: block; color: var(--text-primary); font-weight: 500; }
+
+/* --- сезонная шкала --- */
+.season{ margin-top: clamp(56px, 6vw, 96px); padding-top: clamp(28px, 3vw, 40px); border-top: 1px solid var(--divider); }
+.season-head{ display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--cg); align-items: baseline; margin-bottom: 28px; }
+.season-head h3{ grid-column: 1 / 6; font: 400 clamp(1.3rem, 1.8vw, 1.9rem)/1.15 'Wix Madefor Display', sans-serif; letter-spacing: -0.02em; color: var(--text-primary); }
+.season-head p{ grid-column: 7 / 13; font-size: .92rem; line-height: 1.55; color: var(--text-secondary); max-width: 52ch; }
+.season-scroll{ overflow-x: auto; scrollbar-width: none; }
+.season-scroll::-webkit-scrollbar{ display: none; }
+.season-grid{ position: relative; min-width: 680px; }
+.sm-row, .sm-over{ display: grid; grid-template-columns: repeat(12, minmax(0,1fr)); column-gap: var(--cg); align-items: center; }
+.sm-row{ min-height: 52px; border-bottom: 1px solid rgba(255,255,255,.06); }
+.sm-lbl{ grid-column: 1 / 5; font-size: .88rem; line-height: 1.35; color: var(--text-secondary); padding-right: 12px; }
+.sm-track{ grid-column: 5 / 13; position: relative; height: 100%; min-height: 52px; display: flex; align-items: center; }
+.sm-head{ min-height: 36px; border-bottom-color: rgba(255,255,255,.12); }
+.sm-head .sm-track{ min-height: 36px; display: grid; grid-template-columns: repeat(7, 1fr); }
+.sm-head .sm-track b{ font-weight: 400; font-size: .76rem; letter-spacing: .06em; color: var(--stone); padding-left: 6px; border-left: 1px solid rgba(255,255,255,.08); }
+.sm-bar{ position: absolute; left: calc(var(--s) / 7 * 100%); width: calc((var(--e) - var(--s)) / 7 * 100%); height: 10px; border-radius: 999px; background: rgba(181,161,138,.45); }
+.sm-bar.b1{ background: rgba(245,240,232,.28); } .sm-bar.b2{ background: rgba(181,161,138,.5); } .sm-bar.b3{ background: rgba(181,161,138,.75); }
+.sm-bar.b4{ background: var(--bronze); border-radius: 999px 0 0 999px; }
+.sm-bar.open::after{ content: ""; position: absolute; right: -2px; top: 50%; width: 8px; height: 8px; border: solid var(--bronze); border-width: 1.5px 1.5px 0 0; transform: translateY(-50%) rotate(45deg); }
+.sm-over{ position: absolute; inset: 0; pointer-events: none; }
+.sm-over .sm-track{ height: 100%; align-items: stretch; }
+.sm-frost{ position: absolute; top: 62px; bottom: 0; left: calc(var(--s) / 7 * 100%); right: 0; background: linear-gradient(90deg, rgba(150,175,200,.10), rgba(150,175,200,.04)); border-left: 1px dashed rgba(170,190,210,.35); }
+.sm-frost em{ position: absolute; left: 8px; top: 8px; font-style: normal; font-size: .72rem; color: rgba(190,205,220,.7); white-space: nowrap; }
+.sm-mark{ position: absolute; top: 22px; bottom: 0; left: calc(var(--s) / 7 * 100%); width: 0; border-left: 1px solid var(--bronze); }
+.sm-mark::before{ content: ""; position: absolute; top: -4px; left: -4.5px; width: 8px; height: 8px; border-radius: 50%; background: var(--bronze); }
+.sm-mark em{ position: absolute; top: -22px; left: -1px; transform: translateX(-50%); font-style: normal; font-size: .76rem; color: var(--bronze); white-space: nowrap; }
+.season-grid{ padding-top: 26px; }
+@media (max-width: 900px){
+  .season-head{ display: block; } .season-head p{ margin-top: 10px; }
+  .season-scroll{ margin-right: calc(-1 * var(--gut, 16px)); padding-right: var(--gut, 16px); }
+  .sm-row, .sm-over{ grid-template-columns: 170px 1fr; column-gap: 12px; } .sm-lbl{ grid-column: 1; font-size: .8rem; } .sm-track{ grid-column: 2; }
+}
 </style>
 </head>
 <body>
@@ -4165,7 +4349,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
     <div class="pf-tabs" role="tablist" aria-label="Объекты" id="pfTabs"></div>
     <div class="pf-panel" role="tabpanel" id="pfPanel" aria-live="polite">
       <div>
-        <div class="photo pf-main" id="pfMain"><span class="ph-label">Гостиная</span></div>
+        <div class="pf-stage"><div class="photo pf-main" id="pfMain"><span class="ph-label">Гостиная</span></div><div class="pf-ba" id="pfBA" hidden><div class="ba-img" id="baAfter"></div><div class="ba-img ba-before" id="baBefore"></div><span class="ba-tag l">До</span><span class="ba-tag r">После</span><span class="ba-line" aria-hidden="true"><i></i></span><input type="range" class="ba-range" id="baRange" min="0" max="100" value="50" aria-label="Сравнение до и после: сдвиньте"></div><button type="button" class="pf-ba-btn" id="pfBABtn" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M5 8l-3 4 3 4M19 8l3 4-3 4"/></svg><span>До / после</span></button></div>
         <div class="pf-thumbs" id="pfThumbs"></div>
       </div>
       <div class="pf-info">
@@ -4184,9 +4368,19 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
         </div>
       </div>
     </div>
+    <span class="todo">«До / после» — стоковые кадры с разных ракурсов. Нужны реальные пары с одной точки съёмки: коробка → готовая комната.</span>
     <span class="todo">Кейсы 1–2 собраны по присланным проектам (фото и сроки — заглушки). Кейсы 3–4 выдуманы для прототипа и помечены «Пример · заменить» — заменим после показа Владимиру.</span>
   </div>
 </section>
+<section class="details" id="details">
+  <div class="container">
+    <h2 class="section-heading reveal">Детали, которые<br><span class="tone">видно и через пять лет</span></h2>
+    <p class="section-intro reveal">Стыки, свет, камень и порядок в щите — то, что отличает дом «под ключ» от дома «как получилось».</p>
+    <div class="dt-strip"><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(https://images.unsplash.com/photo-1675528030748-d463ab87e8d5?auto=format&fit=crop&w=900&q=72)"></div><figcaption><b>Рейки без плинтуса</b><span>Теневой зазор у потолка — ровный по всей стене</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(https://images.unsplash.com/photo-1532467411038-57680e3dc0f1?auto=format&fit=crop&w=900&q=72)"></div><figcaption><b>Оникс с подсветкой</b><span>Светодиоды за камнем меняются без демонтажа плит</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(https://images.unsplash.com/photo-1787239179266-731522a2cd32?auto=format&fit=crop&w=900&q=72)"></div><figcaption><b>Свет в потолке</b><span>Линии света по проекту, драйверы — в доступной нише</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(https://images.unsplash.com/photo-1783419482520-2f8b80a40369?auto=format&fit=crop&w=900&q=72)"></div><figcaption><b>Щит с маркировкой</b><span>Каждая линия подписана, схема — в папке дома</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(https://images.unsplash.com/photo-1551554781-c46200ea959d?auto=format&fit=crop&w=900&q=72)"></div><figcaption><b>Камень по рисунку</b><span>Раскладку плит согласуем до резки, а не на месте</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(https://images.unsplash.com/photo-1585773818428-b50bebdc2344?auto=format&fit=crop&w=900&q=72)"></div><figcaption><b>Шпон одной партии</b><span>Двери и панели одного тона — без «гуляющего» цвета</span></figcaption></figure></div>
+    <span class="todo">Крупные планы — сток. Нужны 6–8 детальных кадров с объектов Владимира.</span>
+  </div>
+</section>
+
 
 <!-- 4. NOT FOR EVERYONE -->
 <section class="honest">
@@ -4224,6 +4418,12 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
     </div>
   </div>
 </section>
+<section class="pause" aria-label="Тепло, воздух и вода работают с первой зимы — дом живёт, а не доделывается">
+  <div class="pause-img" style="background-image:url(https://images.unsplash.com/photo-1764726331220-b323be2b57b5?auto=format&fit=crop&w=2400&q=72);background-position:center 60%"></div>
+  <div class="container pause-cap"><p class="reveal">Тепло, воздух и вода работают с первой зимы — дом живёт, а не доделывается</p></div>
+  <span class="todo" style="position:absolute;left:16px;bottom:8px">Фото — сток. Заменить кадром реального объекта Владимира.</span>
+</section>
+
 
 <!-- 5. ENGINEERING -->
 <section class="eng eng-main" id="engineering">
@@ -4232,15 +4432,34 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
         <h2 class="section-heading reveal" style="margin-bottom:18px">Котельная, вентиляция и септик — <span class="tone">в том же договоре, что и отделка</span></h2>
         <p class="lead-p reveal">Инженерия и отделка — <span class="hl">один договор, один график, одна гарантия</span>. Искать виноватого между подрядчиками не придётся.</p></div>
     <div class="eng-grid">
-      <div class="photo eng-photo reveal"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: котельная «как по линейке» — обвязка котла, коллекторы, маркировка линий, свободный проход для обслуживания</span></div>
+      <figure class="eng-cut reveal"><svg class="cut" viewBox="0 44 400 466" role="img" aria-label="Разрез дома с инженерными системами">
+ <g class="st">
+  <path d="M48 142 L185 56 L322 142"/><path d="M70 140 V330 M300 140 V330"/>
+  <path d="M70 236 H300 M58 330 H312"/><path d="M70 330 V424 H300 V330"/>
+  <path d="M0 330 H58 M312 330 H400"/>
+  <path class="gr" d="M8 338 l8 8 M28 338 l8 8 M48 338 l8 8 M320 338 l8 8 M340 338 l8 8 M360 338 l8 8 M380 338 l8 8 M74 432 l8 8 M110 432 l8 8 M146 432 l8 8 M182 432 l8 8 M218 432 l8 8 M254 432 l8 8 M290 432 l8 8"/>
+  <rect x="96" y="262" width="40" height="52" rx="1"/><rect x="236" y="262" width="40" height="52" rx="1"/>
+  <rect x="96" y="166" width="40" height="46" rx="1"/><rect x="236" y="166" width="40" height="46" rx="1"/>
+  <path d="M150 330 L150 322 H160 V314 H170 V306 H180 V298 H190 V290 H200 V282 H210 V274 H220 V266 H230 V250 H238"/>
+  <path class="gr" d="M30 330 V492"/>
+ </g>
+ <g class="sys" data-i="1"><rect x="86" y="346" width="34" height="58" rx="3"/><path d="M103 346 V338 M120 360 H170 M120 386 H170 M170 352 h22 v40 h-22 z M181 352 V236 M196 372 H232"/><circle cx="145" cy="404" r="8"/></g>
+ <g class="sys" data-i="2"><rect x="150" y="104" width="44" height="24" rx="3"/><path d="M172 104 V70 M164 70 h16 M194 116 H286 V146 M86 150 H292 M110 150 v6 M160 150 v6 M210 150 v6 M260 150 v6 M150 116 H84 V146"/></g>
+ <g class="sys" data-i="3"><path d="M80 324 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0"/><path d="M80 230 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0"/></g>
+ <g class="sys" data-i="4"><path d="M30 404 H70 M70 404 H96 M232 362 h16 v44 h-16 z M240 362 V340 M300 398 L336 372"/><rect x="336" y="352" width="54" height="34" rx="12"/><path d="M344 392 v8 M382 392 v8 M340 400 h46 M363 352 V334"/><circle cx="30" cy="404" r="4"/></g>
+ <g class="sys" data-i="5"><rect x="276" y="258" width="14" height="24" rx="1.5"/><path d="M283 258 V160 M276 270 H250 M283 196 H246 M283 300 V330 M300 300 H360 V330" stroke-dasharray="3 3"/><circle cx="246" cy="196" r="3"/><circle cx="250" cy="270" r="3"/></g>
+ <g class="sys" data-i="6"><rect x="118" y="238" width="22" height="9" stroke-dasharray="2 2"/><rect x="206" y="406" width="20" height="14" stroke-dasharray="2 2"/><rect x="214" y="152" width="20" height="9" stroke-dasharray="2 2"/></g>
+ <g class="lbl"><text x="78" y="440">котельная</text><text x="202" y="104">вентиляция</text><text x="336" y="410">септик</text><text x="36" y="500">скважина</text></g>
+ <g class="hs" data-i="1" tabindex="0" role="button" aria-label="Отопление и котельная" transform="translate(103 375)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">1</text></g><g class="hs" data-i="2" tabindex="0" role="button" aria-label="Вентиляция" transform="translate(172 116)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">2</text></g><g class="hs" data-i="3" tabindex="0" role="button" aria-label="Тёплые полы" transform="translate(262 324)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">3</text></g><g class="hs" data-i="4" tabindex="0" role="button" aria-label="Вода, канализация, септик" transform="translate(363 369)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">4</text></g><g class="hs" data-i="5" tabindex="0" role="button" aria-label="Электрика и автоматика" transform="translate(283 270)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">5</text></g><g class="hs" data-i="6" tabindex="0" role="button" aria-label="Доступ к каждому узлу" transform="translate(129 254)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">6</text></g>
+</svg><figcaption>Нажмите на точку — покажу, где проходит система и что я с ней делаю</figcaption></figure>
       <div>
         <div class="eng-list">
-          <div class="eng-item reveal"><h3>Отопление и котельная</h3><p>Мощность — по теплопотерям, <span class="hl">с запасом на вентиляцию и горячую воду</span>. В котельной есть место для обслуживания.</p></div>
-          <div class="eng-item reveal"><h3>Вентиляция — до чистовой отделки</h3><p>Закладываю в проект <span class="hl">до потолков</span>. Позже — только вскрывая отделку.</p></div>
-          <div class="eng-item reveal"><h3>Тёплые полы</h3><p>Опрессовка и балансировка — <span class="hl">до стяжки</span>. Акт испытаний у вас.</p></div>
-          <div class="eng-item reveal"><h3>Вода, канализация, септик</h3><p>Водоподготовка под анализ воды. Септик — <span class="hl">с якорением и подъездом для откачки</span>.</p></div>
-          <div class="eng-item reveal"><h3>Электрика и автоматика</h3><p>Расчёт под выделенную мощность, щит с маркировкой, сценарии света, умный дом.</p></div>
-          <div class="eng-item reveal"><h3>Доступ к каждому узлу</h3><p>Ревизии и исполнительные схемы: любой узел обслуживается <span class="hl">без вскрытия отделки</span>.</p></div>
+          <div class="eng-item reveal" data-i="1"><span class="ei-n">01</span><h3>Отопление и котельная</h3><p>Мощность — по теплопотерям, <span class="hl">с запасом на вентиляцию и горячую воду</span>. В котельной есть место для обслуживания.</p></div>
+          <div class="eng-item reveal" data-i="2"><span class="ei-n">02</span><h3>Вентиляция — до чистовой отделки</h3><p>Закладываю в проект <span class="hl">до потолков</span>. Позже — только вскрывая отделку.</p></div>
+          <div class="eng-item reveal" data-i="3"><span class="ei-n">03</span><h3>Тёплые полы</h3><p>Опрессовка и балансировка — <span class="hl">до стяжки</span>. Акт испытаний у вас.</p></div>
+          <div class="eng-item reveal" data-i="4"><span class="ei-n">04</span><h3>Вода, канализация, септик</h3><p>Водоподготовка под анализ воды. Септик — <span class="hl">с якорением и подъездом для откачки</span>.</p></div>
+          <div class="eng-item reveal" data-i="5"><span class="ei-n">05</span><h3>Электрика и автоматика</h3><p>Расчёт под выделенную мощность, щит с маркировкой, сценарии света, умный дом.</p></div>
+          <div class="eng-item reveal" data-i="6"><span class="ei-n">06</span><h3>Доступ к каждому узлу</h3><p>Ревизии и исполнительные схемы: любой узел обслуживается <span class="hl">без вскрытия отделки</span>.</p></div>
         </div>
         <p class="eng-note reveal"><b>Честно о подрядчиках.</b> Отделку и сети делают мои мастера. Котельную и септик — профильные подрядчики, но <span class="hl">договор у вас один, со мной</span>, и отвечаю за всё я.</p>
       </div>
@@ -4424,7 +4643,23 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
       <div class="standard-aside">
         <p class="lead-p reveal">Не обещания на сайте, а <span class="hl">пункты, под которыми я ставлю свою подпись</span>.</p>
         <a class="btn-outline contract-btn reveal" href="#" style="text-decoration:none;display:inline-block">Посмотреть образец договора</a>
-        <div class="photo reveal" style="aspect-ratio:4/3;margin-top:28px"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></svg><span class="ph-label">Фото: разворот договора, крупно пункт о цене и подпись</span></div>
+        <div class="docs-fan reveal" role="img" aria-label="Договор подряда, акт скрытых работ и исполнительная схема">
+  <div class="doc d3" aria-hidden="true"><div class="doc-h">Исполнительная схема · отопление, 1&nbsp;этаж</div>
+    <svg viewBox="0 0 200 130"><path d="M10 10 H190 V120 H10 Z M100 10 V70 H190 M10 70 H60 V120"/><path class="ln" d="M20 112 H180 M20 112 V20 M180 112 V80 M60 112 V80 M140 20 H180 V60"/><circle class="ln" cx="20" cy="112" r="4"/><text x="26" y="104">К-1</text><text x="146" y="34">ТП-3</text><text x="64" y="94">Р-2</text></svg>
+    <div class="doc-f">Масштаб 1:100 · лист 3 из 12</div></div>
+  <div class="doc d2" aria-hidden="true"><div class="doc-h">Акт освидетельствования скрытых работ №&nbsp;7</div>
+    <div class="doc-t"><span>Опрессовка тёплого пола, контуры 1–6</span><b>6 бар · 24 ч</b></div>
+    <div class="doc-t"><span>Давление в конце испытания</span><b>6,0 бар</b></div>
+    <div class="doc-t"><span>Фотофиксация</span><b>18 фото</b></div>
+    <div class="doc-t"><span>Разрешается стяжка</span><b>да</b></div>
+    <span class="doc-stamp">Принято</span></div>
+  <div class="doc d1" aria-hidden="true"><div class="doc-h">Договор подряда №&nbsp;___</div><div class="doc-s">г.&nbsp;Москва · «__»&nbsp;______ 2026</div>
+    <p class="doc-hl"><b>4.1.</b> Цена работ фиксируется в Смете и меняется только допсоглашением, подписанным Заказчиком.</p>
+    <p><b>5.3.</b> Оплата — по актам выполненных работ. Аванс за работы не предусмотрен.</p>
+    <p><b>7.2.</b> За просрочку Подрядчик платит 0,05% стоимости работ за каждый день.</p>
+    <p><b>8.1.</b> Гарантия на работы и инженерные сети — 5 лет.</p>
+    <div class="doc-sign"><span>Подрядчик</span><i>В. Романов</i></div></div>
+</div>
       </div>
       <div>
         <ol class="rules">
@@ -4508,7 +4743,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:24ch">60 человек в штате, за каждый объект отвечаю я. <span class="tone">Моё имя — в договоре, мой телефон — у вас</span></h2>
     <div class="team-founder reveal">
-      <div class="photo founder-photo"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg><span class="ph-label">Владимир Романов на объекте</span></div>
+      <button type="button" class="founder-video" id="fVideo" style="background-image:url(img/hero-doma.jpg)" aria-haspopup="dialog"><span class="fv-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="fv-cap"><b>Видео · 0:50</b>Почему за ваш дом я отвечаю своим именем</span></button>
       <div class="founder-info">
         <h3>Владимир Романов</h3>
         <p><strong style="color:var(--bronze)">Основатель бюро · 20 лет в ремонте</strong></p>
@@ -4597,6 +4832,12 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
     <span class="todo">Пример на 250 м² посчитан от ставки 90 000 ₽/м²; срок и размер платежа — моя оценка, подтвердить.</span>
   </div>
 </section>
+<section class="pause" aria-label="Вечер в своём доме — а не на стройке по выходным">
+  <div class="pause-img" style="background-image:url(https://images.unsplash.com/photo-1642447260162-8d52ac4348ad?auto=format&fit=crop&w=2400&q=72);background-position:center 55%"></div>
+  <div class="container pause-cap"><p class="reveal">Вечер в своём доме — а не на стройке по выходным</p></div>
+  <span class="todo" style="position:absolute;left:16px;bottom:8px">Фото — сток. Заменить кадром реального объекта Владимира.</span>
+</section>
+
 
 <!-- 12. ERRORS -->
 <section class="errors" id="errors">
@@ -4663,6 +4904,14 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
         <li class="reveal"><div class="r8-body"><h3>Ключи <span>по акту</span></h3><p>Пусконаладка систем, сверка с проектом, клининг, исполнительные схемы и гарантийный паспорт дома.</p></div></li>
       </ol>
     </div>
+  <div class="season reveal">
+  <div class="season-head"><h3>Как это ложится на сезон</h3><p>Пример при старте в сентябре с коробки. Начнёте позже — скажу на выезде и предложу график с временным отоплением.</p></div>
+  <div class="season-scroll"><div class="season-grid" role="img" aria-label="График: контур и инженерия — с сентября по ноябрь, тепло запущено в конце ноября, отделка — с декабря в тёплом доме">
+    <div class="sm-row sm-head"><span class="sm-lbl"></span><span class="sm-track"><b>Сен</b><b>Окт</b><b>Ноя</b><b>Дек</b><b>Янв</b><b>Фев</b><b>Мар</b></span></div>
+    <div class="sm-row"><span class="sm-lbl">Выезд, смета, договор</span><span class="sm-track"><i class="sm-bar b1" style="--s:0;--e:0.55"></i></span></div><div class="sm-row"><span class="sm-lbl">Контур: окна, кровля, утепление</span><span class="sm-track"><i class="sm-bar b2" style="--s:0.45;--e:1.9"></i></span></div><div class="sm-row"><span class="sm-lbl">Инженерия: котельная, вентиляция, электрика, вода</span><span class="sm-track"><i class="sm-bar b3" style="--s:1.15;--e:2.75"></i></span></div><div class="sm-row"><span class="sm-lbl">Отделка в тёплом доме</span><span class="sm-track"><i class="sm-bar b4 open" style="--s:2.85;--e:7"></i></span></div>
+    <div class="sm-over"><span class="sm-lbl"></span><span class="sm-track"><i class="sm-frost" style="--s:2.5"><em>ниже 0&nbsp;°C</em></i><i class="sm-mark" style="--s:2.8"><em>Тепло запущено</em></i></span></div>
+  </div></div>
+</div>
   </div>
 </section>
 
@@ -4674,6 +4923,11 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
       <h2 class="section-heading reveal">Вопросы, которые мне задают до договора</h2>
       <p class="lead-p reveal">Не нашли свой вопрос? Спросите напрямую — отвечаем сами, без колл-центра.</p>
       <a class="btn-outline reveal" href="#" style="text-decoration:none;display:inline-block;margin-top:22px">Задать вопрос в Telegram</a>
+    <figure class="geo-map reveal"><svg viewBox="20 10 300 280" role="img" aria-label="Зона бесплатного выезда: до 50 км от МКАД">
+  <path class="hw" d="M200.0 150.0 L306.4 150.0"/><path class="hw" d="M196.0 135.0 L288.1 81.8"/><path class="hw" d="M184.1 123.5 L234.0 29.6"/><path class="hw" d="M164.8 120.5 L146.3 15.7"/><path class="hw" d="M151.5 126.4 L86.0 42.5"/><path class="hw" d="M141.8 139.7 L41.8 103.3"/><path class="hw" d="M140.0 151.0 L33.7 154.8"/><path class="hw" d="M145.4 167.2 L58.3 228.2"/><path class="hw" d="M159.7 178.2 L123.3 278.2"/><path class="hw" d="M180.3 178.2 L216.7 278.2"/><path class="hw" d="M196.0 165.0 L288.1 218.2"/><circle class="r50" cx="170" cy="150" r="125"/><circle class="mkad" cx="170" cy="150" r="30"/>
+  <text class="msk" x="170" y="154" text-anchor="middle">Москва</text>
+  <text class="km" x="265" y="243">50 км</text><circle class="tw" cx="151.5" cy="115.1" r="2.6"/><text x="144.5" y="113.1" text-anchor="end">Красногорск</text><circle class="tw" cx="181.6" cy="114.2" r="2.6"/><text x="188.6" y="111.2" text-anchor="start">Мытищи</text><circle class="tw" cx="208.0" cy="93.6" r="2.6"/><text x="215.0" y="97.6" text-anchor="start">Пушкино</text><circle class="tw" cx="78.2" cy="97.0" r="2.6"/><text x="78.2" y="88.0" text-anchor="middle">Истра</text><circle class="tw" cx="95.1" cy="129.9" r="2.6"/><text x="88.1" y="132.9" text-anchor="end">Новая Рига</text><circle class="tw" cx="117.4" cy="154.6" r="2.6"/><text x="110.4" y="158.6" text-anchor="end">Рублёвка, Барвиха</text><circle class="tw" cx="132.5" cy="167.5" r="2.6"/><text x="125.5" y="177.5" text-anchor="end">Одинцово</text></svg>
+  <figcaption><b>Выезжаю до 50 км от МКАД</b>Бесплатно, через 2–3 дня после заявки. Дальше — по договорённости.</figcaption></figure>
     </div>
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q" aria-expanded="false">Успеете закрыть контур и запустить отопление до зимы?</button><div class="faq-a"><p>Зависит от месяца старта. На выезде скажу честно: если до холодов не успеваем, предложу график с временным отоплением или зимней паузой — а не пообещаю невозможное.</p></div></div>
@@ -4966,10 +5220,10 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
         var t = document.createElement('button');
         t.type = 'button'; t.className = 'photo pf-thumb'; t.textContent = p; var tu = (PFTHB[curCase] || [])[k]; if (tu){ t.style.backgroundImage = 'url(' + tu + ')'; t.classList.add('has-img'); }
         t.setAttribute('aria-label', 'Показать фото: ' + p);
-        t.addEventListener('click', function(){ curPhoto = k; renderPhoto(); });
+        t.addEventListener('click', function(){ curPhoto = k; renderPhoto(); if (window.baOff) baOff(); });
         $('pfThumbs').appendChild(t);
       });
-      $('pfCount').textContent = pad(curCase + 1) + ' / ' + pad(CASES.length);
+      $('pfCount').textContent = pad(curCase + 1) + ' / ' + pad(CASES.length); if (window.baSync) baSync(curCase);
       renderPhoto();
     }
     $('pfPrev').addEventListener('click', function(){ renderCase(curCase - 1); });
@@ -5356,5 +5610,59 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 })();
 </script>
 
-<script>(function(){function f(){var w=document.querySelector('.hero7-features-wrap');if(w)document.documentElement.style.setProperty('--feat-h',w.offsetHeight+'px');}window.addEventListener('load',f);window.addEventListener('resize',f);f();})();</script></body>
+<script>(function(){function f(){var w=document.querySelector('.hero7-features-wrap');if(w)document.documentElement.style.setProperty('--feat-h',w.offsetHeight+'px');}window.addEventListener('load',f);window.addEventListener('resize',f);f();})();</script><script>
+(function(){
+  var B = ['https://images.unsplash.com/photo-1704461539031-e7c2145e5fc4?auto=format&fit=crop&w=1600&q=72','https://images.unsplash.com/photo-1692890659047-079b769ee3e6?auto=format&fit=crop&w=1600&q=72','https://images.unsplash.com/photo-1769051782031-ef8c6dce8795?auto=format&fit=crop&w=1600&q=72','https://images.unsplash.com/photo-1768321914688-86ff62032d47?auto=format&fit=crop&w=1600&q=72'], A = ['https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=72','https://images.unsplash.com/photo-1724582586529-62622e50c0b3?auto=format&fit=crop&w=1600&q=72','https://images.unsplash.com/photo-1628744876497-eb30460be9f6?auto=format&fit=crop&w=1600&q=72','https://images.unsplash.com/photo-1724582586458-a51791349977?auto=format&fit=crop&w=1600&q=72'];
+  var ba = document.getElementById('pfBA'), btn = document.getElementById('pfBABtn'), r = document.getElementById('baRange');
+  if (!ba) return;
+  function set(v){ ba.style.setProperty('--p', v + '%'); }
+  window.baSync = function(i){
+    document.getElementById('baBefore').style.backgroundImage = 'url(' + B[i % B.length] + ')';
+    document.getElementById('baAfter').style.backgroundImage = 'url(' + A[i % A.length] + ')';
+  };
+  function on(x){
+    ba.hidden = !x; btn.setAttribute('aria-pressed', x ? 'true' : 'false'); btn.classList.toggle('on', x);
+    btn.querySelector('span').textContent = x ? 'Закрыть сравнение' : 'До / после';
+    if (x){ r.value = 50; set(50); ba.classList.remove('hint'); void ba.offsetWidth; ba.classList.add('hint'); }
+  }
+  window.baOff = function(){ on(false); };
+  btn.addEventListener('click', function(){ on(ba.hidden); });
+  r.addEventListener('input', function(){ ba.classList.remove('hint'); set(r.value); });
+  set(50); baSync(0);
+})();
+</script>
+<script>
+(function(){
+  var fig = document.querySelector('.eng-cut'); if (!fig) return;
+  var items = document.querySelectorAll('.eng-item[data-i]'), hs = fig.querySelectorAll('.hs'), sys = fig.querySelectorAll('.sys');
+  function act(i, scroll){
+    [].forEach.call(items, function(e){ e.classList.toggle('on', e.dataset.i === i); });
+    [].forEach.call(hs, function(e){ e.classList.toggle('on', e.dataset.i === i); });
+    [].forEach.call(sys, function(e){ e.classList.toggle('on', e.dataset.i === i); });
+    fig.classList.toggle('has-on', !!i);
+    if (scroll && window.innerWidth < 901){ var it = document.querySelector('.eng-item[data-i="' + i + '"]'); if (it){ if (it.classList.contains('acc')) it.classList.add('open'); it.scrollIntoView({behavior: 'smooth', block: 'nearest'}); } }
+  }
+  [].forEach.call(hs, function(h){
+    h.addEventListener('mouseenter', function(){ act(h.dataset.i); });
+    h.addEventListener('focus', function(){ act(h.dataset.i); });
+    h.addEventListener('click', function(){ act(h.dataset.i, true); });
+    h.addEventListener('keydown', function(e){ if (e.key === 'Enter' || e.key === ' '){ e.preventDefault(); act(h.dataset.i, true); } });
+  });
+  [].forEach.call(items, function(it){ it.addEventListener('mouseenter', function(){ act(it.dataset.i); }); });
+  act('1');
+})();
+</script>
+<dialog class="fv-dlg" id="fvDlg" aria-label="Видео-обращение Владимира Романова">
+  <div class="fv-frame"><p>Здесь будет видео-обращение Владимира — 50&nbsp;секунд, снимаем по&nbsp;готовому ТЗ.</p></div>
+  <button type="button" class="fv-close" aria-label="Закрыть видео">×</button>
+</dialog>
+<script>
+(function(){
+  var b = document.getElementById('fVideo'), d = document.getElementById('fvDlg'); if (!b || !d) return;
+  b.addEventListener('click', function(){ if (d.showModal) d.showModal(); else d.setAttribute('open', ''); });
+  d.querySelector('.fv-close').addEventListener('click', function(){ d.close(); });
+  d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+})();
+</script>
+</body>
 </html>
