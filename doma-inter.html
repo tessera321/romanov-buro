@@ -5883,7 +5883,9 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   var fallback = box.innerHTML, ok = false, fails = 0;
   box.innerHTML = ''; box.classList.add('is-live');
   var C = [55.7517, 37.6178];
-  var map = L.map(box, {zoomControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false, touchZoom: false, tap: false, attributionControl: true});
+  var map = L.map(box, {zoomControl: false, dragging: false, scrollWheelZoom: false, doubleClickZoom: false, boxZoom: false, keyboard: false, touchZoom: false, tap: false, attributionControl: true}).setView(C, 8);
+  map.attributionControl.setPrefix(false);
+  var ZB = L.latLng(C).toBounds(136000);
   var t = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', {subdomains: 'abcd', maxZoom: 12,
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'}).addTo(map);
   t.on('tileload', function(){ ok = true; });
@@ -5897,8 +5899,8 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
     L.marker([tw[1], tw[2]], {interactive: false, keyboard: false, icon: L.divIcon({className: 'geo-t geo-' + tw[3], html: '<i></i><span>' + tw[0] + '</span>', iconSize: [0, 0]})}).addTo(map);
   });
   L.marker([C[0] - 0.43, C[1] + 0.82], {interactive: false, icon: L.divIcon({className: 'geo-km', html: '50 км от МКАД', iconSize: [0, 0]})}).addTo(map);
-  map.fitBounds(zone.getBounds(), {padding: [6, 6]});
-  window.addEventListener('resize', function(){ map.invalidateSize(); map.fitBounds(zone.getBounds(), {padding: [6, 6]}); });
+  map.fitBounds(ZB, {padding: [6, 6]});
+  window.addEventListener('resize', function(){ map.invalidateSize(); map.fitBounds(ZB, {padding: [6, 6]}); });
 })();
 </script>
 </body>
