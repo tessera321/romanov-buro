@@ -4014,6 +4014,67 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 @media (min-width: 901px){
   .scenario-card, .price-split > div{ padding-left: clamp(20px, 2.25vw, 44px) !important; padding-right: clamp(20px, 2.25vw, 44px) !important; }
 }
+
+/* ===== GL6: кнопка с бронзовым квадратом и заливкой по ховеру ===== */
+.btn-primary.btn-primary, .top-bar-cta.top-bar-cta.top-bar-cta{
+  --ic: 44px; --ii: 6px;
+  position: relative; isolation: isolate; overflow: hidden;
+  display: inline-flex !important; align-items: center; justify-content: center; text-align: center;
+  min-height: calc(var(--ic) + 2 * var(--ii));
+  padding: 10px calc(var(--ic) + var(--ii) + 22px) 10px 26px !important;
+  background: #EEE8DD !important; border-color: #EEE8DD !important; color: #1C1C1C !important;
+  transition: border-color .45s ease;
+}
+.top-bar-cta.top-bar-cta.top-bar-cta{ --ic: 30px; --ii: 5px; padding: 6px calc(var(--ic) + var(--ii) + 16px) 6px 18px !important; }
+.btn-primary.btn-primary::before, .top-bar-cta.top-bar-cta.top-bar-cta::before{
+  content: ""; position: absolute; inset: 0; z-index: -1; background: var(--bronze);
+  clip-path: inset(calc(50% - var(--ic) / 2) var(--ii) calc(50% - var(--ic) / 2) calc(100% - var(--ii) - var(--ic)) round 6px);
+  transition: clip-path .6s cubic-bezier(.65, 0, .35, 1);
+}
+.btn-primary.btn-primary::after, .top-bar-cta.top-bar-cta.top-bar-cta::after{
+  content: ""; position: absolute; top: 50%; right: var(--ii); width: var(--ic); height: var(--ic);
+  transform: translateY(-50%);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231C1C1C' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 17 17 7M9 7h8v8'/%3E%3C/svg%3E") center / 16px no-repeat;
+  transition: transform .5s cubic-bezier(.65, 0, .35, 1);
+}
+.top-bar-cta.top-bar-cta.top-bar-cta::after{ background-size: 13px; }
+.btn-primary.btn-primary:hover, .top-bar-cta.top-bar-cta.top-bar-cta:hover,
+.btn-primary.btn-primary:focus-visible, .top-bar-cta.top-bar-cta.top-bar-cta:focus-visible{ background: #EEE8DD !important; border-color: var(--bronze) !important; }
+.btn-primary.btn-primary:hover::before, .top-bar-cta.top-bar-cta.top-bar-cta:hover::before,
+.btn-primary.btn-primary:focus-visible::before, .top-bar-cta.top-bar-cta.top-bar-cta:focus-visible::before{ clip-path: inset(0 0 0 0 round 0); }
+.btn-primary.btn-primary:hover::after, .top-bar-cta.top-bar-cta.top-bar-cta:hover::after,
+.btn-primary.btn-primary:focus-visible::after, .top-bar-cta.top-bar-cta.top-bar-cta:focus-visible::after{ transform: translateY(-50%) rotate(45deg); }
+.btn-primary.btn-primary:active::before{ transition-duration: .2s; }
+@media (prefers-reduced-motion: reduce){
+  .btn-primary.btn-primary::before, .top-bar-cta.top-bar-cta.top-bar-cta::before,
+  .btn-primary.btn-primary::after, .top-bar-cta.top-bar-cta.top-bar-cta::after{ transition-duration: .01ms; }
+}
+@media (max-width: 900px){
+  .btn-primary.btn-primary{ display: flex !important; padding-left: 18px !important; padding-right: calc(var(--ic) + var(--ii) + 14px) !important; }
+}
+
+/* ===== GL6: квиз слева, три бонуса столбиком справа ===== */
+@media (min-width: 901px){
+  .quiz-grid{ grid-template-columns: repeat(12, minmax(0, 1fr)) !important; column-gap: var(--cg) !important; row-gap: 0 !important; align-items: stretch !important; }
+  .quiz-aside{ display: contents; }
+  .quiz-aside > .section-heading, .quiz-aside > .section-intro{ grid-column: 1 / -1; }
+  .quiz-aside > .section-intro{ margin-bottom: clamp(32px, 3.4vw, 56px) !important; }
+  .quiz-grid > .quiz-card{ grid-column: 1 / 9; grid-row: 3; align-self: stretch; }
+  .quiz-aside > .bonus-stack{ grid-column: 9 / 13; grid-row: 3; margin: 0 !important;
+    grid-template-columns: 1fr !important; grid-auto-rows: 1fr; gap: var(--cg) !important; }
+  .bonus-stack .bonus-row{ grid-template-columns: clamp(88px, 7.6vw, 168px) minmax(0, 1fr) !important; gap: 4px 18px !important;
+    padding: 12px 18px 12px 12px !important; align-content: center; align-items: center; }
+  .bonus-stack .b-thumb{ grid-row: 1 / span 2; width: 100% !important; height: 100% !important; min-height: 88px; aspect-ratio: auto !important; }
+  .bonus-stack .b-thumb .ph-label{ font-size: 0.6rem; }
+  .bonus-stack .bonus-row > span:nth-child(2){ align-self: end; }
+  .bonus-stack .bonus-row b{ font-size: clamp(0.9rem, 0.95vw, 1.02rem) !important; }
+  .bonus-stack .bonus-row small{ font-size: 0.8rem !important; }
+  .bonus-stack .bonus-row .st{ grid-column: 2; align-self: start; margin-top: 4px; }
+}
+@media (min-width: 901px) and (max-width: 1180px){
+  .quiz-grid > .quiz-card{ grid-column: 1 / 8; }
+  .quiz-aside > .bonus-stack{ grid-column: 8 / 13; }
+}
 </style>
 </head>
 <body>
