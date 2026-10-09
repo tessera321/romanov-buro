@@ -4545,6 +4545,68 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 @media (min-width: 901px){
   .faq-aside .geo-map figcaption{ order: -1; margin: 0 0 14px !important; }
 }
+
+/* ===== GL12 ===== */
+/* control block: the chat screenshot rises to the heading */
+@media (min-width: 901px){
+  .control > .container{ display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto auto auto 1fr auto; column-gap: var(--cg); align-items: start; }
+  .control > .container > .section-heading, .control > .container > .section-intro{ grid-column: 1 / 8; }
+  .control > .container > .section-heading{ grid-row: 1; }
+  .control > .container > .section-intro{ grid-row: 2; }
+  .control > .container > .control-split{ display: contents !important; }
+  .control .control-list{ grid-column: 1 / 8; grid-row: 3; margin-top: clamp(8px, 1.4vw, 24px); }
+  .control .control-split > :nth-child(2){ grid-column: 8 / 13 !important; grid-row: 1 / span 4; justify-content: flex-end !important; }
+  .control > .container > :not(.section-heading):not(.section-intro):not(.control-split){ grid-column: 1 / -1; }
+  .control > .container > .quality2{ grid-row: 5; margin-top: clamp(56px, 6vw, 96px); }
+  .control > .container > .todo{ grid-row: 6; }
+}
+
+/* contract as a real document */
+.ctr{ margin-top: 32px; }
+.ctr-stack{ position: relative; display: block; width: 100%; padding: 0 0 6% 0; border: 0; background: none; cursor: zoom-in; container-type: inline-size; text-align: left; }
+.ctr-page{ --u: 1cqw; background: #FBFAF7; color: #1d1d1b; font-family: 'Times New Roman', 'PT Serif', Times, serif; font-size: calc(var(--u) * 1.95); line-height: 1.38;
+  aspect-ratio: 210 / 297; padding: 8% 9% 7%; box-shadow: 0 1px 2px rgba(0,0,0,.25), 0 20px 50px -18px rgba(0,0,0,.7); overflow: hidden; text-align: justify; hyphens: auto; }
+.ctr-stack .ctr-page{ position: relative; width: 82%; }
+.ctr-stack .pg-b, .ctr-stack .pg-m{ position: absolute; top: 0; }
+.ctr-stack .pg-b{ left: 16%; transform: rotate(3deg) translateY(2%); filter: brightness(.86); }
+.ctr-stack .pg-m{ left: 8%; transform: rotate(1.4deg) translateY(1%); filter: brightness(.93); }
+.ctr-stack .pg-f{ transform: rotate(-1deg); transition: transform .5s cubic-bezier(.16,1,.3,1); }
+.ctr-stack:hover .pg-f, .ctr-stack:focus-visible .pg-f{ transform: rotate(-1.6deg) translate(-1%, -1%); }
+.ctr-stack:focus-visible{ outline: 2px solid var(--bronze); outline-offset: 6px; }
+.ctr-run{ display: flex; justify-content: space-between; gap: 2em; font-size: .78em; color: #77736b; border-bottom: .5px solid #c9c4ba; padding-bottom: .5em; margin-bottom: 1.6em; }
+.ctr-title{ margin: 0; text-align: center; font-weight: 700; font-size: 1.15em; letter-spacing: .02em; }
+.ctr-sub{ text-align: center; margin: .2em 0 1.2em; }
+.ctr-place{ display: flex; justify-content: space-between; margin-bottom: 1.1em; }
+.ctr-pre{ text-indent: 2em; margin: 0 0 1em; }
+.ctr-page h5{ margin: 1.1em 0 .7em; text-align: center; font-weight: 700; font-size: 1em; letter-spacing: .02em; }
+.ctr-page .cl{ margin: 0 0 .65em; text-indent: 2em; position: relative; }
+.ctr-page .cl b{ font-weight: 700; }
+.ctr-page u{ text-decoration: none; letter-spacing: -.02em; }
+.ctr-page mark{ background: linear-gradient(transparent 8%, rgba(196,168,126,.45) 8%, rgba(196,168,126,.45) 92%, transparent 92%); color: inherit; padding: 0 .1em; position: relative; }
+.ctr-page mark::before{ content: attr(data-n); display: inline-grid; place-items: center; width: 1.45em; height: 1.45em; margin-right: .35em; vertical-align: .08em; border-radius: 50%;
+  background: #9C7B52; color: #fff; font: 700 .7em/1 'Wix Madefor Text', sans-serif; text-indent: 0; }
+.ctr-skip{ text-align: center; color: #9a958c; font-style: italic; font-size: .85em; margin: .4em 0 .9em; }
+.ctr-sign{ display: grid; grid-template-columns: 1fr 1fr; gap: 2em; margin-top: 2.4em; }
+.ctr-sign div{ display: flex; flex-direction: column; gap: .3em; }
+.ctr-sign b{ font-weight: 700; }
+.ctr-sign i{ min-height: 2.2em; }
+.ctr-sig{ font-family: 'Segoe Script', 'Brush Script MT', cursive; font-size: 1.7em; color: #2b3f8c; transform: rotate(-6deg); transform-origin: left; line-height: 1; margin-top: .3em; }
+.ctr-sign em{ font-style: normal; }
+.ctr-zoom{ position: absolute; left: 0; bottom: 0; display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(28,28,28,.82);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); border: 1px solid rgba(245,240,232,.25); color: #F5F0E8; font: 500 .78rem/1 'Wix Madefor Text', sans-serif; letter-spacing: .02em; }
+.ctr-stack:hover .ctr-zoom{ border-color: var(--bronze); }
+.ctr-notes{ list-style: none; margin: 20px 0 0; padding: 0; display: grid; gap: 10px; }
+.ctr-notes li{ display: grid; grid-template-columns: 24px 1fr; gap: 12px; align-items: start; font-size: .88rem; line-height: 1.5; color: var(--text-secondary); }
+.ctr-notes b{ width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; background: #9C7B52; color: #fff; font: 700 .7rem/1 'Wix Madefor Text', sans-serif; margin-top: 1px; }
+.ctr-dlg{ width: min(860px, calc(100vw - 24px)); max-height: calc(100svh - 40px); padding: 0; border: 0; background: transparent; overflow: visible; }
+.ctr-dlg::backdrop{ background: rgba(10,10,10,.8); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.ctr-dlg-in{ max-height: calc(100svh - 40px); overflow-y: auto; container-type: inline-size; display: grid; gap: 24px; padding: 4px 4px 24px; overscroll-behavior: contain; }
+.ctr-dlg .ctr-page{ aspect-ratio: auto; min-height: calc(100cqw * 1.41); font-size: calc(var(--u) * 1.75); }
+.ctr-dlg-note{ margin: 0; text-align: center; color: rgba(245,240,232,.6); font-size: .82rem; }
+.ctr-close{ position: fixed; top: 14px; right: 14px; z-index: 2; }
+@media (max-width: 900px){ .ctr-dlg .ctr-page{ font-size: calc(var(--u) * 2.4); padding: 9% 7% 8% 11%; } }
+
+.ctr-page h4, .ctr-page h5{ font-family: 'Times New Roman', 'PT Serif', Times, serif !important; text-transform: none !important; letter-spacing: .02em !important; line-height: 1.3 !important; color: #1d1d1b !important; }
 </style>
 </head>
 <body>
@@ -4908,23 +4970,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
       <div class="standard-aside">
         <p class="lead-p reveal">Не обещания на сайте, а <span class="hl">пункты, под которыми я ставлю свою подпись</span>.</p>
         <a class="btn-outline contract-btn reveal" href="#" style="text-decoration:none;display:inline-block">Посмотреть образец договора</a>
-        <div class="docs-fan reveal" role="img" aria-label="Договор подряда, акт скрытых работ и исполнительная схема">
-  <div class="doc d3" aria-hidden="true"><div class="doc-h">Исполнительная схема · отопление, 1&nbsp;этаж</div>
-    <svg viewBox="0 0 200 130"><path d="M10 10 H190 V120 H10 Z M100 10 V70 H190 M10 70 H60 V120"/><path class="ln" d="M20 112 H180 M20 112 V20 M180 112 V80 M60 112 V80 M140 20 H180 V60"/><circle class="ln" cx="20" cy="112" r="4"/><text x="26" y="104">К-1</text><text x="146" y="34">ТП-3</text><text x="64" y="94">Р-2</text></svg>
-    <div class="doc-f">Масштаб 1:100 · лист 3 из 12</div></div>
-  <div class="doc d2" aria-hidden="true"><div class="doc-h">Акт освидетельствования скрытых работ №&nbsp;7</div>
-    <div class="doc-t"><span>Опрессовка тёплого пола, контуры 1–6</span><b>6 бар · 24 ч</b></div>
-    <div class="doc-t"><span>Давление в конце испытания</span><b>6,0 бар</b></div>
-    <div class="doc-t"><span>Фотофиксация</span><b>18 фото</b></div>
-    <div class="doc-t"><span>Разрешается стяжка</span><b>да</b></div>
-    <span class="doc-stamp">Принято</span></div>
-  <div class="doc d1" aria-hidden="true"><div class="doc-h">Договор подряда №&nbsp;___</div><div class="doc-s">г.&nbsp;Москва · «__»&nbsp;______ 2026</div>
-    <p class="doc-hl"><b>4.1.</b> Цена работ фиксируется в Смете и меняется только допсоглашением, подписанным Заказчиком.</p>
-    <p><b>5.3.</b> Оплата — по актам выполненных работ. Аванс за работы не предусмотрен.</p>
-    <p><b>7.2.</b> За просрочку Подрядчик платит 0,05% стоимости работ за каждый день.</p>
-    <p><b>8.1.</b> Гарантия на работы и инженерные сети — 5 лет.</p>
-    <div class="doc-sign"><span>Подрядчик</span><i>В. Романов</i></div></div>
-</div>
+        <div class="ctr reveal"><button type="button" class="ctr-stack" id="ctrOpen" aria-haspopup="dialog" aria-label="Открыть страницы договора подряда"><article class="ctr-page pg-b" aria-hidden="true"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 9</span></div><h5>6. ОТВЕТСТВЕННОСТЬ СТОРОН</h5><p class="cl is-hl"><b>6.1.</b> <mark data-n="3">Подрядчик выплачивает Заказчику неустойку в размере 0,05% (ноль целых пять сотых процента) от договорной цены выполненных работ за каждый день просрочки сроков выполнения Работ, но не более 10% (десять процентов) от стоимости незавершенных Работ.</mark></p><p class="cl"><b>6.2.</b> Заказчик выплачивает Подрядчику неустойку в размере 0,05% (ноль целых пять сотых процента) от суммы просроченного платежа за каждый календарный день просрочки, но не более 10% (десять процентов) от стоимости Работ по настоящему Договору.</p><div class="ctr-sign"><div><b>Подрядчик</b><span>ИП Романов Владимир Владимирович</span><i class="ctr-sig">В. Романов</i><em>_______________ / В. В. Романов</em></div><div><b>Заказчик</b><span>______________________</span><i></i><em>_______________ / ____________</em></div></div></article><article class="ctr-page pg-m" aria-hidden="true"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 1</span></div><h4 class="ctr-title">ДОГОВОР ПОДРЯДА № А-____</h4><div class="ctr-sub">на ремонтно-отделочные работы</div><div class="ctr-place"><span>г. Москва</span><span>«__» __________ 2026 г.</span></div><p class="ctr-pre">ИП Романов Владимир Владимирович, именуемый в дальнейшем «Подрядчик», с одной стороны, и <u>______________________</u>, именуемый в дальнейшем «Заказчик», с другой стороны, совместно именуемые «Стороны», заключили настоящий Договор на выполнение ремонтно-отделочных работ (далее — Договор) о нижеследующем:</p><h5>1. ПРЕДМЕТ ДОГОВОРА</h5><p class="cl"><b>1.1.</b> Заказчик поручает, а Подрядчик (а также иное лицо, действующее по его поручению) принимает на себя обязательство выполнить ремонтно-отделочные работы в помещениях Заказчика (далее Объект) по адресу: <u>______________________</u>, общей площадью по горизонту пола ___ кв. м, а Заказчик обязуется принять выполненные работы и уплатить обусловленную договором стоимость работ.</p><p class="cl"><b>1.2.</b> Под Работами понимаются все работы, подлежащие выполнению Подрядчиком в соответствии с условиями настоящего Договора, в том числе и по дополнительным соглашениям к данному Договору, являющимися его неотъемлемой частью.</p><p class="cl"><b>1.3.</b> Все Работы в рамках настоящего договора оказываются/производятся Подрядчиком в соответствии с законодательством Российской Федерации.</p><p class="cl"><b>1.4.</b> Объем, содержание, параметры технического состояния результата Работ, выполняемых в соответствии с настоящим Договором, определяются в Смете (Приложение № 2 к настоящему Договору), по ценам, определенным в Прейскуранте на виды работ, являющимися неотъемлемой частью настоящего Договора.</p></article><article class="ctr-page pg-f"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 3</span></div><h5>2. СТОИМОСТЬ РАБОТ И ПОРЯДОК ОПЛАТЫ</h5><p class="cl"><b>2.1.</b> Стоимость выполняемых Подрядчиком Работ по настоящему Договору указывается в Акте согласования объемов работ и цены договора.</p><p class="cl"><b>2.2.</b> Приемка этапов выполненных Работ производится на основании подписанных обеими Сторонами Актов сдачи-приемки выполненных Работ.</p><p class="ctr-skip">пп. 2.3–2.11 — в полной версии договора</p><p class="cl is-hl"><b>2.12.</b> <mark data-n="1">Заказчик оплачивает Подрядчику выполненные им Работы поэтапно, за каждый этап, который длится до 10 (десяти) календарных дней — по факту выполнения Работ.</mark> Заказчик осуществляет проверку и приемку работ в рамках Акта сдачи-приемки выполненных работ, а затем, при отсутствии мотивированных возражений относительно качества выполненных работ, осуществляет их оплату. Общий срок на оплату выполненных работ составляет 4 (четыре) календарных дня, в рамках которых 3 (три) календарных дня предоставляются на приемку выполненных работ, и 1 (один) календарный день на их оплату. В случае наличия мотивированных возражений Заказчика в части выполненных работ, он обязуется <mark data-n="2">оплатить те работы, которые приняты без возражений и замечаний</mark>.</p><p class="cl"><b>2.13.</b> Оплата выполненных Работ производится в безналичной форме на расчетный счет Подрядчика, либо в наличной форме Подрядчику в течение 4 (четырех) календарных дней с момента получения соответствующего акта.</p><p class="cl"><b>2.14.</b> В случае безналичного расчета обязательство Заказчика по оплате выполненных Работ будет считаться исполненным c даты зачисления денежных средств на расчетный счет Подрядчика.</p><p class="cl"><b>2.15.</b> Окончательный расчет за выполненные работы по Объекту производится Заказчиком не позднее 4 (четырех) календарных дней после полного завершения Подрядчиком объемов Работ, включая устранение выявленных недостатков, что оформляется соответствующими Актами сдачи-приемки.</p></article><span class="ctr-zoom">Открыть договор</span></button><ol class="ctr-notes"><li><b>1</b>Оплата поэтапно, этап — до 10 дней, по факту выполненных работ. Аванса за работы нет.</li><li><b>2</b>Спорная часть не тормозит остальное: принятое оплачивается, спорное — после устранения.</li><li><b>3</b>Неустойка 0,05% в день за просрочку сроков — п. 6.1.</li></ol></div>
       </div>
       <div>
         <ol class="rules">
@@ -5977,5 +6023,6 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   window.addEventListener('resize', refit); if (window.ResizeObserver) new ResizeObserver(refit).observe(box); setTimeout(refit, 400);
 })();
 </script>
+<dialog class="ctr-dlg" id="ctrDlg" aria-label="Договор подряда — образец"><div class="ctr-dlg-in"><article class="ctr-page"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 1</span></div><h4 class="ctr-title">ДОГОВОР ПОДРЯДА № А-____</h4><div class="ctr-sub">на ремонтно-отделочные работы</div><div class="ctr-place"><span>г. Москва</span><span>«__» __________ 2026 г.</span></div><p class="ctr-pre">ИП Романов Владимир Владимирович, именуемый в дальнейшем «Подрядчик», с одной стороны, и <u>______________________</u>, именуемый в дальнейшем «Заказчик», с другой стороны, совместно именуемые «Стороны», заключили настоящий Договор на выполнение ремонтно-отделочных работ (далее — Договор) о нижеследующем:</p><h5>1. ПРЕДМЕТ ДОГОВОРА</h5><p class="cl"><b>1.1.</b> Заказчик поручает, а Подрядчик (а также иное лицо, действующее по его поручению) принимает на себя обязательство выполнить ремонтно-отделочные работы в помещениях Заказчика (далее Объект) по адресу: <u>______________________</u>, общей площадью по горизонту пола ___ кв. м, а Заказчик обязуется принять выполненные работы и уплатить обусловленную договором стоимость работ.</p><p class="cl"><b>1.2.</b> Под Работами понимаются все работы, подлежащие выполнению Подрядчиком в соответствии с условиями настоящего Договора, в том числе и по дополнительным соглашениям к данному Договору, являющимися его неотъемлемой частью.</p><p class="cl"><b>1.3.</b> Все Работы в рамках настоящего договора оказываются/производятся Подрядчиком в соответствии с законодательством Российской Федерации.</p><p class="cl"><b>1.4.</b> Объем, содержание, параметры технического состояния результата Работ, выполняемых в соответствии с настоящим Договором, определяются в Смете (Приложение № 2 к настоящему Договору), по ценам, определенным в Прейскуранте на виды работ, являющимися неотъемлемой частью настоящего Договора.</p></article><article class="ctr-page"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 3</span></div><h5>2. СТОИМОСТЬ РАБОТ И ПОРЯДОК ОПЛАТЫ</h5><p class="cl"><b>2.1.</b> Стоимость выполняемых Подрядчиком Работ по настоящему Договору указывается в Акте согласования объемов работ и цены договора.</p><p class="cl"><b>2.2.</b> Приемка этапов выполненных Работ производится на основании подписанных обеими Сторонами Актов сдачи-приемки выполненных Работ.</p><p class="ctr-skip">пп. 2.3–2.11 — в полной версии договора</p><p class="cl is-hl"><b>2.12.</b> <mark data-n="1">Заказчик оплачивает Подрядчику выполненные им Работы поэтапно, за каждый этап, который длится до 10 (десяти) календарных дней — по факту выполнения Работ.</mark> Заказчик осуществляет проверку и приемку работ в рамках Акта сдачи-приемки выполненных работ, а затем, при отсутствии мотивированных возражений относительно качества выполненных работ, осуществляет их оплату. Общий срок на оплату выполненных работ составляет 4 (четыре) календарных дня, в рамках которых 3 (три) календарных дня предоставляются на приемку выполненных работ, и 1 (один) календарный день на их оплату. В случае наличия мотивированных возражений Заказчика в части выполненных работ, он обязуется <mark data-n="2">оплатить те работы, которые приняты без возражений и замечаний</mark>.</p><p class="cl"><b>2.13.</b> Оплата выполненных Работ производится в безналичной форме на расчетный счет Подрядчика, либо в наличной форме Подрядчику в течение 4 (четырех) календарных дней с момента получения соответствующего акта.</p><p class="cl"><b>2.14.</b> В случае безналичного расчета обязательство Заказчика по оплате выполненных Работ будет считаться исполненным c даты зачисления денежных средств на расчетный счет Подрядчика.</p><p class="cl"><b>2.15.</b> Окончательный расчет за выполненные работы по Объекту производится Заказчиком не позднее 4 (четырех) календарных дней после полного завершения Подрядчиком объемов Работ, включая устранение выявленных недостатков, что оформляется соответствующими Актами сдачи-приемки.</p></article><article class="ctr-page"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 9</span></div><h5>6. ОТВЕТСТВЕННОСТЬ СТОРОН</h5><p class="cl is-hl"><b>6.1.</b> <mark data-n="3">Подрядчик выплачивает Заказчику неустойку в размере 0,05% (ноль целых пять сотых процента) от договорной цены выполненных работ за каждый день просрочки сроков выполнения Работ, но не более 10% (десять процентов) от стоимости незавершенных Работ.</mark></p><p class="cl"><b>6.2.</b> Заказчик выплачивает Подрядчику неустойку в размере 0,05% (ноль целых пять сотых процента) от суммы просроченного платежа за каждый календарный день просрочки, но не более 10% (десять процентов) от стоимости Работ по настоящему Договору.</p><div class="ctr-sign"><div><b>Подрядчик</b><span>ИП Романов Владимир Владимирович</span><i class="ctr-sig">В. Романов</i><em>_______________ / В. В. Романов</em></div><div><b>Заказчик</b><span>______________________</span><i></i><em>_______________ / ____________</em></div></div></article><p class="ctr-dlg-note">Фрагменты действующего договора бюро. Данные заказчика и адрес объекта скрыты.</p></div><button type="button" class="fv-close ctr-close" aria-label="Закрыть договор">×</button></dialog><script>(function(){var d=document.getElementById("ctrDlg"),o=document.getElementById("ctrOpen");if(!d||!o)return;function op(e){if(e)e.preventDefault();if(d.showModal)d.showModal();else d.setAttribute("open","");}o.addEventListener("click",op);[].forEach.call(document.querySelectorAll(".contract-btn"),function(b){b.addEventListener("click",op);});d.querySelector(".ctr-close").addEventListener("click",function(){d.close();});d.addEventListener("click",function(e){if(e.target===d)d.close();});})();</script>
 </body>
 </html>
