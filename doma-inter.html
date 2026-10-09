@@ -4259,6 +4259,61 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   .season-scroll{ margin-right: calc(-1 * var(--gut, 16px)); padding-right: var(--gut, 16px); }
   .sm-row, .sm-over{ grid-template-columns: 170px 1fr; column-gap: 12px; } .sm-lbl{ grid-column: 1; font-size: .8rem; } .sm-track{ grid-column: 2; }
 }
+
+/* ===== GL8 ===== */
+/* герой: сильнее затемнение слева под текстом */
+@media (min-width: 981px){
+  .hero7-scrim{ background:
+    linear-gradient(90deg, rgba(24,24,24,.97) 0%, rgba(24,24,24,.94) 36%, rgba(24,24,24,.84) 50%, rgba(24,24,24,.55) 60%, rgba(24,24,24,.16) 68%, rgba(24,24,24,0) 76%),
+    linear-gradient(0deg, rgba(28,28,28,.96) 0%, rgba(28,28,28,.5) 16%, rgba(28,28,28,0) 34%),
+    linear-gradient(180deg, rgba(28,28,28,.5) 0%, rgba(28,28,28,0) 22%) !important; }
+}
+@media (max-width: 980px){ .hero7-scrim{ background: linear-gradient(180deg, rgba(24,24,24,.35) 0%, rgba(24,24,24,.7) 45%, rgba(24,24,24,.96) 100%) !important; } }
+
+/* 20 лет / 115+: заголовок на фоне, фото ниже, цифры на фото */
+.proof-photo.pp2{ padding: 140px 0 !important; overflow: visible; }
+.pp2 .tone{ color: rgba(245,240,232,.42) !important; }
+.pp2 h2{ margin: 0 0 clamp(32px, 4vw, 56px) !important; }
+.pp-media{ position: relative; overflow: hidden; border-radius: var(--r-card, 14px); min-height: clamp(460px, 62svh, 900px); display: flex; align-items: flex-end; }
+.pp2 .pp-bg{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.pp2 .pp-shade{ position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,28,28,0) 30%, rgba(28,28,28,.55) 56%, rgba(28,28,28,.93) 100%) !important; }
+.pp2 .pp-nums{ position: relative; z-index: 1; width: 100%; padding: clamp(22px, 3svh, 36px) clamp(20px, 2.6vw, 48px) clamp(28px, 4svh, 56px); border-top: 0; }
+.pp2 .pp-nums > div{ border-top: 1px solid rgba(245,240,232,.22); padding-top: clamp(18px, 2.2svh, 28px); }
+@media (max-width: 900px){
+  .proof-photo.pp2{ padding: 80px 0 !important; }
+  .pp-media{ min-height: 560px; }
+  .pp2 .pp-shade{ background: linear-gradient(180deg, rgba(28,28,28,0) 18%, rgba(28,28,28,.7) 46%, rgba(28,28,28,.95) 100%) !important; }
+}
+
+/* кейсы: миниатюры справа от фото, низ — по нижней границе текста */
+@media (min-width: 901px){
+  .pf-panel{ align-items: stretch !important; }
+  .pf-panel > :first-child{ display: grid; grid-template-columns: minmax(0, 1fr) clamp(72px, 6.4vw, 132px); column-gap: 10px; min-height: clamp(420px, 38vw, 760px); }
+  .pf-stage, .pf-stage .pf-main{ height: 100%; }
+  .pf-stage .pf-main{ aspect-ratio: auto !important; max-height: none !important; }
+  .pf-thumbs{ display: grid !important; grid-template-columns: 1fr !important; grid-template-rows: repeat(5, minmax(0, 1fr)); gap: 10px !important; margin-top: 0 !important; }
+  .pf-thumbs .pf-thumb{ aspect-ratio: auto !important; height: auto !important; min-height: 0 !important; width: 100% !important; }
+  .pf-info{ display: flex; flex-direction: column; }
+  .pf-info .pf-nav{ margin-top: auto !important; padding-top: 24px; }
+}
+
+/* инженерия: дом вписан в высоту карточек — схема и подсветка видны одновременно */
+@media (min-width: 901px){
+  .eng-grid{ align-items: stretch !important; }
+  .eng-cut{ position: relative; min-height: 0; }
+  .eng-cut svg.cut{ position: absolute; top: clamp(16px, 1.8vw, 28px); left: clamp(16px, 1.8vw, 28px); width: calc(100% - 2 * clamp(16px, 1.8vw, 28px)); height: calc(100% - 2 * clamp(16px, 1.8vw, 28px) - 34px); max-height: none; }
+  .eng-cut figcaption{ margin-top: auto; }
+}
+@media (max-width: 900px){
+  .eng-cut{ position: sticky; top: 64px; z-index: 5; }
+  .eng-cut svg.cut{ max-height: 38svh; }
+  .eng-cut figcaption{ display: none; }
+}
+@media (max-width: 980px){ .top-bar-cta.top-bar-cta.top-bar-cta{ display: none !important; } }
+@media (max-width: 900px){
+  .pp-media{ min-height: 660px; }
+  .pp2 .pp-shade{ background: linear-gradient(180deg, rgba(28,28,28,0) 8%, rgba(28,28,28,.72) 34%, rgba(28,28,28,.95) 62%, #1C1C1C 100%) !important; }
+}
 </style>
 </head>
 <body>
@@ -4296,7 +4351,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   <div class="hero7-scrim"></div>
   <div class="hero7-inner">
 
-    <h1 style="max-width:21ch">Въезжайте в дом точно по проекту: инженерия и отделка в одном договоре, без аванса за работы и роста сметы</h1>
+    <h1 style="max-width:21ch">Въезжайте в дом точно по проекту: инженерия и отделка в одном договоре, без аванса и роста сметы</h1>
     <div class="hero7-price">от 90 000 ₽/м²<span>дома от 150 м² · цена работ фиксируется в договоре</span></div>
     <p class="hero-sub">Котельную, вентиляцию, электрику и отделку ведёт одна команда по одному графику: инженерию закладываем в проект до черновых работ, и она не спорит с интерьером. <span class="hl">Искать виноватого между подрядчиками не придётся.</span></p>
     <div class="hero-cta-row" style="margin-top:30px">
@@ -4313,7 +4368,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
     </div>
     <div class="hero7-feature">
       <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg></div>
-      <h3>Без аванса за работы</h3>
+      <h3>Без аванса</h3>
       <p>Платите за принятую работу — <span class="hl">по актам раз в 7–10 дней</span>.</p>
     </div>
     <div class="hero7-feature">
@@ -4326,17 +4381,15 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 </section>
 
 <!-- 2. PROOF BAND -->
-<section class="proof2 proof-photo" aria-label="Факты о бюро">
-  <img class="pp-bg" src="img/proof-doma.jpg" alt="Гостиная в готовом доме: стеновые панели из дерева, панорамное окно в сад" loading="lazy">
-  <div class="pp-shade"></div>
-  <div class="container pp-in">
+<section class="proof2 proof-photo pp2" aria-label="Факты о бюро">
+  <div class="container">
     <h2 class="section-heading reveal">20 лет и 115+ объектов: <span class="tone">ваш дом не станет экспериментом новой бригады</span></h2>
-    <div class="pp-nums">
+    <div class="pp-media reveal"><img class="pp-bg" src="img/proof-doma.jpg" alt="Гостиная в готовом доме: стеновые панели из дерева, панорамное окно в сад" loading="lazy"><div class="pp-shade"></div><div class="pp-nums">
       <div class="reveal"><b>20 лет</b><span>в премиальном ремонте, за каждый объект отвечаю я</span></div>
       <div class="reveal"><b>115+</b><span>сданных объектов, из них ___ домов и коттеджей</span></div>
       <div class="reveal"><b>5 лет</b><span>гарантии на отделку и инженерные сети</span></div>
       <div class="reveal"><b>10–14</b><span>месяцев — дом под ключ по графику в договоре</span></div>
-    </div>
+    </div></div>
     <span class="todo">Фото — реальный проект этого дома. «97% рекомендуют» убрано из цифр, пока нет подтверждения. Сколько из 115+ объектов — дома и коттеджи?</span>
   </div>
 </section>
@@ -4443,14 +4496,14 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
   <path d="M150 330 L150 322 H160 V314 H170 V306 H180 V298 H190 V290 H200 V282 H210 V274 H220 V266 H230 V250 H238"/>
   <path class="gr" d="M30 330 V492"/>
  </g>
- <g class="sys" data-i="1"><rect x="86" y="346" width="34" height="58" rx="3"/><path d="M103 346 V338 M120 360 H170 M120 386 H170 M170 352 h22 v40 h-22 z M181 352 V236 M196 372 H232"/><circle cx="145" cy="404" r="8"/></g>
- <g class="sys" data-i="2"><rect x="150" y="104" width="44" height="24" rx="3"/><path d="M172 104 V70 M164 70 h16 M194 116 H286 V146 M86 150 H292 M110 150 v6 M160 150 v6 M210 150 v6 M260 150 v6 M150 116 H84 V146"/></g>
- <g class="sys" data-i="3"><path d="M80 324 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0"/><path d="M80 230 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0"/></g>
- <g class="sys" data-i="4"><path d="M30 404 H70 M70 404 H96 M232 362 h16 v44 h-16 z M240 362 V340 M300 398 L336 372"/><rect x="336" y="352" width="54" height="34" rx="12"/><path d="M344 392 v8 M382 392 v8 M340 400 h46 M363 352 V334"/><circle cx="30" cy="404" r="4"/></g>
- <g class="sys" data-i="5"><rect x="276" y="258" width="14" height="24" rx="1.5"/><path d="M283 258 V160 M276 270 H250 M283 196 H246 M283 300 V330 M300 300 H360 V330" stroke-dasharray="3 3"/><circle cx="246" cy="196" r="3"/><circle cx="250" cy="270" r="3"/></g>
- <g class="sys" data-i="6"><rect x="118" y="238" width="22" height="9" stroke-dasharray="2 2"/><rect x="206" y="406" width="20" height="14" stroke-dasharray="2 2"/><rect x="214" y="152" width="20" height="9" stroke-dasharray="2 2"/></g>
- <g class="lbl"><text x="78" y="440">котельная</text><text x="202" y="104">вентиляция</text><text x="336" y="410">септик</text><text x="36" y="500">скважина</text></g>
- <g class="hs" data-i="1" tabindex="0" role="button" aria-label="Отопление и котельная" transform="translate(103 375)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">1</text></g><g class="hs" data-i="2" tabindex="0" role="button" aria-label="Вентиляция" transform="translate(172 116)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">2</text></g><g class="hs" data-i="3" tabindex="0" role="button" aria-label="Тёплые полы" transform="translate(262 324)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">3</text></g><g class="hs" data-i="4" tabindex="0" role="button" aria-label="Вода, канализация, септик" transform="translate(363 369)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">4</text></g><g class="hs" data-i="5" tabindex="0" role="button" aria-label="Электрика и автоматика" transform="translate(283 270)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">5</text></g><g class="hs" data-i="6" tabindex="0" role="button" aria-label="Доступ к каждому узлу" transform="translate(129 254)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">6</text></g>
+ <g class="sys" data-i="1"><rect x="86" y="346" width="34" height="58" rx="3"/><path d="M100 346 V338 H78 V114 M74 114 h8"/><path d="M120 360 H170 M120 386 H170 M170 352 h22 v40 h-22 z M181 352 V236"/><circle cx="145" cy="404" r="8"/></g>
+ <g class="sys" data-i="2"><rect x="150" y="104" width="44" height="24" rx="3"/><path d="M172 104 V70 M164 70 h16 M194 116 H272 V150 M86 150 H272 M110 150 v6 M160 150 v6 M210 150 v6 M250 150 v6 M150 116 H96 V150 M272 150 V242 H90 M116 242 v6 M170 242 v6 M240 242 v6"/></g>
+ <g class="sys" data-i="3"><path d="M80 324 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0"/><path d="M80 230 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0 q5.0 5.2 10 0 q5.0 -5.2 10 0"/><rect x="74" y="298" width="16" height="12" rx="1.5"/><path d="M82 310 V320"/></g>
+ <g class="sys" data-i="4"><path d="M30 418 H70 M70 418 H240 V406 M232 362 h16 v44 h-16 z M240 362 V342"/><path d="M294 160 V340 L336 362 M294 160 V116"/><rect x="336" y="352" width="54" height="34" rx="12"/><path d="M344 392 v8 M382 392 v8 M340 400 h46 M363 352 V334"/><circle cx="30" cy="418" r="4"/></g>
+ <g class="sys" data-i="5"><rect x="276" y="258" width="14" height="24" rx="1.5"/><path d="M283 258 V160 M276 270 H250 M283 196 H246 M283 282 V300 H360 V318" stroke-dasharray="3 3"/><rect x="354" y="314" width="12" height="16" rx="1"/><circle cx="246" cy="196" r="3"/><circle cx="250" cy="270" r="3"/></g>
+ <g class="sys" data-i="6"><rect x="128" y="236" width="24" height="8" stroke-dasharray="2 2"/><rect x="200" y="142" width="24" height="8" stroke-dasharray="2 2"/><rect x="289" y="190" width="10" height="16" stroke-dasharray="2 2"/></g>
+ <g class="lbl"><text x="80" y="440">котельная</text><text x="202" y="100">вентустановка</text><text x="340" y="412">септик</text><text x="36" y="500">скважина</text><text x="372" y="326">ввод</text></g>
+ <g class="hs" data-i="1" tabindex="0" role="button" aria-label="Отопление и котельная" transform="translate(103 375)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">1</text></g><g class="hs" data-i="2" tabindex="0" role="button" aria-label="Вентиляция" transform="translate(172 116)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">2</text></g><g class="hs" data-i="3" tabindex="0" role="button" aria-label="Тёплые полы" transform="translate(262 324)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">3</text></g><g class="hs" data-i="4" tabindex="0" role="button" aria-label="Вода, канализация, септик" transform="translate(363 369)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">4</text></g><g class="hs" data-i="5" tabindex="0" role="button" aria-label="Электрика и автоматика" transform="translate(283 270)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">5</text></g><g class="hs" data-i="6" tabindex="0" role="button" aria-label="Доступ к каждому узлу" transform="translate(140 262)"><circle class="hs-pulse" r="13"/><circle class="hs-dot" r="12"/><text dy="4">6</text></g>
 </svg><figcaption>Нажмите на точку — покажу, где проходит система и что я с ней делаю</figcaption></figure>
       <div>
         <div class="eng-list">
@@ -4904,14 +4957,6 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
         <li class="reveal"><div class="r8-body"><h3>Ключи <span>по акту</span></h3><p>Пусконаладка систем, сверка с проектом, клининг, исполнительные схемы и гарантийный паспорт дома.</p></div></li>
       </ol>
     </div>
-  <div class="season reveal">
-  <div class="season-head"><h3>Как это ложится на сезон</h3><p>Пример при старте в сентябре с коробки. Начнёте позже — скажу на выезде и предложу график с временным отоплением.</p></div>
-  <div class="season-scroll"><div class="season-grid" role="img" aria-label="График: контур и инженерия — с сентября по ноябрь, тепло запущено в конце ноября, отделка — с декабря в тёплом доме">
-    <div class="sm-row sm-head"><span class="sm-lbl"></span><span class="sm-track"><b>Сен</b><b>Окт</b><b>Ноя</b><b>Дек</b><b>Янв</b><b>Фев</b><b>Мар</b></span></div>
-    <div class="sm-row"><span class="sm-lbl">Выезд, смета, договор</span><span class="sm-track"><i class="sm-bar b1" style="--s:0;--e:0.55"></i></span></div><div class="sm-row"><span class="sm-lbl">Контур: окна, кровля, утепление</span><span class="sm-track"><i class="sm-bar b2" style="--s:0.45;--e:1.9"></i></span></div><div class="sm-row"><span class="sm-lbl">Инженерия: котельная, вентиляция, электрика, вода</span><span class="sm-track"><i class="sm-bar b3" style="--s:1.15;--e:2.75"></i></span></div><div class="sm-row"><span class="sm-lbl">Отделка в тёплом доме</span><span class="sm-track"><i class="sm-bar b4 open" style="--s:2.85;--e:7"></i></span></div>
-    <div class="sm-over"><span class="sm-lbl"></span><span class="sm-track"><i class="sm-frost" style="--s:2.5"><em>ниже 0&nbsp;°C</em></i><i class="sm-mark" style="--s:2.8"><em>Тепло запущено</em></i></span></div>
-  </div></div>
-</div>
   </div>
 </section>
 
