@@ -4477,6 +4477,74 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   .eng-grid .eng-item p{ display: block !important; }
   @keyframes engIn{ from{ opacity: 0; transform: translateY(4px); } to{ opacity: 1; transform: none; } }
 }
+
+/* ===== GL11 ===== */
+/* ally: back to the previous layout (photo 1–5, text 7–12) */
+@media (min-width: 901px){
+  .ally-grid > :first-child{ grid-column: 1 / 6 !important; }
+  .ally-grid > :nth-child(2){ grid-column: 7 / 13 !important; }
+  .ally-photo{ min-height: 0; }
+}
+
+/* FAQ: the map fills only the space left, its bottom meets the last question */
+@media (min-width: 901px){
+  .faq-grid{ align-items: stretch !important; }
+  .faq-aside{ display: flex; flex-direction: column; }
+  .faq-aside .geo-map{ flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0; margin-top: clamp(28px, 3vw, 44px) !important; }
+  .faq-aside .geo-live{ flex: 1 1 auto; aspect-ratio: auto !important; min-height: 200px; height: auto; }
+  .faq-aside .geo-live:not(.is-live){ display: flex; align-items: center; justify-content: center; }
+  .faq-aside .geo-live:not(.is-live) > svg{ max-height: 100%; width: auto; max-width: 100%; }
+}
+@media (max-width: 900px){ .geo-live.is-live{ aspect-ratio: auto; height: 300px; } }
+
+/* Telegram screenshot */
+.control-split > :nth-child(2){ display: flex; justify-content: center; align-items: flex-start; }
+.tgs{ --tg-bg: #0E1621; width: min(100%, 390px); border-radius: 34px; overflow: hidden; background: #000; color: #fff;
+  font: 400 15px/1.32 -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Wix Madefor Text', sans-serif; letter-spacing: -.01em;
+  box-shadow: 0 40px 80px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.08); }
+.tgs-status{ display: flex; justify-content: space-between; align-items: center; padding: 14px 26px 6px 34px; font-size: 15px; background: #0B0B0C; }
+.tgs-status b{ font-weight: 600; }
+.tgs-status span{ display: inline-flex; align-items: center; gap: 6px; }
+.tgs-status svg{ height: 11px; width: auto; fill: #fff; }
+.tgs-bat{ font-style: normal; font-size: 11px; font-weight: 700; background: #fff; color: #000; border-radius: 4px; padding: 0 4px; line-height: 15px; }
+.tgs-head{ display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 10px; padding: 6px 12px 10px; background: rgba(17,17,19,.96); border-bottom: 1px solid rgba(255,255,255,.06); }
+.tgs-back{ display: inline-flex; align-items: center; gap: 4px; color: #fff; padding: 6px 12px 6px 8px; border-radius: 999px; background: rgba(255,255,255,.08); }
+.tgs-back svg{ width: 10px; height: 18px; }
+.tgs-back i{ font-style: normal; font-size: 14px; background: rgba(255,255,255,.14); border-radius: 999px; padding: 1px 7px; }
+.tgs-title{ text-align: center; line-height: 1.2; min-width: 0; }
+.tgs-title b{ display: block; font-weight: 600; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tgs-title small{ font-size: 12.5px; color: rgba(255,255,255,.5); }
+.tgs-ava{ width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-weight: 600; font-size: 17px; color: #fff; background: linear-gradient(160deg, #C9B293, #8E7A60); }
+.tgs-body{ display: flex; flex-direction: column; gap: 6px; padding: 12px 10px 14px; min-height: 420px;
+  background-color: #10131a;
+  background-image: radial-gradient(circle at 20% 15%, rgba(120,90,200,.18), transparent 45%), radial-gradient(circle at 85% 80%, rgba(60,90,200,.16), transparent 50%),
+    radial-gradient(rgba(255,255,255,.035) 1.2px, transparent 1.3px);
+  background-size: auto, auto, 18px 18px; }
+.tgs-day{ align-self: center; font-size: 12.5px; font-weight: 500; padding: 3px 10px; border-radius: 999px; background: rgba(0,0,0,.35); color: rgba(255,255,255,.85); margin-bottom: 4px; }
+.tgs-in, .tgs-out{ position: relative; max-width: 84%; padding: 7px 10px 7px 11px; border-radius: 17px; font-size: 14.5px; word-wrap: break-word; }
+.tgs-in{ align-self: flex-start; background: #212124; border-bottom-left-radius: 6px; }
+.tgs-out{ align-self: flex-end; background: linear-gradient(135deg, #8E5CF5, #5B6CF6); border-bottom-right-radius: 6px; }
+.tgs-from{ display: block; font-size: 13.5px; font-weight: 600; color: #F0A35E; margin-bottom: 2px; }
+.tgs-from.v{ color: #6FC3F7; }
+.tgs-t{ float: right; display: inline-flex; align-items: center; gap: 3px; margin: 8px 0 -4px 10px; font-size: 11.5px; color: rgba(255,255,255,.5); }
+.tgs-out .tgs-t{ color: rgba(255,255,255,.75); }
+.tgs-chk{ width: 15px; height: 9px; }
+.tgs-album{ padding: 3px; width: 74%; }
+.tgs-grid{ display: grid; grid-template-columns: 1fr 1fr; gap: 2px; border-radius: 14px 14px 4px 14px; overflow: hidden; }
+.tgs-grid span{ position: relative; aspect-ratio: 1; background-size: cover; background-position: center; background-color: #333; }
+.tgs-grid em{ position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; font-size: 20px; font-weight: 600; background: rgba(0,0,0,.45); }
+.tgs-vid{ position: absolute; left: 6px; top: 6px; font-style: normal; font-size: 11px; padding: 2px 6px; border-radius: 999px; background: rgba(0,0,0,.55); }
+.tgs-t.on-img{ position: absolute; right: 10px; bottom: 9px; margin: 0; padding: 1px 6px; border-radius: 999px; background: rgba(0,0,0,.5); color: #fff; float: none; }
+.tgs-input{ display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 8px; padding: 8px 10px 26px; background: #0B0B0C; }
+.tgs-ic{ width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; color: rgba(255,255,255,.85); background: rgba(255,255,255,.08); }
+.tgs-ic svg, .tgs-field svg{ width: 22px; height: 22px; }
+.tgs-field{ display: flex; align-items: center; justify-content: space-between; height: 40px; padding: 0 12px 0 16px; border-radius: 999px; background: rgba(255,255,255,.08); color: rgba(255,255,255,.4); font-size: 15px; }
+.tgs-field i{ display: inline-grid; color: rgba(255,255,255,.55); }
+@media (max-width: 900px){ .tgs{ margin-inline: auto; } .tgs-body{ min-height: 0; } }
+.tgs-album{ width: 62%; }
+@media (min-width: 901px){
+  .faq-aside .geo-map figcaption{ order: -1; margin: 0 0 14px !important; }
+}
 </style>
 </head>
 <body>
@@ -4906,15 +4974,22 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
         <div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></span><h3>Чат проекта и мой телефон</h3><p>В чате — я, прораб и инженер. Вопрос не теряется.</p></div>
       </div>
       <div>
-        <div class="tg-mockup reveal" aria-label="Пример еженедельного отчёта">
-          <div class="tg-mockup-header">
-            <div class="tg-avatar">R</div>
-            <div><div class="tg-chat-name">Дом 260 м² · чат проекта</div><div class="tg-chat-sub">Пример еженедельного отчёта</div></div>
-          </div>
-          <div class="tg-msg from-team">Статус за неделю 16–20 сентября:<br>— Котельная обвязана, опрессовка 6 бар держится сутки<br>— Воздуховоды первого этажа смонтированы, потолки закрываем после проверки<br>— В альбоме 31 фото скрытых работ и видеообход<div class="tg-msg-time">Пт, 18:30</div></div>
-          <div class="tg-msg from-client">Спасибо! Когда можно приехать посмотреть?<div class="tg-msg-time">Пт, 19:15</div></div>
-          <div class="tg-msg from-team">В четверг с 11 буду на объекте, пройдём всё вместе. — Владимир<div class="tg-msg-time">Пт, 19:22</div></div>
-        </div>
+        <div class="tgs reveal" role="img" aria-label="Скриншот чата проекта в Telegram: еженедельный отчёт прораба и ответ заказчику">
+  <div class="tgs-status" aria-hidden="true"><b>19:24</b><span><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0Z"/><path d="M3.6 7a6.2 6.2 0 0 1 8.8 0l-1.3 1.3a4.4 4.4 0 0 0-6.2 0Z"/><path d="M1.4 4.8a9.3 9.3 0 0 1 13.2 0l-1.3 1.3a7.5 7.5 0 0 0-10.6 0Z"/></svg><i class="tgs-bat">78</i></span></div>
+  <div class="tgs-head" aria-hidden="true">
+    <span class="tgs-back"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><i>12</i></span>
+    <span class="tgs-title"><b>Дом 260 м² · Истра</b><small>Владимир, прораб Сергей, вы</small></span>
+    <span class="tgs-ava">Д</span>
+  </div>
+  <div class="tgs-body" aria-hidden="true">
+    <div class="tgs-day">Пятница</div>
+    <div class="tgs-in"><span class="tgs-from">Сергей · прораб</span>Статус за неделю 16–20 сентября:<br>— Котельная обвязана, опрессовка 6 бар держится сутки<br>— Воздуховоды 1 этажа смонтированы, потолки закрываем после проверки<br>— В альбоме 31 фото скрытых работ и видеообход<span class="tgs-t">18:30</span></div>
+    <div class="tgs-in tgs-album"><div class="tgs-grid"><span style="background-image:url(https://images.unsplash.com/photo-1650551182991-b07558247564?auto=format&fit=crop&w=600&q=70)"><i class="tgs-vid">▶ 2:14</i></span><span style="background-image:url(https://images.unsplash.com/photo-1768321902290-54497eeb9cf6?auto=format&fit=crop&w=600&q=70)"></span><span style="background-image:url(https://images.unsplash.com/photo-1768321914688-86ff62032d47?auto=format&fit=crop&w=600&q=70)"></span><span style="background-image:url(https://images.unsplash.com/photo-1736182615481-3795ea557614?auto=format&fit=crop&w=600&q=70)"><em>+27</em></span></div><span class="tgs-t on-img">18:31</span></div>
+    <div class="tgs-out">Спасибо! Когда можно приехать посмотреть?<span class="tgs-t">19:15<svg class="tgs-chk" viewBox="0 0 18 10" aria-hidden="true"><path d="M1 5.5 4 8.5 10.5 1.5M7.5 8.5 14.5 1.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+    <div class="tgs-in"><span class="tgs-from v">Владимир Романов</span>В четверг с 11 буду на объекте, пройдём всё вместе.<span class="tgs-t">19:22</span></div>
+  </div>
+  <div class="tgs-input" aria-hidden="true"><span class="tgs-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5 12.2 19.3a5 5 0 0 1-7.1-7.1l8.1-8.1a3.3 3.3 0 0 1 4.7 4.7l-8.1 8.1a1.7 1.7 0 0 1-2.4-2.4l7.4-7.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span class="tgs-field">Сообщение<i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 3.5a8.5 8.5 0 0 0 8.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></i></span><span class="tgs-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></div>
+</div>
       </div>
     </div>
     <div class="quality2 reveal">
@@ -5898,7 +5973,8 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   });
   L.marker([C[0] - 0.47, C[1] - 0.78], {interactive: false, icon: L.divIcon({className: 'geo-km', html: '50 км от МКАД', iconSize: [0, 0]})}).addTo(map);
   map.fitBounds(ZB, {padding: [6, 6]});
-  window.addEventListener('resize', function(){ map.invalidateSize(); map.fitBounds(ZB, {padding: [6, 6]}); });
+  var refit = function(){ map.invalidateSize(); map.fitBounds(ZB, {padding: [6, 6]}); };
+  window.addEventListener('resize', refit); if (window.ResizeObserver) new ResizeObserver(refit).observe(box); setTimeout(refit, 400);
 })();
 </script>
 </body>
