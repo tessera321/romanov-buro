@@ -4413,7 +4413,7 @@ section::after{ width: min(var(--page-max), calc(100vw - 2 * var(--gut))) !impor
 .geo-l span{ right: 8px; } .geo-r span{ left: 8px; }
 .geo-c i{ width: 8px; height: 8px; left: -4px; top: -4px; background: #F5F0E8; box-shadow: none; }
 .geo-c span{ left: -24px; top: 8px; font-size: 12px; color: #F5F0E8; }
-.geo-km{ white-space: nowrap; font-size: 11px; color: #B5A18A; }
+.geo-km{ white-space: nowrap; font-size: 11px; color: #B5A18A; transform: translate(-100%, -50%); text-shadow: 0 1px 6px #111; }
 .geo-map{ max-width: none !important; }
 
 /* footer */
@@ -5896,7 +5896,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   towns.forEach(function(tw){
     L.marker([tw[1], tw[2]], {interactive: false, keyboard: false, icon: L.divIcon({className: 'geo-t geo-' + tw[3], html: '<i></i><span>' + tw[0] + '</span>', iconSize: [0, 0]})}).addTo(map);
   });
-  L.marker([C[0] - 0.43, C[1] + 0.82], {interactive: false, icon: L.divIcon({className: 'geo-km', html: '50 км от МКАД', iconSize: [0, 0]})}).addTo(map);
+  L.marker([C[0] - 0.47, C[1] - 0.78], {interactive: false, icon: L.divIcon({className: 'geo-km', html: '50 км от МКАД', iconSize: [0, 0]})}).addTo(map);
   map.fitBounds(ZB, {padding: [6, 6]});
   window.addEventListener('resize', function(){ map.invalidateSize(); map.fitBounds(ZB, {padding: [6, 6]}); });
 })();
