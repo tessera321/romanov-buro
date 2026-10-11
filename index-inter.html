@@ -6032,12 +6032,13 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   } else load();
   function init(){
     var host = document.createElement('div');
-    host.className = 'ym-host'; box.appendChild(host);
+    host.className = 'ym-host'; box.appendChild(host); box.classList.add('ym-on');
     var ALL = [[55.76, 37.62], 9], CENTER = [[55.752, 37.615], 12];
     var map = new ymaps.Map(host, {center: ALL[0], zoom: ALL[1], controls: ['zoomControl']}, {suppressMapOpenBlock: false, yandexMapDisablePoiInteractivity: true});
     map.behaviors.disable('scrollZoom');
     if (window.matchMedia('(pointer: coarse)').matches) map.behaviors.disable('drag');
-    box.classList.add('ym-on');
+    var fit = function(){ map.container.fitToViewport(); };
+    window.addEventListener('resize', fit); setTimeout(fit, 300);
     var Pin = ymaps.templateLayoutFactory.createClass('<div class="ym-pin {{ properties.cls }}" style="--d:{{ properties.d }}px">{{ properties.n }}</div>');
     var marks = P.map(function(p, i){
       var d = Math.round(16 + 6 * Math.sqrt(p[4]));
