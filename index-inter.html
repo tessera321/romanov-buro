@@ -4548,7 +4548,8 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   .map-layout:has(.ym-on) .map-side { height: clamp(520px, 72vh, 760px); overflow: hidden; }
   .map-layout:has(.ym-on) .map-list { flex: 1; min-height: 0; overflow-y: auto; max-height: none; }
 }
-/* ===== disclosures everywhere: rules, engineering items ===== */
+/* ===== disclosures on phones only: rules, engineering items ===== */
+@media (max-width: 900px) {
 .acc h3 { position: relative; padding-right: 34px; cursor: pointer; margin-bottom: 0 !important; }
 .acc h3::after { content: '+'; position: absolute; right: 2px; top: 50%; transform: translateY(-50%); font: 400 1.4rem/1 'Wix Madefor Text', sans-serif; color: var(--bronze); transition: transform .3s ease; }
 .acc.open h3::after { content: '–'; }
@@ -4556,6 +4557,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .acc.open p { max-height: 14em; opacity: 1; margin-top: 8px !important; }
 .acc h3:focus-visible { outline: 2px solid var(--bronze); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) { .acc p { transition: none; } }
+}
 /* ===== design project composition under a disclosure ===== */
 .ds-more { margin-top: clamp(20px, 2vw, 28px); border-top: 1px solid var(--border-main); border-bottom: 1px solid var(--border-main); }
 .ds-more summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 12px; padding: 18px 34px 18px 0; position: relative; color: var(--text-primary); font-weight: 500; }
@@ -4572,6 +4574,11 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .final8-see b { display: block; margin-bottom: 4px; font-weight: 500; font-size: .92rem; color: var(--text-primary); }
 @media (max-width: 760px) { .final8-see { grid-template-columns: 1fr; gap: 0; } .final8-see li { padding: 14px 0; } }
 .design-left > .ds-more, .design2 .design-left > .ds-more { order: 6; }
+@media (min-width: 901px) {
+  .ds-more { border: 0; margin-top: 0; }
+  .ds-more summary { display: none; }
+  .ds-more .design-list { margin: 24px 0 0; }
+}
 </style>
 </head>
 <body>
@@ -5479,7 +5486,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   }
 
   /* ----- Mobile: secondary descriptions collapse into tap-to-open rows ----- */
-  if (true){
+  if (isMobile){
     document.querySelectorAll('.eng-item, .rule').forEach(function(it){
       var h = it.querySelector('h3'), p = it.querySelector('p'); if (!h || !p) return;
       it.classList.add('acc');
@@ -6057,6 +6064,6 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
     });
   }
 })();
-</script>
+</script><script>(function(){var d=document.querySelector('.ds-more');if(!d)return;var mq=window.matchMedia('(max-width: 900px)');function f(){if(!mq.matches)d.open=true;}f();mq.addEventListener&&mq.addEventListener('change',f);})();</script>
 </body>
 </html>
