@@ -4590,6 +4590,11 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .cmp-grid .cmp-render { background-color: #fff; }
 .cmp-grid .cmp-tag.l { display: none; }
 @media (max-width: 980px) { .cmp-grid .cmp-wrap { aspect-ratio: 1492 / 1054 !important; } }
+/* ally: the photo keeps its own portrait proportion instead of stretching to the text height */
+@media (min-width: 981px) {
+  .ally-grid { align-items: center !important; }
+  .ally-photo[style*="apt/ally"] { aspect-ratio: 4 / 5; height: auto !important; min-height: 0 !important; max-height: 88svh; align-self: center; background-position: center 22% !important; }
+}
 </style>
 </head>
 <body>
