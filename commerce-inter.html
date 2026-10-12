@@ -4693,6 +4693,12 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   .ds-more summary { display: none; }
   .ds-more .design-list { margin: 24px 0 0; }
 }
+/* apartments: client photos */
+.cmp-grid .cmp-wrap { aspect-ratio: 16 / 9 !important; }
+.cmp-grid .cmp-layer { background-size: cover; background-position: center; }
+@media (max-width: 980px) { .cmp-grid .cmp-wrap { aspect-ratio: 3 / 2 !important; } }
+.hero-apt img { object-position: 74% 30% !important; }
+@media (max-width: 760px) { .pp2 .pp-bg[src*="apt/proof"] { object-position: 38% 60% !important; } }
 </style>
 </head>
 <body>
