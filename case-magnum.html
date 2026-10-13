@@ -5532,13 +5532,84 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .quiz{ position: relative; isolation: isolate; }
 .quiz::before{ content:""; position:absolute; inset: 0; z-index:-1; pointer-events:none;
   background: radial-gradient(60% 70% at 72% 45%, rgba(181,161,138,.13), rgba(181,161,138,.04) 45%, transparent 70%); }
-#quizStart.quiz-card{ position: relative; border: 1px solid rgba(181,161,138,.38) !important; border-radius: var(--r-card,14px);
-  background: linear-gradient(180deg, rgba(181,161,138,.07), rgba(181,161,138,.015) 40%, rgba(0,0,0,0)) , var(--bg-surface,#1C1C1C) !important;
-  box-shadow: 0 40px 120px -50px rgba(181,161,138,.35), inset 0 1px 0 rgba(255,255,255,.06) !important; }
-#quizStart.quiz-card::before{ content:""; position:absolute; left: 24px; right: 24px; top: -1px; height: 2px; border-radius: 2px;
+/* one panel: questions + side (person, tip, gifts) */
+.qz-panel{ display:grid; grid-template-columns: minmax(0,1fr) clamp(300px, 27vw, 420px); margin-top: clamp(28px, 3.4vw, 48px);
+  border: 1px solid rgba(181,161,138,.38); border-radius: var(--r-card,14px); overflow: hidden; position: relative;
+  background: linear-gradient(180deg, rgba(181,161,138,.07), rgba(181,161,138,.015) 40%, rgba(0,0,0,0)), var(--bg-surface,#1C1C1C);
+  box-shadow: 0 40px 120px -50px rgba(181,161,138,.35), inset 0 1px 0 rgba(255,255,255,.06); }
+.qz-panel::before{ content:""; position:absolute; left: 24px; right: 24px; top: 0; height: 2px; z-index: 2;
   background: linear-gradient(90deg, transparent, var(--bronze,#B5A18A), transparent); opacity:.9; }
-.qz-badge{ display:inline-block; margin: 0 0 18px; font-size: .74rem; letter-spacing:.03em; color: var(--bronze-hover,#CDBEAA);
-  padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(181,161,138,.35); background: rgba(181,161,138,.08); }
+.qz-panel #quizStart.quiz-card{ border: 0 !important; border-radius: 0 !important; background: transparent !important; box-shadow: none !important;
+  margin: 0 !important; max-width: none !important; height: clamp(800px, 86vh, 840px); overflow-y: auto; padding: 36px clamp(24px, 3vw, 48px) !important; scrollbar-width: thin; }
+.qz-panel #quizStart .quiz-container{ min-height: 100%; }
+.qz-side{ display:flex; flex-direction: column; gap: 18px; padding: clamp(22px, 2vw, 32px); border-left: 1px solid rgba(181,161,138,.18);
+  background: linear-gradient(180deg, rgba(0,0,0,.22), rgba(0,0,0,.08)); }
+.qz-person{ display:flex; align-items:center; gap: 14px; }
+.qz-ava{ position: relative; flex: none; width: 64px; height: 64px; }
+.qz-ava img{ width: 64px; height: 64px; border-radius: 50%; object-fit: cover; display:block; border: 2px solid rgba(181,161,138,.5); }
+.qz-online{ position:absolute; right: 2px; bottom: 2px; width: 14px; height: 14px; border-radius: 50%; background: #3FCB6B; border: 2.5px solid #1F1F1F; }
+.qz-online::after{ content:""; position:absolute; inset: -5px; border-radius: 50%; border: 2px solid rgba(63,203,107,.55); animation: qzping 2s ease-out infinite; }
+@keyframes qzping{ 0%{ transform: scale(.6); opacity: 1; } 100%{ transform: scale(1.5); opacity: 0; } }
+.qz-who b{ display:block; color: var(--text-primary,#F5F0E8); font-weight: 500; font-size: 1.02rem; }
+.qz-who small{ display:flex; align-items:center; gap: 6px; margin-top: 3px; color: var(--text-secondary); font-size: .82rem; }
+.qz-who small i{ width: 7px; height: 7px; border-radius: 50%; background: #3FCB6B; }
+.qz-tip{ position: relative; margin: 0; padding: 14px 16px; border-radius: 4px 14px 14px 14px; background: rgba(245,240,232,.06);
+  color: var(--text-secondary); font-size: .9rem; line-height: 1.5; min-height: 4.6em; }
+.qz-gifts-t{ margin-top: auto; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--bronze,#B5A18A); }
+.qz-gifts{ display:grid; gap: 10px; }
+.qz-gift{ position: relative; display:grid !important; grid-template-columns: 62px minmax(0,1fr); gap: 14px; align-items:center;
+  padding: 12px 14px 12px 12px !important; border-radius: 12px; border: 1px solid rgba(181,161,138,.22) !important;
+  background: linear-gradient(120deg, rgba(181,161,138,.16), rgba(181,161,138,.04)) !important; margin: 0 !important; min-height: 0 !important;
+  transition: border-color .4s ease, box-shadow .4s ease; }
+.qz-short{ display:none; }
+.qz-gtx b{ display:block; color: var(--text-primary,#F5F0E8); font-size: .9rem; line-height: 1.3; font-weight: 500; }
+.qz-gtx small{ display:block; margin-top: 4px; color: var(--text-secondary); font-size: .78rem; line-height: 1.4; }
+.qz-gtx .st{ display:inline-block; margin-top: 6px; font-size: .72rem; color: var(--bronze,#B5A18A); letter-spacing: .02em; }
+.qz-lock{ position:absolute; top: -7px; right: -7px; width: 26px; height: 26px; border-radius: 50%; display:grid; place-items:center;
+  background: #2A2724; color: var(--bronze-hover,#CDBEAA); border: 1px solid rgba(181,161,138,.45); box-shadow: 0 4px 12px rgba(0,0,0,.4); }
+.qz-gift .qz-mock{ filter: saturate(.55) brightness(.8); transition: filter .5s ease, transform .5s ease; }
+.qz-gift.open{ border-color: rgba(181,161,138,.7) !important; box-shadow: 0 0 0 1px rgba(181,161,138,.25), 0 10px 30px -12px rgba(181,161,138,.5); }
+.qz-gift.open .qz-mock{ filter: none; transform: rotate(-2deg) scale(1.04); }
+.qz-gift.open .qz-lock{ background: var(--bronze,#B5A18A); color: #1C1C1C; }
+.qz-gift.open .qz-lock svg{ display:none; }
+.qz-gift.open .qz-lock::after{ content:""; width: 12px; height: 7px; border-left: 2px solid #1C1C1C; border-bottom: 2px solid #1C1C1C; transform: translateY(-2px) rotate(-45deg); }
+/* gift mockups */
+.qz-mock{ position: relative; display:block; width: 58px; height: 74px; }
+.qz-sheet{ position:absolute; inset: 0; border-radius: 4px; padding: 7px 6px; overflow: hidden; display:flex; flex-direction: column; gap: 2px;
+  background: linear-gradient(160deg, #3A3129 0%, #1E1A16 70%); border: 1px solid rgba(205,190,170,.45); box-shadow: 0 8px 18px rgba(0,0,0,.45); transform: rotate(-4deg); }
+.qz-sheet-b{ transform: rotate(5deg) translate(6px, 2px); background: linear-gradient(160deg, #CDBEAA, #9A8770); border-color: transparent; }
+.qz-sheet .qz-logo{ font-style: normal; font-size: 9px; line-height: 1; color: #CDBEAA; font-family: Georgia, serif; }
+.qz-sheet em{ font-style: normal; font-size: 7.5px; letter-spacing: .06em; text-transform: uppercase; color: rgba(245,240,232,.75); margin-top: 3px; }
+.qz-sheet strong{ font-size: 17px; line-height: 1; color: #E4D6C2; font-weight: 600; }
+.qz-lines{ display:grid; gap: 3px; margin-top: auto; } .qz-lines i{ display:block; height: 2px; border-radius: 2px; background: rgba(245,240,232,.25); }
+.qz-lines i:nth-child(2){ width: 80%; } .qz-lines i:nth-child(3){ width: 60%; }
+.qz-mock-calc .qz-sheet{ background: linear-gradient(160deg, #F2ECE3, #D8CDBE); } .qz-mock-calc .qz-sheet em{ color: #6B5E4E; } .qz-mock-calc .qz-sheet strong{ color: #1C1C1C; }
+.qz-mock-calc .qz-lines i{ background: rgba(28,28,28,.25); } .qz-mock-calc .qz-logo{ color: #9A8770; }
+.qz-mock-calc .qz-sheet-b{ background: linear-gradient(160deg, #3A3129, #1E1A16); border-color: rgba(205,190,170,.45); }
+.qz-mock-pass .qz-sheet strong{ font-size: 12px; }
+.qz-panel .quiz-result-preview{ padding: 18px 20px !important; }
+.qz-panel .quiz-risks li{ font-size: .86rem !important; line-height: 1.45 !important; margin-bottom: 6px !important; }
+.qz-panel .quiz-risks-title{ margin-top: 12px !important; }
+/* photo answers */
+#quizStart .quiz-options.qz-photo{ grid-template-columns: repeat(4, minmax(0,1fr)) !important; gap: 12px !important; }
+#quizStart .quiz-option.qz-ph{ display:flex; flex-direction: column; align-items: stretch; padding: 0 !important; min-height: 0; overflow: hidden; }
+#quizStart .quiz-option.qz-ph::before{ top: auto; bottom: 17px; margin-top: 0; left: 14px; }
+.qz-ph-img{ display:block; aspect-ratio: 4 / 3; overflow: hidden; background: #2A2724; }
+.qz-ph-img img{ width: 100%; height: 100%; object-fit: cover; display:block; transition: transform .5s ease; filter: saturate(.85); }
+#quizStart .quiz-option.qz-ph:hover .qz-ph-img img{ transform: scale(1.05); }
+.qz-ph-t{ display:block; padding: 14px 12px 14px 40px; line-height: 1.3; font-size: .9rem; }
+@media (max-width: 900px){
+  .qz-panel{ grid-template-columns: 1fr; }
+  .qz-side{ order: -1; border-left: 0; border-bottom: 1px solid rgba(181,161,138,.18); gap: 14px; padding: 20px 18px; }
+  .qz-tip{ display:none; }
+  .qz-gifts-t{ margin-top: 0; }
+  .qz-gifts{ grid-template-columns: repeat(3, minmax(0,1fr)); gap: 8px; }
+  .qz-gift{ grid-template-columns: 1fr; justify-items: center; text-align: center; padding: 12px 8px !important; gap: 8px; }
+  .qz-gtx small, .qz-gtx b, .qz-gtx .st{ display:none; } .qz-short{ display:block; color: var(--text-primary,#F5F0E8); font-size: .8rem; }
+  .qz-mock{ width: 46px; height: 58px; } .qz-sheet strong{ font-size: 13px; } .qz-sheet em{ font-size: 6px; }
+  .qz-panel #quizStart.quiz-card{ height: auto; min-height: 560px; overflow: visible; }
+  #quizStart .quiz-options.qz-photo{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
 #quizStart .quiz-q-text{ font-size: clamp(1.35rem, 1.9vw, 2.1rem) !important; line-height: 1.2; }
 #quizStart .quiz-progress-step.active{ background: var(--bronze,#B5A18A) !important; box-shadow: 0 0 12px rgba(181,161,138,.55); }
 #quizStart .quiz-option{ position: relative; padding-left: 52px !important; min-height: 58px; text-align: left;
@@ -5586,6 +5657,8 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .qz-copied.on{ display:block; }
 .qz-alt{ display:block; text-align:left; margin: 14px 0 0; padding: 0; border:0; background:none; color: var(--text-secondary); font: inherit; font-size: .88rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .qz-phone-hidden .form-group, .qz-phone-hidden button[type="submit"], .qz-phone-hidden .qz-where{ display:none !important; }
+.quiz-form.active > .qz-back-msg{ grid-column: 2; }
+.qz-send[hidden], .qz-alt[hidden]{ display:none !important; }
 
 @media (prefers-reduced-motion: reduce){ .qz-calc li.run::before{ animation: none; } #quizStart .quiz-option{ transition: none; } }
 </style>
@@ -5602,8 +5675,6 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   var ans = {};
   try { ans = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){ ans = {}; }
 
-  var badge = document.createElement('span'); badge.className = 'qz-badge'; badge.textContent = '≈ 2 минуты · ориентир сразу';
-  var prog = quiz.querySelector('.quiz-progress'); quiz.insertBefore(badge, prog || quiz.firstChild);
 
   var lastClicked = false;
   qs.forEach(function(q, i){
@@ -5660,10 +5731,37 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   if (preview && preview.nextSibling) form.insertBefore(box, preview.nextSibling); else form.appendChild(box);
   form.classList.add('qz-phone-hidden');
   box.insertAdjacentHTML('beforeend', '<span class="todo">Указать Telegram-username, номер WhatsApp и ссылку на профиль MAX Владимира (RB_CONTACT в коде квиза).</span>');
-  box.querySelector('.qz-alt').addEventListener('click', function(){
-    form.classList.remove('qz-phone-hidden'); this.remove();
+  var altBtn = box.querySelector('.qz-alt');
+  var back = document.createElement('button'); back.type = 'button'; back.className = 'qz-alt qz-back-msg'; back.textContent = '← Отправить в мессенджер'; back.hidden = true;
+  form.insertBefore(back, form.querySelector('button[type="submit"]') ? form.querySelector('button[type="submit"]').nextSibling : null);
+  altBtn.addEventListener('click', function(){
+    form.classList.remove('qz-phone-hidden'); box.hidden = true; back.hidden = false;
     var ph = form.querySelector('input[type="tel"]'); if (ph) ph.focus();
   });
+  back.addEventListener('click', function(){ form.classList.add('qz-phone-hidden'); box.hidden = false; back.hidden = true; });
+
+  /* Vladimir's tip for the current question */
+  var TIPS = {
+    type: 'Новостройка, вторичка или старый фонд — от этого зависит до трети сметы: демонтаж, стяжка, замена стояков.',
+    area: 'Если точной площади нет — выберите ближайший вариант. Обмер сделаю на выезде бесплатно.',
+    project: 'С готовым дизайн-проектом смету посчитаю за 24 часа. Без проекта — помогу собрать техзадание.',
+    stage: 'Если ремонт уже идёт, начну с проверки скрытых работ — чтобы вы не приняли чужие ошибки.',
+    when: 'Реальный график назову после выезда: от него зависит, когда заказывать мебель и материалы.',
+    eng: 'Инженерия в доме — главная статья затрат. Учту котельную, вентиляцию и электрику отдельно.',
+    dist: 'Выезжаю лично до 50 км от МКАД. Дальше — тоже можно, обсудим.',
+    format: 'У каждого формата свои нормы: кухня, вытяжка, пожарная безопасность. Учту их в расчёте.',
+    state: 'Если помещение после другого арендатора — сначала проверю, что можно сохранить.',
+    date: 'Дата открытия задаёт весь график. Скажу честно, реальна ли она.'
+  };
+  var tipEl = document.getElementById('qzTip');
+  function tip(){
+    if (!tipEl) return;
+    var act = quiz.querySelector('.quiz-question.active');
+    tipEl.textContent = act ? (TIPS[act.getAttribute('data-key')] || 'Отвечайте как есть — по ответам подготовлю честный ориентир, а не «цену для заявки».')
+                            : 'Готово! Ориентир на экране. Подробный расчёт и материалы пришлю лично — в удобный вам мессенджер.';
+  }
+  tip();
+  new MutationObserver(tip).observe(quiz, { subtree: true, attributes: true, attributeFilter: ['class'] });
 
   function message(){
     var list = Object.keys(ans).map(function(k){ return ans[k]; }).sort(function(a, b){ return a.i - b.i; });
