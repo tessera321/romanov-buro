@@ -4624,6 +4624,10 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   .standard .standard-aside { display: flex; flex-direction: column; align-items: flex-start; }
   .standard .standard-aside .ctr { margin-top: auto !important; padding-top: 32px; width: 100%; }
 }
+/* FAQ zone map: fixed size — it no longer follows the height of the open answers */
+.faq-aside .geo-map:has(.ym-zone) { flex: 0 0 auto !important; }
+.faq-aside .geo-live.ym-zone { flex: 0 0 auto !important; height: clamp(260px, 22vw, 340px) !important; min-height: 0 !important; aspect-ratio: auto !important; }
+@media (max-width: 900px) { .faq-aside .geo-live.ym-zone { height: 300px !important; } }
 </style>
 </head>
 <body>
@@ -6124,7 +6128,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
     var Km = ymaps.templateLayoutFactory.createClass('<div class="geo-km">50 км от МКАД</div>');
     map.geoObjects.add(new ymaps.Placemark([C[0] - 0.47, C[1] - 0.78], {}, {iconLayout: Km, interactivityModel: 'default#transparent'}));
     var fit = function(){ map.container.fitToViewport(); map.setBounds(zone.geometry.getBounds(), {zoomMargin: 6}); };
-    fit(); window.addEventListener('resize', fit); if (window.ResizeObserver) new ResizeObserver(fit).observe(box);
+    fit(); window.addEventListener('resize', fit);
   }
 })();
 </script><script>(function(){
