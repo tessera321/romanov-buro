@@ -6059,6 +6059,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   if ('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ io.disconnect(); load(); } }, {rootMargin: '600px'});
     io.observe(box);
+    window.addEventListener('load', function(){ setTimeout(load, 3500); });
   } else load();
   function init(){
     var host = document.createElement('div');
@@ -6091,7 +6092,9 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 (function(){
   var box = document.getElementById('geoMap'), KEY = window.YMAPS_KEY || '';
   if (!box || !KEY) return;
+  var gone = false;
   function go(){
+    if (gone) return; gone = true;
     window.__ymP = window.__ymP || new Promise(function(res){
       if (window.ymaps) return ymaps.ready(res);
       var sc = document.createElement('script');
@@ -6104,6 +6107,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   if ('IntersectionObserver' in window){
     var io = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ io.disconnect(); go(); } }, {rootMargin: '600px'});
     io.observe(box);
+    window.addEventListener('load', function(){ setTimeout(go, 3500); });
   } else go();
   function init(){
     box.innerHTML = ''; box.classList.add('is-live', 'ym-zone');
