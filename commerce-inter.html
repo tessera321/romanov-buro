@@ -5920,6 +5920,168 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   window.addEventListener('resize', refit); if (window.ResizeObserver) new ResizeObserver(refit).observe(box); setTimeout(refit, 400);
 })();
 </script><script>document.addEventListener('click',function(e){var q=e.target.closest&&e.target.closest('.faq-q');if(!q)return;var cur=q.closest('.faq-item');[].forEach.call(document.querySelectorAll('.faq-item.open'),function(it){if(it!==cur){it.classList.remove('open');var b=it.querySelector('.faq-q');if(b)b.setAttribute('aria-expanded','false');}});});</script>
+<style>
+/* ===== QUIZ PRO: emphasis, calculation screen, messenger hand-off ===== */
+.quiz{ position: relative; isolation: isolate; }
+.quiz::before{ content:""; position:absolute; inset: 0; z-index:-1; pointer-events:none;
+  background: radial-gradient(60% 70% at 72% 45%, rgba(181,161,138,.13), rgba(181,161,138,.04) 45%, transparent 70%); }
+#quizStart.quiz-card{ position: relative; border: 1px solid rgba(181,161,138,.38) !important; border-radius: var(--r-card,14px);
+  background: linear-gradient(180deg, rgba(181,161,138,.07), rgba(181,161,138,.015) 40%, rgba(0,0,0,0)) , var(--bg-surface,#1C1C1C) !important;
+  box-shadow: 0 40px 120px -50px rgba(181,161,138,.35), inset 0 1px 0 rgba(255,255,255,.06) !important; }
+#quizStart.quiz-card::before{ content:""; position:absolute; left: 24px; right: 24px; top: -1px; height: 2px; border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--bronze,#B5A18A), transparent); opacity:.9; }
+.qz-badge{ display:inline-block; margin: 0 0 18px; font-size: .74rem; letter-spacing:.03em; color: var(--bronze-hover,#CDBEAA);
+  padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(181,161,138,.35); background: rgba(181,161,138,.08); }
+#quizStart .quiz-q-text{ font-size: clamp(1.35rem, 1.9vw, 2.1rem) !important; line-height: 1.2; }
+#quizStart .quiz-progress-step.active{ background: var(--bronze,#B5A18A) !important; box-shadow: 0 0 12px rgba(181,161,138,.55); }
+#quizStart .quiz-option{ position: relative; padding-left: 52px !important; min-height: 58px; text-align: left;
+  transition: border-color .18s ease, background-color .18s ease, transform .18s ease; }
+#quizStart .quiz-option::before{ content:""; position:absolute; left: 20px; top: 50%; width: 16px; height: 16px; margin-top: -8px; border-radius: 50%;
+  border: 1.5px solid rgba(245,240,232,.35); transition: border-color .18s ease, box-shadow .18s ease, background .18s ease; }
+#quizStart .quiz-option:hover{ border-color: rgba(181,161,138,.6) !important; background: rgba(181,161,138,.06) !important; }
+#quizStart .quiz-option:hover::before{ border-color: var(--bronze,#B5A18A); }
+#quizStart .quiz-option.selected{ border-color: var(--bronze,#B5A18A) !important; background: rgba(181,161,138,.12) !important; color: var(--text-primary,#F5F0E8) !important; }
+#quizStart .quiz-option.selected::before{ border-color: var(--bronze,#B5A18A); background: radial-gradient(circle, var(--bronze,#B5A18A) 0 4px, transparent 5px); box-shadow: 0 0 10px rgba(181,161,138,.5); }
+#quizStart .quiz-option:active{ transform: scale(.985); }
+#quizStart .quiz-option:focus-visible{ outline: 2px solid var(--bronze,#B5A18A); outline-offset: 2px; }
+#quizStart .quiz-range{ color: var(--bronze-hover,#CDBEAA) !important; }
+/* calculation screen */
+.quiz-container{ position: relative; }
+.qz-calc{ position:absolute; inset: 0; z-index: 3; display:none; flex-direction: column; justify-content: center; gap: 22px;
+  padding: clamp(8px, 2vw, 24px); background: inherit; }
+.qz-busy .qz-calc{ display:flex; }
+.qz-busy #quizForm{ visibility: hidden; }
+.qz-calc-t{ font-family: var(--display, inherit); font-size: clamp(1.25rem, 1.7vw, 1.8rem); color: var(--text-primary,#F5F0E8); font-weight: 300; }
+.qz-calc-bar{ height: 3px; border-radius: 3px; background: rgba(245,240,232,.1); overflow: hidden; }
+.qz-calc-bar i{ display:block; height:100%; width:0; background: linear-gradient(90deg, var(--bronze-dark,#9A8770), var(--bronze-hover,#CDBEAA)); transition: width linear; }
+.qz-calc ul{ list-style:none; margin:0; padding:0; display:grid; gap: 12px; }
+.qz-calc li{ display:flex; align-items:center; gap: 12px; color: var(--text-muted); font-size: .95rem; opacity:.35; transition: opacity .3s ease, color .3s ease; }
+.qz-calc li::before{ content:""; flex:none; width: 18px; height: 18px; border-radius: 50%; border: 1.5px solid rgba(245,240,232,.25); box-sizing: border-box; }
+.qz-calc li.run{ opacity: 1; color: var(--text-secondary); }
+.qz-calc li.run::before{ border-color: var(--bronze,#B5A18A) transparent var(--bronze,#B5A18A) transparent; animation: qzspin .8s linear infinite; }
+.qz-calc li.ok{ opacity: 1; color: var(--text-primary,#F5F0E8); }
+.qz-calc li.ok::before{ border-color: var(--bronze,#B5A18A); background: var(--bronze,#B5A18A) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' fill='none' stroke='%231C1C1C' stroke-width='2'/%3E%3C/svg%3E") center/12px no-repeat; }
+@keyframes qzspin{ to{ transform: rotate(360deg); } }
+/* messenger hand-off */
+.qz-send{ margin: 22px 0 6px; padding: 20px; border-radius: var(--r-ctl,10px); border: 1px solid rgba(181,161,138,.3); background: rgba(181,161,138,.06); }
+.qz-send-t{ color: var(--text-primary,#F5F0E8); font-size: 1rem; line-height: 1.45; margin-bottom: 14px; }
+.qz-send-btns{ display:grid; grid-template-columns: 1fr; gap: 10px; }
+.quiz-form.active > .qz-send{ grid-column: 2; grid-row: 2; margin-top: 0; }
+@media (max-width: 900px){ .quiz-form.active > .qz-send{ grid-column: auto; grid-row: auto; margin-top: 22px; } }
+.qz-msg{ display:flex; align-items:center; justify-content:center; gap: 10px; min-height: 52px; padding: 12px 14px; border-radius: var(--r-ctl,10px);
+  text-decoration:none; font-size: .9rem; letter-spacing:.04em; text-transform: uppercase; color: #1C1C1C; background: #F0EBE3; border: 1px solid transparent;
+  transition: transform .15s ease, background-color .15s ease; }
+.qz-msg:hover{ background: #FFFFFF; }
+.qz-msg:active{ transform: scale(.98); }
+.qz-msg:focus-visible{ outline: 2px solid var(--bronze,#B5A18A); outline-offset: 2px; }
+.qz-msg svg{ width: 18px; height: 18px; flex:none; }
+.qz-copied{ display:none; margin: 12px 0 0; font-size: .82rem; color: var(--bronze-hover,#CDBEAA); }
+.qz-copied.on{ display:block; }
+.qz-alt{ display:block; text-align:left; margin: 14px 0 0; padding: 0; border:0; background:none; color: var(--text-secondary); font: inherit; font-size: .88rem; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.qz-phone-hidden .form-group, .qz-phone-hidden button[type="submit"], .qz-phone-hidden .qz-where{ display:none !important; }
+
+@media (prefers-reduced-motion: reduce){ .qz-calc li.run::before{ animation: none; } #quizStart .quiz-option{ transition: none; } }
+</style>
+<script>
+(function(){
+  var card = document.getElementById('quizStart'), quiz = card && card.querySelector('.quiz-container'), form = document.getElementById('quizForm');
+  if (!quiz || !form) return;
+  /* Contacts: replace with Vladimir's real handles */
+  var C = window.RB_CONTACT || { tg: 'romanov_buro', wa: '70000000000', max: 'https://max.ru/' };
+  var reduced = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var path = location.pathname, PAGE = /doma/.test(path) ? 'дом' : /commerce/.test(path) ? 'коммерческий объект' : 'квартира';
+  var KEY = 'rb-quiz:' + path;
+  var qs = [].slice.call(quiz.querySelectorAll('.quiz-question'));
+  var ans = {};
+  try { ans = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e){ ans = {}; }
+
+  var badge = document.createElement('span'); badge.className = 'qz-badge'; badge.textContent = '≈ 2 минуты · ориентир сразу';
+  var prog = quiz.querySelector('.quiz-progress'); quiz.insertBefore(badge, prog || quiz.firstChild);
+
+  var lastClicked = false;
+  qs.forEach(function(q, i){
+    q.addEventListener('click', function(e){
+      var b = e.target.closest && e.target.closest('.quiz-option'); if (!b) return;
+      var t = q.querySelector('.quiz-q-text');
+      ans[q.getAttribute('data-key') || ('q' + i)] = { q: t ? t.textContent.trim() : '', a: b.textContent.trim(), i: i };
+      try { localStorage.setItem(KEY, JSON.stringify(ans)); } catch(err){}
+      if (i === qs.length - 1) lastClicked = true;
+    }, true);
+  });
+
+  /* calculation screen */
+  var calc = document.createElement('div'); calc.className = 'qz-calc'; calc.setAttribute('aria-live', 'polite');
+  var STEPS = ['Учитываю тип объекта и площадь', 'Сверяю ставки по 115+ сданным объектам', 'Проверяю риски для вашего этапа', 'Готовлю ориентир по стоимости'];
+  calc.innerHTML = '<div class="qz-calc-t">Считаю ваш ориентир…</div><div class="qz-calc-bar"><i></i></div><ul>' + STEPS.map(function(s){ return '<li>' + s + '</li>'; }).join('') + '</ul>';
+  quiz.appendChild(calc);
+  var running = false;
+  function runCalc(){
+    if (running) return; running = true;
+    var lis = calc.querySelectorAll('li'), bar = calc.querySelector('.qz-calc-bar i'), per = reduced ? 120 : 650, total = per * lis.length;
+    lis.forEach(function(li){ li.className = ''; });
+    quiz.classList.add('qz-busy');
+    bar.style.transition = 'none'; bar.style.width = '0'; void bar.offsetWidth;
+    bar.style.transition = 'width ' + total + 'ms linear'; bar.style.width = '100%';
+    lis.forEach(function(li, k){
+      setTimeout(function(){ if (k) lis[k - 1].className = 'ok'; li.className = 'run'; }, per * k);
+    });
+    setTimeout(function(){
+      lis[lis.length - 1].className = 'ok';
+      setTimeout(function(){ quiz.classList.remove('qz-busy'); running = false; var r = form.querySelector('.quiz-form-title'); if (r) { r.setAttribute('tabindex', '-1'); r.focus({ preventScroll: true }); } }, reduced ? 0 : 350);
+    }, total);
+  }
+  new MutationObserver(function(){
+    if (form.classList.contains('active') && lastClicked){ lastClicked = false; runCalc(); }
+  }).observe(form, { attributes: true, attributeFilter: ['class'] });
+
+  /* messenger hand-off instead of a site form */
+  var where = form.querySelector('.quiz-result-preview + p'); if (where) where.classList.add('qz-where');
+  var ICON = {
+    tg: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.6c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.3 1.4 11.8c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>',
+    max: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 18V6l8 7 8-7v12"/></svg>',
+    wa: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>'
+  };
+  var box = document.createElement('div'); box.className = 'qz-send';
+  box.innerHTML = '<div class="qz-send-t">Отправьте ответы в мессенджер — пришлю туда подробный расчёт, план по этапам и бонусы. Номер телефона оставлять не нужно.</div>'
+    + '<div class="qz-send-btns">'
+    + '<a class="qz-msg" data-m="tg" href="#" target="_blank" rel="noopener">' + ICON.tg + 'Telegram</a>'
+    + '<a class="qz-msg" data-m="max" href="#" target="_blank" rel="noopener">' + ICON.max + 'MAX</a>'
+    + '<a class="qz-msg" data-m="wa" href="#" target="_blank" rel="noopener">' + ICON.wa + 'WhatsApp</a>'
+    + '</div><p class="qz-copied" role="status">Текст с ответами скопирован — если он не появился в чате, просто вставьте его.</p>'
+    + '<button type="button" class="qz-alt">Нет мессенджера? Оставить телефон</button>';
+  var preview = form.querySelector('.quiz-result-preview');
+  if (preview && preview.nextSibling) form.insertBefore(box, preview.nextSibling); else form.appendChild(box);
+  form.classList.add('qz-phone-hidden');
+  box.insertAdjacentHTML('beforeend', '<span class="todo">Указать Telegram-username, номер WhatsApp и ссылку на профиль MAX Владимира (RB_CONTACT в коде квиза).</span>');
+  box.querySelector('.qz-alt').addEventListener('click', function(){
+    form.classList.remove('qz-phone-hidden'); this.remove();
+    var ph = form.querySelector('input[type="tel"]'); if (ph) ph.focus();
+  });
+
+  function message(){
+    var list = Object.keys(ans).map(function(k){ return ans[k]; }).sort(function(a, b){ return a.i - b.i; });
+    var range = document.getElementById('qrRange');
+    var lines = ['Здравствуйте, Владимир! Прошёл расчёт на сайте, объект — ' + PAGE + '.', ''];
+    list.forEach(function(x, n){ lines.push((n + 1) + '. ' + x.q + ' — ' + x.a); });
+    if (range && range.textContent.trim() && range.textContent.trim() !== '—') { lines.push(''); lines.push('Ориентир на сайте: ' + range.textContent.trim()); }
+    lines.push(''); lines.push('Пришлите, пожалуйста, подробный расчёт, план по этапам и бонусы.');
+    return lines.join('\n');
+  }
+  function copy(t){
+    try { if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t).catch(function(){}); } catch(e){}
+    try { var ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); } catch(e){}
+  }
+  box.querySelectorAll('.qz-msg').forEach(function(a){
+    a.addEventListener('click', function(){
+      var t = message(), m = a.getAttribute('data-m'), u = encodeURIComponent(t);
+      a.href = m === 'tg' ? 'https://t.me/' + C.tg + '?text=' + u : m === 'wa' ? 'https://wa.me/' + C.wa + '?text=' + u : C.max;
+      copy(t);
+      box.querySelector('.qz-copied').classList.add('on');
+      if (window.ym && window.YM_ID) try { ym(window.YM_ID, 'reachGoal', 'quiz_' + m); } catch(e){}
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
