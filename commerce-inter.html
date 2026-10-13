@@ -4726,6 +4726,22 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   .ally-grid { align-items: center !important; }
   .ally-photo[style*="apt/ally"] { aspect-ratio: 4 / 5; height: auto !important; min-height: 0 !important; max-height: 88svh; align-self: center; background-position: center 22% !important; }
 }
+/* FAQ zone map on Yandex */
+.geo-live.ym-zone [class*="ground-pane"] { filter: invert(1) hue-rotate(180deg) grayscale(1) sepia(.28) brightness(.82) contrast(.9); }
+.geo-live.ym-zone .geo-t { position: relative; }
+.geo-live.ym-zone .geo-km { transform: translate(-100%, -50%); }
+/* control: text-only cards */
+.ctl-tail .approach-item { padding-top: 0; }
+@media (min-width: 981px) { .standard .standard-aside { position: static !important; } }
+@media (min-width: 981px) {
+  .standard .standard-grid { align-items: stretch !important; }
+  .standard .standard-aside { display: flex; flex-direction: column; align-items: flex-start; }
+  .standard .standard-aside .ctr { margin-top: auto !important; padding-top: 32px; width: 100%; }
+}
+/* FAQ zone map: fixed size — it no longer follows the height of the open answers */
+.faq-aside .geo-map:has(.ym-zone) { flex: 0 0 auto !important; }
+.faq-aside .geo-live.ym-zone { flex: 0 0 auto !important; height: clamp(260px, 22vw, 340px) !important; min-height: 0 !important; aspect-ratio: auto !important; }
+@media (max-width: 900px) { .faq-aside .geo-live.ym-zone { height: 300px !important; } }
 </style>
 </head>
 <body>
@@ -5903,6 +5919,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   var refit = function(){ map.invalidateSize(); map.fitBounds(ZB, {padding: [6, 6]}); };
   window.addEventListener('resize', refit); if (window.ResizeObserver) new ResizeObserver(refit).observe(box); setTimeout(refit, 400);
 })();
-</script>
+</script><script>document.addEventListener('click',function(e){var q=e.target.closest&&e.target.closest('.faq-q');if(!q)return;var cur=q.closest('.faq-item');[].forEach.call(document.querySelectorAll('.faq-item.open'),function(it){if(it!==cur){it.classList.remove('open');var b=it.querySelector('.faq-q');if(b)b.setAttribute('aria-expanded','false');}});});</script>
+
 </body>
 </html>
