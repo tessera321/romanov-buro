@@ -4644,7 +4644,8 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .cs-crumbs a:hover{ color: var(--bronze); }
 .cs-hero h1{ font-family: var(--display); font-size: clamp(2rem, 4.6vw, 5rem); line-height:1.04; letter-spacing:-.02em; max-width: 18ch; margin:0 0 18px; color: var(--text-primary); text-wrap: balance; }
 .cs-lead{ max-width: 52ch; font-size: clamp(1rem, 1.15vw, 1.25rem); line-height:1.55; color: var(--text-secondary); margin:0; }
-.cs-facts{ border-bottom:1px solid var(--divider); }
+.cs-facts{ border-bottom:0; }
+main.cs > section::after{ display:none !important; content:none !important; }
 .cs-facts-row{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: var(--cg, 24px); margin:0; padding-block: clamp(28px, 3vw, 48px); }
 .cs-facts-row div{ border-left:1px solid var(--bronze); padding-left: clamp(14px, 1.2vw, 22px); }
 .cs-facts-row dt{ font-family: var(--display); font-weight:300; font-size: clamp(1.8rem, 3vw, 3.4rem); line-height:1; color: var(--bronze); font-variant-numeric: tabular-nums; }
