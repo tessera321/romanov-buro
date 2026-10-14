@@ -4629,7 +4629,30 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .faq-aside .geo-live.ym-zone { flex: 0 0 auto !important; height: clamp(260px, 22vw, 340px) !important; min-height: 0 !important; aspect-ratio: auto !important; }
 @media (max-width: 900px) { .faq-aside .geo-live.ym-zone { height: 300px !important; } }
 </style>
-<style>.pf-nav{ flex-wrap: wrap; }.pf-nav .pf-more{ order:-1; flex: 1 1 100% !important; width:100% !important; display:inline-flex; align-items:center; justify-content:center; text-decoration:none; border-color: var(--bronze) !important; color: var(--bronze-hover, #CDBEAA) !important; }.pf-nav .pf-more[hidden]{ display:none !important; }@media (min-width: 901px){.pf-panel{ display:grid !important; grid-template-columns: repeat(12, minmax(0,1fr)) !important; column-gap: var(--cg, 32px) !important; align-items: stretch !important; --th: clamp(64px, 5.6vw, 104px); }.pf-panel > :first-child{ grid-column: 1 / 7 !important; display:grid !important; grid-template-columns: minmax(0,1fr) var(--th) !important; column-gap: 12px !important; min-height: 0 !important; align-items: start !important; align-self: start; }.pf-panel > :nth-child(2){ grid-column: 7 / 13 !important; }.pf-panel .pf-stage{ height: auto !important; }.pf-panel .pf-stage .pf-main{ height: auto !important; aspect-ratio: 4 / 5 !important; max-height: 78svh !important; }.pf-panel .pf-thumbs{ grid-template-rows: none !important; grid-auto-rows: var(--th) !important; align-content: start; gap: 10px !important; }.pf-panel .pf-thumbs .pf-thumb{ width: var(--th) !important; height: var(--th) !important; aspect-ratio: 1 / 1 !important; }}</style><style>.cmp-grid .cmp-wrap{ grid-column: 1 / -1 !important; justify-self: center; width: min(100%, calc(80svh * 1492 / 1054)); }.cmp-hint{ display:flex; align-items:center; justify-content:center; gap:12px; margin: 18px auto 0; color: var(--text-secondary); font-size: .9rem; text-align:center; }.cmp-hint svg{ color: var(--bronze); flex: none; }@media (max-width: 900px){ .cmp-grid .cmp-wrap{ width:100%; } .cmp-hint{ justify-content:flex-start; text-align:left; font-size:.85rem; } }</style></head>
+<style>
+.pf-nav .pf-more[hidden]{ display:none !important; }
+.pf-nav .pf-more{ text-decoration:none; display:inline-flex; align-items:center; justify-content:center; }
+@media (min-width: 901px){
+  .pf-panel{ display:grid !important; grid-template-columns: minmax(0,1fr) minmax(0,1fr) !important; column-gap: clamp(40px, 4.2vw, 96px) !important; align-items: stretch !important; }
+  .pf-panel > :first-child{ grid-column: 1 !important; container-type: inline-size; --th: clamp(64px, 5.2vw, 108px);
+    display:grid !important; grid-template-columns: minmax(0,1fr) var(--th) !important; column-gap: 10px !important; min-height: 0 !important; align-items: start !important; align-self: start; }
+  .pf-panel > :nth-child(2){ grid-column: 2 !important; }
+  .pf-panel .pf-stage{ height: auto !important; }
+  .pf-panel .pf-stage .pf-main{ aspect-ratio: auto !important; width: 100% !important; height: min(calc((100cqw - var(--th) - 10px) * 1.22), 80svh) !important; max-height: none !important; }
+  .pf-panel .pf-thumbs{ grid-template-rows: none !important; grid-auto-rows: var(--th) !important; align-content: start; gap: 10px !important; }
+  .pf-panel .pf-thumbs .pf-thumb{ width: var(--th) !important; height: var(--th) !important; aspect-ratio: 1 / 1 !important; }
+  .pf-info{ padding-top: 4px; }
+  .pf-info h3{ font-size: clamp(1.3rem, 1.7vw, 2rem) !important; }
+}
+.pf-nav{ display:grid !important; grid-template-columns: 52px 52px minmax(0,1fr) minmax(0,1fr); align-items:center; gap: 12px !important; }
+.pf-nav .pf-calc{ grid-column: 1 / 4; grid-row: 1; width: 100% !important; min-width: 0; }
+.pf-nav .pf-more{ grid-column: 4 / 5; grid-row: 1; width: 100% !important; min-height: 52px; padding-inline: 16px; border-color: rgba(245,240,232,.22) !important; color: var(--text-secondary) !important; background: transparent !important; }
+.pf-nav .pf-more:hover{ border-color: var(--bronze) !important; color: var(--text-primary) !important; }
+.pf-nav .pf-more[hidden] + * , .pf-nav .pf-calc:only-of-type{ }
+.pf-nav #pfPrev{ grid-column: 1; grid-row: 2; margin: 0 !important; } .pf-nav #pfNext{ grid-column: 2; grid-row: 2; margin: 0 !important; }
+.pf-nav .pf-count{ grid-column: 4; grid-row: 2; justify-self: end; }
+@media (max-width: 900px){ .pf-nav{ grid-template-columns: 48px 48px 1fr; } .pf-nav .pf-calc{ grid-column: 1 / -1; } .pf-nav .pf-more{ grid-column: 1 / -1; grid-row: 2; } .pf-nav #pfPrev,.pf-nav #pfNext{ grid-row: 3; } .pf-nav .pf-count{ grid-column: 3; grid-row: 3; } }
+</style><style>.cmp-grid .cmp-wrap{ grid-column: 1 / -1 !important; justify-self: center; width: min(100%, calc(80svh * 1492 / 1054)); }.cmp-hint{ display:flex; align-items:center; justify-content:center; gap:12px; margin: 18px auto 0; color: var(--text-secondary); font-size: .9rem; text-align:center; }.cmp-hint svg{ color: var(--bronze); flex: none; }@media (max-width: 900px){ .cmp-grid .cmp-wrap{ width:100%; } .cmp-hint{ justify-content:flex-start; text-align:left; font-size:.85rem; } }</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -4722,7 +4745,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
         <div class="pf-nav">
           <button class="arrow-btn" id="pfPrev" aria-label="Предыдущий объект"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
           <button class="arrow-btn" id="pfNext" aria-label="Следующий объект"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
-          <a class="btn-outline pf-more" id="pfMore" href="case-magnum.html">Подробнее об объекте</a><button class="btn-outline" type="button" data-scroll="quizStart">Рассчитать похожий</button>
+          <button class="btn-primary pf-calc" type="button" data-scroll="quizStart">Рассчитать похожий</button><a class="btn-outline pf-more" id="pfMore" href="case-magnum.html">Все этапы ремонта</a>
           <span class="pf-count" id="pfCount">01 / 08</span>
         </div>
       </div>
