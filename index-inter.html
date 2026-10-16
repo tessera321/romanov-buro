@@ -4711,7 +4711,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 @media (max-width: 1100px){ .vf-grid{ grid-template-columns: 1fr; max-width: 640px; } }
 @media (max-width: 600px){ .vf-txt{ padding: 20px; } }
 @media (min-width: 1101px) and (max-width: 1360px){ .vf-phone{ transform: scale(.92); } }
-</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style></head>
+</style><style>.pt-fix{ list-style:none; margin: clamp(32px, 3.4vw, 52px) 0 clamp(48px, 5vw, 80px); padding:0; display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--cg); }.pt-fix li{ padding-top: 18px; border-top: 1px solid rgba(181,161,138,.35); color: var(--text-secondary); font-size: .95rem; line-height: 1.55; }.pt-fix b{ display:block; margin-bottom: 8px; font-weight: 500; font-size: 1.08rem; color: var(--text-primary); }@media (max-width: 900px){ .pt-fix{ grid-template-columns: 1fr; gap: 22px; } }</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -4876,29 +4876,9 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 <!-- 6. HONEST PRICE -->
 <section class="price-truth" id="honest-price">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:24ch">Я называю полную цену до старта. <span class="tone">Обычно её узнают к третьему месяцу ремонта</span></h2>
-    <p class="section-intro reveal">Низкая цифра на сайте нужна, чтобы получить заявку, — а <span class="hl">полную стоимость я фиксирую в смете</span> до того, как вы подпишете договор.</p>
-    <div class="pt-grid">
-      <div class="pt-col reveal">
-        <h3>Как это часто бывает</h3>
-        <ol class="pt-steps">
-          <li><span>На сайте — «ремонт под ключ»</span><b>от 25 000 ₽</b></li>
-          <li><span>В смете: «черновые считаются отдельно»</span><b>35 000 ₽</b></li>
-          <li><span>По ходу: «вскрыли — надо переделать», «это не входило»</span><b>+ доп. работы</b></li>
-          <li><span>Итог за м² — когда уйти уже поздно</span><b>55–60 000 ₽</b></li>
-        </ol>
-      </div>
-      <div class="pt-col me reveal">
-        <h3>Как у меня</h3>
-        <ol class="pt-steps">
-          <li><span>На сайте — честный ориентир</span><b>от 45 000 ₽</b></li>
-          <li><span>В смете — все работы по проекту, по помещениям</span><b>фиксирую</b></li>
-          <li><span>Изменения — только по вашему решению и с вашей подписью</span><b>0 ₽ сюрпризов</b></li>
-          <li><span>Итог за м²</span><b>цена из договора</b></li>
-        </ol>
-        <p class="pt-total">Сумма не выше рыночной — но <span class="hl">вы знаете её до договора</span> и можете честно сравнить.</p>
-      </div>
-    </div>
+    <h2 class="section-heading reveal" style="max-width:20ch">Полную цену называю <span class="tone">до старта работ</span></h2>
+    <p class="section-intro reveal">Стоимость фиксирую в смете до того, как вы подпишете договор. <span class="hl">Итог за м² — цена из договора</span>, а не «по факту».</p>
+    <ul class="pt-fix reveal"><li><b>Все работы — по помещениям</b>Черновые, инженерия и отделка — с объёмами по проекту, без строк «по факту».</li><li><b>Изменения — только с вашей подписью</b>Решили что-то поменять — сначала согласуем цену, потом делаем.</li><li><b>Смета до договора</b>Можно спокойно сравнить с другими предложениями и задать вопросы по каждой строке.</li></ul>
     <div class="pt-check reveal">
       <div>
         <h3 class="pt-check-title">Пришлите смету другого подрядчика — отмечу, где появятся доплаты</h3>
@@ -4918,8 +4898,6 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
       </figure>
     </div>
     <span class="todo">Мокап сметы — пример для прототипа. Для сайта сделать скриншот реального обезличенного разбора.</span>
-
-    <span class="todo">Цифры «как часто бывает» — иллюстрация практики рынка без названий компаний. Сверить с опытом Романова.</span>
   </div>
 </section>
 
