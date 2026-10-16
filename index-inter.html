@@ -4656,7 +4656,8 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .verify{ padding: clamp(72px, 8vw, 140px) 0; }
 .vf-grid{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--cg); margin-top: clamp(32px, 3.4vw, 56px); }
 .vf-card{ display:flex; flex-direction:column; background: var(--bg-elevated); border: 1px solid var(--border-main); border-radius: 18px; overflow:hidden; }
-.vf-vis{ position:relative; height: 440px; display:flex; align-items:center; justify-content:center; overflow:hidden;
+.vf-shot{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.vf-vis{ position:relative; aspect-ratio: 5 / 4; display:flex; align-items:center; justify-content:center; overflow:hidden;
   background: radial-gradient(120% 90% at 50% 0%, rgba(181,161,138,.16), transparent 60%), var(--bg-surface); }
 .vf-txt{ padding: 24px 24px 26px; display:flex; flex-direction:column; gap: 10px; flex:1; }
 .vf-txt h3{ margin:0; font-size: 1.2rem; font-weight: 500; color: var(--text-primary); }
@@ -4707,10 +4708,10 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 .tg-ficon.tg-xls{ background:#3a8f5c; }
 .tg-fmeta b{ display:block; font-weight:500; font-size:.74rem; color:#e9eef3; }
 .tg-fmeta small{ display:block; font-size:.64rem; color: rgba(233,238,243,.5); margin-top:1px; }
-@media (max-width: 1100px){ .vf-grid{ grid-template-columns: 1fr; max-width: 560px; } .vf-vis{ height: 420px; } }
-@media (max-width: 600px){ .vf-vis{ height: 380px; } .vf-phone{ transform: scale(.9); } .vf-txt{ padding: 20px; } }
+@media (max-width: 1100px){ .vf-grid{ grid-template-columns: 1fr; max-width: 640px; } }
+@media (max-width: 600px){ .vf-txt{ padding: 20px; } }
 @media (min-width: 1101px) and (max-width: 1360px){ .vf-phone{ transform: scale(.92); } }
-</style><style>.pf-all{ margin: clamp(28px, 3vw, 44px) 0 0; } .pf-all .btn-outline{ display:inline-flex; text-decoration:none; }</style></head>
+</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -4808,7 +4809,6 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
         </div>
       </div>
     </div>
-    <p class="pf-all reveal"><a class="btn-outline" href="cases.html">Все объекты</a></p>
     <span class="todo">Нужны сроки и цена за м² по договору и по факту для каждого объекта, и 5+ фото на объект.</span>
   </div>
 </section>
@@ -4829,59 +4829,6 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 </div>
     <p class="cmp-hint reveal"><svg width="22" height="14" viewBox="0 0 22 14" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M6 2L1 7l5 5M16 2l5 5-5 5M1 7h20"/></svg>Потяните шторку: слева утверждённый проект, справа — фото после сдачи с того же ракурса.</p>
     <span class="todo">Нужны 2–3 пары «визуализация / фото» с одного ракурса. Это один из самых сильных доказательных блоков — стоит переснять ракурсы специально.</span>
-  </div>
-</section>
-<section class="verify" id="verify">
-  <div class="container">
-    <h2 class="section-heading reveal">Проверьте нас <span class="tone">до договора</span></h2>
-    <p class="section-intro reveal">Не обязательно верить на слово. Три способа увидеть, как мы работаем: бесплатно и без обязательств.</p>
-    <div class="vf-grid">
-      <article class="vf-card reveal">
-        <div class="vf-vis vf-vis-call" aria-hidden="true">
-          <div class="vf-phone">
-            <img class="vf-feed" src="img/sadovye/q11.jpg" alt="" loading="lazy" decoding="async">
-            <div class="vf-top"><span class="vf-live"><i></i>Видеозвонок</span><span class="vf-time">12:47</span></div>
-            <div class="vf-pip"><img src="img/apt/founder-ava.jpg" alt="" loading="lazy"><span>Владимир</span></div>
-            <div class="vf-sub">Кухня-гостиная: свет, камень, примыкания</div>
-            <div class="vf-ctrl"><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="7" width="13" height="10" rx="2"/><path d="M16 11l5-3v8l-5-3"/></svg></span><span class="vf-end"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 9c-3.3 0-6.4.9-8.9 2.6-.6.4-.8 1.2-.4 1.8l1.4 2.1c.4.6 1.2.8 1.8.5l2.6-1.3c.5-.3.8-.8.7-1.4l-.2-1.5c1.9-.6 4.1-.6 6 0l-.2 1.5c-.1.6.2 1.1.7 1.4l2.6 1.3c.6.3 1.4.1 1.8-.5l1.4-2.1c.4-.6.2-1.4-.4-1.8C18.4 9.9 15.3 9 12 9z"/></svg></span></div>
-          </div>
-        </div>
-        <div class="vf-txt">
-          <h3>Видеопоказ объекта</h3>
-          <p>15–20 минут по видеосвязи. Владимир проходит по действующему объекту и показывает этапы, материалы и порядок на площадке — в прямом эфире, без монтажа.</p>
-          <button type="button" class="btn-outline vf-cta" data-scroll="final">Записаться на видеопоказ</button>
-        </div>
-      </article>
-      <article class="vf-card reveal">
-        <div class="vf-vis vf-vis-visit">
-          <img class="vf-photo" src="img/apt/visit.jpg" alt="Люди на объекте в работе: каркас перегородок, шумоизоляция потолка, материалы" loading="lazy" decoding="async">
-          <span class="vf-tag">Объект в работе · Москва</span>
-          <span class="vf-host"><img src="img/apt/founder-ava.jpg" alt="" loading="lazy"><span><b>Встречает Владимир Романов</b><small>Покажет узлы, которые потом скроет отделка</small></span></span>
-        </div>
-        <div class="vf-txt">
-          <h3>Визит на объект</h3>
-          <p>Приезжайте на квартиру, где мы сейчас работаем. Посмотрите разводку, стяжку, каркас и порядок на площадке своими глазами — с согласия владельца.</p>
-          <button type="button" class="btn-outline vf-cta" data-scroll="final">Договориться о визите</button>
-        </div>
-      </article>
-      <article class="vf-card reveal">
-        <div class="vf-vis vf-vis-tg" aria-hidden="true">
-          <div class="tg">
-            <div class="tg-head"><img src="img/apt/founder-ava.jpg" alt="" loading="lazy"><span><b>Владимир Романов</b><small>в сети</small></span></div>
-            <div class="tg-body">
-              <div class="tg-msg tg-in">Как договаривались — образцы документов. Можно спокойно изучить до встречи.<em>14:02</em></div>
-              <div class="tg-msg tg-in tg-files"><div class="tg-file"><span class="tg-ficon tg-pdf">PDF</span><span class="tg-fmeta"><b>Договор подряда — образец.pdf</b><small>412 КБ</small></span></div><div class="tg-file"><span class="tg-ficon tg-xls">XLS</span><span class="tg-fmeta"><b>Смета на 100 м² — образец.xlsx</b><small>88 КБ</small></span></div><div class="tg-file"><span class="tg-ficon tg-pdf">PDF</span><span class="tg-fmeta"><b>Акт приёмки — образец.pdf</b><small>156 КБ</small></span></div><em>14:02</em></div>
-              <div class="tg-msg tg-out">Спасибо! Посмотрю до встречи<em>14:05 <svg viewBox="0 0 16 10" width="15" height="10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 5l3 3 6-7M6 8l1 1 6-8"/></svg></em></div>
-            </div>
-          </div>
-        </div>
-        <div class="vf-txt">
-          <h3>Документы в Telegram</h3>
-          <p>Пришлём образцы договора, сметы на 100 м² и акта приёмки. Посмотрите, что и как мы фиксируем, ещё до первого разговора о вашей квартире.</p>
-          <button type="button" class="btn-outline vf-cta" data-scroll="final">Получить документы</button>
-        </div>
-      </article>
-    </div>
   </div>
 </section>
 <section class="details" id="details"><div class="container"><h2 class="section-heading reveal">Детали, которые<br><span class="tone">видно и через пять лет</span></h2><p class="section-intro reveal">Скрытые двери, теневой плинтус, шторы из ниши потолка — то, от чего другие бригады отговаривают. <span class="hl">Мы такие запросы реализуем</span>: узлы закладываем на черновом этапе, пока стены открыты.</p><div class="dt-strip dt-8"><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(img/apt/dt-door.jpg);background-position:center"></div><figcaption><b>Двери скрытого монтажа</b><span>Коробку ставим до штукатурки и выводим стену вровень — без наличников</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(img/apt/dt-shadow.jpg);background-position:center"></div><figcaption><b>Теневой профиль вместо плинтуса</b><span>Закладываем на черновом этапе, до шпаклёвки: стык — ровная тень</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(img/apt/dt-line.jpg);background-position:center"></div><figcaption><b>Световая линия в потолке</b><span>Профиль врезаем до финиша, драйверы — в доступной нише</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(img/apt/dt-curtain.jpg);background-position:center"></div><figcaption><b>Карниз в нише потолка</b><span>Шторы выходят из потолка: нишу и подсветку закладываем в проект</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(img/apt/dt-parquet.jpg);background-position:center"></div><figcaption><b>Паркет ёлочкой</b><span>Раскладку ведём от оси комнаты, а не от кривой стены</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(img/apt/dt-shower.jpg);background-position:center"></div><figcaption><b>Душ в уровень пола</b><span>Трап с доступом к сифону и гидроизоляция с заходом на стены — без порога</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(img/apt/dt-stone.jpg);background-position:center"></div><figcaption><b>Керамогранит по рисунку</b><span>Раскладку согласуем до резки, внешние углы — запил 45° без уголков</span></figcaption></figure><figure class="dt-card reveal"><div class="dt-img" style="background-image:url(img/apt/dt-collector.jpg);background-position:center 30%"></div><figcaption><b>Коллекторный узел в нише</b><span>Фильтры, коллекторы и защита от протечек — с доступом, каждая линия подписана</span></figcaption></figure></div><span class="todo">Крупные планы — сток. Нужны 8 детальных кадров с объектов Владимира по этим же узлам; если какого-то узла нет в практике — заменить на тот, что есть.</span></div></section>
@@ -5286,6 +5233,39 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
     </div>
   </div>
 </section>
+<section class="verify" id="verify">
+  <div class="container">
+    <h2 class="section-heading reveal">Проверьте нас <span class="tone">до договора</span></h2>
+    <p class="section-intro reveal">Не обязательно верить на слово. Три способа увидеть, как мы работаем: бесплатно и без обязательств.</p>
+    <div class="vf-grid">
+      <article class="vf-card reveal">
+        <div class="vf-vis"><img class="vf-shot" src="img/apt/vf-call.jpg" alt="Видеозвонок на телефоне: на экране — объект на этапе каркаса перегородок и инженерии" loading="lazy" decoding="async"></div>
+        <div class="vf-txt">
+          <h3>Видеопоказ объекта</h3>
+          <p>15–20 минут по видеосвязи. Владимир проходит по действующему объекту и показывает этапы, материалы и порядок на площадке — в прямом эфире, без монтажа.</p>
+          <button type="button" class="btn-outline vf-cta" data-scroll="final">Записаться на видеопоказ</button>
+        </div>
+      </article>
+      <article class="vf-card reveal">
+        <div class="vf-vis"><img class="vf-shot" style="object-position: 38% 50%" src="img/apt/vf-visit.jpg" alt="Люди на объекте в работе: каркас перегородок, шумоизоляция потолка, материалы" loading="lazy" decoding="async"></div>
+        <div class="vf-txt">
+          <h3>Визит на объект</h3>
+          <p>Приезжайте на квартиру, где мы сейчас работаем. Посмотрите разводку, стяжку, каркас и порядок на площадке своими глазами — с согласия владельца.</p>
+          <button type="button" class="btn-outline vf-cta" data-scroll="final">Договориться о визите</button>
+        </div>
+      </article>
+      <article class="vf-card reveal">
+        <div class="vf-vis"><img class="vf-shot" src="img/apt/vf-tg.jpg" alt="Переписка в Telegram с бюро: образцы договора подряда, сметы на 100 м² и акта приёмки" loading="lazy" decoding="async"></div>
+        <div class="vf-txt">
+          <h3>Документы в Telegram</h3>
+          <p>Пришлём образцы договора, сметы на 100 м² и акта приёмки. Посмотрите, что и как мы фиксируем, ещё до первого разговора о вашей квартире.</p>
+          <button type="button" class="btn-outline vf-cta" data-scroll="final">Получить документы</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
 
 <!-- 14. DESIGN PROJECT -->
 <section class="design-sec" id="design">
