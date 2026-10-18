@@ -5899,7 +5899,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
       label.textContent = 'Дома меньше 150 м² беру редко — честно скажу на звонке, подхожу ли я вам';
     } else if (answers.area && answers.area !== '?'){
       var p = answers.area.split('-');
-      range.textContent = 'от ' + mln(+p[0] * RATE_LOW * k) + ' до ' + mln(+p[1] * RATE_HIGH * k) + ' млн ₽';
+      range.textContent = 'от ' + mln(+p[0] * RATE_LOW * k) + ' млн ₽';
       label.textContent = 'Стоимость работ под ключ, дом ' + (sel ? sel.textContent.trim() : '') + ', ориентир';
     } else {
       range.textContent = 'от ' + Math.round(RATE_LOW * k / 1000) + ' 000 ₽ / м²';
