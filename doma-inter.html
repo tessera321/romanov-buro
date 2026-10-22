@@ -4626,7 +4626,11 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   .p-ic svg, .q2-ic svg, .hero7-feature .ic svg { width: 22px !important; height: 22px !important; }
 }
 </style>
-<style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style></head>
+<style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style><style id="fin-hdr">
+html body .hdr{ transition: transform .32s cubic-bezier(.16,1,.3,1), background-color .3s !important; will-change: transform; }
+html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
+@media (prefers-reduced-motion: reduce){ html body .hdr{ transition: none !important; } }
+</style><style id="fin-src">.pp-nums small.pp-src{ display:block; margin-top:8px; font-size:.68rem; letter-spacing:.04em; color: rgba(245,240,232,.5); line-height:1.35; }</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -4696,10 +4700,10 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
   <div class="container">
     <h2 class="section-heading reveal">20 лет и 115+ объектов: <span class="tone">ваш дом не станет экспериментом новой бригады</span></h2>
     <div class="pp-media reveal"><img class="pp-bg" src="img/proof-doma.jpg" alt="Гостиная в готовом доме: стеновые панели из дерева, панорамное окно в сад" loading="lazy"><div class="pp-shade"></div><div class="pp-nums">
-      <div class="reveal"><b>20 лет</b><span>в премиальном ремонте, за каждый объект отвечаю я</span></div>
-      <div class="reveal"><b>115+</b><span>сданных объектов, из них ___ домов и коттеджей</span></div>
-      <div class="reveal"><b>5 лет</b><span>гарантии на отделку и инженерные сети</span></div>
-      <div class="reveal"><b>10–14</b><span>месяцев — дом под ключ по графику в договоре</span></div>
+      <div class="reveal"><b>20 лет</b><span>в премиальном ремонте, за каждый объект отвечаю я</span><small class="pp-src">с 2006 года · личная практика</small></div>
+      <div class="reveal"><b>115+</b><span>сданных объектов, из них ___ домов и коттеджей</span><small class="pp-src">по актам приёмки · 2006–2026</small></div>
+      <div class="reveal"><b>5 лет</b><span>гарантии на отделку и инженерные сети</span><small class="pp-src">по договору подряда</small></div>
+      <div class="reveal"><b>10–14</b><span>месяцев — дом под ключ по графику в договоре</span><small class="pp-src">по графикам сданных объектов</small></div>
     </div></div>
     <span class="todo">Фото — реальный проект этого дома. «97% рекомендуют» убрано из цифр, пока нет подтверждения. Сколько из 115+ объектов — дома и коттеджи?</span>
   </div>
@@ -6295,5 +6299,13 @@ a.top-bar-cta, a.btn-primary, a.btn-outline, a.pf-more, a.qz-msg, a.hdr-call{ te
   });
 })();
 </script>
+<script id="fin-hdr-js">(function(){var h=document.getElementById('hdr');if(!h)return;var last=window.scrollY,acc=0,t=false;
+function up(){var y=window.scrollY,d=y-last;last=y;var open=h.classList.contains('open')||h.contains(document.activeElement)&&document.activeElement.tagName!=='BODY'&&h.matches(':focus-within');
+if(y<80||open){h.classList.remove('hdr-hide');acc=0;return;}
+if((d>0&&acc<0)||(d<0&&acc>0))acc=0;acc+=d;
+if(acc>24)h.classList.add('hdr-hide');else if(acc<-12)h.classList.remove('hdr-hide');}
+window.addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){up();t=false;});},{passive:true});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-scroll],a[href^="#"]');if(a)setTimeout(function(){h.classList.add('hdr-hide');acc=0;},60);});
+})();</script>
 </body>
 </html>

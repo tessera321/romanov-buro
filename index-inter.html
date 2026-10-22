@@ -4823,7 +4823,29 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 </style><style>html body .pt-check .pt-estimg{ width:100% !important; max-width: none !important; margin: -110px -40px -110px auto !important; } html body .pt-check{ overflow: visible !important; } @media (min-width: 901px){ html body .pt-check .pt-estimg{ width: min(118%, 640px) !important; } } @media (max-width: 900px){ html body .pt-check .pt-estimg{ margin: 24px auto -8px !important; max-width: 420px !important; } }</style><style>@media (min-width: 981px){ html body .hero7-scrim{ background:
  linear-gradient(90deg, rgba(24,24,24,.97) 0%, rgba(24,24,24,.94) 40%, rgba(24,24,24,.7) 47%, rgba(24,24,24,.25) 52%, rgba(24,24,24,0) 55%),
  linear-gradient(0deg, rgba(28,28,28,.9) 0%, rgba(28,28,28,.35) 12%, rgba(28,28,28,0) 24%),
- linear-gradient(180deg, rgba(28,28,28,.45) 0%, rgba(28,28,28,0) 9%) !important; } }</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style></head>
+ linear-gradient(180deg, rgba(28,28,28,.45) 0%, rgba(28,28,28,0) 9%) !important; } }</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style><style id="fin-hdr">
+html body .hdr{ transition: transform .32s cubic-bezier(.16,1,.3,1), background-color .3s !important; will-change: transform; }
+html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
+@media (prefers-reduced-motion: reduce){ html body .hdr{ transition: none !important; } }
+</style><style id="fin-src">.pp-nums small.pp-src{ display:block; margin-top:8px; font-size:.68rem; letter-spacing:.04em; color: rgba(245,240,232,.5); line-height:1.35; }</style><style id="fin-up">
+.est-f{ margin-top: 22px; display:flex; flex-direction:column; gap: 10px; max-width: 460px; }
+.est-drop{ position:relative; display:flex; align-items:center; gap: 14px; padding: 14px 16px; border: 1px dashed rgba(181,161,138,.55); border-radius: 12px; cursor:pointer; transition: border-color .2s, background .2s; }
+.est-drop:hover, .est-drop.drag{ border-color: var(--bronze); background: rgba(181,161,138,.07); }
+.est-drop input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+.est-ico{ flex:none; width: 40px; height: 40px; border-radius: 10px; display:grid; place-items:center; background: rgba(181,161,138,.14); color: var(--bronze); }
+.est-drop b{ display:block; font-weight:500; font-size:.92rem; color: var(--text-primary); }
+.est-drop small{ display:block; font-size:.76rem; color: var(--text-muted); margin-top:2px; }
+.est-drop.has b{ color: var(--bronze); }
+.est-row{ display:flex; gap: 8px; flex-wrap: wrap; }
+.est-row .form-input{ flex: 1 1 200px; min-width:0; }
+.est-row .btn-primary{ flex: 1 0 auto; white-space: nowrap; }
+.est-f .ld-pills{ margin-top: 2px; }
+.est-f .est-err{ margin:0; font-size:.8rem; color:#e5484d; }
+.est-f .form-consent{ margin: 2px 0 0; font-size:.72rem; color: var(--text-muted); }
+.est-f .form-consent a{ color: inherit; }
+.est-ok{ margin-top: 22px; padding: 16px 18px; border:1px solid rgba(181,161,138,.4); border-radius: 12px; color: var(--text-secondary); line-height:1.5; }
+.est-ok b{ display:block; color: var(--text-primary); font-weight:500; margin-bottom:4px; }
+</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -4887,7 +4909,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 <section class="proof2 proof-photo pp2" aria-label="Факты о бюро">
   <div class="container">
     <h2 class="section-heading reveal h2-two">20 лет и 115+ объектов: <span class="tone">ваша квартира не станет экспериментом новой бригады</span></h2>
-    <div class="pp-media reveal"><img class="pp-bg" src="img/apt/proof.jpg" alt="Гостиная в готовой квартире" loading="lazy"><div class="pp-shade"></div><div class="pp-nums"><div class="reveal"><b>20</b><span>лет опыта в премиальном ремонте</span></div><div class="reveal"><b>115+</b><span>сданных объектов в Москве и области</span></div><div class="reveal"><b>до 5</b><span>лет гарантии на выполненные работы</span></div><div class="reveal"><b>4–7</b><span>месяцев — ремонт квартиры под ключ по графику</span></div></div></div>
+    <div class="pp-media reveal"><img class="pp-bg" src="img/apt/proof.jpg" alt="Гостиная в готовой квартире" loading="lazy"><div class="pp-shade"></div><div class="pp-nums"><div class="reveal"><b>20</b><span>лет опыта в премиальном ремонте</span><small class="pp-src">с 2006 года · личная практика</small></div><div class="reveal"><b>115+</b><span>сданных объектов в Москве и области</span><small class="pp-src">по актам приёмки · 2006–2026</small></div><div class="reveal"><b>до 5</b><span>лет гарантии на выполненные работы</span><small class="pp-src">по договору подряда</small></div><div class="reveal"><b>4–7</b><span>месяцев — ремонт квартиры под ключ по графику</span><small class="pp-src">по графикам сданных объектов</small></div></div></div>
     <span class="todo">Фото — сток, заменить реальным объектом. «97% рекомендуют» убрано из цифр, пока нет подтверждения.</span>
   </div>
 </section>
@@ -5169,7 +5191,7 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
       <div>
         <h3 class="pt-check-title">Один проект — несколько вариантов сметы под ваш бюджет</h3>
         <p class="lead-p">Покажем, как реализовать ваш дизайн-проект в 2–3 вариантах: разные «пироги» полов и стен, материалы и решения узлов. Вы сравните цену и выберете — а квартира всё равно будет как на визуализации.</p>
-        <button type="button" class="btn-primary" data-lead="estimate" style="margin-top:22px">Сравнить варианты сметы</button>
+        <form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required><button class="btn-primary" type="submit">Получить варианты сметы</button></div><p class="est-err" hidden>Проверьте номер телефона</p><div class="ld-pills" role="radiogroup" aria-label="Куда прислать варианты"><button type="button" class="pill" role="radio" aria-checked="true" aria-pressed="true">Telegram</button><button type="button" class="pill" role="radio" aria-checked="false" aria-pressed="false">MAX</button><button type="button" class="pill" role="radio" aria-checked="false" aria-pressed="false">WhatsApp</button></div><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form>
       </div>
       <img class="pt-estimg" src="img/design/estimate-3b.webp" alt="Три варианта сметы для квартиры 100 м²: стены К2 и кварцвинил, стены К3 и инженерная доска, стены К4 и паркет ёлочкой" loading="lazy" decoding="async" width="1200" height="910">
     </div>
@@ -6646,5 +6668,20 @@ d.addEventListener('submit',function(e){e.preventDefault();var ph=d.querySelecto
   }
   window.addEventListener('load', fit); window.addEventListener('resize', fit); setTimeout(fit, 300); fit();
 })();</script>
+<script id="fin-hdr-js">(function(){var h=document.getElementById('hdr');if(!h)return;var last=window.scrollY,acc=0,t=false;
+function up(){var y=window.scrollY,d=y-last;last=y;var open=h.classList.contains('open')||h.contains(document.activeElement)&&document.activeElement.tagName!=='BODY'&&h.matches(':focus-within');
+if(y<80||open){h.classList.remove('hdr-hide');acc=0;return;}
+if((d>0&&acc<0)||(d<0&&acc>0))acc=0;acc+=d;
+if(acc>24)h.classList.add('hdr-hide');else if(acc<-12)h.classList.remove('hdr-hide');}
+window.addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){up();t=false;});},{passive:true});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-scroll],a[href^="#"]');if(a)setTimeout(function(){h.classList.add('hdr-hide');acc=0;},60);});
+})();</script>
+<script id="fin-up-js">(function(){document.querySelectorAll('.est-f').forEach(function(f){var d=f.querySelector('.est-drop'),inp=d.querySelector('input'),b=d.querySelector('b'),b0=b.textContent;
+function show(){var x=inp.files&&inp.files[0];if(x){b.textContent=x.name;d.classList.add('has');d.querySelector('small').textContent=(x.size/1048576).toFixed(1).replace('.',',')+' МБ · нажмите, чтобы заменить';}else{b.textContent=b0;d.classList.remove('has');}}
+inp.addEventListener('change',show);['dragenter','dragover'].forEach(function(e){d.addEventListener(e,function(){d.classList.add('drag');});});['dragleave','drop'].forEach(function(e){d.addEventListener(e,function(){d.classList.remove('drag');});});
+f.addEventListener('click',function(e){var p=e.target.closest('.pill');if(!p)return;[].forEach.call(p.parentNode.children,function(x){var on=x===p;x.setAttribute('aria-pressed',on);x.setAttribute('aria-checked',on);});});
+f.addEventListener('submit',function(e){e.preventDefault();var ph=f.querySelector('input[type=tel]');if(ph.value.replace(/\D/g,'').length<10){f.querySelector('.est-err').hidden=false;ph.focus();return;}
+var m=f.querySelector('.pill[aria-pressed="true"]'),x=inp.files&&inp.files[0],o=document.createElement('div');o.className='est-ok';o.setAttribute('role','status');
+o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace(/[<>&]/g,'')+'» получили. ':'')+'Подготовим 2–3 варианта сметы и пришлём в '+(m?m.textContent:'мессенджер')+' — в рабочее время ответим за 5–10 минут.';f.replaceWith(o);});});})();</script>
 </body>
 </html>
