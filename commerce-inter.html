@@ -4937,11 +4937,29 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 </style><style>html body .pt-check .pt-estimg{ width:100% !important; max-width: none !important; margin: -110px -40px -110px auto !important; } html body .pt-check{ overflow: visible !important; } @media (min-width: 901px){ html body .pt-check .pt-estimg{ width: min(118%, 640px) !important; } } @media (max-width: 900px){ html body .pt-check .pt-estimg{ margin: 24px auto -8px !important; max-width: 420px !important; } }</style><style>@media (min-width: 981px){ html body .hero7-scrim{ background:
  linear-gradient(90deg, rgba(24,24,24,.97) 0%, rgba(24,24,24,.94) 40%, rgba(24,24,24,.7) 47%, rgba(24,24,24,.25) 52%, rgba(24,24,24,0) 55%),
  linear-gradient(0deg, rgba(28,28,28,.9) 0%, rgba(28,28,28,.35) 12%, rgba(28,28,28,0) 24%),
- linear-gradient(180deg, rgba(28,28,28,.45) 0%, rgba(28,28,28,0) 9%) !important; } }</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style><style id="fin-hdr">
+ linear-gradient(180deg, rgba(28,28,28,.45) 0%, rgba(28,28,28,0) 9%) !important; } }</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style><style id="fin-hdr">
 html body .hdr{ transition: transform .32s cubic-bezier(.16,1,.3,1), background-color .3s !important; will-change: transform; }
 html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 @media (prefers-reduced-motion: reduce){ html body .hdr{ transition: none !important; } }
 </style><style id="fin-src">.pp-nums small.pp-src{ display:block; margin-top:8px; font-size:.68rem; letter-spacing:.04em; color: rgba(245,240,232,.5); line-height:1.35; }</style><style id="fin-up">
+.est-f{ margin-top: 22px; display:flex; flex-direction:column; gap: 10px; max-width: 460px; }
+.est-drop{ position:relative; display:flex; align-items:center; gap: 14px; padding: 14px 16px; border: 1px dashed rgba(181,161,138,.55); border-radius: 12px; cursor:pointer; transition: border-color .2s, background .2s; }
+.est-drop:hover, .est-drop.drag{ border-color: var(--bronze); background: rgba(181,161,138,.07); }
+.est-drop input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+.est-ico{ flex:none; width: 40px; height: 40px; border-radius: 10px; display:grid; place-items:center; background: rgba(181,161,138,.14); color: var(--bronze); }
+.est-drop b{ display:block; font-weight:500; font-size:.92rem; color: var(--text-primary); }
+.est-drop small{ display:block; font-size:.76rem; color: var(--text-muted); margin-top:2px; }
+.est-drop.has b{ color: var(--bronze); }
+.est-row{ display:flex; gap: 8px; flex-wrap: wrap; }
+.est-row .form-input{ flex: 1 1 200px; min-width:0; }
+.est-row .btn-primary{ flex: 1 0 auto; white-space: nowrap; }
+.est-f .ld-pills{ margin-top: 2px; }
+.est-f .est-err{ margin:0; font-size:.8rem; color:#e5484d; }
+.est-f .form-consent{ margin: 2px 0 0; font-size:.72rem; color: var(--text-muted); }
+.est-f .form-consent a{ color: inherit; }
+.est-ok{ margin-top: 22px; padding: 16px 18px; border:1px solid rgba(181,161,138,.4); border-radius: 12px; color: var(--text-secondary); line-height:1.5; }
+.est-ok b{ display:block; color: var(--text-primary); font-weight:500; margin-bottom:4px; }
+</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style><style id="fin-up">
 .est-f{ margin-top: 22px; display:flex; flex-direction:column; gap: 10px; max-width: 460px; }
 .est-drop{ position:relative; display:flex; align-items:center; gap: 14px; padding: 14px 16px; border: 1px dashed rgba(181,161,138,.55); border-radius: 12px; cursor:pointer; transition: border-color .2s, background .2s; }
 .est-drop:hover, .est-drop.drag{ border-color: var(--bronze); background: rgba(181,161,138,.07); }
@@ -4992,7 +5010,7 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   <div class="hero7-inner">
 
     <h1>Откройте бар, лофт или шоурум<br class="hb"> в дату из договора: инженерия,<br class="hb"> отделка и согласования —<br class="hb"> в одном графике</h1>
-    <div class="hero7-price">от 90 000 ₽/м²<span>80 м² — от 7 млн ₽ · срок до 2 месяцев</span></div>
+    <div class="hero7-price">от 90 000 ₽/м²</div>
     <p class="hero-sub">Каждый день простоя — это аренда без выручки. Поэтому <span class="hl">график запуска записан в договоре</span>: работаем в ночные смены и в действующих ТЦ, согласования с арендодателем ведём сами, цену фиксируем до старта.</p>
     <div class="hero-cta-row" style="margin-top:30px">
       <button class="btn-primary" data-scroll="quizStart">Получить смету и срок запуска</button>
@@ -5074,7 +5092,7 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 <section class="proof2 proof-photo pp2" aria-label="Факты о бюро">
   <div class="container">
     <h2 class="section-heading reveal h2-two">20 лет в ремонте и 10–15 коммерческих объектов: <span class="tone">ваш зал не станет первым опытом бригады</span></h2>
-    <div class="pp-media reveal"><img class="pp-bg" src="img/com/club12.jpg" alt="Частный клуб: большой стол у окон, бетон и трековый свет — визуализация проекта" loading="lazy"><div class="pp-shade"></div><div class="pp-nums"><div class="reveal"><b>20</b><span>лет личного опыта в премиальном ремонте</span><small class="pp-src">с 2006 года · личная практика</small></div><div class="reveal"><b>115+</b><span>сданных объектов, из них 10–15 коммерческих</span><small class="pp-src">по актам приёмки · 2006–2026</small></div><div class="reveal"><b>до 2</b><span>месяцев на коммерческий объект</span><small class="pp-src">по графикам сданных объектов</small></div><div class="reveal"><b>60</b><span>человек в штате, один мастер — одна специализация</span><small class="pp-src">штат бюро на 2026 год</small></div></div></div>
+    <div class="pp-media reveal"><img class="pp-bg" src="img/com/club12.jpg" alt="Частный клуб: большой стол у окон, бетон и трековый свет — визуализация проекта" loading="lazy"><div class="pp-shade"></div><div class="pp-nums"><div class="reveal"><b>20</b><span>лет личного опыта в премиальном ремонте</span></div><div class="reveal"><b>115+</b><span>сданных объектов, из них 10–15 коммерческих</span></div><div class="reveal"><b>до 2</b><span>месяцев на коммерческий объект</span></div><div class="reveal"><b>60</b><span>человек в штате, один мастер — одна специализация</span></div></div></div>
     
   </div>
 </section>
@@ -5104,7 +5122,6 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
         </ul>
       </div>
     </div>
-    <p class="fit-foot reveal">Нет дизайн-проекта? Сделаем — и возьмём ремонт в тот же контур ответственности.</p>
   </div>
 </section>
 <section class="pause" aria-label="Зал, который открывается в дату из договора — а не «ещё пару недель»"><div class="pause-img" style="background-image:url(img/com/club09.jpg);background-position:center 60%"></div><div class="container pause-cap"><p class="reveal">Зал, который открывается в дату из договора — а не «ещё пару недель»</p></div></section>
@@ -5263,9 +5280,6 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
     </div>
   </div>
 </section>
-<section class="pause" aria-label="Техника на 700 000 ₽ — в руках мастеров, которые делали это десятки раз"><div class="pause-img" style="background-image:url(img/magnum/f-living.jpg);background-position:center 55%"></div><div class="container pause-cap"><p class="reveal">Техника на 700 000 ₽ — в руках мастеров, которые делали это десятки раз</p></div></section>
-
-
 <!-- 8. EXPENSIVE MATERIALS -->
 <section class="lux">
   <div class="container">
@@ -6531,14 +6545,6 @@ function play(){
 }
 new MutationObserver(function(){var r=document.getElementById('qrRange');if(form.classList.contains('active')&&r&&r.textContent!=='—'&&r.getAttribute('data-r')!==r.textContent){r.setAttribute('data-r',r.textContent);render();}}).observe(form,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class']});
 new MutationObserver(function(){var b=quiz.classList.contains('qz-busy');if(busyWas&&!b)play();busyWas=b;}).observe(quiz,{attributes:true,attributeFilter:['class']});
-})();</script>
-<script id="fin-hdr-js">(function(){var h=document.getElementById('hdr');if(!h)return;var last=window.scrollY,acc=0,t=false;
-function up(){var y=window.scrollY,d=y-last;last=y;var open=h.classList.contains('open')||h.contains(document.activeElement)&&document.activeElement.tagName!=='BODY'&&h.matches(':focus-within');
-if(y<80||open){h.classList.remove('hdr-hide');acc=0;return;}
-if((d>0&&acc<0)||(d<0&&acc>0))acc=0;acc+=d;
-if(acc>24)h.classList.add('hdr-hide');else if(acc<-12)h.classList.remove('hdr-hide');}
-window.addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){up();t=false;});},{passive:true});
-document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-scroll],a[href^="#"]');if(a)setTimeout(function(){h.classList.add('hdr-hide');acc=0;},60);});
 })();</script>
 <script id="fin-up-js">(function(){document.querySelectorAll('.est-f').forEach(function(f){var d=f.querySelector('.est-drop'),inp=d.querySelector('input'),b=d.querySelector('b'),b0=b.textContent;
 function show(){var x=inp.files&&inp.files[0];if(x){b.textContent=x.name;d.classList.add('has');d.querySelector('small').textContent=(x.size/1048576).toFixed(1).replace('.',',')+' МБ · нажмите, чтобы заменить';}else{b.textContent=b0;d.classList.remove('has');}}
