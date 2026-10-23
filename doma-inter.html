@@ -4630,7 +4630,45 @@ footer.ft{ text-align: left !important; padding: clamp(64px, 7vw, 112px) 0 calc(
 html body .hdr{ transition: transform .32s cubic-bezier(.16,1,.3,1), background-color .3s !important; will-change: transform; }
 html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 @media (prefers-reduced-motion: reduce){ html body .hdr{ transition: none !important; } }
-</style><style id="fin-src">.pp-nums small.pp-src{ display:block; margin-top:8px; font-size:.68rem; letter-spacing:.04em; color: rgba(245,240,232,.5); line-height:1.35; }</style></head>
+</style><style id="fin-src">.pp-nums small.pp-src{ display:block; margin-top:8px; font-size:.68rem; letter-spacing:.04em; color: rgba(245,240,232,.5); line-height:1.35; }</style><style id="r9-css">
+.r9-tabs{ display:grid; grid-template-columns:repeat(var(--n),minmax(0,1fr)); gap:8px; margin-top:8px; }
+.r9-tab{ text-align:left; background:var(--bg-card,#232325); border:1px solid rgba(245,240,232,.08); border-radius:12px; padding:13px 16px 14px; color:var(--text-primary); cursor:pointer; font:inherit; transition:background-color .25s, border-color .25s, color .25s; min-width:0; }
+.r9-tab small{ display:block; font-size:.72rem; letter-spacing:.06em; color:var(--text-muted); font-weight:500; }
+.r9-tab b{ display:block; margin-top:5px; font-weight:500; font-size:.92rem; line-height:1.25; }
+.r9-tab:hover{ border-color:rgba(181,161,138,.45); }
+.r9-tab[aria-selected="true"]{ background:var(--bronze); border-color:var(--bronze); color:#1C1C1C; }
+.r9-tab[aria-selected="true"] small{ color:rgba(28,28,28,.66); }
+.r9-tab:focus-visible{ outline:2px solid var(--bronze); outline-offset:2px; }
+.r9-box{ margin-top:12px; background:var(--bg-card,#232325); border:1px solid rgba(245,240,232,.08); border-radius:18px; overflow:hidden; }
+.r9-panel{ display:grid; grid-template-columns:1.08fr 1fr; min-height:440px; }
+.r9-panel[hidden]{ display:none !important; }
+.r9-ph{ position:relative; overflow:hidden; background:#151515; }
+.r9-ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:r9in .5s ease both; }
+.r9-ph.fit{ background:radial-gradient(120% 90% at 30% 20%, rgba(181,161,138,.16), rgba(28,28,28,0) 60%), #1a1a1a; }
+.r9-ph.fit img{ object-fit:contain; padding:28px; }
+@keyframes r9in{ from{ opacity:0; transform:scale(1.02); } to{ opacity:1; transform:none; } }
+.r9-body{ padding:44px 46px 40px; display:flex; flex-direction:column; }
+.r9-eb{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--bronze); font-weight:500; }
+.r9-body h3{ font-family:var(--display,'Wix Madefor Display'),sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(1.5rem,2.2vw,2rem); line-height:1.1; margin:14px 0 0; color:var(--text-primary); }
+.r9-body h3 span{ display:block; color:var(--text-muted); font-size:.62em; margin-top:8px; letter-spacing:0; text-transform:none; }
+.r9-body p.r9-t{ margin-top:16px; color:var(--text-secondary); line-height:1.6; font-size:.98rem; max-width:44ch; }
+.r9-res{ margin-top:22px; padding:14px 18px; border-radius:10px; background:rgba(181,161,138,.09); border-left:2px solid var(--bronze); color:var(--text-primary); font-size:.92rem; line-height:1.45; }
+.r9-res small{ display:block; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--bronze); margin-bottom:4px; }
+.r9-nav{ margin-top:auto; padding-top:26px; display:flex; align-items:center; gap:16px; }
+.r9-next{ display:inline-flex; align-items:center; gap:10px; background:transparent; border:1px solid rgba(181,161,138,.5); color:var(--text-primary); border-radius:999px; padding:12px 20px; font:inherit; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background-color .2s, border-color .2s; }
+.r9-next:hover{ background:rgba(181,161,138,.12); border-color:var(--bronze); }
+.r9-cnt{ margin-left:auto; font-family:var(--display,'Wix Madefor Display'),sans-serif; color:var(--text-muted); font-size:.85rem; letter-spacing:.04em; }
+.r9-cnt b{ color:var(--bronze); font-weight:400; }
+@media (max-width: 900px){
+  .r9-tabs{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding-bottom:4px; scrollbar-width:none; margin-right:-16px; padding-right:16px; }
+  .r9-tabs::-webkit-scrollbar{ display:none; }
+  .r9-tab{ flex:0 0 auto; min-width:128px; scroll-snap-align:start; }
+  .r9-panel{ grid-template-columns:1fr; min-height:0; }
+  .r9-ph{ aspect-ratio:4/3; }
+  .r9-body{ padding:26px 22px 24px; }
+}
+@media (prefers-reduced-motion: reduce){ .r9-ph img{ animation:none; } }
+</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -5219,22 +5257,9 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 <!-- 13. ROUTE -->
 <section class="route8" id="route">
   <div class="container">
-    <div class="route8-grid">
-      <div class="route8-aside stretch">
-        <h2 class="reveal">Контур и инженерия — <span class="tone">до холодов, отделка — в тёплом доме</span></h2>
-        <p class="lead-p reveal">Семь шагов. Что должно быть сделано <span class="hl">до морозов</span>, вы знаете до договора.</p>
-        <div class="photo ph-img reveal" role="img" aria-label="Готовый загородный дом вечером" style="background-image:url(https://images.unsplash.com/photo-1657346088167-b982455bf29a?auto=format&fit=crop&w=1400&q=72);background-position:center"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><span class="ph-label">Фото: готовый дом вечером, свет в окнах, ключи на столе</span></div>
-      </div>
-      <ol class="route8-list">
-        <li class="reveal"><div class="r8-body"><h3>Заявка и разговор <span>в день заявки</span></h3><p>15–20 минут: площадь, стадия дома, проект, бюджет. Сразу скажу, подхожу ли я вам.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Мой выезд на объект <span>2–3 дня</span></h3><p>Бесплатно, до 50 км от МКАД: осмотр коробки, вводов и проекта, обмеры, первые замечания.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Смета и график <span>после выезда</span></h3><p>Построчная смета с объёмами и график работ, привязанный к сезону.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Договор <span>3–7 дней</span></h3><p>Фиксированная цена, график, неустойка, гарантия, порядок актов — всё письменно.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Контур и инженерия <span>до холодов</span></h3><p>Закрываю контур, монтирую и испытываю отопление, вентиляцию, электрику и воду. Запускаю тепло.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Отделка <span>в тёплом доме</span></h3><p>Черновые и чистовые работы при стабильной температуре и влажности. Акты каждые 7–10 дней, статус по пятницам.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Ключи <span>по акту</span></h3><p>Пусконаладка систем, сверка с проектом, клининг, исполнительные схемы и гарантийный паспорт дома.</p></div></li>
-      </ol>
-    </div>
+    <h2 class="section-heading reveal">Контур и инженерия — <span class="tone">до холодов, отделка — в тёплом доме</span></h2>
+    <p class="section-intro reveal">Семь шагов. Что должно быть сделано <span class="hl">до морозов</span>, вы знаете до договора.</p>
+    <div class="r9 reveal" style="--n:7"><div class="r9-tabs" role="tablist" aria-label="Этапы работы"><button type="button" class="r9-tab" role="tab" id="r9t-doma-0" aria-controls="r9p-doma-0" aria-selected="true" tabindex="0"><small>Шаг 1</small><b>Заявка и разговор</b></button><button type="button" class="r9-tab" role="tab" id="r9t-doma-1" aria-controls="r9p-doma-1" aria-selected="false" tabindex="-1"><small>Шаг 2</small><b>Мой выезд на объект</b></button><button type="button" class="r9-tab" role="tab" id="r9t-doma-2" aria-controls="r9p-doma-2" aria-selected="false" tabindex="-1"><small>Шаг 3</small><b>Смета и график</b></button><button type="button" class="r9-tab" role="tab" id="r9t-doma-3" aria-controls="r9p-doma-3" aria-selected="false" tabindex="-1"><small>Шаг 4</small><b>Договор</b></button><button type="button" class="r9-tab" role="tab" id="r9t-doma-4" aria-controls="r9p-doma-4" aria-selected="false" tabindex="-1"><small>Шаг 5</small><b>Контур и инженерия</b></button><button type="button" class="r9-tab" role="tab" id="r9t-doma-5" aria-controls="r9p-doma-5" aria-selected="false" tabindex="-1"><small>Шаг 6</small><b>Отделка</b></button><button type="button" class="r9-tab" role="tab" id="r9t-doma-6" aria-controls="r9p-doma-6" aria-selected="false" tabindex="-1"><small>Итог</small><b>Ключи</b></button></div><div class="r9-box"><div class="r9-panel" role="tabpanel" id="r9p-doma-0" aria-labelledby="r9t-doma-0"><div class="r9-ph"><img src="img/ally-doma.jpg" alt="Владимир обсуждает проект дома с заказчиком" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 1 · в день заявки</span><h3>Заявка и разговор</h3><p class="r9-t">15–20 минут: площадь, стадия дома, проект, бюджет. Сразу скажу, подхожу ли я вам.</p><div class="r9-res"><small>Результат шага</small>Понятно, берём ли объект и когда стартовать</div><div class="r9-nav"><button type="button" class="r9-next" data-to="1">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>01</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-doma-1" aria-labelledby="r9t-doma-1" hidden><div class="r9-ph"><img src="img/apt/vf-visit.jpg" alt="Осмотр объекта на черновом этапе" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 2 · 2–3 дня</span><h3>Мой выезд на объект</h3><p class="r9-t">Бесплатно, до 50 км от МКАД: осмотр коробки, вводов и проекта, обмеры, первые замечания.</p><div class="r9-res"><small>Результат шага</small>Первые замечания по коробке и проекту — бесплатно</div><div class="r9-nav"><button type="button" class="r9-next" data-to="2">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>02</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-doma-2" aria-labelledby="r9t-doma-2" hidden><div class="r9-ph fit"><img src="img/design/estimate-3b.webp" alt="Построчная смета в трёх вариантах" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 3 · после выезда</span><h3>Смета и график</h3><p class="r9-t">Построчная смета с объёмами и график работ, привязанный к сезону.</p><div class="r9-res"><small>Результат шага</small>Смета с объёмами и график, привязанный к сезону</div><div class="r9-nav"><button type="button" class="r9-next" data-to="3">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>03</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-doma-3" aria-labelledby="r9t-doma-3" hidden><div class="r9-ph"><img src="img/apt/ally.jpg" alt="Владимир и заказчики над планом" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 4 · 3–7 дней</span><h3>Договор</h3><p class="r9-t">Фиксированная цена, график, неустойка, гарантия, порядок актов — всё письменно.</p><div class="r9-res"><small>Результат шага</small>Цена, сроки и гарантия — письменно</div><div class="r9-nav"><button type="button" class="r9-next" data-to="4">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>04</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-doma-4" aria-labelledby="r9t-doma-4" hidden><div class="r9-ph"><img src="img/eng/water-panel.jpg" alt="Коллектор и узел водоподготовки после монтажа" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 5 · до холодов</span><h3>Контур и инженерия</h3><p class="r9-t">Закрываю контур, монтирую и испытываю отопление, вентиляцию, электрику и воду. Запускаю тепло.</p><div class="r9-res"><small>Результат шага</small>Тепло в доме — до морозов</div><div class="r9-nav"><button type="button" class="r9-next" data-to="5">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>05</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-doma-5" aria-labelledby="r9t-doma-5" hidden><div class="r9-ph"><img src="img/apt/dt-line.jpg" alt="Световая линия в потолке после отделки" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 6 · в тёплом доме</span><h3>Отделка</h3><p class="r9-t">Черновые и чистовые работы при стабильной температуре и влажности. Акты каждые 7–10 дней, статус по пятницам.</p><div class="r9-res"><small>Результат шага</small>Акт и фотоотчёт каждые 7–10 дней</div><div class="r9-nav"><button type="button" class="r9-next" data-to="6">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>06</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-doma-6" aria-labelledby="r9t-doma-6" hidden><div class="r9-ph"><img src="img/hero-doma.jpg" alt="Владимир у готового дома вечером" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Итог · по акту</span><h3>Ключи</h3><p class="r9-t">Пусконаладка систем, сверка с проектом, клининг, исполнительные схемы и гарантийный паспорт дома.</p><div class="r9-res"><small>Результат шага</small>Гарантийный паспорт дома на руках</div><div class="r9-nav"><a class="r9-next" href="cases.html">Посмотреть объекты <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="r9-cnt"><b>07</b> / 07</span></div></div></div></div></div>
   </div>
 </section>
 
@@ -6307,5 +6332,9 @@ if(acc>24)h.classList.add('hdr-hide');else if(acc<-12)h.classList.remove('hdr-hi
 window.addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){up();t=false;});},{passive:true});
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-scroll],a[href^="#"]');if(a)setTimeout(function(){h.classList.add('hdr-hide');acc=0;},60);});
 })();</script>
+<script id="r9-js">(function(){document.querySelectorAll('.r9').forEach(function(w){var tabs=[].slice.call(w.querySelectorAll('.r9-tab')),ps=[].slice.call(w.querySelectorAll('.r9-panel'));
+function go(i,focus){tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;ps[j].hidden=!on;});if(focus)tabs[i].focus();var t=tabs[i];if(t.scrollIntoView&&w.querySelector('.r9-tabs').scrollWidth>w.querySelector('.r9-tabs').clientWidth){w.querySelector('.r9-tabs').scrollTo({left:t.offsetLeft-16,behavior:'smooth'});}}
+tabs.forEach(function(t,i){t.addEventListener('click',function(){go(i);});t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight')n=(i+1)%tabs.length;else if(k==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;else if(k==='Home')n=0;else if(k==='End')n=tabs.length-1;if(n!==null){e.preventDefault();go(n,true);}});});
+w.querySelectorAll('.r9-next[data-to]').forEach(function(b){b.addEventListener('click',function(){go(+b.getAttribute('data-to'));});});});})();</script>
 </body>
 </html>

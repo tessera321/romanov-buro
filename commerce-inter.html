@@ -4959,7 +4959,94 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 .est-f .form-consent a{ color: inherit; }
 .est-ok{ margin-top: 22px; padding: 16px 18px; border:1px solid rgba(181,161,138,.4); border-radius: 12px; color: var(--text-secondary); line-height:1.5; }
 .est-ok b{ display:block; color: var(--text-primary); font-weight:500; margin-bottom:4px; }
-</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style></head>
+</style><style id="r9-css">
+.r9-tabs{ display:grid; grid-template-columns:repeat(var(--n),minmax(0,1fr)); gap:8px; margin-top:8px; }
+.r9-tab{ text-align:left; background:var(--bg-card,#232325); border:1px solid rgba(245,240,232,.08); border-radius:12px; padding:13px 16px 14px; color:var(--text-primary); cursor:pointer; font:inherit; transition:background-color .25s, border-color .25s, color .25s; min-width:0; }
+.r9-tab small{ display:block; font-size:.72rem; letter-spacing:.06em; color:var(--text-muted); font-weight:500; }
+.r9-tab b{ display:block; margin-top:5px; font-weight:500; font-size:.92rem; line-height:1.25; }
+.r9-tab:hover{ border-color:rgba(181,161,138,.45); }
+.r9-tab[aria-selected="true"]{ background:var(--bronze); border-color:var(--bronze); color:#1C1C1C; }
+.r9-tab[aria-selected="true"] small{ color:rgba(28,28,28,.66); }
+.r9-tab:focus-visible{ outline:2px solid var(--bronze); outline-offset:2px; }
+.r9-box{ margin-top:12px; background:var(--bg-card,#232325); border:1px solid rgba(245,240,232,.08); border-radius:18px; overflow:hidden; }
+.r9-panel{ display:grid; grid-template-columns:1.08fr 1fr; min-height:440px; }
+.r9-panel[hidden]{ display:none !important; }
+.r9-ph{ position:relative; overflow:hidden; background:#151515; }
+.r9-ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:r9in .5s ease both; }
+.r9-ph.fit{ background:radial-gradient(120% 90% at 30% 20%, rgba(181,161,138,.16), rgba(28,28,28,0) 60%), #1a1a1a; }
+.r9-ph.fit img{ object-fit:contain; padding:28px; }
+@keyframes r9in{ from{ opacity:0; transform:scale(1.02); } to{ opacity:1; transform:none; } }
+.r9-body{ padding:44px 46px 40px; display:flex; flex-direction:column; }
+.r9-eb{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--bronze); font-weight:500; }
+.r9-body h3{ font-family:var(--display,'Wix Madefor Display'),sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(1.5rem,2.2vw,2rem); line-height:1.1; margin:14px 0 0; color:var(--text-primary); }
+.r9-body h3 span{ display:block; color:var(--text-muted); font-size:.62em; margin-top:8px; letter-spacing:0; text-transform:none; }
+.r9-body p.r9-t{ margin-top:16px; color:var(--text-secondary); line-height:1.6; font-size:.98rem; max-width:44ch; }
+.r9-res{ margin-top:22px; padding:14px 18px; border-radius:10px; background:rgba(181,161,138,.09); border-left:2px solid var(--bronze); color:var(--text-primary); font-size:.92rem; line-height:1.45; }
+.r9-res small{ display:block; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--bronze); margin-bottom:4px; }
+.r9-nav{ margin-top:auto; padding-top:26px; display:flex; align-items:center; gap:16px; }
+.r9-next{ display:inline-flex; align-items:center; gap:10px; background:transparent; border:1px solid rgba(181,161,138,.5); color:var(--text-primary); border-radius:999px; padding:12px 20px; font:inherit; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background-color .2s, border-color .2s; }
+.r9-next:hover{ background:rgba(181,161,138,.12); border-color:var(--bronze); }
+.r9-cnt{ margin-left:auto; font-family:var(--display,'Wix Madefor Display'),sans-serif; color:var(--text-muted); font-size:.85rem; letter-spacing:.04em; }
+.r9-cnt b{ color:var(--bronze); font-weight:400; }
+@media (max-width: 900px){
+  .r9-tabs{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding-bottom:4px; scrollbar-width:none; margin-right:-16px; padding-right:16px; }
+  .r9-tabs::-webkit-scrollbar{ display:none; }
+  .r9-tab{ flex:0 0 auto; min-width:128px; scroll-snap-align:start; }
+  .r9-panel{ grid-template-columns:1fr; min-height:0; }
+  .r9-ph{ aspect-ratio:4/3; }
+  .r9-body{ padding:26px 22px 24px; }
+}
+@media (prefers-reduced-motion: reduce){ .r9-ph img{ animation:none; } }
+</style><style id="risk-viz">
+.risk-top{ display:flex; align-items:center; justify-content:space-between; }
+.risk-ic{ width:52px; height:52px; border-radius:50%; display:grid; place-items:center; color:var(--bronze); background:rgba(181,161,138,.1); border:1px solid rgba(181,161,138,.35); }
+.risk-cost{ margin:6px 0 clamp(26px,3vw,40px); padding:22px 26px; border-radius:var(--r-card,16px); background:var(--bg-card); border:1px solid var(--border-main); display:grid; gap:12px; }
+.rc-row{ display:grid; grid-template-columns:88px 1fr 112px; align-items:center; gap:16px; }
+.rc-l{ font-size:.86rem; color:var(--text-secondary); }
+.rc-bar{ height:8px; border-radius:6px; background:rgba(245,240,232,.07); overflow:hidden; }
+.rc-bar i{ display:block; height:100%; border-radius:6px; background:linear-gradient(90deg, rgba(181,161,138,.55), var(--bronze)); }
+.rc-row b{ font-family:var(--display,'Wix Madefor Display'),sans-serif; font-weight:400; color:var(--bronze); font-size:1.15rem; text-align:right; white-space:nowrap; }
+.rc-note{ margin-top:4px; font-size:.78rem; color:var(--text-muted); }
+@media (max-width:600px){ .rc-row{ grid-template-columns:70px 1fr 92px; gap:10px; } .rc-row b{ font-size:1rem; } .risk-cost{ padding:18px; } }
+</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style><style id="r9-css">
+.r9-tabs{ display:grid; grid-template-columns:repeat(var(--n),minmax(0,1fr)); gap:8px; margin-top:8px; }
+.r9-tab{ text-align:left; background:var(--bg-card,#232325); border:1px solid rgba(245,240,232,.08); border-radius:12px; padding:13px 16px 14px; color:var(--text-primary); cursor:pointer; font:inherit; transition:background-color .25s, border-color .25s, color .25s; min-width:0; }
+.r9-tab small{ display:block; font-size:.72rem; letter-spacing:.06em; color:var(--text-muted); font-weight:500; }
+.r9-tab b{ display:block; margin-top:5px; font-weight:500; font-size:.92rem; line-height:1.25; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.r9-tab:hover{ border-color:rgba(181,161,138,.45); }
+.r9-tab[aria-selected="true"]{ background:var(--bronze); border-color:var(--bronze); color:#1C1C1C; }
+.r9-tab[aria-selected="true"] small{ color:rgba(28,28,28,.66); }
+.r9-tab:focus-visible{ outline:2px solid var(--bronze); outline-offset:2px; }
+.r9-box{ margin-top:12px; background:var(--bg-card,#232325); border:1px solid rgba(245,240,232,.08); border-radius:18px; overflow:hidden; }
+.r9-panel{ display:grid; grid-template-columns:1.08fr 1fr; min-height:440px; }
+.r9-panel[hidden]{ display:none !important; }
+.r9-ph{ position:relative; overflow:hidden; background:#151515; }
+.r9-ph img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; animation:r9in .5s ease both; }
+.r9-ph.fit{ background:radial-gradient(120% 90% at 30% 20%, rgba(181,161,138,.16), rgba(28,28,28,0) 60%), #1a1a1a; }
+.r9-ph.fit img{ object-fit:contain; padding:28px; }
+@keyframes r9in{ from{ opacity:0; transform:scale(1.02); } to{ opacity:1; transform:none; } }
+.r9-body{ padding:44px 46px 40px; display:flex; flex-direction:column; }
+.r9-eb{ font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:var(--bronze); font-weight:500; }
+.r9-body h3{ font-family:var(--display,'Wix Madefor Display'),sans-serif; font-weight:400; text-transform:uppercase; letter-spacing:-.02em; font-size:clamp(1.5rem,2.2vw,2rem); line-height:1.1; margin:14px 0 0; color:var(--text-primary); }
+.r9-body h3 span{ display:block; color:var(--text-muted); font-size:.62em; margin-top:8px; letter-spacing:0; text-transform:none; }
+.r9-body p.r9-t{ margin-top:16px; color:var(--text-secondary); line-height:1.6; font-size:.98rem; max-width:44ch; }
+.r9-res{ margin-top:22px; padding:14px 18px; border-radius:10px; background:rgba(181,161,138,.09); border-left:2px solid var(--bronze); color:var(--text-primary); font-size:.92rem; line-height:1.45; }
+.r9-res small{ display:block; font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--bronze); margin-bottom:4px; }
+.r9-nav{ margin-top:auto; padding-top:26px; display:flex; align-items:center; gap:16px; }
+.r9-next{ display:inline-flex; align-items:center; gap:10px; background:transparent; border:1px solid rgba(181,161,138,.5); color:var(--text-primary); border-radius:999px; padding:12px 20px; font:inherit; font-size:.82rem; letter-spacing:.06em; text-transform:uppercase; cursor:pointer; text-decoration:none; transition:background-color .2s, border-color .2s; }
+.r9-next:hover{ background:rgba(181,161,138,.12); border-color:var(--bronze); }
+.r9-cnt{ margin-left:auto; font-family:var(--display,'Wix Madefor Display'),sans-serif; color:var(--text-muted); font-size:.85rem; letter-spacing:.04em; }
+.r9-cnt b{ color:var(--bronze); font-weight:400; }
+@media (max-width: 900px){
+  .r9-tabs{ display:flex; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding-bottom:4px; scrollbar-width:none; margin-right:-16px; padding-right:16px; }
+  .r9-tabs::-webkit-scrollbar{ display:none; }
+  .r9-tab{ flex:0 0 auto; min-width:128px; scroll-snap-align:start; }
+  .r9-panel{ grid-template-columns:1fr; min-height:0; }
+  .r9-ph{ aspect-ratio:4/3; }
+  .r9-body{ padding:26px 22px 24px; }
+}
+@media (prefers-reduced-motion: reduce){ .r9-ph img{ animation:none; } }
+</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -5073,8 +5160,8 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 <!-- PROOF -->
 <section class="proof2 proof-photo pp2" aria-label="Факты о бюро">
   <div class="container">
-    <h2 class="section-heading reveal h2-two">20 лет в ремонте и 10–15 коммерческих объектов: <span class="tone">ваш зал не станет первым опытом бригады</span></h2>
-    <div class="pp-media reveal"><img class="pp-bg" src="img/com/club12.jpg" alt="Частный клуб: большой стол у окон, бетон и трековый свет — визуализация проекта" loading="lazy"><div class="pp-shade"></div><div class="pp-nums"><div class="reveal"><b>20</b><span>лет личного опыта в премиальном ремонте</span></div><div class="reveal"><b>115+</b><span>сданных объектов, из них 10–15 коммерческих</span></div><div class="reveal"><b>до 2</b><span>месяцев на коммерческий объект</span></div><div class="reveal"><b>60</b><span>человек в штате, один мастер — одна специализация</span></div></div></div>
+    <h2 class="section-heading reveal h2-two">20 лет в ремонте и 13 коммерческих объектов: <span class="tone">ваш зал не станет первым опытом бригады</span></h2>
+    <div class="pp-media reveal"><img class="pp-bg" src="img/com/club12.jpg" alt="Частный клуб: большой стол у окон, бетон и трековый свет — визуализация проекта" loading="lazy"><div class="pp-shade"></div><div class="pp-nums"><div class="reveal"><b>20</b><span>лет личного опыта в премиальном ремонте</span></div><div class="reveal"><b>13</b><span>коммерческих объектов сдали под ключ</span></div><div class="reveal"><b>до 2</b><span>месяцев — ремонт под ключ</span></div><div class="reveal"><b>60</b><span>человек в команде, один мастер — одна специализация</span></div></div></div>
     
   </div>
 </section>
@@ -5114,10 +5201,11 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:26ch">3 провала, которые сдвигают открытие, — <span class="tone">и что стоит против каждого в договоре</span></h2>
     <p class="section-intro reveal">При аренде 600 000 ₽ в месяц <span class="hl">каждый день задержки стоит 20 000 ₽</span> — не считая выручки, которую зал не заработал.</p>
+    <div class="risk-cost reveal" aria-label="Сколько стоит задержка открытия при аренде 600 000 ₽ в месяц"><div class="rc-row"><span class="rc-l">1 день</span><span class="rc-bar"><i style="width:4%"></i></span><b>20 000 ₽</b></div><div class="rc-row"><span class="rc-l">1 неделя</span><span class="rc-bar"><i style="width:23%"></i></span><b>140 000 ₽</b></div><div class="rc-row"><span class="rc-l">2 недели</span><span class="rc-bar"><i style="width:47%"></i></span><b>280 000 ₽</b></div><div class="rc-row"><span class="rc-l">1 месяц</span><span class="rc-bar"><i style="width:100%"></i></span><b>600 000 ₽</b></div><p class="rc-note">Только аренда пустого зала — без упущенной выручки и зарплат персонала</p></div>
     <div class="risk-grid">
-      <article class="risk-card reveal"><span class="risk-n">01</span><h3>Срыв графика запуска</h3><div class="risk-how">График — приложение к договору</div><p>За каждый день просрочки плачу неустойку. Чтобы её не платить, работаем в ночные смены и держим один график на отделку, инженерию и поставки.</p></article>
-      <article class="risk-card reveal"><span class="risk-n">02</span><h3>Конфликт с арендодателем</h3><div class="risk-how">Согласования ведём мы</div><p>Режим работ, пропуска, шумные этапы и вывоз согласуем с арендодателем и управляющей компанией до старта — вы не оказываетесь между подрядчиком и ТЦ.</p></article>
-      <article class="risk-card reveal"><span class="risk-n">03</span><h3>Смета растёт допработами</h3><div class="risk-how">Цена фиксируется до старта</div><p>Любое изменение — только по допсоглашению, подписанному до начала работ. Инженерию, которая обычно занимает 20–30% бюджета, показываем заранее.</p></article>
+      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6.5h17v14h-17z"/><path d="M3.5 11h17M8 3.5v5M16 3.5v5"/><path d="M10 14.5l4 4M14 14.5l-4 4"/></svg></span><span class="risk-n">01</span></div><h3>Срыв графика запуска</h3><div class="risk-how">График — приложение к договору</div><p>За каждый день просрочки плачу неустойку. Чтобы её не платить, работаем в ночные смены и держим один график на отделку, инженерию и поставки.</p></article>
+      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V6.5L12 3l8 3.5V21"/><path d="M2.5 21h19"/><path d="M9.5 21v-5h5v5"/><path d="M8 9h1.5M14.5 9H16M8 12.5h1.5M14.5 12.5H16"/></svg></span><span class="risk-n">02</span></div><h3>Конфликт с арендодателем</h3><div class="risk-how">Согласования ведём мы</div><p>Режим работ, пропуска, шумные этапы и вывоз согласуем с арендодателем и управляющей компанией до старта — вы не оказываетесь между подрядчиком и ТЦ.</p></article>
+      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18l6-6 4 4 7.5-7.5"/><path d="M15 8.5h5.5V14"/><path d="M3 21.5h18"/></svg></span><span class="risk-n">03</span></div><h3>Смета растёт допработами</h3><div class="risk-how">Цена фиксируется до старта</div><p>Любое изменение — только по допсоглашению, подписанному до начала работ. Инженерию, которая обычно занимает 20–30% бюджета, показываем заранее.</p></article>
     </div>
     <span class="todo">600 000 ₽ в месяц — пример для расчёта, поставьте типичную аренду ваших заказчиков. Размер неустойки для коммерции подтвердить (сейчас 0,05% в день).</span>
   </div>
@@ -5322,19 +5410,7 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   <div class="container">
     <h2 class="reveal">Смета, график и спецификация — <span class="tone">у вас до первого платежа</span></h2>
     <p class="section-intro reveal">Дальше отчёт каждую пятницу. Шесть шагов от созвона до открытия. <span class="hl">Срок работ — до 2 месяцев.</span></p>
-    <div class="route8-grid route8-low">
-      <div class="route8-aside stretch">
-        <div class="photo ph-img reveal" role="img" aria-label="Частный клуб: кухня и большой стол вечером — визуализация проекта" style="background-image:url(img/com/club04.jpg);background-position:center"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
-      </div>
-      <ol class="route8-list">
-        <li class="reveal"><div class="r8-body"><h3>Созвон <span>15–20 минут</span></h3><p>Формат, площадь, проект, дата открытия. Сразу скажу, берём ли объект.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Проверка проекта и выезд <span>бесплатно</span></h3><p>Осмотр помещения и вводов, письменный список технических ошибок проекта.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Смета и график <span>до 2 рабочих дней</span></h3><p>Построчная смета, график запуска и спецификация. При готовом проекте.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Договор <span>с НДС</span></h3><p>Фиксированная цена, график, неустойка, аванс 20–30% и порядок актов.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Работы <span>до 2 месяцев</span></h3><p>Ночные смены при необходимости. Акты каждые 7–10 дней, статус по пятницам.</p></div></li>
-        <li class="reveal"><div class="r8-body"><h3>Сдача <span>по акту</span></h3><p>Тестовый прогон систем, клининг, исполнительные схемы и гарантийный талон.</p></div></li>
-      </ol>
-    </div>
+    <div class="r9 reveal" style="--n:6"><div class="r9-tabs" role="tablist" aria-label="Этапы работы"><button type="button" class="r9-tab" role="tab" id="r9t-commerce-0" aria-controls="r9p-commerce-0" aria-selected="true" tabindex="0"><small>Шаг 1</small><b>Созвон</b></button><button type="button" class="r9-tab" role="tab" id="r9t-commerce-1" aria-controls="r9p-commerce-1" aria-selected="false" tabindex="-1"><small>Шаг 2</small><b>Проверка проекта и выезд</b></button><button type="button" class="r9-tab" role="tab" id="r9t-commerce-2" aria-controls="r9p-commerce-2" aria-selected="false" tabindex="-1"><small>Шаг 3</small><b>Смета и график</b></button><button type="button" class="r9-tab" role="tab" id="r9t-commerce-3" aria-controls="r9p-commerce-3" aria-selected="false" tabindex="-1"><small>Шаг 4</small><b>Договор</b></button><button type="button" class="r9-tab" role="tab" id="r9t-commerce-4" aria-controls="r9p-commerce-4" aria-selected="false" tabindex="-1"><small>Шаг 5</small><b>Работы</b></button><button type="button" class="r9-tab" role="tab" id="r9t-commerce-5" aria-controls="r9p-commerce-5" aria-selected="false" tabindex="-1"><small>Итог</small><b>Сдача</b></button></div><div class="r9-box"><div class="r9-panel" role="tabpanel" id="r9p-commerce-0" aria-labelledby="r9t-commerce-0"><div class="r9-ph"><img src="img/apt/vf-call.jpg" alt="Видеозвонок с прорабом с объекта" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 1 · 15–20 минут</span><h3>Созвон</h3><p class="r9-t">Формат, площадь, проект, дата открытия. Сразу скажу, берём ли объект.</p><div class="r9-res"><small>Результат шага</small>Сразу понятно, берём ли объект</div><div class="r9-nav"><button type="button" class="r9-next" data-to="1">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>01</b> / 06</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-commerce-1" aria-labelledby="r9t-commerce-1" hidden><div class="r9-ph"><img src="img/apt/vf-visit.jpg" alt="Осмотр помещения на черновом этапе" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 2 · бесплатно</span><h3>Проверка проекта и выезд</h3><p class="r9-t">Осмотр помещения и вводов, письменный список технических ошибок проекта.</p><div class="r9-res"><small>Результат шага</small>Письменный список технических ошибок проекта</div><div class="r9-nav"><button type="button" class="r9-next" data-to="2">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>02</b> / 06</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-commerce-2" aria-labelledby="r9t-commerce-2" hidden><div class="r9-ph fit"><img src="img/design/estimate-com.webp" alt="Построчная смета для коммерческого объекта" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 3 · до 2 рабочих дней</span><h3>Смета и график</h3><p class="r9-t">Построчная смета, график запуска и спецификация. При готовом проекте.</p><div class="r9-res"><small>Результат шага</small>Смета, график запуска и спецификация — до первого платежа</div><div class="r9-nav"><button type="button" class="r9-next" data-to="3">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>03</b> / 06</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-commerce-3" aria-labelledby="r9t-commerce-3" hidden><div class="r9-ph"><img src="img/apt/ally-plan.jpg" alt="Владимир разбирает план с заказчиками" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 4 · с НДС</span><h3>Договор</h3><p class="r9-t">Фиксированная цена, график, неустойка, аванс 20–30% и порядок актов.</p><div class="r9-res"><small>Результат шага</small>Неустойка за каждый день просрочки — в договоре</div><div class="r9-nav"><button type="button" class="r9-next" data-to="4">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>04</b> / 06</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-commerce-4" aria-labelledby="r9t-commerce-4" hidden><div class="r9-ph"><img src="img/polar/b4.jpg" alt="Клуб на Полярной во время работ: лотки и трековый свет" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Шаг 5 · до 2 месяцев</span><h3>Работы</h3><p class="r9-t">Ночные смены при необходимости. Акты каждые 7–10 дней, статус по пятницам.</p><div class="r9-res"><small>Результат шага</small>Открытие — в дату из графика</div><div class="r9-nav"><button type="button" class="r9-next" data-to="5">Следующий шаг <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button><span class="r9-cnt"><b>05</b> / 06</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-commerce-5" aria-labelledby="r9t-commerce-5" hidden><div class="r9-ph"><img src="img/polar/p14.jpg" alt="Готовый игровой зал клуба на Полярной" loading="lazy" decoding="async"></div><div class="r9-body"><span class="r9-eb">Итог · по акту</span><h3>Сдача</h3><p class="r9-t">Тестовый прогон систем, клининг, исполнительные схемы и гарантийный талон.</p><div class="r9-res"><small>Результат шага</small>Зал готов к открытию, гарантийный талон на руках</div><div class="r9-nav"><a class="r9-next" href="cases.html#com">Посмотреть объекты <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="r9-cnt"><b>06</b> / 06</span></div></div></div></div></div>
     <div class="ctl-strip">
       <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Фото скрытых работ</h3><p>с привязкой к плану, до зашивки</p></div>
       <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Видеоотчёт</h3><p>с объекта — минимум раз в неделю</p></div>
@@ -5378,7 +5454,7 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 <!-- 13. FOUNDER & TEAM -->
 <section class="founder-sec team-section" id="team">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:26ch">60 человек в штате, объект проверяю я — <span class="tone">не реже раза в 7 дней. Гарантия — до 5 лет</span></h2>
+    <h2 class="section-heading reveal" style="max-width:26ch">60 человек в команде, объект проверяю я — <span class="tone">не реже раза в 7 дней. Гарантия — до 5 лет</span></h2>
     <div class="team-founder reveal">
       <button type="button" class="founder-video" id="fVideo" style="background-image:url(img/apt/hero-v3.jpg)" aria-haspopup="dialog"><span class="fv-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="fv-cap"><b>Видео · 0:50</b>Почему за ваш объект я отвечаю своим именем</span></button>
       <div class="founder-info">
@@ -6535,5 +6611,9 @@ f.addEventListener('click',function(e){var p=e.target.closest('.pill');if(!p)ret
 f.addEventListener('submit',function(e){e.preventDefault();var ph=f.querySelector('input[type=tel]');if(ph.value.replace(/\D/g,'').length<10){f.querySelector('.est-err').hidden=false;ph.focus();return;}
 var m=f.querySelector('.pill[aria-pressed="true"]'),x=inp.files&&inp.files[0],o=document.createElement('div');o.className='est-ok';o.setAttribute('role','status');
 o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace(/[<>&]/g,'')+'» получили. ':'')+'Подготовим 2–3 варианта сметы и пришлём в '+(m?m.textContent:'мессенджер')+' — в рабочее время ответим за 5–10 минут.';f.replaceWith(o);});});})();</script>
+<script id="r9-js">(function(){document.querySelectorAll('.r9').forEach(function(w){var tabs=[].slice.call(w.querySelectorAll('.r9-tab')),ps=[].slice.call(w.querySelectorAll('.r9-panel'));
+function go(i,focus){tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;ps[j].hidden=!on;});if(focus)tabs[i].focus();var t=tabs[i];if(t.scrollIntoView&&w.querySelector('.r9-tabs').scrollWidth>w.querySelector('.r9-tabs').clientWidth){w.querySelector('.r9-tabs').scrollTo({left:t.offsetLeft-16,behavior:'smooth'});}}
+tabs.forEach(function(t,i){t.addEventListener('click',function(){go(i);});t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight')n=(i+1)%tabs.length;else if(k==='ArrowLeft')n=(i-1+tabs.length)%tabs.length;else if(k==='Home')n=0;else if(k==='End')n=tabs.length-1;if(n!==null){e.preventDefault();go(n,true);}});});
+w.querySelectorAll('.r9-next[data-to]').forEach(function(b){b.addEventListener('click',function(){go(+b.getAttribute('data-to'));});});});})();</script>
 </body>
 </html>
