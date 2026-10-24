@@ -4910,7 +4910,7 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   .r9v .r9-ph{ aspect-ratio:4/3; }
   .r9v .r9-body{ padding:32px 20px 22px; }
 }
-</style><style id="fin-up">
+</style><style id="fin-v2">html body .qz-side .qz-gifts-t{ margin-top: 10px; }</style><style id="fin-up">
 .est-f{ margin-top: 22px; display:flex; flex-direction:column; gap: 10px; max-width: 460px; }
 .est-drop{ position:relative; display:flex; align-items:center; gap: 14px; padding: 14px 16px; border: 1px dashed rgba(181,161,138,.55); border-radius: 12px; cursor:pointer; transition: border-color .2s, background .2s; }
 .est-drop:hover, .est-drop.drag{ border-color: var(--bronze); background: rgba(181,161,138,.07); }
@@ -4925,16 +4925,12 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 .est-where:invalid{ color: var(--text-muted); }
 .est-where option{ color:#1C1C1C; }
 .est-f .est-go{ width:100%; }
-@media (min-width: 1000px){
-  html body .pt-check > .est-f{ grid-column: 1 / -1; max-width:none; margin-top: clamp(36px,4vw,56px); display:grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr) auto; gap: 12px 14px; align-items:stretch; position:relative; z-index:2; }
-  html body .pt-check > .est-f .est-row{ display: contents; }
-  html body .pt-check > .est-f .est-drop{ padding: 10px 16px; min-height:58px; }
-  html body .pt-check > .est-f .form-input{ min-height:58px; height:auto; }
-  html body .pt-check > .est-f .est-go{ width:auto; min-height:58px; padding-left:28px; white-space:nowrap; }
-  html body .pt-check > .est-f .est-err, html body .pt-check > .est-f .form-consent{ grid-column: 1 / -1; text-align:left; }
-}
-html body .pt-check > .est-f{ grid-column: 1 / -1; }
-@media (min-width: 901px){ html body .pt-check .pt-estimg{ width: 118% !important; max-width: 720px !important; margin: -90px -96px -90px auto !important; } }
+/*est-v4*/
+html body .pt-check .est-f .form-consent{ text-align:left; }
+html body .est-f .est-row{ display:flex; flex-direction:column; gap:10px; padding:0; border:0; font-size:inherit; background:none; box-shadow:none; }
+html body .pt-check .est-f{ max-width:none; width:100%; margin-top: 26px; }
+html body .pt-check .est-row .form-input, html body .pt-check .est-row .est-where{ flex: 1 1 100%; }
+@media (min-width: 901px){ html body .pt-check .pt-estimg{ width: 112% !important; max-width: 640px !important; margin: -40px -72px -40px auto !important; } }
 .est-f .ld-pills{ margin-top: 2px; }
 .est-f .est-err{ margin:0; font-size:.8rem; color:#e5484d; }
 .est-f .form-consent{ margin: 2px 0 0; font-size:.72rem; color: var(--text-muted); }
@@ -5199,8 +5195,6 @@ html body .pt-check > .est-f{ grid-column: 1 / -1; }
   </div>
 </section>
 
-<section class="pause" aria-label="Квартира, в которую въезжают по графику, — а не после третьей допсметы"><div class="pause-img" style="background-image:url(img/apt/pause-couple.jpg);background-position:62% 45%"></div><div class="container pause-cap"><p class="reveal">Квартира, в которую въезжают по графику, — а не после третьей допсметы</p></div><span class="todo" style="position:absolute;left:16px;bottom:8px">Фото — сток. Заменить кадром реального объекта Владимира.</span></section>
-
 <section class="standard" id="standard">
   <div class="container">
     <div class="standard-head"><span class="label-sm reveal">Что значит «честный» в моём бюро</span>
@@ -5288,8 +5282,8 @@ html body .pt-check > .est-f{ grid-column: 1 / -1; }
         <h3 class="pt-check-title">Один проект — несколько вариантов сметы под ваш бюджет</h3>
         <p class="lead-p">Покажем, как реализовать ваш дизайн-проект в 2–3 вариантах: разные «пироги» полов и стен, материалы и решения узлов. Вы сравните цену и выберете — а квартира всё равно будет как на визуализации.</p>
         
-      </div>
-      <img class="pt-estimg" src="img/design/estimate-3b.webp" alt="Три варианта сметы для квартиры 100 м²: стены К2 и кварцвинил, стены К3 и инженерная доска, стены К4 и паркет ёлочкой" loading="lazy" decoding="async" width="1200" height="910"><form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><select class="form-input est-where" name="where" aria-label="Куда отправить результат?" required><option value="" selected disabled>Куда отправить результат?</option><option>Telegram</option><option>MAX</option><option>WhatsApp</option><option>Звонок</option></select><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required></div><button class="btn-primary est-go" type="submit">Получить варианты сметы</button><p class="est-err" hidden>Проверьте номер телефона</p><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form>
+      <form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><select class="form-input est-where" name="where" aria-label="Куда отправить результат?" required><option value="" selected disabled>Куда отправить результат?</option><option>Telegram</option><option>MAX</option><option>WhatsApp</option><option>Звонок</option></select><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required></div><button class="btn-primary est-go" type="submit">Получить варианты сметы</button><p class="est-err" hidden>Проверьте номер телефона</p><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form></div>
+      <img class="pt-estimg" src="img/design/estimate-3b.webp" alt="Три варианта сметы для квартиры 100 м²: стены К2 и кварцвинил, стены К3 и инженерная доска, стены К4 и паркет ёлочкой" loading="lazy" decoding="async" width="1200" height="910">
     </div>
     <span class="todo">Мокап сметы — пример для прототипа. Для сайта сделать скриншот реального обезличенного разбора.</span>
   </div>
@@ -5463,8 +5457,6 @@ html body .pt-check > .est-f{ grid-column: 1 / -1; }
     <span class="todo">Суммы переделок (≈120 000 и ≈280 000 ₽) — ориентировочные, уточнить у Владимира на демонстрации.</span>
   </div>
 </section>
-
-<section class="pause" aria-label="Вечер дома — а не на объекте с прорабом"><div class="pause-img" style="background-image:url(img/apt/pause-cinema.jpg);background-position:center 55%"></div><div class="container pause-cap"><p class="reveal">Вечер дома — а не на объекте с прорабом</p></div></section>
 
 <section class="design-sec" id="design">
   <div class="container">
