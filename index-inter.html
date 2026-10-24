@@ -4925,6 +4925,15 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 .est-where:invalid{ color: var(--text-muted); }
 .est-where option{ color:#1C1C1C; }
 .est-f .est-go{ width:100%; }
+@media (min-width: 1000px){
+  html body .pt-check > .est-f{ grid-column: 1 / -1; max-width:none; margin-top: clamp(36px,4vw,56px); display:grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr) auto; gap: 12px 14px; align-items:stretch; position:relative; z-index:2; }
+  html body .pt-check > .est-f .est-row{ display: contents; }
+  html body .pt-check > .est-f .est-drop{ padding: 10px 16px; min-height:58px; }
+  html body .pt-check > .est-f .form-input{ min-height:58px; height:auto; }
+  html body .pt-check > .est-f .est-go{ width:auto; min-height:58px; padding-left:28px; white-space:nowrap; }
+  html body .pt-check > .est-f .est-err, html body .pt-check > .est-f .form-consent{ grid-column: 1 / -1; text-align:left; }
+}
+html body .pt-check > .est-f{ grid-column: 1 / -1; }
 @media (min-width: 901px){ html body .pt-check .pt-estimg{ width: 118% !important; max-width: 720px !important; margin: -90px -96px -90px auto !important; } }
 .est-f .ld-pills{ margin-top: 2px; }
 .est-f .est-err{ margin:0; font-size:.8rem; color:#e5484d; }
@@ -5278,9 +5287,9 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
       <div>
         <h3 class="pt-check-title">Один проект — несколько вариантов сметы под ваш бюджет</h3>
         <p class="lead-p">Покажем, как реализовать ваш дизайн-проект в 2–3 вариантах: разные «пироги» полов и стен, материалы и решения узлов. Вы сравните цену и выберете — а квартира всё равно будет как на визуализации.</p>
-        <form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required><select class="form-input est-where" name="where" aria-label="Куда отправить результат?" required><option value="" selected disabled>Куда отправить результат?</option><option>Telegram</option><option>MAX</option><option>WhatsApp</option><option>Звонок</option></select></div><button class="btn-primary est-go" type="submit">Получить варианты сметы</button><p class="est-err" hidden>Проверьте номер телефона</p><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form>
+        
       </div>
-      <img class="pt-estimg" src="img/design/estimate-3b.webp" alt="Три варианта сметы для квартиры 100 м²: стены К2 и кварцвинил, стены К3 и инженерная доска, стены К4 и паркет ёлочкой" loading="lazy" decoding="async" width="1200" height="910">
+      <img class="pt-estimg" src="img/design/estimate-3b.webp" alt="Три варианта сметы для квартиры 100 м²: стены К2 и кварцвинил, стены К3 и инженерная доска, стены К4 и паркет ёлочкой" loading="lazy" decoding="async" width="1200" height="910"><form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><select class="form-input est-where" name="where" aria-label="Куда отправить результат?" required><option value="" selected disabled>Куда отправить результат?</option><option>Telegram</option><option>MAX</option><option>WhatsApp</option><option>Звонок</option></select><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required></div><button class="btn-primary est-go" type="submit">Получить варианты сметы</button><p class="est-err" hidden>Проверьте номер телефона</p><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form>
     </div>
     <span class="todo">Мокап сметы — пример для прототипа. Для сайта сделать скриншот реального обезличенного разбора.</span>
   </div>
@@ -6750,12 +6759,6 @@ if(acc>24)h.classList.add('hdr-hide');else if(acc<-12)h.classList.remove('hdr-hi
 window.addEventListener('scroll',function(){if(t)return;t=true;requestAnimationFrame(function(){up();t=false;});},{passive:true});
 document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('[data-scroll],a[href^="#"]');if(a)setTimeout(function(){h.classList.add('hdr-hide');acc=0;},60);});
 })();</script>
-<script id="fin-up-js">(function(){document.querySelectorAll('.est-f').forEach(function(f){var d=f.querySelector('.est-drop'),inp=d.querySelector('input'),b=d.querySelector('b'),b0=b.textContent;
-function show(){var x=inp.files&&inp.files[0];if(x){b.textContent=x.name;d.classList.add('has');d.querySelector('small').textContent=(x.size/1048576).toFixed(1).replace('.',',')+' МБ · нажмите, чтобы заменить';}else{b.textContent=b0;d.classList.remove('has');}}
-inp.addEventListener('change',show);['dragenter','dragover'].forEach(function(e){d.addEventListener(e,function(){d.classList.add('drag');});});['dragleave','drop'].forEach(function(e){d.addEventListener(e,function(){d.classList.remove('drag');});});
-f.addEventListener('submit',function(e){e.preventDefault();var ph=f.querySelector('input[type=tel]');if(ph.value.replace(/\D/g,'').length<10){f.querySelector('.est-err').hidden=false;ph.focus();return;}
-var w=f.querySelector('.est-where'),m=w&&w.value?{textContent:w.value}:null,x=inp.files&&inp.files[0],o=document.createElement('div');o.className='est-ok';o.setAttribute('role','status');
-o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace(/[<>&]/g,'')+'» получили. ':'')+'Подготовим 2–3 варианта сметы и пришлём в '+(m?m.textContent:'мессенджер')+' — в рабочее время ответим за 5–10 минут.';if(m&&m.textContent==='Звонок')o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace(/[<>&]/g,'')+'» получили. ':'')+'Подготовим 2–3 варианта сметы и перезвоним в рабочее время.';f.replaceWith(o);});});})();</script>
 <script id="r9-js">(function(){document.querySelectorAll('.r9').forEach(function(w){var tabs=[].slice.call(w.querySelectorAll('.r9-tab')),ps=[].slice.call(w.querySelectorAll('.r9-panel'));
 function go(i,focus){tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on);t.tabIndex=on?0:-1;ps[j].hidden=!on;});if(focus)tabs[i].focus();var t=tabs[i];if(t.scrollIntoView&&w.querySelector('.r9-tabs').scrollWidth>w.querySelector('.r9-tabs').clientWidth){w.querySelector('.r9-tabs').scrollTo({left:t.offsetLeft-16,behavior:'smooth'});}}
 tabs.forEach(function(t,i){t.addEventListener('click',function(){go(i);});t.addEventListener('keydown',function(e){var k=e.key,n=null;if(k==='ArrowRight'||k==='ArrowDown')n=(i+1)%tabs.length;else if(k==='ArrowLeft'||k==='ArrowUp')n=(i-1+tabs.length)%tabs.length;else if(k==='Home')n=0;else if(k==='End')n=tabs.length-1;if(n!==null){e.preventDefault();go(n,true);}});});
@@ -6772,5 +6775,11 @@ function to(el){if(!el)return;var y=el.getBoundingClientRect().top+scrollY-hdr()
 var was=false;new MutationObserver(function(){var busy=quiz.classList.contains('qz-busy');if(busy&&!was){to(prog||quiz);}if(!busy&&was){place();if(innerWidth<900)to(form.querySelector('.quiz-form-title'));}was=busy;}).observe(quiz,{attributes:true,attributeFilter:['class']});
 new MutationObserver(place).observe(prev||form,{childList:true});
 })();</script>
+<script id="fin-up-js">(function(){document.querySelectorAll('.est-f').forEach(function(f){var d=f.querySelector('.est-drop'),inp=d.querySelector('input'),b=d.querySelector('b'),b0=b.textContent;
+function show(){var x=inp.files&&inp.files[0];if(x){b.textContent=x.name;d.classList.add('has');d.querySelector('small').textContent=(x.size/1048576).toFixed(1).replace('.',',')+' МБ · нажмите, чтобы заменить';}else{b.textContent=b0;d.classList.remove('has');}}
+inp.addEventListener('change',show);['dragenter','dragover'].forEach(function(e){d.addEventListener(e,function(){d.classList.add('drag');});});['dragleave','drop'].forEach(function(e){d.addEventListener(e,function(){d.classList.remove('drag');});});
+f.addEventListener('submit',function(e){e.preventDefault();var ph=f.querySelector('input[type=tel]');if(ph.value.replace(/\D/g,'').length<10){f.querySelector('.est-err').hidden=false;ph.focus();return;}
+var w=f.querySelector('.est-where'),m=w&&w.value?{textContent:w.value}:null,x=inp.files&&inp.files[0],o=document.createElement('div');o.className='est-ok';o.setAttribute('role','status');
+o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace(/[<>&]/g,'')+'» получили. ':'')+'Подготовим 2–3 варианта сметы и пришлём в '+(m?m.textContent:'мессенджер')+' — в рабочее время ответим за 5–10 минут.';if(m&&m.textContent==='Звонок')o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace(/[<>&]/g,'')+'» получили. ':'')+'Подготовим 2–3 варианта сметы и перезвоним в рабочее время.';f.replaceWith(o);});});})();</script>
 </body>
 </html>

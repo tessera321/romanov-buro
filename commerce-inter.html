@@ -5024,6 +5024,37 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   .r9v .r9-ph{ aspect-ratio:4/3; }
   .r9v .r9-body{ padding:32px 20px 22px; }
 }
+</style><style id="fin-up">
+.est-f{ margin-top: 22px; display:flex; flex-direction:column; gap: 10px; max-width: 460px; }
+.est-drop{ position:relative; display:flex; align-items:center; gap: 14px; padding: 14px 16px; border: 1px dashed rgba(181,161,138,.55); border-radius: 12px; cursor:pointer; transition: border-color .2s, background .2s; }
+.est-drop:hover, .est-drop.drag{ border-color: var(--bronze); background: rgba(181,161,138,.07); }
+.est-drop input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+.est-ico{ flex:none; width: 40px; height: 40px; border-radius: 10px; display:grid; place-items:center; background: rgba(181,161,138,.14); color: var(--bronze); }
+.est-drop b{ display:block; font-weight:500; font-size:.92rem; color: var(--text-primary); }
+.est-drop small{ display:block; font-size:.76rem; color: var(--text-muted); margin-top:2px; }
+.est-drop.has b{ color: var(--bronze); }
+.est-row{ display:flex; gap: 8px; flex-wrap: wrap; }
+.est-row .form-input{ flex: 1 1 200px; min-width:0; }
+.est-row .est-where{ flex: 1 1 100%; min-width:0; appearance:none; -webkit-appearance:none; cursor:pointer; padding-right:40px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23B5A18A' stroke-width='1.6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; }
+.est-where:invalid{ color: var(--text-muted); }
+.est-where option{ color:#1C1C1C; }
+.est-f .est-go{ width:100%; }
+@media (min-width: 1000px){
+  html body .pt-check > .est-f{ grid-column: 1 / -1; max-width:none; margin-top: clamp(36px,4vw,56px); display:grid; grid-template-columns: minmax(0,1.25fr) minmax(0,1fr) minmax(0,1fr) auto; gap: 12px 14px; align-items:stretch; position:relative; z-index:2; }
+  html body .pt-check > .est-f .est-row{ display: contents; }
+  html body .pt-check > .est-f .est-drop{ padding: 10px 16px; min-height:58px; }
+  html body .pt-check > .est-f .form-input{ min-height:58px; height:auto; }
+  html body .pt-check > .est-f .est-go{ width:auto; min-height:58px; padding-left:28px; white-space:nowrap; }
+  html body .pt-check > .est-f .est-err, html body .pt-check > .est-f .form-consent{ grid-column: 1 / -1; text-align:left; }
+}
+html body .pt-check > .est-f{ grid-column: 1 / -1; }
+@media (min-width: 901px){ html body .pt-check .pt-estimg{ width: 118% !important; max-width: 720px !important; margin: -90px -96px -90px auto !important; } }
+.est-f .ld-pills{ margin-top: 2px; }
+.est-f .est-err{ margin:0; font-size:.8rem; color:#e5484d; }
+.est-f .form-consent{ margin: 2px 0 0; font-size:.72rem; color: var(--text-muted); }
+.est-f .form-consent a{ color: inherit; }
+.est-ok{ margin-top: 22px; padding: 16px 18px; border:1px solid rgba(181,161,138,.4); border-radius: 12px; color: var(--text-secondary); line-height:1.5; }
+.est-ok b{ display:block; color: var(--text-primary); font-weight:500; margin-bottom:4px; }
 </style><style id="risk-viz">
 .risk-top{ display:flex; align-items:center; justify-content:space-between; }
 .risk-ic{ width:52px; height:52px; border-radius:50%; display:grid; place-items:center; color:var(--bronze); background:rgba(181,161,138,.1); border:1px solid rgba(181,161,138,.35); }
@@ -5039,29 +5070,15 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 .risk-cost{ padding:18px; } }
 </style><style id="com2-css">.lm-chkimg.lm-com{ width:min(58%,300px) !important; margin:-60px auto 0 !important; transform:rotate(-3deg); border-radius:6px; }
 @media (max-width:900px){ .lm-chkimg.lm-com{ width:min(60%,240px) !important; margin:-50px auto 14px !important; } }
-.errors .err-cost{ display:block !important; } .errors .err-cost span{ display:block; margin-bottom:4px; } .errors .err-cost b{ display:block; font-size:1rem !important; line-height:1.3; text-align:left !important; }</style><style id="hero-com">@media (min-width:901px){ html body .hero7 .hero7-inner h1{ max-width:17em !important; } }</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style><style id="fin-up">
-.est-f{ margin-top: 22px; display:flex; flex-direction:column; gap: 10px; max-width: 460px; }
-.est-drop{ position:relative; display:flex; align-items:center; gap: 14px; padding: 14px 16px; border: 1px dashed rgba(181,161,138,.55); border-radius: 12px; cursor:pointer; transition: border-color .2s, background .2s; }
-.est-drop:hover, .est-drop.drag{ border-color: var(--bronze); background: rgba(181,161,138,.07); }
-.est-drop input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
-.est-ico{ flex:none; width: 40px; height: 40px; border-radius: 10px; display:grid; place-items:center; background: rgba(181,161,138,.14); color: var(--bronze); }
-.est-drop b{ display:block; font-weight:500; font-size:.92rem; color: var(--text-primary); }
-.est-drop small{ display:block; font-size:.76rem; color: var(--text-muted); margin-top:2px; }
-.est-drop.has b{ color: var(--bronze); }
-.est-row{ display:flex; gap: 8px; flex-wrap: wrap; }
-.est-row .form-input{ flex: 1 1 200px; min-width:0; }
-.est-row .est-where{ flex: 1 1 100%; min-width:0; appearance:none; -webkit-appearance:none; cursor:pointer; padding-right:40px; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%23B5A18A' stroke-width='1.6'/%3E%3C/svg%3E"); background-repeat:no-repeat; background-position:right 16px center; }
-.est-where:invalid{ color: var(--text-muted); }
-.est-where option{ color:#1C1C1C; }
-.est-f .est-go{ width:100%; }
-@media (min-width: 901px){ html body .pt-check .pt-estimg{ width: 118% !important; max-width: 720px !important; margin: -90px -96px -90px auto !important; } }
-.est-f .ld-pills{ margin-top: 2px; }
-.est-f .est-err{ margin:0; font-size:.8rem; color:#e5484d; }
-.est-f .form-consent{ margin: 2px 0 0; font-size:.72rem; color: var(--text-muted); }
-.est-f .form-consent a{ color: inherit; }
-.est-ok{ margin-top: 22px; padding: 16px 18px; border:1px solid rgba(181,161,138,.4); border-radius: 12px; color: var(--text-secondary); line-height:1.5; }
-.est-ok b{ display:block; color: var(--text-primary); font-weight:500; margin-bottom:4px; }
-</style></head>
+.errors .err-cost{ display:block !important; } .errors .err-cost span{ display:block; margin-bottom:4px; } .errors .err-cost b{ display:block; font-size:1rem !important; line-height:1.3; text-align:left !important; }</style><style id="hero-com">@media (min-width:901px){ html body .hero7 .hero7-inner h1{ max-width:17em !important; } }</style><style id="com-quiz-ph">
+html body #quizStart .quiz-options.qz-photo{ grid-template-columns: repeat(3, minmax(0,1fr)) !important; gap: 10px !important; }
+#quizStart .quiz-options.qz-photo .qz-ph-img{ aspect-ratio: 16 / 10; }
+#quizStart .quiz-options.qz-photo .qz-ph-t{ padding: 11px 14px !important; font-size: .88rem; }
+@media (max-width: 900px){ html body #quizStart .quiz-options.qz-photo{ grid-template-columns: repeat(2, minmax(0,1fr)) !important; gap: 8px !important; } #quizStart .quiz-options.qz-photo .qz-ph-img{ aspect-ratio: 16 / 9; } #quizStart .quiz-options.qz-photo .qz-ph-t{ padding: 9px 10px !important; font-size: .8rem; } }
+.f-date{ color-scheme: dark; cursor: pointer; }
+.f-date.is-empty{ color: var(--text-muted); }
+.f-date::-webkit-calendar-picker-indicator{ filter: invert(72%) sepia(14%) saturate(560%) hue-rotate(352deg); cursor:pointer; opacity:.9; width:18px; height:18px; }
+</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -5211,13 +5228,13 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
       <div class="quiz-question active" data-key="format">
         <div class="quiz-step-label">Вопрос 1 из 5</div>
         <div class="quiz-q-text">Какой формат заведения?</div>
-        <div class="quiz-options">
-          <button class="quiz-option" data-v="bar">Бар, лаунж или кафе</button>
-          <button class="quiz-option" data-v="show">Шоурум или бутик</button>
-          <button class="quiz-option" data-v="net">Заведение по стандарту сети</button>
-          <button class="quiz-option" data-v="beauty">Барбершоп или салон</button>
-          <button class="quiz-option" data-v="loft">Лофт или креативное пространство</button>
-          <button class="quiz-option" data-v="?">Другое</button>
+        <div class="quiz-options qz-photo">
+          <button class="quiz-option qz-ph" data-v="bar"><span class="qz-ph-img"><img src="img/quiz/com-bar.jpg" alt="" loading="lazy" decoding="async"></span><span class="qz-ph-t">Бар, лаунж или кафе</span></button>
+          <button class="quiz-option qz-ph" data-v="show"><span class="qz-ph-img"><img src="img/quiz/com-show.jpg" alt="" loading="lazy" decoding="async"></span><span class="qz-ph-t">Шоурум или бутик</span></button>
+          <button class="quiz-option qz-ph" data-v="net"><span class="qz-ph-img"><img src="img/quiz/com-net.jpg" alt="" loading="lazy" decoding="async"></span><span class="qz-ph-t">Заведение по стандарту сети</span></button>
+          <button class="quiz-option qz-ph" data-v="beauty"><span class="qz-ph-img"><img src="img/quiz/com-beauty.jpg" alt="" loading="lazy" decoding="async"></span><span class="qz-ph-t">Барбершоп или салон</span></button>
+          <button class="quiz-option qz-ph" data-v="loft"><span class="qz-ph-img"><img src="img/quiz/com-loft.jpg" alt="" loading="lazy" decoding="async"></span><span class="qz-ph-t">Лофт или креативное пространство</span></button>
+          <button class="quiz-option qz-ph" data-v="?"><span class="qz-ph-img"><img src="img/quiz/com-other.jpg" alt="" loading="lazy" decoding="async"></span><span class="qz-ph-t">Другое</span></button>
         </div>
       </div>
       <div class="quiz-question" data-key="area">
@@ -5414,7 +5431,7 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 
 <section class="price-truth" id="honest-price">
   <div class="container">
-    <div class="pt-check reveal"><div><h3 class="pt-check-title">Один проект — несколько вариантов сметы под ваш бюджет</h3><p class="lead-p">Покажем, как реализовать ваш проект в 2–3 вариантах: разная отделка стен, пола и потолка, материалы и решения узлов. Вы сравните цену и выберете — а концепция заведения останется прежней.</p><form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект, ТЗ или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required><select class="form-input est-where" name="where" aria-label="Куда отправить результат?" required><option value="" selected disabled>Куда отправить результат?</option><option>Telegram</option><option>MAX</option><option>WhatsApp</option><option>Звонок</option></select></div><button class="btn-primary est-go" type="submit">Получить варианты сметы</button><p class="est-err" hidden>Проверьте номер телефона</p><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form></div><img class="pt-estimg" src="img/design/estimate-com.webp" alt="Три варианта сметы для бара 100 м²: покраска и керамогранит, декоративная штукатурка и инженерная доска, микроцемент и шпон с паркетом и камнем" loading="lazy" decoding="async"></div>
+    <div class="pt-check reveal"><div><h3 class="pt-check-title">Один проект — несколько вариантов сметы под ваш бюджет</h3><p class="lead-p">Покажем, как реализовать ваш проект в 2–3 вариантах: разная отделка стен, пола и потолка, материалы и решения узлов. Вы сравните цену и выберете — а концепция заведения останется прежней.</p></div><img class="pt-estimg" src="img/design/estimate-com.webp" alt="Три варианта сметы для бара 100 м²: покраска и керамогранит, декоративная штукатурка и инженерная доска, микроцемент и шпон с паркетом и камнем" loading="lazy" decoding="async"><form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект, ТЗ или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><select class="form-input est-where" name="where" aria-label="Куда отправить результат?" required><option value="" selected disabled>Куда отправить результат?</option><option>Telegram</option><option>MAX</option><option>WhatsApp</option><option>Звонок</option></select><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required></div><button class="btn-primary est-go" type="submit">Получить варианты сметы</button><p class="est-err" hidden>Проверьте номер телефона</p><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form></div>
   </div>
 </section>
 
@@ -5626,7 +5643,7 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
           </div>
           <div class="form-row2">
             <div class="form-group"><label for="fProj">Дизайн-проект</label><select class="form-input" id="fProj" name="project"><option>Есть готовый проект</option><option>Есть концепция</option><option>Нужен проект</option></select></div>
-            <div class="form-group"><label for="fDate">Когда открытие</label><input class="form-input" id="fDate" name="date" type="text" placeholder="Например, к 1 декабря"></div>
+            <div class="form-group"><label for="fDate">Когда открытие</label><input class="form-input f-date" id="fDate" name="date" type="date" aria-describedby="fDateHint"></div>
           </div>
           <div class="form-group"><label for="fPhone">Телефон</label><input class="form-input" id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required></div>
           <div class="form-group">
@@ -6695,6 +6712,8 @@ new MutationObserver(function(){var b=quiz.classList.contains('qz-busy');if(busy
   }
   window.addEventListener('load', fit); window.addEventListener('resize', fit); setTimeout(fit, 300); fit();
 })();</script>
+<script>(function(){var d=document.getElementById('fDate');if(!d)return;var t=new Date();t.setDate(t.getDate()+14);d.min=t.toISOString().slice(0,10);var y=new Date();y.setFullYear(y.getFullYear()+2);d.max=y.toISOString().slice(0,10);
+function st(){d.classList.toggle('is-empty',!d.value);}d.addEventListener('change',st);d.addEventListener('click',function(){try{d.showPicker&&d.showPicker();}catch(e){}});st();})();</script>
 <script id="fin-up-js">(function(){document.querySelectorAll('.est-f').forEach(function(f){var d=f.querySelector('.est-drop'),inp=d.querySelector('input'),b=d.querySelector('b'),b0=b.textContent;
 function show(){var x=inp.files&&inp.files[0];if(x){b.textContent=x.name;d.classList.add('has');d.querySelector('small').textContent=(x.size/1048576).toFixed(1).replace('.',',')+' МБ · нажмите, чтобы заменить';}else{b.textContent=b0;d.classList.remove('has');}}
 inp.addEventListener('change',show);['dragenter','dragover'].forEach(function(e){d.addEventListener(e,function(){d.classList.add('drag');});});['dragleave','drop'].forEach(function(e){d.addEventListener(e,function(){d.classList.remove('drag');});});
