@@ -5055,7 +5055,9 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 .rc-note{ margin-top:4px; font-size:.78rem; color:var(--text-muted); }
 @media (max-width:600px){ .rc-row{ grid-template-columns:70px 1fr 92px; gap:10px; } .rc-row b{ font-size:1rem; } .risk-src{ margin:-14px 0 28px; font-size:.74rem; color:var(--text-muted); letter-spacing:.02em; }
 .risk-cost{ padding:18px; } }
-</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style></head>
+</style><style id="com2-css">.lm-chkimg.lm-com{ width:min(58%,300px) !important; margin:-60px auto 0 !important; transform:rotate(-3deg); border-radius:6px; }
+@media (max-width:900px){ .lm-chkimg.lm-com{ width:min(60%,240px) !important; margin:-50px auto 14px !important; } }
+.errors .err-cost{ display:block !important; } .errors .err-cost span{ display:block; margin-bottom:4px; } .errors .err-cost b{ display:block; font-size:1rem !important; line-height:1.3; text-align:left !important; }</style><style>#quizStart .quiz-option.qz-ph::before{ display:none !important; }#quizStart .quiz-option.qz-ph{ padding: 0 !important; }#quizStart .qz-ph-t{ padding: 14px 16px !important; }@media (min-width: 901px){ .qz-panel{ grid-template-columns: minmax(0,1fr) clamp(360px, 32vw, 500px) !important; }}@media (min-width: 901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns: 76px minmax(0,1fr) !important; } }.qz-gift .qz-mock-img{ filter: saturate(.8) brightness(.92); }.qz-mock-img{ width: 76px !important; height: 92px !important; display:flex !important; align-items:center; justify-content:center; }.qz-mock-img img{ max-width: 100%; max-height: 100%; width:auto; height:auto; filter: drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (max-width: 900px){ .qz-mock-img{ width: 50px !important; height: 62px !important; } }</style></head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -5116,7 +5118,14 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   </div>
 </section>
 
-<!-- 3. PORTFOLIO TABS -->
+<section class="proof2 proof-photo pp2" aria-label="Факты о бюро">
+  <div class="container">
+    <h2 class="section-heading reveal h2-two">20 лет в ремонте и 13 коммерческих объектов: <span class="tone">ваш зал не станет первым опытом бригады</span></h2>
+    <div class="pp-media reveal"><img class="pp-bg" src="img/com/club12.jpg" alt="Частный клуб: большой стол у окон, бетон и трековый свет — визуализация проекта" loading="lazy"><div class="pp-shade"></div><div class="pp-nums"><div class="reveal"><b>20</b><span>лет личного опыта в премиальном ремонте</span></div><div class="reveal"><b>13</b><span>коммерческих объектов сдали под ключ</span></div><div class="reveal"><b>до 2</b><span>месяцев — ремонт под ключ</span></div><div class="reveal"><b>60</b><span>человек в команде, один мастер — одна специализация</span></div></div></div>
+    
+  </div>
+</section>
+
 <section class="portfolio" id="portfolio">
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:30ch">Шоурум с техникой и мебелью на 7 млн ₽, бар с бутиком на 68 м² и клуб, который не слышат жильцы сверху</h2>
@@ -5147,7 +5156,6 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   </div>
 </section>
 
-<!-- 3. VIDEO TOURS -->
 <section class="vid" id="video">
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:26ch">Пройдите по трём объектам вместе со мной — <span class="tone">не выезжая из офиса</span></h2>
@@ -5166,60 +5174,25 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof2 proof-photo pp2" aria-label="Факты о бюро">
+<section class="lux">
   <div class="container">
-    <h2 class="section-heading reveal h2-two">20 лет в ремонте и 13 коммерческих объектов: <span class="tone">ваш зал не станет первым опытом бригады</span></h2>
-    <div class="pp-media reveal"><img class="pp-bg" src="img/com/club12.jpg" alt="Частный клуб: большой стол у окон, бетон и трековый свет — визуализация проекта" loading="lazy"><div class="pp-shade"></div><div class="pp-nums"><div class="reveal"><b>20</b><span>лет личного опыта в премиальном ремонте</span></div><div class="reveal"><b>13</b><span>коммерческих объектов сдали под ключ</span></div><div class="reveal"><b>до 2</b><span>месяцев — ремонт под ключ</span></div><div class="reveal"><b>60</b><span>человек в команде, один мастер — одна специализация</span></div></div></div>
-    
-  </div>
-</section>
-
-<!-- 4. NOT FOR EVERYONE -->
-<section class="honest">
-  <div class="container">
-    <span class="label-sm reveal">Сразу честно</span>
-    <h2 class="reveal" style="max-width:26ch">5 форматов, которые мы делаем лучше всего, — <span class="tone">и 3 случая, когда откажем сами</span></h2>
-    <div class="fit-grid reveal">
-      <div class="fit-col">
-        <h3>Берём в работу</h3>
-        <ul>
-          <li>лофты и креативные пространства</li>
-          <li>бары и лаунжи — в том числе с жильцами над залом</li>
-          <li>заведения по стандарту сети, где интерьер обязан совпасть с брендбуком</li>
-          <li>барбершопы и объекты «с домашним уютом»</li>
-          <li>шоурумы с премиальной встроенной техникой</li>
-        </ul>
+    <div class="lux-grid">
+      <div class="lux-text">
+        <span class="label-sm reveal">Дорогие материалы и техника</span>
+        <h2 class="reveal">Нам доверяют технику за 700 000 ₽ и мебель на 7 млн ₽. <span class="tone">На дорогом материале у нас не учатся</span></h2>
+        <p class="lead-p reveal">Камень, оникс, шпон и встроенную технику монтируют <span class="hl">мастера, которые делали это десятки раз</span>. Новый мастер начинает на неответственном участке.</p>
+        <div class="lux-facts">
+          <div class="reveal"><b>700 000 ₽</b><span>встроенная вытяжка, которая выезжает из плиты, — шоурум Falmec</span></div>
+          <div class="reveal"><b>7 млн ₽</b><span>мебель и техника в одном помещении 80 м² — комплектацию вели мы</span></div>
+          <div class="reveal"><b>от 7 лет</b><span>опыт мастеров: один мастер — одна специализация</span></div>
+        </div>
       </div>
-      <div class="fit-col no">
-        <h3>Откажем, если</h3>
-        <ul>
-          <li>нужны частичные работы: только отделка или только инженерия</li>
-          <li>концепции пока нет — сначала разберёмся с ней, потом посчитаем ремонт</li>
-          <li>бюджет на работы ниже 90 000 ₽/м²</li>
-        </ul>
-      </div>
+      <div class="photo ph-img lux-photo reveal" role="img" aria-label="Стык инженерной доски и камня в одной плоскости, без порога" style="background-image:url(img/magnum/f-floor.jpg);background-position:center"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
     </div>
-  </div>
-</section>
-<section class="pause" aria-label="Зал, который открывается в дату из договора — а не «ещё пару недель»"><div class="pause-img" style="background-image:url(img/com/club09.jpg);background-position:center 60%"></div><div class="container pause-cap"><p class="reveal">Зал, который открывается в дату из договора — а не «ещё пару недель»</p></div></section>
-
-
-<!-- 5. RISKS -->
-<section class="risks">
-  <div class="container">
-    <h2 class="section-heading reveal" style="max-width:26ch">3 провала, которые сдвигают открытие, — <span class="tone">и что стоит против каждого в договоре</span></h2>
-    <p class="section-intro reveal">Аренда качественного помещения в Москве — в среднем около 4 300 ₽ за м² в месяц. Пока идёт ремонт, зал платит её и не зарабатывает, <span class="hl">поэтому каждая неделя задержки бьёт по бюджету открытия.</span></p><p class="risk-src reveal">Средняя ставка аренды качественного стрит-ритейла, данные консалтинговой компании NEO за 2025 год</p>
-    <div class="risk-grid">
-      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6.5h17v14h-17z"/><path d="M3.5 11h17M8 3.5v5M16 3.5v5"/><path d="M10 14.5l4 4M14 14.5l-4 4"/></svg></span><span class="risk-n">01</span></div><h3>Срыв графика запуска</h3><div class="risk-how">График — приложение к договору</div><p>За каждый день просрочки плачу неустойку. Чтобы её не платить, работаем в ночные смены и держим один график на отделку, инженерию и поставки.</p></article>
-      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V6.5L12 3l8 3.5V21"/><path d="M2.5 21h19"/><path d="M9.5 21v-5h5v5"/><path d="M8 9h1.5M14.5 9H16M8 12.5h1.5M14.5 12.5H16"/></svg></span><span class="risk-n">02</span></div><h3>Конфликт с арендодателем</h3><div class="risk-how">Согласования ведём мы</div><p>Режим работ, пропуска, шумные этапы и вывоз согласуем с арендодателем и управляющей компанией до старта — вы не оказываетесь между подрядчиком и ТЦ.</p></article>
-      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18l6-6 4 4 7.5-7.5"/><path d="M15 8.5h5.5V14"/><path d="M3 21.5h18"/></svg></span><span class="risk-n">03</span></div><h3>Смета растёт допработами</h3><div class="risk-how">Цена фиксируется до старта</div><p>Любое изменение — только по допсоглашению, подписанному до начала работ. Инженерию, которая обычно занимает 20–30% бюджета, показываем заранее.</p></article>
-    </div>
-    <span class="todo">Ставка аренды — открытые данные NEO за 2025 год (4 300 ₽/м² в месяц, стрит-ритейл Москвы). Размер неустойки для коммерции подтвердить (сейчас 0,05% в день).</span>
+    <span class="todo">Нужны 2–3 факта от Романова: самый дорогой материал, с которым работали, и готов ли он написать «испортили материал — заменяем за свой счёт». С этой фразой блок становится гарантией.</span>
   </div>
 </section>
 
-<!-- 7. QUIZ -->
 <section class="quiz" id="quiz">
   <div class="container">
     <h2 class="section-heading reveal">5 вопросов — <span class="tone">и вы знаете стоимость работ и срок запуска</span></h2>
@@ -5325,141 +5298,122 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   </div>
 </section>
 
-<!-- 7. SCOPE -->
-<section class="scope price-sec">
+<section class="honest">
   <div class="container">
-    <h2 class="section-heading reveal" style="max-width:28ch">От демонтажа до клининга перед открытием — <span class="tone">один договор вместо отдельных подрядчиков на отделку, инженерию и мебель</span></h2>
-    <div class="price-split reveal">
-      <div>
-        <h3>На нас</h3>
+    <span class="label-sm reveal">Сразу честно</span>
+    <h2 class="reveal" style="max-width:26ch">5 форматов, которые мы делаем лучше всего, — <span class="tone">и 3 случая, когда откажем сами</span></h2>
+    <div class="fit-grid reveal">
+      <div class="fit-col">
+        <h3>Берём в работу</h3>
         <ul>
-          <li>Демонтаж, черновые и чистовые работы</li>
-          <li>Инженерия: электрика, вентиляция, сантехника, кондиционирование, управление светом</li>
-          <li>Закупки и логистика материалов</li>
-          <li>Комплектация мебелью и техникой</li>
-          <li>Согласования с арендодателем и управляющей компанией</li>
-          <li>Исполнительные схемы и закрывающие документы по актам</li>
-          <li>Клининг перед открытием — в подарок</li>
+          <li>лофты и креативные пространства</li>
+          <li>бары и лаунжи — в том числе с жильцами над залом</li>
+          <li>заведения по стандарту сети, где интерьер обязан совпасть с брендбуком</li>
+          <li>барбершопы и объекты «с домашним уютом»</li>
+          <li>шоурумы с премиальной встроенной техникой</li>
         </ul>
       </div>
-      <div class="extra">
-        <h3>За вами</h3>
+      <div class="fit-col no">
+        <h3>Откажем, если</h3>
         <ul>
-          <li>Концепция и бизнес</li>
-          <li>Выбор финишных материалов</li>
-          <li>Решения об изменениях — напрямую или через управляющего и архитектора</li>
-        </ul>
-        <h3 style="margin-top:28px">Отдельной строкой в смете</h3>
-        <ul>
-          <li>Вывоз мусора — считаем по объекту и показываем до договора</li>
-          <li>Материалы, мебель и техника — по счетам поставщиков</li>
+          <li>нужны частичные работы: только отделка или только инженерия</li>
+          <li>концепции пока нет — сначала разберёмся с ней, потом посчитаем ремонт</li>
+          <li>бюджет на работы ниже 90 000 ₽/м²</li>
         </ul>
       </div>
     </div>
   </div>
 </section>
-<!-- 8. EXPENSIVE MATERIALS -->
-<section class="lux">
-  <div class="container">
-    <div class="lux-grid">
-      <div class="lux-text">
-        <span class="label-sm reveal">Дорогие материалы и техника</span>
-        <h2 class="reveal">Нам доверяют технику за 700 000 ₽ и мебель на 7 млн ₽. <span class="tone">На дорогом материале у нас не учатся</span></h2>
-        <p class="lead-p reveal">Камень, оникс, шпон и встроенную технику монтируют <span class="hl">мастера, которые делали это десятки раз</span>. Новый мастер начинает на неответственном участке.</p>
-        <div class="lux-facts">
-          <div class="reveal"><b>700 000 ₽</b><span>встроенная вытяжка, которая выезжает из плиты, — шоурум Falmec</span></div>
-          <div class="reveal"><b>7 млн ₽</b><span>мебель и техника в одном помещении 80 м² — комплектацию вели мы</span></div>
-          <div class="reveal"><b>от 7 лет</b><span>опыт мастеров: один мастер — одна специализация</span></div>
-        </div>
-      </div>
-      <div class="photo ph-img lux-photo reveal" role="img" aria-label="Стык инженерной доски и камня в одной плоскости, без порога" style="background-image:url(img/magnum/f-floor.jpg);background-position:center"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
-    </div>
-    <span class="todo">Нужны 2–3 факта от Романова: самый дорогой материал, с которым работали, и готов ли он написать «испортили материал — заменяем за свой счёт». С этой фразой блок становится гарантией.</span>
-  </div>
-</section>
 
-<!-- 9. ENGINEERING -->
-<section class="eng eng-main" id="engineering">
-  <div class="container">
-    <h2 class="section-heading reveal">Все системы прогоняем во всех режимах до открытия — <span class="tone">а не в первый вечер с гостями</span></h2>
-    <p class="section-intro reveal">Вентиляция, электрика, свет и звук проверяются <span class="hl">под полной нагрузкой</span>, пока в зале ещё нет гостей.</p>
-    <div class="eng-grid">
-      <div class="eng-col reveal"><figure class="eng-t eng-t-shield"><img src="img/eng/shield.jpg" alt="Электрощит с маркировкой линий в нише за фасадом" loading="lazy" decoding="async" style="object-position:50% 30%"><figcaption>Электрощит</figcaption></figure><figure class="eng-t eng-t-vent"><img src="img/eng/vent.jpg" alt="Вентиляция, кондиционирование и кабельные трассы под потолком до отделки" loading="lazy" decoding="async" style="object-position:50% 45%"><figcaption>Вентиляция и трассы</figcaption></figure><figure class="eng-t eng-t-water-panel"><img src="img/eng/water-panel.jpg" alt="Узел водоподготовки: фильтры, редукторы, коллекторы с кранами на каждую линию" loading="lazy" decoding="async" style="object-position:50% 38%"><figcaption>Водоподготовка</figcaption></figure><figure class="eng-t eng-t-water-niche"><img src="img/eng/water-niche.jpg" alt="Техническая ниша: вводы воды, защита от протечек, коллекторы и инсталляция" loading="lazy" decoding="async" style="object-position:50% 25%"><figcaption>Коллекторы</figcaption></figure><figure class="eng-t eng-t-cables"><img src="img/eng/cables.jpg" alt="Кабельные трассы в гофре под потолком, разведённые по группам" loading="lazy" decoding="async" style="object-position:60% 40%"><figcaption>Кабели</figcaption></figure><figure class="eng-t eng-t-floor"><img src="img/eng/floor.jpg" alt="Трассы воды, отопления и электрики в полу до стяжки" loading="lazy" decoding="async" style="object-position:45% 70%"><figcaption>Трассы в полу</figcaption></figure></div>
-      <div>
-        <div class="eng-list">
-          <div class="eng-item reveal"><h3>Шумоизоляция</h3><p>«Коробка в коробке» по техкартам ТехноСонус: бар, который не слышат жильцы сверху.</p></div>
-          <div class="eng-item reveal"><h3>Вентиляция</h3><p>Приточно-вытяжная установка вместо штатных вытяжек помещения.</p></div>
-          <div class="eng-item reveal"><h3>Электрика</h3><p>Щит с маркировкой каждой линии. Лаборатория на объекте проверяет три фазы.</p></div>
-          <div class="eng-item reveal"><h3>Свет</h3><p>Проводное управление и сценарии освещения — вплоть до голосового.</p></div>
-          <div class="eng-item reveal"><h3>Проверка проекта</h3><p>Технические ошибки фиксируем письменно до старта, а не находим после зашивки.</p></div>
-          <div class="eng-item reveal"><h3>Тестовый прогон</h3><p>Все системы — во всех режимах, акт испытаний остаётся у вас.</p></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="pause" aria-label="Зал, который открывается в дату из договора — а не «ещё пару недель»"><div class="pause-img" style="background-image:url(img/com/club09.jpg);background-position:center 60%"></div><div class="container pause-cap"><p class="reveal">Зал, который открывается в дату из договора — а не «ещё пару недель»</p></div></section>
 
-<section class="eng furn" id="furniture">
+<section class="standard" id="standard">
   <div class="container">
-    <h2 class="section-heading reveal">Стойки, мебель и камень — <span class="tone">по проекту вашего заведения</span></h2>
-    <p class="section-intro reveal">Барные стойки, ресепшены, витрины, стеновые панели и изделия из камня изготавливаем по чертежам проекта — с замером по готовым стенам после черновых работ.</p>
-    <div class="eng-grid">
-      <div class="mfv-grid"><figure class="mfv-card reveal"><button type="button" class="mfv-play" data-v="video/furn/kitchen.mp4" data-p="video/furn/kitchen.jpg" aria-label="Смотреть видео: Кухня с каменной столешницей и фасадами в шпоне"><img src="video/furn/kitchen.jpg" alt="Кухня с фасадами в шпоне, каменной столешницей и встроенными духовыми шкафами" loading="lazy" decoding="async"><span class="mfv-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="mfv-dur">0:15</span></button><figcaption>Кухня с каменной столешницей и фасадами в шпоне</figcaption></figure><figure class="mfv-card reveal"><button type="button" class="mfv-play" data-v="video/furn/panels.mp4" data-p="video/furn/panels.jpg" aria-label="Смотреть видео: Стеновые панели из шпона с подсветкой"><img src="video/furn/panels.jpg" alt="Комната со стенами из деревянных реек и тёплой подсветкой по периметру" loading="lazy" decoding="async"><span class="mfv-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="mfv-dur">0:09</span></button><figcaption>Стеновые панели из шпона с подсветкой</figcaption></figure><figure class="mfv-card reveal"><button type="button" class="mfv-play" data-v="video/furn/bath.mp4" data-p="video/furn/bath.jpg" aria-label="Смотреть видео: Ванная: изделия из камня"><img src="video/furn/bath.jpg" alt="Ванна в обрамлении из тёмного камня и мозаики в ванной с мраморными стенами" loading="lazy" decoding="async"><span class="mfv-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="mfv-dur">0:12</span></button><figcaption>Ванная: изделия из камня</figcaption></figure><figure class="mfv-card reveal"><button type="button" class="mfv-play" data-v="video/furn/sills.mp4" data-p="video/furn/sills.jpg" aria-label="Смотреть видео: Подоконники из искусственного камня"><img src="video/furn/sills.jpg" alt="Комната с большими окнами: белые подоконники из искусственного камня над решётками радиаторов" loading="lazy" decoding="async"><span class="mfv-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="mfv-dur">0:29</span></button><figcaption>Подоконники из искусственного камня</figcaption></figure></div>
-      <div>
-        <div class="eng-list"><div class="eng-item reveal"><h3>Барные стойки и ресепшены</h3><p>Корпус, столешница из камня и встроенное оборудование — одним изделием, выводы спрятаны заранее.</p></div><div class="eng-item reveal"><h3>Витрины, стеллажи и шкафы</h3><p>Фасады в эмали, шпоне и МДФ до 2750 × 1200 мм. Гарантия на фасады — 24 месяца.</p></div><div class="eng-item reveal"><h3>Изделия из искусственного камня</h3><p>Столешницы, подоконники, раковины и бесшовные поддоны — акрил и кварц.</p></div><div class="eng-item reveal"><h3>В одном графике с ремонтом</h3><p>Закладные и выводы под оборудование — до отделки. Монтаж мебели — последним этапом, без сдвига открытия.</p></div></div>
-      </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<!-- 18. ROUTE -->
-<section class="route8" id="route">
-  <div class="container">
-    <h2 class="reveal">Смета, график и спецификация — <span class="tone">у вас до первого платежа</span></h2>
-    <p class="section-intro reveal">Дальше отчёт каждую пятницу. Семь шагов от консультации до открытия. <span class="hl">Срок работ — до 2 месяцев.</span></p>
-    <div class="r9 r9v reveal" style="--n:7"><div class="r9-tabs" role="tablist" aria-label="Этапы работы"><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-0" aria-controls="r9p-vcommerce-0" aria-selected="true" tabindex="0"><i>01</i><b>Консультация</b><small>15–20 минут</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-1" aria-controls="r9p-vcommerce-1" aria-selected="false" tabindex="-1"><i>02</i><b>Выезд на объект</b><small>бесплатно</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-2" aria-controls="r9p-vcommerce-2" aria-selected="false" tabindex="-1"><i>03</i><b>Проверка проекта</b><small>бесплатно</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-3" aria-controls="r9p-vcommerce-3" aria-selected="false" tabindex="-1"><i>04</i><b>Смета и график</b><small>до 2 рабочих дней</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-4" aria-controls="r9p-vcommerce-4" aria-selected="false" tabindex="-1"><i>05</i><b>Договор</b><small>с НДС</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-5" aria-controls="r9p-vcommerce-5" aria-selected="false" tabindex="-1"><i>06</i><b>Работы</b><small>до 2 месяцев</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-6" aria-controls="r9p-vcommerce-6" aria-selected="false" tabindex="-1"><i>07</i><b>Сдача</b><small>по акту</small></button></div><div class="r9-box"><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-0" aria-labelledby="r9t-vcommerce-0"><div class="r9-ph"><img src="img/com/steps/s1-call.jpg" alt="Заказчица обсуждает по телефону план заведения на экране ноутбука" loading="lazy" decoding="async"></div><div class="r9-body"><h3>За 20 минут поймёте, тот ли это подрядчик</h3><p class="r9-t">Обсуждаем формат, площадь, проект и дату открытия. Если объект не наш профиль — скажем сразу и не будем тратить ваше время.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Честный ответ, берём ли объект</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Ориентир по бюджету и срокам — уже в разговоре</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Без обязательств и предоплаты</span></li></ul><div class="r9-fear"><b>Начнут продавать и навязывать?</b>Нет. Если задача не наша — так и скажем и подскажем, кто справится лучше.</div><div class="r9-res"><small>Результат шага</small>Понятно, есть ли смысл двигаться дальше</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="1">Следующий шаг</button><span class="r9-cnt"><b>01</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-1" aria-labelledby="r9t-vcommerce-1" hidden><div class="r9-ph"><img src="img/com/steps/s2-visit.jpg" alt="Замер помещения лазерным дальномером в присутствии заказчицы" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Смотрим помещение до того, как назвать итоговую цену</h3><p class="r9-t">Предварительную стоимость назовём и по проекту, итоговую — после замеров на месте. Осматриваем вводы электричества, воду, вентиляцию, делаем замеры. Сразу видно, что придётся согласовывать с арендодателем и торговым центром.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Мощность и вводы проверены до сметы</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Список вопросов к арендодателю</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Замеры для точной сметы</span></li></ul><div class="r9-fear"><b>Цена вырастет, когда вскроют стены?</b>Скрытые риски ищем до сметы, а не во время работ.</div><div class="r9-res"><small>Результат шага</small>Понятно состояние помещения и что согласовать с арендодателем</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="2">Следующий шаг</button><span class="r9-cnt"><b>02</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-2" aria-labelledby="r9t-vcommerce-2" hidden><div class="r9-ph"><img src="img/com/steps/s3-check.jpg" alt="Проверка плана заведения: замечания отмечены красным, рядом список замечаний" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Находим ошибки проекта на бумаге, а не в бетоне</h3><p class="r9-t">Проверяем дизайн-проект на технические ошибки: нагрузки, вентиляцию, выводы под оборудование, требования торгового центра и пожарные нормы.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Письменный список замечаний</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Исправления — до закупки материалов</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Проект, который можно построить в срок</span></li></ul><div class="r9-fear"><b>Проект красивый, но по нему не построить?</b>Это видно на этапе проверки — дизайнер успеет поправить до старта.</div><div class="r9-res"><small>Результат шага</small>Ошибки исправлены в проекте до закупок, а не на стройке</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="3">Следующий шаг</button><span class="r9-cnt"><b>03</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-3" aria-labelledby="r9t-vcommerce-3" hidden><div class="r9-ph"><img src="img/com/steps/s4-estimate.jpg" alt="Смета и график работ БюроРОМАНОВЪ на столе с образцами материалов" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Бюджет и дата открытия известны до первого платежа</h3><p class="r9-t">Построчная смета по видам работ, график запуска по неделям и спецификация материалов. Видно, за что вы платите на каждом этапе.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>2–3 варианта сметы под ваш бюджет</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>График привязан к дате открытия</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Инженерия посчитана сразу — это 20–30% бюджета</span></li></ul><div class="r9-fear"><b>Смета вырастет в процессе?</b>Цена фиксируется в договоре. Любое изменение — только по допсоглашению до начала работ.</div><div class="r9-res"><small>Результат шага</small>Смета, график запуска и спецификация — до первого платежа</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="4">Следующий шаг</button><span class="r9-cnt"><b>04</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-4" aria-labelledby="r9t-vcommerce-4" hidden><div class="r9-ph"><img src="img/com/steps/s5-contract.jpg" alt="Подписание договора подряда с графиком работ в приложении" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Срок и цена — в договоре, а не на словах</h3><p class="r9-t">Фиксированная цена, график как приложение к договору, неустойка за каждый день просрочки, аванс 20–30% и оплата по актам.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Работаем с НДС, все закрывающие документы</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Неустойка за просрочку — наша ответственность</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Платите только за принятые этапы</span></li></ul><div class="r9-fear"><b>Возьмут аванс и пропадут?</b>Аванс — 20–30%. Дальше оплата этапами, только после подписанного акта.</div><div class="r9-res"><small>Результат шага</small>Неустойка за каждый день просрочки — в договоре</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="5">Следующий шаг</button><span class="r9-cnt"><b>05</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-5" aria-labelledby="r9t-vcommerce-5" hidden><div class="r9-ph"><img src="img/com/steps/s6-works.jpg" alt="Монтаж стеновых панелей в зале, прораб сверяется с планшетом" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Объект под контролем, даже если вы на нём не бываете</h3><p class="r9-t">Один график на отделку, инженерию и поставки, ночные смены при необходимости. Акты каждые 7–10 дней, статус — по пятницам.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Фото скрытых работ до зашивки</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Видеоотчёт с объекта минимум раз в неделю</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Ваш технадзор — на любом этапе</span></li></ul><div class="r9-fear"><b>Придётся каждый день ездить на стройку?</b>Нет. Факт недели и план следующей приходят в мессенджер.</div><div class="r9-res"><small>Результат шага</small>Открытие — в дату из графика</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="6">Следующий шаг</button><span class="r9-cnt"><b>06</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-6" aria-labelledby="r9t-vcommerce-6" hidden><div class="r9-ph"><img src="img/com/steps/s7-handover.jpg" alt="Приёмка готового ресторана: заказчица и представитель бюро у барной стойки" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Открываетесь в готовом зале, а не на стройке</h3><p class="r9-t">Тестовый прогон всех систем, клининг, исполнительные схемы и гарантийный талон. Передаём зал, в котором можно сразу принимать гостей.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Системы проверены под нагрузкой до открытия</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Исполнительные схемы — для обслуживания</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Гарантийные обязательства — в договоре</span></li></ul><div class="r9-fear"><b>После сдачи подрядчика не найти?</b>Гарантия прописана в договоре, и мы на связи после открытия.</div><div class="r9-res"><small>Результат шага</small>Зал готов к открытию, гарантийный талон на руках</div><div class="r9-nav"><a class="btn-outline" href="cases.html#com">Посмотреть объекты</a><span class="r9-cnt"><b>07</b> / 07</span></div></div></div></div></div>
-    <div class="ctl-strip">
-      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Фото скрытых работ</h3><p>с привязкой к плану, до зашивки</p></div>
-      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Видеоотчёт</h3><p>с объекта — минимум раз в неделю</p></div>
-      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="4" y="5" width="16" height="15"/><path d="M4 10h16M8 3v4M16 3v4"/></svg></span><h3>Статус по пятницам</h3><p>факт недели и план следующей</p></div>
-      <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Ваш технадзор</h3><p>допускаем на любой этап без возражений</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- 11. MONEY -->
-<section class="standard" id="honest-price">
-  <div class="container">
-    <div class="standard-head"><span class="label-sm reveal">Деньги без сюрпризов</span>
-      <h2 class="reveal" style="max-width:28ch">Аванс 20–30% — и по каждой закупке чек и фото. Остальное по актам раз в <span style="white-space:nowrap">7–10 дней</span>, с НДС</h2></div>
+    <div class="standard-head"><span class="label-sm reveal">Что значит «честный» в работе с заведениями</span>
+      <h2 class="reveal">Стандарт честного ремонта: <span class="tone">6 правил, записанных в договоре</span></h2></div>
     <div class="standard-grid">
       <div class="standard-aside">
-        <div class="format-title">Работы под ключ</div>
-        <div class="format-price">от 90 000 ₽ / м²</div>
-        <div class="price-example">
-          <div class="price-example-title">Пример: помещение 80 м²</div>
-          <div class="price-example-row"><span>Работы под ключ</span><b>от 7,2 млн ₽</b></div>
-          <div class="price-example-row"><span>Аванс 20–30%</span><b>1,4–2,2 млн ₽</b></div>
-          <div class="price-example-row"><span>Срок по графику</span><b>до 2 месяцев</b></div>
-        </div>
-        <button class="btn-primary" data-scroll="quizStart" style="margin-top:24px">Получить смету и срок запуска</button>
+        <p class="lead-p reveal">Не обещания на сайте, а <span class="hl">пункты, под которыми я ставлю свою подпись</span>.</p>
+        <a class="btn-outline contract-btn reveal" href="#" style="text-decoration:none;display:inline-block">Посмотреть образец договора</a>
+        <div class="ctr reveal"><button type="button" class="ctr-stack" id="ctrOpen" aria-haspopup="dialog" aria-label="Открыть страницы договора подряда"><article class="ctr-page pg-b" aria-hidden="true"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 8</span></div><h5>5. ГАРАНТИЙНЫЕ ОБЯЗАТЕЛЬСТВА</h5><p class="cl is-hl"><b>5.1.</b> <mark data-n="3">Подрядчик гарантирует качество выполнения всех Работ в соответствии с действующими нормами и правилами. Гарантийный срок на результаты Работ, включая отделочные работы и инженерные сети, составляет до 5 (пяти) лет с момента подписания итогового Акта сдачи-приемки выполненных работ; срок по каждому виду работ указывается в Смете.</mark></p><p class="cl"><b>5.2.</b> Гарантийный срок на оборудование (котлы, насосы, септики и т. п.) определяется изготовителем. Претензии Заказчика по такому оборудованию в течение гарантийного срока принимает Подрядчик.</p><p class="cl is-hl"><b>5.3.</b> <mark data-n="4">После получения уведомления Заказчика о выявленном недостатке Подрядчик в течение 2–3 (двух–трех) рабочих дней выезжает на Объект и устраняет недостаток в срок не более 10 (десяти) календарных дней.</mark></p><h5>6. ОТВЕТСТВЕННОСТЬ СТОРОН</h5><p class="cl is-hl"><b>6.1.</b> <mark data-n="5">Подрядчик выплачивает Заказчику неустойку в размере 0,05% (ноль целых пять сотых процента) от договорной цены выполненных работ за каждый день просрочки сроков выполнения Работ, но не более 10% (десять процентов) от стоимости незавершенных Работ.</mark></p><div class="ctr-sign"><div><b>Подрядчик</b><span>ИП Романов Владимир Владимирович</span><i class="ctr-sig">В. Романов</i><em>_______________ / В. В. Романов</em></div><div><b>Заказчик</b><span>______________________</span><i></i><em>_______________ / ____________</em></div></div></article><article class="ctr-page pg-m" aria-hidden="true"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 1</span></div><h4 class="ctr-title">ДОГОВОР ПОДРЯДА № А-____</h4><div class="ctr-sub">на ремонтно-отделочные работы</div><div class="ctr-place"><span>г. Москва</span><span>«__» __________ 2026 г.</span></div><p class="ctr-pre">ИП Романов Владимир Владимирович, именуемый в дальнейшем «Подрядчик», с одной стороны, и <u>______________________</u>, именуемый в дальнейшем «Заказчик», с другой стороны, совместно именуемые «Стороны», заключили настоящий Договор на выполнение ремонтно-отделочных работ (далее — Договор) о нижеследующем:</p><h5>1. ПРЕДМЕТ ДОГОВОРА</h5><p class="cl"><b>1.1.</b> Заказчик поручает, а Подрядчик (а также иное лицо, действующее по его поручению) принимает на себя обязательство выполнить ремонтно-отделочные работы в помещениях Заказчика (далее Объект) по адресу: <u>______________________</u>, общей площадью по горизонту пола ___ кв. м, а Заказчик обязуется принять выполненные работы и уплатить обусловленную договором стоимость работ.</p><p class="cl"><b>1.2.</b> Под Работами понимаются все работы, подлежащие выполнению Подрядчиком в соответствии с условиями настоящего Договора, в том числе и по дополнительным соглашениям к данному Договору, являющимися его неотъемлемой частью.</p><p class="cl"><b>1.3.</b> Все Работы в рамках настоящего договора оказываются/производятся Подрядчиком в соответствии с законодательством Российской Федерации.</p><p class="cl"><b>1.4.</b> Объем, содержание, параметры технического состояния результата Работ, выполняемых в соответствии с настоящим Договором, определяются в Смете (Приложение № 2 к настоящему Договору), по ценам, определенным в Прейскуранте на виды работ, являющимися неотъемлемой частью настоящего Договора.</p></article><article class="ctr-page pg-f"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 3</span></div><h5>2. СТОИМОСТЬ РАБОТ И ПОРЯДОК ОПЛАТЫ</h5><p class="cl"><b>2.1.</b> Стоимость выполняемых Подрядчиком Работ по настоящему Договору указывается в Смете (Приложение № 2) и Акте согласования объемов работ и цены договора.</p><p class="cl"><b>2.2.</b> Приемка этапов выполненных Работ производится на основании подписанных обеими Сторонами Актов сдачи-приемки выполненных Работ.</p><p class="cl is-hl"><b>2.3.</b> <mark data-n="1">Цена Договора, указанная в Смете, является твердой и не подлежит изменению в течение всего срока выполнения Работ. Изменение цены допускается только по решению Заказчика — при изменении им объема Работ или Материалов — и оформляется дополнительным соглашением, подписанным Заказчиком.</mark></p><p class="ctr-skip">пп. 2.4–2.11 — в полной версии договора</p><p class="cl is-hl"><b>2.12.</b> <mark data-n="2">Заказчик оплачивает Подрядчику выполненные им Работы поэтапно, за каждый этап, который длится до 10 (десяти) календарных дней — по факту выполнения Работ. Аванс за Работы не предусмотрен.</mark> Заказчик осуществляет проверку и приемку работ в рамках Акта сдачи-приемки выполненных работ, а затем, при отсутствии мотивированных возражений относительно качества выполненных работ, осуществляет их оплату. Общий срок на оплату выполненных работ составляет 4 (четыре) календарных дня, в рамках которых 3 (три) календарных дня предоставляются на приемку выполненных работ, и 1 (один) календарный день на их оплату.</p><p class="cl"><b>2.13.</b> Материалы и оборудование оплачиваются Заказчиком непосредственно Поставщику. Оплата выполненных Работ производится в безналичной форме на расчетный счет Подрядчика, либо в наличной форме Подрядчику.</p></article></button></div>
       </div>
       <div>
-        <ol class="rules">
-          <li class="rule reveal"><div><h3>Три части бюджета — отдельно</h3><p>Работы, материалы, мебель и техника считаются тремя строками. Вы видите, сколько стоит каждая.</p></div></li>
-          <li class="rule reveal"><div><h3>Аванс 20–30% — под отчёт</h3><p>Закупки начинаются сразу, поэтому аванс нужен. По каждой закупке ведём таблицу с чеками и фото.</p></div></li>
-          <li class="rule reveal"><div><h3>Дальше — только по актам</h3><p>Каждые 7–10 дней, с фотоотчётом. Оплата через расчётный счёт, закрывающие документы с НДС.</p></div></li>
-          <li class="rule reveal"><div><h3>Цена работ фиксируется в договоре</h3><p>Допработы — только по допсоглашению, подписанному до их начала.</p></div></li>
-        </ol>
-        <span class="todo">Уточнить у Романова: «от 90 000 ₽/м²» — с НДС или без. От ответа зависит пример на 80 м².</span>
+        <ol class="rules"><li class="rule reveal"><div><h3>Цена фиксируется в договоре</h3><p>Меняется, только если вы сами что-то добавили или поменяли, — и <span class="hl">только с вашей подписью</span> под допсоглашением.</p></div></li><li class="rule reveal"><div><h3>Аванс 20–30% — под отчёт</h3><p>Закупки начинаются сразу, поэтому аванс нужен. По каждой закупке — таблица с чеками и фото. Дальше — только по актам раз в 7–10 дней.</p></div></li><li class="rule reveal"><div><h3>Просрочку оплачиваю я</h3><p>График запуска — приложение к договору. За каждый день просрочки — <span class="hl">неустойка</span>, поэтому работаем в ночные смены, а не переносим открытие.</p></div></li><li class="rule reveal"><div><h3>Любой технадзор — без возражений</h3><p>Приводите инженера на любой этап. Скрытые работы закрываем только после проверки и фотофиксации.</p></div></li><li class="rule reveal"><div><h3>Работаем с НДС</h3><p>Оплата через расчётный счёт, закрывающие документы — по каждому акту. Бухгалтерия получает всё вовремя.</p></div></li><li class="rule reveal"><div><h3>Гарантия до 5 лет</h3><p>Выезд за 2–3 дня, устранение — до 10 дней. Гарантия записана в договоре и действует после открытия.</p></div></li></ol>
+        <span class="todo">Размер неустойки для коммерции подтвердить у Владимира (на квартирах — 0,05% в день).</span>
       </div>
     </div>
-  <div class="pt-check reveal" style="margin-top:clamp(48px,5vw,80px)"><div><h3 class="pt-check-title">Один проект — несколько вариантов сметы под ваш бюджет</h3><p class="lead-p">Покажем, как реализовать ваш проект в 2–3 вариантах: разная отделка стен, пола и потолка, материалы и решения узлов. Вы сравните цену и выберете — а концепция заведения останется прежней.</p><form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект, ТЗ или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required><button class="btn-primary" type="submit">Получить варианты сметы</button></div><p class="est-err" hidden>Проверьте номер телефона</p><div class="ld-pills" role="radiogroup" aria-label="Куда прислать варианты"><button type="button" class="pill" role="radio" aria-checked="true" aria-pressed="true">Telegram</button><button type="button" class="pill" role="radio" aria-checked="false" aria-pressed="false">MAX</button><button type="button" class="pill" role="radio" aria-checked="false" aria-pressed="false">WhatsApp</button></div><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form></div><img class="pt-estimg" src="img/design/estimate-com.webp" alt="Три варианта сметы для бара 100 м²: покраска и керамогранит, декоративная штукатурка и инженерная доска, микроцемент и шпон с паркетом и камнем" loading="lazy" decoding="async"></div><div class="fmt-ask reveal"><div class="fmt-head"><h3>С чего вы начинаете?</h3><p>Выберите свой вариант — посчитаем стоимость работ и срок запуска за 3 вопроса. Ориентир сразу на экране.</p></div><div class="fmt-cards"><button type="button" class="fmt-card" data-fq="ready"><b>Есть дизайн-проект</b><span class="fmt-d">Проверим проект, посчитаем смету и график за 2 рабочих дня и реализуем без упрощений.</span><span class="fmt-go">Рассчитать по проекту<span class="fmt-arw" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span></button><button type="button" class="fmt-card" data-fq="none"><b>Нужна концепция и проект</b><span class="fmt-d">Сделаем дизайн-проект и возьмём ремонт в тот же контур ответственности и тот же график.</span><span class="fmt-go">Рассчитать с проектом<span class="fmt-arw" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span></button><button type="button" class="fmt-card" data-fq="turnkey"><b>Под ключ с мебелью</b><span class="fmt-d">Проект, ремонт, мебель, техника и клининг — принимаете заведение, готовое к гостям.</span><span class="fmt-go">Рассчитать под ключ<span class="fmt-arw" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span></button></div></div>
   </div>
 </section>
 
-<!-- 13. FOUNDER & TEAM -->
+<section class="risks">
+  <div class="container">
+    <h2 class="section-heading reveal" style="max-width:26ch">3 провала, которые сдвигают открытие, — <span class="tone">и что стоит против каждого в договоре</span></h2>
+    <p class="section-intro reveal">Аренда качественного помещения в Москве — в среднем около 4 300 ₽ за м² в месяц. Пока идёт ремонт, зал платит её и не зарабатывает, <span class="hl">поэтому каждая неделя задержки бьёт по бюджету открытия.</span></p><p class="risk-src reveal">Средняя ставка аренды качественного стрит-ритейла, данные консалтинговой компании NEO за 2025 год</p>
+    <div class="risk-grid">
+      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 6.5h17v14h-17z"/><path d="M3.5 11h17M8 3.5v5M16 3.5v5"/><path d="M10 14.5l4 4M14 14.5l-4 4"/></svg></span><span class="risk-n">01</span></div><h3>Срыв графика запуска</h3><div class="risk-how">График — приложение к договору</div><p>За каждый день просрочки плачу неустойку. Чтобы её не платить, работаем в ночные смены и держим один график на отделку, инженерию и поставки.</p></article>
+      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 21V6.5L12 3l8 3.5V21"/><path d="M2.5 21h19"/><path d="M9.5 21v-5h5v5"/><path d="M8 9h1.5M14.5 9H16M8 12.5h1.5M14.5 12.5H16"/></svg></span><span class="risk-n">02</span></div><h3>Конфликт с арендодателем</h3><div class="risk-how">Согласования ведём мы</div><p>Режим работ, пропуска, шумные этапы и вывоз согласуем с арендодателем и управляющей компанией до старта — вы не оказываетесь между подрядчиком и ТЦ.</p></article>
+      <article class="risk-card reveal"><div class="risk-top"><span class="risk-ic"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 18l6-6 4 4 7.5-7.5"/><path d="M15 8.5h5.5V14"/><path d="M3 21.5h18"/></svg></span><span class="risk-n">03</span></div><h3>Смета растёт допработами</h3><div class="risk-how">Цена фиксируется до старта</div><p>Любое изменение — только по допсоглашению, подписанному до начала работ. Инженерию, которая обычно занимает 20–30% бюджета, показываем заранее.</p></article>
+    </div>
+    <span class="todo">Ставка аренды — открытые данные NEO за 2025 год (4 300 ₽/м² в месяц, стрит-ритейл Москвы). Размер неустойки для коммерции подтвердить (сейчас 0,05% в день).</span>
+  </div>
+</section>
+
+<section class="ally">
+  <div class="container">
+    <div class="ally-grid">
+      <div class="photo ph-img ally-photo reveal" role="img" aria-label="Замер помещения лазерным дальномером в присутствии заказчицы" style="background-image:url(img/com/steps/s2-visit.jpg);background-position:center 40%"></div>
+      <div>
+        <span class="label-sm reveal">Моя роль в вашем запуске</span>
+        <h2 class="reveal">Ваш человек на объекте, пока вы готовите открытие</h2>
+        <p class="lead-p reveal">У каждого участника стройки свой интерес, а мой — <span class="hl">чтобы вы открылись в дату из договора</span> и по цене из сметы.</p>
+        <div class="ally-rows">
+          <div class="ally-row reveal"><b>Арендодатель и ТЦ</b><p>Режим работ, пропуска, шумные этапы, разгрузку и вывоз мусора согласуем мы. Вы не оказываетесь между подрядчиком и арендодателем.</p></div>
+          <div class="ally-row reveal"><b>Поставщики</b><p>Сроки, брак, замены «на аналог» — спорим мы. Мебель, камень и оборудование с долгой поставкой заказываем заранее по графику.</p></div>
+          <div class="ally-row reveal"><b>Дизайн-проект</b><p>Находим ошибки до закупок, проверяем требования ТЦ и пожарные нормы, решения согласуем с вашим дизайнером.</p></div>
+          <div class="ally-row reveal"><b>Мастера</b><p>Одна специализация — одно звено: электрик, вентиляционщик и отделочник отвечают каждый за своё. Скрытые работы принимаю лично.</p></div>
+        </div>
+        <p class="ally-close reveal">Вам остаётся готовить команду и запуск — а не разбираться в стройке.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="control">
+  <div class="container">
+    <h2 class="section-heading reveal">Вы видите каждый этап — <span class="tone">и не тратите на это рабочие дни</span></h2>
+    <p class="section-intro reveal"><span class="hl">О проблеме вы узнаёте первым</span> — а не когда её закрыли отделкой.</p>
+    
+    <div class="control-split">
+      <div class="control-list"><div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="6" width="13" height="12"/><path d="M16 10l5-3v10l-5-3"/></svg></span><h3>Статус каждую пятницу</h3><p>Факт недели и план следующей — со сверкой с датой открытия. Отклонение видно сразу, а не за неделю до запуска.</p></div><div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 8h4l2-3h6l2 3h4v11H3z"/><circle cx="12" cy="13" r="3.5"/></svg></span><h3>Фотоархив скрытых работ</h3><p>Электрику, вентиляцию и трассы снимаем с привязкой к плану до зашивки. Архив остаётся у вас — для обслуживания.</p></div><div class="reveal cl-row"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 3h4l2 5-2.500 1.500a11 11 0 006 6L16 13l5 2v4a2 2 0 01-2 2A16 16 0 013 5a2 2 0 012-2z"/></svg></span><h3>Чат проекта и мой телефон</h3><p>В чате — я, прораб и ваш управляющий. Видеоотчёт с объекта — минимум раз в неделю.</p></div></div>
+      <div>
+        <div class="tgs reveal" role="img" aria-label="Чат проекта в Telegram: еженедельный отчёт прораба и ответ управляющему заведением">
+  <div class="tgs-status" aria-hidden="true"><b>19:24</b><span><svg viewBox="0 0 18 12" aria-hidden="true"><rect x="0" y="8" width="3" height="4" rx=".8"/><rect x="5" y="5.5" width="3" height="6.5" rx=".8"/><rect x="10" y="3" width="3" height="9" rx=".8"/><rect x="15" y="0" width="3" height="12" rx=".8"/></svg><svg viewBox="0 0 16 12" aria-hidden="true"><path d="M8 11.5 5.6 9a3.4 3.4 0 0 1 4.8 0Z"/><path d="M3.6 7a6.2 6.2 0 0 1 8.8 0l-1.3 1.3a4.4 4.4 0 0 0-6.2 0Z"/><path d="M1.4 4.8a9.3 9.3 0 0 1 13.2 0l-1.3 1.3a7.5 7.5 0 0 0-10.6 0Z"/></svg><i class="tgs-bat">78</i></span></div>
+  <div class="tgs-head" aria-hidden="true">
+    <span class="tgs-back"><svg viewBox="0 0 12 20" aria-hidden="true"><path d="M10 2 2 10l8 8" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><i>12</i></span>
+    <span class="tgs-title"><b>Бар 90 м² · центр Москвы</b><small>Владимир, прораб Сергей, управляющий</small></span>
+    <span class="tgs-ava">К</span>
+  </div>
+  <div class="tgs-body" aria-hidden="true">
+    <div class="tgs-day">Пятница</div>
+    <div class="tgs-in"><span class="tgs-from">Сергей · прораб</span>Статус за неделю 16–20 сентября:<br>— Вентиляция смонтирована, прогон всех режимов в понедельник<br>— Камень для барной стойки приедет в среду, монтаж по графику<br>— В альбоме 24 фото скрытых работ с привязкой к плану<span class="tgs-t">18:30</span></div>
+    <div class="tgs-in tgs-album"><div class="tgs-grid"><span style="background-image:url(img/polar/b4.jpg)"><i class="tgs-vid">▶ 2:14</i></span><span style="background-image:url(img/marcelo/m08.jpg)"></span><span style="background-image:url(img/polar/b2.jpg)"></span><span style="background-image:url(img/marcelo/m10.jpg)"><em>+20</em></span></div><span class="tgs-t on-img">18:31</span></div>
+    <div class="tgs-out">Спасибо! Успеваем к открытию 15-го?<span class="tgs-t">19:15<svg class="tgs-chk" viewBox="0 0 18 10" aria-hidden="true"><path d="M1 5.5 4 8.5 10.5 1.5M7.5 8.5 14.5 1.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+    <div class="tgs-in"><span class="tgs-from v">Владимир Романов</span>Да, идём по графику. В понедельник с 10 до 14 на объекте — покажу прогон вентиляции.<span class="tgs-t">19:22</span></div>
+  </div>
+  <div class="tgs-input" aria-hidden="true"><span class="tgs-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5 12.2 19.3a5 5 0 0 1-7.1-7.1l8.1-8.1a3.3 3.3 0 0 1 4.7 4.7l-8.1 8.1a1.7 1.7 0 0 1-2.4-2.4l7.4-7.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span><span class="tgs-field">Сообщение<i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M12 3.5a8.5 8.5 0 0 0 8.5 8.5" fill="none" stroke="currentColor" stroke-width="1.7"/></svg></i></span><span class="tgs-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M5.5 11a6.5 6.5 0 0 0 13 0M12 17.5V21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span></div>
+</div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<section class="price-truth" id="honest-price">
+  <div class="container">
+    <div class="pt-check reveal"><div><h3 class="pt-check-title">Один проект — несколько вариантов сметы под ваш бюджет</h3><p class="lead-p">Покажем, как реализовать ваш проект в 2–3 вариантах: разная отделка стен, пола и потолка, материалы и решения узлов. Вы сравните цену и выберете — а концепция заведения останется прежней.</p><form class="est-f" novalidate><label class="est-drop"><input type="file" name="file" accept=".pdf,.jpg,.jpeg,.png,.dwg,.docx,.xlsx,.zip"><span class="est-ico"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg></span><span><b>Прикрепите проект, ТЗ или смету</b><small>PDF, JPG, DWG, XLSX или ZIP до 50 МБ — необязательно</small></span></label><div class="est-row"><input class="form-input" type="tel" name="phone" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" aria-label="Телефон" required><button class="btn-primary" type="submit">Получить варианты сметы</button></div><p class="est-err" hidden>Проверьте номер телефона</p><div class="ld-pills" role="radiogroup" aria-label="Куда прислать варианты"><button type="button" class="pill" role="radio" aria-checked="true" aria-pressed="true">Telegram</button><button type="button" class="pill" role="radio" aria-checked="false" aria-pressed="false">MAX</button><button type="button" class="pill" role="radio" aria-checked="false" aria-pressed="false">WhatsApp</button></div><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form></div><img class="pt-estimg" src="img/design/estimate-com.webp" alt="Три варианта сметы для бара 100 м²: покраска и керамогранит, декоративная штукатурка и инженерная доска, микроцемент и шпон с паркетом и камнем" loading="lazy" decoding="async"></div>
+  </div>
+</section>
+
 <section class="founder-sec team-section" id="team">
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:26ch">60 человек в команде, объект проверяю я — <span class="tone">не реже раза в 7 дней. Гарантия — до 5 лет</span></h2>
@@ -5519,8 +5473,138 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   </div>
 </section>
 
+<section class="errors" id="errors">
+  <div class="container">
+    <h2 class="section-heading reveal" style="max-width:26ch">Две ошибки из чек-листа запуска, которые сдвигают открытие</h2>
+    <p class="section-intro reveal">Обе не видны на визуализации — и обе всплывают, когда зал уже почти готов.</p>
+    <div class="err-grid">
+      <article class="err-card reveal">
+        <div class="photo ph-img solo" role="img" aria-label="Электрощит после монтажа" style="background-image:url(img/eng/shield.jpg);background-position:center"></div>
+        <div class="err-body">
+          <h3>Мощности не хватает под оборудование</h3>
+          <p>Кухня, бар и техника требуют мощности, которой в помещении нет. Проверяем выделенную мощность до сметы, а не в день подключения оборудования.</p>
+          <div class="err-cost"><span>Если найти после отделки</span><b>новое согласование и сдвиг запуска</b></div>
+        </div>
+      </article>
+      <article class="err-card reveal">
+        <div class="photo ph-img solo" role="img" aria-label="Воздуховоды вентиляции под потолком до зашивки" style="background-image:url(img/eng/vent.jpg);background-position:center"></div>
+        <div class="err-body">
+          <h3>Вытяжку некуда вывести</h3>
+          <p>Проект показывает кухню, но не говорит, куда выводить воздух. Выход вытяжки согласуем с арендодателем до начала работ.</p>
+          <div class="err-cost"><span>Если найти на стройке</span><b>вскрытие потолков и переделка трасс</b></div>
+        </div>
+      </article>
+    </div>
+    <div class="lm-card wide reveal">
+      <img class="lm-chkimg lm-com" src="img/design/checklist-com.jpg" alt="Чек-лист БюроРОМАНОВЪ «15 пунктов запуска заведения в дату из бизнес-плана»" loading="lazy" decoding="async">
+      <div class="lm-body">
+        <b>Я собрал 15 пунктов, которые проверяем на каждом коммерческом объекте, — <span class="hl">чтобы заведение открылось в дату из бизнес-плана</span></b>
+        <p>Для владельца и управляющего: от договора аренды до дня открытия — чем грозит каждый пункт и как проверить его самому.</p>
+        <div class="lm-actions"><button type="button" class="btn-primary" data-lead="checklist">Получить чек-лист</button><button class="btn-outline" data-scroll="final">Прислать проект на проверку</button></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<!-- 22. FAQ -->
+<section class="scope price-sec">
+  <div class="container">
+    <h2 class="section-heading reveal" style="max-width:28ch">От демонтажа до клининга перед открытием — <span class="tone">один договор вместо отдельных подрядчиков на отделку, инженерию и мебель</span></h2>
+    <div class="price-split reveal">
+      <div>
+        <h3>На нас</h3>
+        <ul>
+          <li>Демонтаж, черновые и чистовые работы</li>
+          <li>Инженерия: электрика, вентиляция, сантехника, кондиционирование, управление светом</li>
+          <li>Закупки и логистика материалов</li>
+          <li>Комплектация мебелью и техникой</li>
+          <li>Согласования с арендодателем и управляющей компанией</li>
+          <li>Исполнительные схемы и закрывающие документы по актам</li>
+          <li>Клининг перед открытием — в подарок</li>
+        </ul>
+      </div>
+      <div class="extra">
+        <h3>За вами</h3>
+        <ul>
+          <li>Концепция и бизнес</li>
+          <li>Выбор финишных материалов</li>
+          <li>Решения об изменениях — напрямую или через управляющего и архитектора</li>
+        </ul>
+        <h3 style="margin-top:28px">Отдельной строкой в смете</h3>
+        <ul>
+          <li>Вывоз мусора — считаем по объекту и показываем до договора</li>
+          <li>Материалы, мебель и техника — по счетам поставщиков</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="eng eng-main" id="engineering">
+  <div class="container">
+    <h2 class="section-heading reveal">Все системы прогоняем во всех режимах до открытия — <span class="tone">а не в первый вечер с гостями</span></h2>
+    <p class="section-intro reveal">Вентиляция, электрика, свет и звук проверяются <span class="hl">под полной нагрузкой</span>, пока в зале ещё нет гостей.</p>
+    <div class="eng-grid">
+      <div class="eng-col reveal"><figure class="eng-t eng-t-shield"><img src="img/eng/shield.jpg" alt="Электрощит с маркировкой линий в нише за фасадом" loading="lazy" decoding="async" style="object-position:50% 30%"><figcaption>Электрощит</figcaption></figure><figure class="eng-t eng-t-vent"><img src="img/eng/vent.jpg" alt="Вентиляция, кондиционирование и кабельные трассы под потолком до отделки" loading="lazy" decoding="async" style="object-position:50% 45%"><figcaption>Вентиляция и трассы</figcaption></figure><figure class="eng-t eng-t-water-panel"><img src="img/eng/water-panel.jpg" alt="Узел водоподготовки: фильтры, редукторы, коллекторы с кранами на каждую линию" loading="lazy" decoding="async" style="object-position:50% 38%"><figcaption>Водоподготовка</figcaption></figure><figure class="eng-t eng-t-water-niche"><img src="img/eng/water-niche.jpg" alt="Техническая ниша: вводы воды, защита от протечек, коллекторы и инсталляция" loading="lazy" decoding="async" style="object-position:50% 25%"><figcaption>Коллекторы</figcaption></figure><figure class="eng-t eng-t-cables"><img src="img/eng/cables.jpg" alt="Кабельные трассы в гофре под потолком, разведённые по группам" loading="lazy" decoding="async" style="object-position:60% 40%"><figcaption>Кабели</figcaption></figure><figure class="eng-t eng-t-floor"><img src="img/eng/floor.jpg" alt="Трассы воды, отопления и электрики в полу до стяжки" loading="lazy" decoding="async" style="object-position:45% 70%"><figcaption>Трассы в полу</figcaption></figure></div>
+      <div>
+        <div class="eng-list">
+          <div class="eng-item reveal"><h3>Шумоизоляция</h3><p>«Коробка в коробке» по техкартам ТехноСонус: бар, который не слышат жильцы сверху.</p></div>
+          <div class="eng-item reveal"><h3>Вентиляция</h3><p>Приточно-вытяжная установка вместо штатных вытяжек помещения.</p></div>
+          <div class="eng-item reveal"><h3>Электрика</h3><p>Щит с маркировкой каждой линии. Лаборатория на объекте проверяет три фазы.</p></div>
+          <div class="eng-item reveal"><h3>Свет</h3><p>Проводное управление и сценарии освещения — вплоть до голосового.</p></div>
+          <div class="eng-item reveal"><h3>Проверка проекта</h3><p>Технические ошибки фиксируем письменно до старта, а не находим после зашивки.</p></div>
+          <div class="eng-item reveal"><h3>Тестовый прогон</h3><p>Все системы — во всех режимах, акт испытаний остаётся у вас.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="eng furn" id="furniture">
+  <div class="container">
+    <h2 class="section-heading reveal">Стойки, мебель и камень — <span class="tone">по проекту вашего заведения</span></h2>
+    <p class="section-intro reveal">Барные стойки, ресепшены, витрины, стеновые панели и изделия из камня изготавливаем по чертежам проекта — с замером по готовым стенам после черновых работ.</p>
+    <div class="eng-grid">
+      <div class="mfv-grid"><figure class="mfv-card reveal"><button type="button" class="mfv-play" data-v="video/furn/kitchen.mp4" data-p="video/furn/kitchen.jpg" aria-label="Смотреть видео: Кухня с каменной столешницей и фасадами в шпоне"><img src="video/furn/kitchen.jpg" alt="Кухня с фасадами в шпоне, каменной столешницей и встроенными духовыми шкафами" loading="lazy" decoding="async"><span class="mfv-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="mfv-dur">0:15</span></button><figcaption>Кухня с каменной столешницей и фасадами в шпоне</figcaption></figure><figure class="mfv-card reveal"><button type="button" class="mfv-play" data-v="video/furn/panels.mp4" data-p="video/furn/panels.jpg" aria-label="Смотреть видео: Стеновые панели из шпона с подсветкой"><img src="video/furn/panels.jpg" alt="Комната со стенами из деревянных реек и тёплой подсветкой по периметру" loading="lazy" decoding="async"><span class="mfv-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="mfv-dur">0:09</span></button><figcaption>Стеновые панели из шпона с подсветкой</figcaption></figure><figure class="mfv-card reveal"><button type="button" class="mfv-play" data-v="video/furn/bath.mp4" data-p="video/furn/bath.jpg" aria-label="Смотреть видео: Ванная: изделия из камня"><img src="video/furn/bath.jpg" alt="Ванна в обрамлении из тёмного камня и мозаики в ванной с мраморными стенами" loading="lazy" decoding="async"><span class="mfv-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="mfv-dur">0:12</span></button><figcaption>Ванная: изделия из камня</figcaption></figure><figure class="mfv-card reveal"><button type="button" class="mfv-play" data-v="video/furn/sills.mp4" data-p="video/furn/sills.jpg" aria-label="Смотреть видео: Подоконники из искусственного камня"><img src="video/furn/sills.jpg" alt="Комната с большими окнами: белые подоконники из искусственного камня над решётками радиаторов" loading="lazy" decoding="async"><span class="mfv-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="mfv-dur">0:29</span></button><figcaption>Подоконники из искусственного камня</figcaption></figure></div>
+      <div>
+        <div class="eng-list"><div class="eng-item reveal"><h3>Барные стойки и ресепшены</h3><p>Корпус, столешница из камня и встроенное оборудование — одним изделием, выводы спрятаны заранее.</p></div><div class="eng-item reveal"><h3>Витрины, стеллажи и шкафы</h3><p>Фасады в эмали, шпоне и МДФ до 2750 × 1200 мм. Гарантия на фасады — 24 месяца.</p></div><div class="eng-item reveal"><h3>Изделия из искусственного камня</h3><p>Столешницы, подоконники, раковины и бесшовные поддоны — акрил и кварц.</p></div><div class="eng-item reveal"><h3>В одном графике с ремонтом</h3><p>Закладные и выводы под оборудование — до отделки. Монтаж мебели — последним этапом, без сдвига открытия.</p></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="price-sec format-section" id="price">
+  <div class="container">
+    <h2 class="section-heading reveal">Сколько стоит и что входит в цену</h2>
+    <div class="format-main reveal">
+      <div>
+        <div class="format-title">Работы под ключ</div>
+        <div class="format-price">от 90 000 ₽ / м²</div>
+        <div class="format-desc">Это стоимость работ, и <span class="hl">она фиксируется в договоре</span>. Материалы, мебель и техника считаются отдельно — тремя строками сметы.</div>
+        <div class="price-example">
+          <div class="price-example-title">Пример: помещение 80 м²</div>
+          <div class="price-example-row"><span>Работы под ключ</span><b>от 7,2 млн ₽</b></div>
+          <div class="price-example-row"><span>Аванс 20–30%</span><b>1,4–2,2 млн ₽</b></div>
+          <div class="price-example-row"><span>Срок по графику</span><b>до 2 месяцев</b></div>
+        </div>
+        <button class="btn-primary" type="button" data-fq="" style="margin-top:28px">Рассчитать мой объект</button>
+      </div>
+      <div class="price-split">
+        <div>
+          <h3>Входит в стоимость работ</h3>
+          <ul><li>Технический аудит проекта</li><li>Демонтаж и подготовка</li><li>Инженерия: монтаж, испытания и прогон систем</li><li>Черновая и чистовая отделка</li><li>Столярные и декоративные работы</li><li>Закупки и логистика материалов</li><li>Согласования с арендодателем и ТЦ</li><li>Ночные смены, если нужно по режиму ТЦ</li><li>Акты, фотоархив, исполнительные схемы</li><li>Клининг перед открытием</li><li>Гарантия до 5 лет</li></ul>
+        </div>
+        <div class="extra">
+          <h3>Оплачивается отдельно</h3>
+          <ul><li>Материалы и оборудование — по смете, с чеками по каждой закупке</li><li>Вывоз мусора — отдельной строкой в смете до договора</li><li>Дизайн-проект — если его нет</li><li>Мебель и техника — подбор, закупка и монтаж отдельной строкой</li></ul>
+        </div>
+      </div>
+    </div>
+    <div class="fmt-ask reveal"><div class="fmt-head"><h3>С чего вы начинаете?</h3><p>Выберите свой вариант — посчитаем стоимость работ и срок запуска за 3 вопроса. Ориентир сразу на экране.</p></div><div class="fmt-cards"><button type="button" class="fmt-card" data-fq="ready"><b>Есть дизайн-проект</b><span class="fmt-d">Проверим проект, посчитаем смету и график за 2 рабочих дня и реализуем без упрощений.</span><span class="fmt-go">Рассчитать по проекту<span class="fmt-arw" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span></button><button type="button" class="fmt-card" data-fq="none"><b>Нужна концепция и проект</b><span class="fmt-d">Сделаем дизайн-проект и возьмём ремонт в тот же контур ответственности и тот же график.</span><span class="fmt-go">Рассчитать с проектом<span class="fmt-arw" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span></button><button type="button" class="fmt-card" data-fq="turnkey"><b>Под ключ с мебелью</b><span class="fmt-d">Проект, ремонт, мебель, техника и клининг — принимаете заведение, готовое к гостям.</span><span class="fmt-go">Рассчитать под ключ<span class="fmt-arw" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg></span></span></button></div></div>
+    <span class="todo">Уточнить у Романова: «от 90 000 ₽/м²» — с НДС или без. От ответа зависит пример на 80 м².</span>
+  </div>
+</section>
+
 <section class="faq" id="faq">
   <div class="container">
     <div class="faq-grid">
@@ -5543,7 +5627,14 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
   </div>
 </section>
 
-<!-- 23. FINAL -->
+<section class="route8" id="route">
+  <div class="container">
+    <h2 class="reveal">Смета, график и спецификация — <span class="tone">у вас до первого платежа</span></h2>
+    <p class="section-intro reveal">Дальше отчёт каждую пятницу. Семь шагов от консультации до открытия. <span class="hl">Срок работ — до 2 месяцев.</span></p>
+    <div class="r9 r9v reveal" style="--n:7"><div class="r9-tabs" role="tablist" aria-label="Этапы работы"><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-0" aria-controls="r9p-vcommerce-0" aria-selected="true" tabindex="0"><i>01</i><b>Консультация</b><small>15–20 минут</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-1" aria-controls="r9p-vcommerce-1" aria-selected="false" tabindex="-1"><i>02</i><b>Выезд на объект</b><small>бесплатно</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-2" aria-controls="r9p-vcommerce-2" aria-selected="false" tabindex="-1"><i>03</i><b>Проверка проекта</b><small>бесплатно</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-3" aria-controls="r9p-vcommerce-3" aria-selected="false" tabindex="-1"><i>04</i><b>Смета и график</b><small>до 2 рабочих дней</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-4" aria-controls="r9p-vcommerce-4" aria-selected="false" tabindex="-1"><i>05</i><b>Договор</b><small>с НДС</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-5" aria-controls="r9p-vcommerce-5" aria-selected="false" tabindex="-1"><i>06</i><b>Работы</b><small>до 2 месяцев</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-6" aria-controls="r9p-vcommerce-6" aria-selected="false" tabindex="-1"><i>07</i><b>Сдача</b><small>по акту</small></button></div><div class="r9-box"><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-0" aria-labelledby="r9t-vcommerce-0"><div class="r9-ph"><img src="img/com/steps/s1-call.jpg" alt="Заказчица обсуждает по телефону план заведения на экране ноутбука" loading="lazy" decoding="async"></div><div class="r9-body"><h3>За 20 минут поймёте, тот ли это подрядчик</h3><p class="r9-t">Обсуждаем формат, площадь, проект и дату открытия. Если объект не наш профиль — скажем сразу и не будем тратить ваше время.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Честный ответ, берём ли объект</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Ориентир по бюджету и срокам — уже в разговоре</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Без обязательств и предоплаты</span></li></ul><div class="r9-fear"><b>Начнут продавать и навязывать?</b>Нет. Если задача не наша — так и скажем и подскажем, кто справится лучше.</div><div class="r9-res"><small>Результат шага</small>Понятно, есть ли смысл двигаться дальше</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="1">Следующий шаг</button><span class="r9-cnt"><b>01</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-1" aria-labelledby="r9t-vcommerce-1" hidden><div class="r9-ph"><img src="img/com/steps/s2-visit.jpg" alt="Замер помещения лазерным дальномером в присутствии заказчицы" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Смотрим помещение до того, как назвать итоговую цену</h3><p class="r9-t">Предварительную стоимость назовём и по проекту, итоговую — после замеров на месте. Осматриваем вводы электричества, воду, вентиляцию, делаем замеры. Сразу видно, что придётся согласовывать с арендодателем и торговым центром.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Мощность и вводы проверены до сметы</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Список вопросов к арендодателю</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Замеры для точной сметы</span></li></ul><div class="r9-fear"><b>Цена вырастет, когда вскроют стены?</b>Скрытые риски ищем до сметы, а не во время работ.</div><div class="r9-res"><small>Результат шага</small>Понятно состояние помещения и что согласовать с арендодателем</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="2">Следующий шаг</button><span class="r9-cnt"><b>02</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-2" aria-labelledby="r9t-vcommerce-2" hidden><div class="r9-ph"><img src="img/com/steps/s3-check.jpg" alt="Проверка плана заведения: замечания отмечены красным, рядом список замечаний" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Находим ошибки проекта на бумаге, а не в бетоне</h3><p class="r9-t">Проверяем дизайн-проект на технические ошибки: нагрузки, вентиляцию, выводы под оборудование, требования торгового центра и пожарные нормы.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Письменный список замечаний</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Исправления — до закупки материалов</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Проект, который можно построить в срок</span></li></ul><div class="r9-fear"><b>Проект красивый, но по нему не построить?</b>Это видно на этапе проверки — дизайнер успеет поправить до старта.</div><div class="r9-res"><small>Результат шага</small>Ошибки исправлены в проекте до закупок, а не на стройке</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="3">Следующий шаг</button><span class="r9-cnt"><b>03</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-3" aria-labelledby="r9t-vcommerce-3" hidden><div class="r9-ph"><img src="img/com/steps/s4-estimate.jpg" alt="Смета и график работ БюроРОМАНОВЪ на столе с образцами материалов" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Бюджет и дата открытия известны до первого платежа</h3><p class="r9-t">Построчная смета по видам работ, график запуска по неделям и спецификация материалов. Видно, за что вы платите на каждом этапе.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>2–3 варианта сметы под ваш бюджет</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>График привязан к дате открытия</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Инженерия посчитана сразу — это 20–30% бюджета</span></li></ul><div class="r9-fear"><b>Смета вырастет в процессе?</b>Цена фиксируется в договоре. Любое изменение — только по допсоглашению до начала работ.</div><div class="r9-res"><small>Результат шага</small>Смета, график запуска и спецификация — до первого платежа</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="4">Следующий шаг</button><span class="r9-cnt"><b>04</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-4" aria-labelledby="r9t-vcommerce-4" hidden><div class="r9-ph"><img src="img/com/steps/s5-contract.jpg" alt="Подписание договора подряда с графиком работ в приложении" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Срок и цена — в договоре, а не на словах</h3><p class="r9-t">Фиксированная цена, график как приложение к договору, неустойка за каждый день просрочки, аванс 20–30% и оплата по актам.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Работаем с НДС, все закрывающие документы</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Неустойка за просрочку — наша ответственность</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Платите только за принятые этапы</span></li></ul><div class="r9-fear"><b>Возьмут аванс и пропадут?</b>Аванс — 20–30%. Дальше оплата этапами, только после подписанного акта.</div><div class="r9-res"><small>Результат шага</small>Неустойка за каждый день просрочки — в договоре</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="5">Следующий шаг</button><span class="r9-cnt"><b>05</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-5" aria-labelledby="r9t-vcommerce-5" hidden><div class="r9-ph"><img src="img/com/steps/s6-works.jpg" alt="Монтаж стеновых панелей в зале, прораб сверяется с планшетом" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Объект под контролем, даже если вы на нём не бываете</h3><p class="r9-t">Один график на отделку, инженерию и поставки, ночные смены при необходимости. Акты каждые 7–10 дней, статус — по пятницам.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Фото скрытых работ до зашивки</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Видеоотчёт с объекта минимум раз в неделю</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Ваш технадзор — на любом этапе</span></li></ul><div class="r9-fear"><b>Придётся каждый день ездить на стройку?</b>Нет. Факт недели и план следующей приходят в мессенджер.</div><div class="r9-res"><small>Результат шага</small>Открытие — в дату из графика</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="6">Следующий шаг</button><span class="r9-cnt"><b>06</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-6" aria-labelledby="r9t-vcommerce-6" hidden><div class="r9-ph"><img src="img/com/steps/s7-handover.jpg" alt="Приёмка готового ресторана: заказчица и представитель бюро у барной стойки" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Открываетесь в готовом зале, а не на стройке</h3><p class="r9-t">Тестовый прогон всех систем, клининг, исполнительные схемы и гарантийный талон. Передаём зал, в котором можно сразу принимать гостей.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Системы проверены под нагрузкой до открытия</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Исполнительные схемы — для обслуживания</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Гарантийные обязательства — в договоре</span></li></ul><div class="r9-fear"><b>После сдачи подрядчика не найти?</b>Гарантия прописана в договоре, и мы на связи после открытия.</div><div class="r9-res"><small>Результат шага</small>Зал готов к открытию, гарантийный талон на руках</div><div class="r9-nav"><a class="btn-outline" href="cases.html#com">Посмотреть объекты</a><span class="r9-cnt"><b>07</b> / 07</span></div></div></div></div></div>
+  </div>
+</section>
+
 <section class="final8" id="final">
   <div class="container">
     <div class="final8-grid">
@@ -6520,7 +6611,7 @@ a.top-bar-cta, a.btn-primary, a.btn-outline, a.pf-more, a.qz-msg, a.hdr-call{ te
 })();
 </script>
 
-<dialog class="ld-dlg" id="leadDlg" aria-labelledby="ldT"><form class="ld-f" novalidate><button type="button" class="ld-x" aria-label="Закрыть">×</button><h3 id="ldT"></h3><p class="ld-d"></p><label class="ld-lab" for="ldPhone">Телефон</label><input class="form-input" id="ldPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required><p class="ld-err" hidden>Проверьте номер телефона</p><span class="ld-lab ld-l"></span><div class="ld-pills" role="radiogroup"></div><button class="btn-primary ld-go" type="submit"></button><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form><div class="ld-ok" hidden><span class="ld-check" aria-hidden="true"></span><h3>Спасибо!</h3><p></p><button type="button" class="btn-outline ld-close">Закрыть</button></div></dialog><script>(function(){var C={"video": {"t": "Видеопоказ объекта", "d": "Оставьте телефон — согласуем удобное время и покажем объект по видеосвязи.", "l": "Как удобнее согласовать время", "o": ["Telegram", "MAX", "WhatsApp", "Звонок"], "b": "Записаться на видеопоказ", "ok": "Заявка принята. Свяжемся в течение рабочего дня и согласуем время видеопоказа."}, "visit": {"t": "Визит на объект", "d": "Оставьте телефон — согласуем дату экскурсии на объект, где мы сейчас работаем.", "l": "Как удобнее согласовать выезд", "o": ["Telegram", "MAX", "WhatsApp", "Звонок"], "b": "Договориться о визите", "ok": "Заявка принята. Свяжемся в течение рабочего дня и предложим дату визита."}, "docs": {"t": "Образцы документов", "d": "Договор подряда, график производства работ и акт приёмки — пришлём в удобный мессенджер.", "l": "Куда прислать документы", "o": ["Telegram", "MAX", "WhatsApp"], "b": "Получить документы", "ok": "Готово. Пришлём образцы документов в выбранный мессенджер в течение рабочего дня."}, "estimate": {"t": "Варианты сметы", "d": "Пришлите дизайн-проект или планировку — подготовим 2–3 варианта реализации под ваш бюджет.", "l": "Куда прислать варианты", "o": ["Telegram", "MAX", "WhatsApp"], "b": "Получить варианты", "ok": "Заявка принята. Напишем в выбранный мессенджер — туда же можно прислать проект файлом."}, "catalog": {"t": "Каталог проектов", "d": "Планировки, визуализации и фото готовых квартир — PDF в удобный мессенджер.", "l": "Куда прислать каталог", "o": ["Telegram", "MAX", "WhatsApp"], "b": "Получить каталог", "ok": "Готово. Пришлём каталог в выбранный мессенджер в ближайшее время."}, "checklist": {"t": "Чек-лист «20 ошибок»", "d": "Ошибки дизайн-проектов, которые всплывают на стройке, — PDF в удобный мессенджер.", "l": "Куда прислать чек-лист", "o": ["Telegram", "MAX", "WhatsApp"], "b": "Получить чек-лист", "ok": "Готово. Пришлём чек-лист в выбранный мессенджер в ближайшее время."}},d=document.getElementById('leadDlg');if(!d||!d.showModal)return;
+<dialog class="ld-dlg" id="leadDlg" aria-labelledby="ldT"><form class="ld-f" novalidate><button type="button" class="ld-x" aria-label="Закрыть">×</button><h3 id="ldT"></h3><p class="ld-d"></p><label class="ld-lab" for="ldPhone">Телефон</label><input class="form-input" id="ldPhone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required><p class="ld-err" hidden>Проверьте номер телефона</p><span class="ld-lab ld-l"></span><div class="ld-pills" role="radiogroup"></div><button class="btn-primary ld-go" type="submit"></button><p class="form-consent">Нажимая кнопку, вы соглашаетесь с <a href="#">политикой обработки персональных данных</a>.</p></form><div class="ld-ok" hidden><span class="ld-check" aria-hidden="true"></span><h3>Спасибо!</h3><p></p><button type="button" class="btn-outline ld-close">Закрыть</button></div></dialog><script>(function(){var C={"video": {"t": "Видеопоказ объекта", "d": "Оставьте телефон — согласуем удобное время и покажем объект по видеосвязи.", "l": "Как удобнее согласовать время", "o": ["Telegram", "MAX", "WhatsApp", "Звонок"], "b": "Записаться на видеопоказ", "ok": "Заявка принята. Свяжемся в течение рабочего дня и согласуем время видеопоказа."}, "visit": {"t": "Визит на объект", "d": "Оставьте телефон — согласуем дату экскурсии на объект, где мы сейчас работаем.", "l": "Как удобнее согласовать выезд", "o": ["Telegram", "MAX", "WhatsApp", "Звонок"], "b": "Договориться о визите", "ok": "Заявка принята. Свяжемся в течение рабочего дня и предложим дату визита."}, "docs": {"t": "Образцы документов", "d": "Договор подряда, график производства работ и акт приёмки — пришлём в удобный мессенджер.", "l": "Куда прислать документы", "o": ["Telegram", "MAX", "WhatsApp"], "b": "Получить документы", "ok": "Готово. Пришлём образцы документов в выбранный мессенджер в течение рабочего дня."}, "estimate": {"t": "Варианты сметы", "d": "Пришлите дизайн-проект или планировку — подготовим 2–3 варианта реализации под ваш бюджет.", "l": "Куда прислать варианты", "o": ["Telegram", "MAX", "WhatsApp"], "b": "Получить варианты", "ok": "Заявка принята. Напишем в выбранный мессенджер — туда же можно прислать проект файлом."}, "catalog": {"t": "Каталог проектов", "d": "Планировки, визуализации и фото готовых квартир — PDF в удобный мессенджер.", "l": "Куда прислать каталог", "o": ["Telegram", "MAX", "WhatsApp"], "b": "Получить каталог", "ok": "Готово. Пришлём каталог в выбранный мессенджер в ближайшее время."}, "checklist": {"t": "Чек-лист запуска заведения", "d": "15 пунктов, которые владелец проверяет до аренды, договора и дня открытия, — PDF в удобный мессенджер.", "l": "Куда прислать чек-лист", "o": ["Telegram", "MAX", "WhatsApp"], "b": "Получить чек-лист", "ok": "Готово. Пришлём чек-лист в выбранный мессенджер в ближайшее время."}},d=document.getElementById('leadDlg');if(!d||!d.showModal)return;
 var f=d.querySelector('form'),ok=d.querySelector('.ld-ok'),ph=d.querySelector('#ldPhone'),er=d.querySelector('.ld-err'),pw=d.querySelector('.ld-pills'),cur=null;
 function open(k){var c=C[k];if(!c)return;cur=k;d.querySelector('#ldT').textContent=c.t;d.querySelector('.ld-d').textContent=c.d;d.querySelector('.ld-l').textContent=c.l;
 d.querySelector('.ld-go').textContent=c.b;pw.innerHTML='';c.o.forEach(function(o,i){var b=document.createElement('button');b.type='button';b.className='pill';b.setAttribute('role','radio');b.setAttribute('aria-checked',i?'false':'true');b.setAttribute('aria-pressed',i?'false':'true');b.textContent=o;pw.appendChild(b);});
@@ -6611,6 +6702,25 @@ function play(){
 }
 new MutationObserver(function(){var r=document.getElementById('qrRange');if(form.classList.contains('active')&&r&&r.textContent!=='—'&&r.getAttribute('data-r')!==r.textContent){r.setAttribute('data-r',r.textContent);render();}}).observe(form,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class']});
 new MutationObserver(function(){var b=quiz.classList.contains('qz-busy');if(busyWas&&!b)play();busyWas=b;}).observe(quiz,{attributes:true,attributeFilter:['class']});
+})();</script>
+<dialog class="ctr-dlg" id="ctrDlg" aria-label="Договор подряда — образец"><div class="ctr-dlg-in"><article class="ctr-page"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 1</span></div><h4 class="ctr-title">ДОГОВОР ПОДРЯДА № А-____</h4><div class="ctr-sub">на ремонтно-отделочные работы</div><div class="ctr-place"><span>г. Москва</span><span>«__» __________ 2026 г.</span></div><p class="ctr-pre">ИП Романов Владимир Владимирович, именуемый в дальнейшем «Подрядчик», с одной стороны, и <u>______________________</u>, именуемый в дальнейшем «Заказчик», с другой стороны, совместно именуемые «Стороны», заключили настоящий Договор на выполнение ремонтно-отделочных работ (далее — Договор) о нижеследующем:</p><h5>1. ПРЕДМЕТ ДОГОВОРА</h5><p class="cl"><b>1.1.</b> Заказчик поручает, а Подрядчик (а также иное лицо, действующее по его поручению) принимает на себя обязательство выполнить ремонтно-отделочные работы в помещениях Заказчика (далее Объект) по адресу: <u>______________________</u>, общей площадью по горизонту пола ___ кв. м, а Заказчик обязуется принять выполненные работы и уплатить обусловленную договором стоимость работ.</p><p class="cl"><b>1.2.</b> Под Работами понимаются все работы, подлежащие выполнению Подрядчиком в соответствии с условиями настоящего Договора, в том числе и по дополнительным соглашениям к данному Договору, являющимися его неотъемлемой частью.</p><p class="cl"><b>1.3.</b> Все Работы в рамках настоящего договора оказываются/производятся Подрядчиком в соответствии с законодательством Российской Федерации.</p><p class="cl"><b>1.4.</b> Объем, содержание, параметры технического состояния результата Работ, выполняемых в соответствии с настоящим Договором, определяются в Смете (Приложение № 2 к настоящему Договору), по ценам, определенным в Прейскуранте на виды работ, являющимися неотъемлемой частью настоящего Договора.</p></article><article class="ctr-page"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 3</span></div><h5>2. СТОИМОСТЬ РАБОТ И ПОРЯДОК ОПЛАТЫ</h5><p class="cl"><b>2.1.</b> Стоимость выполняемых Подрядчиком Работ по настоящему Договору указывается в Смете (Приложение № 2) и Акте согласования объемов работ и цены договора.</p><p class="cl"><b>2.2.</b> Приемка этапов выполненных Работ производится на основании подписанных обеими Сторонами Актов сдачи-приемки выполненных Работ.</p><p class="cl is-hl"><b>2.3.</b> <mark data-n="1">Цена Договора, указанная в Смете, является твердой и не подлежит изменению в течение всего срока выполнения Работ. Изменение цены допускается только по решению Заказчика — при изменении им объема Работ или Материалов — и оформляется дополнительным соглашением, подписанным Заказчиком.</mark></p><p class="ctr-skip">пп. 2.4–2.11 — в полной версии договора</p><p class="cl is-hl"><b>2.12.</b> <mark data-n="2">Заказчик оплачивает Подрядчику выполненные им Работы поэтапно, за каждый этап, который длится до 10 (десяти) календарных дней — по факту выполнения Работ. Аванс за Работы не предусмотрен.</mark> Заказчик осуществляет проверку и приемку работ в рамках Акта сдачи-приемки выполненных работ, а затем, при отсутствии мотивированных возражений относительно качества выполненных работ, осуществляет их оплату. Общий срок на оплату выполненных работ составляет 4 (четыре) календарных дня, в рамках которых 3 (три) календарных дня предоставляются на приемку выполненных работ, и 1 (один) календарный день на их оплату.</p><p class="cl"><b>2.13.</b> Материалы и оборудование оплачиваются Заказчиком непосредственно Поставщику. Оплата выполненных Работ производится в безналичной форме на расчетный счет Подрядчика, либо в наличной форме Подрядчику.</p></article><article class="ctr-page"><div class="ctr-run"><span>Договор подряда № А-____ на ремонтно-отделочные работы</span><span>стр. 8</span></div><h5>5. ГАРАНТИЙНЫЕ ОБЯЗАТЕЛЬСТВА</h5><p class="cl is-hl"><b>5.1.</b> <mark data-n="3">Подрядчик гарантирует качество выполнения всех Работ в соответствии с действующими нормами и правилами. Гарантийный срок на результаты Работ, включая отделочные работы и инженерные сети, составляет 5 (пять) лет с момента подписания итогового Акта сдачи-приемки выполненных работ.</mark></p><p class="cl"><b>5.2.</b> Гарантийный срок на оборудование (котлы, насосы, септики и т. п.) определяется изготовителем. Претензии Заказчика по такому оборудованию в течение гарантийного срока принимает Подрядчик.</p><p class="cl is-hl"><b>5.3.</b> <mark data-n="4">После получения уведомления Заказчика о выявленном недостатке Подрядчик в течение 2–3 (двух–трех) рабочих дней выезжает на Объект и устраняет недостаток в срок не более 10 (десяти) календарных дней.</mark></p><h5>6. ОТВЕТСТВЕННОСТЬ СТОРОН</h5><p class="cl is-hl"><b>6.1.</b> <mark data-n="5">Подрядчик выплачивает Заказчику неустойку в размере 0,05% (ноль целых пять сотых процента) от договорной цены выполненных работ за каждый день просрочки сроков выполнения Работ, но не более 10% (десять процентов) от стоимости незавершенных Работ.</mark></p><div class="ctr-sign"><div><b>Подрядчик</b><span>ИП Романов Владимир Владимирович</span><i class="ctr-sig">В. Романов</i><em>_______________ / В. В. Романов</em></div><div><b>Заказчик</b><span>______________________</span><i></i><em>_______________ / ____________</em></div></div></article><p class="ctr-dlg-note">Образец договора бюро, фрагменты. Данные заказчика и адрес объекта скрыты.</p></div><button type="button" class="fv-close ctr-close" aria-label="Закрыть договор">×</button></dialog><script>(function(){var d=document.getElementById("ctrDlg"),o=document.getElementById("ctrOpen");if(!d||!o)return;function op(e){if(e)e.preventDefault();if(d.showModal)d.showModal();else d.setAttribute("open","");}o.addEventListener("click",op);[].forEach.call(document.querySelectorAll(".contract-btn"),function(b){b.addEventListener("click",op);});d.querySelector(".ctr-close").addEventListener("click",function(){d.close();});d.addEventListener("click",function(e){if(e.target===d)d.close();});})();</script><script>(function(){
+  var st = document.getElementById('ctrOpen'), rules = document.querySelector('.standard .rules');
+  if (!st || !rules) return;
+  var mq = window.matchMedia('(min-width: 981px)');
+  function fit(){
+    st.style.maxWidth = '';
+    if (!mq.matches) return;
+    var aside = st.closest('.standard-aside'); if (!aside) return;
+    var box = st.parentElement; box.style.marginTop = '0px';
+    st.style.maxWidth = 'none'; st.style.width = '100%';
+    var r = st.getBoundingClientRect(), ratio = r.height / r.width;
+    var grid = aside.parentElement.getBoundingClientRect(), off = r.top - aside.getBoundingClientRect().top;
+    var col = aside.nextElementSibling || rules; var avail = col.getBoundingClientRect().bottom - grid.top - off;
+    var w = Math.min(aside.getBoundingClientRect().width, avail / ratio);
+    st.style.width = Math.max(260, w) + 'px';
+    box.style.marginTop = '';
+  }
+  window.addEventListener('load', fit); window.addEventListener('resize', fit); setTimeout(fit, 300); fit();
 })();</script>
 <script id="fin-up-js">(function(){document.querySelectorAll('.est-f').forEach(function(f){var d=f.querySelector('.est-drop'),inp=d.querySelector('input'),b=d.querySelector('b'),b0=b.textContent;
 function show(){var x=inp.files&&inp.files[0];if(x){b.textContent=x.name;d.classList.add('has');d.querySelector('small').textContent=(x.size/1048576).toFixed(1).replace('.',',')+' МБ · нажмите, чтобы заменить';}else{b.textContent=b0;d.classList.remove('has');}}
