@@ -4671,6 +4671,8 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 @media (prefers-reduced-motion: reduce){ .r9-ph img{ animation:none; } }
 </style><style id="gift-css">.qz-mock-img{ width:76px !important; height:92px !important; display:flex !important; align-items:center; justify-content:center; background:none !important; }.qz-mock-img img{ max-width:100%; max-height:100%; width:auto; height:auto; filter:drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (min-width:901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns:76px minmax(0,1fr) !important; } }@media (max-width:900px){ .qz-mock-img{ width:50px !important; height:62px !important; } }</style><style id="qzfix-css">
 .qz-docs{ margin:0 auto 16px; max-width:200px; }
+@media (min-width: 901px){ .quiz-form > .qz-docs{ grid-column: 2; max-width: 240px; margin-bottom: 20px; } }
+#quizForm .qz-where{ font-size: clamp(1.15rem, 1.45vw, 1.4rem) !important; line-height: 1.35; color: var(--text-primary,#F5F0E8) !important; font-weight: 500; margin-bottom: 20px !important; text-wrap: balance; }
 .qz-docs img{ display:block; width:100%; height:auto; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
 .qz-msg[data-m="wa"]{ display:none !important; }
 .qz-panel #quizStart.quiz-card:has(#quizForm.active){ height:auto !important; max-height:none !important; overflow:visible !important; }
@@ -6354,14 +6356,14 @@ tabs.forEach(function(t,i){t.addEventListener('click',function(){go(i);});t.addE
 w.querySelectorAll('[data-to]').forEach(function(b){b.addEventListener('click',function(){go(+b.getAttribute('data-to'));});});});})();</script>
 <script id="qzfix-js">(function(){var card=document.getElementById('quizStart');if(!card)return;var quiz=card.querySelector('.quiz-container'),form=document.getElementById('quizForm');if(!quiz||!form)return;
 var prog=quiz.querySelector('.quiz-progress');
-var send=form.querySelector('.qz-send');
-if(send&&!send.querySelector('.qz-docs')){var f=document.createElement('figure');f.className='qz-docs';f.innerHTML='<img src="img/quiz/docs-mock2.webp" alt="Образец сметы и графика производства работ от БюроРОМАНОВЪ" loading="lazy" decoding="async">';send.insertBefore(f,send.firstChild);}
+var where=form.querySelector('.quiz-result-preview + p');if(where)where.classList.add('qz-where');
+if(where&&!form.querySelector('.qz-docs')){var f=document.createElement('figure');f.className='qz-docs';f.innerHTML='<img src="img/quiz/docs-mock2.webp" alt="Образец сметы и графика производства работ от БюроРОМАНОВЪ" loading="lazy" decoding="async">';form.insertBefore(f,where);}
 var prev=form.querySelector('.quiz-result-preview'),qd=prev&&prev.querySelector('.qd');
-function place(){if(innerWidth>=900)return;var qd=prev&&prev.querySelector('.qd');if(send&&qd&&send.previousElementSibling!==qd){qd.parentNode.insertBefore(send,qd.nextSibling);}}
+function place(){}
 place();
 function hdr(){var h=document.getElementById('hdr');return (h&&!h.classList.contains('hdr-hide')?h.offsetHeight:0)+16;}
 function to(el){if(!el)return;var y=el.getBoundingClientRect().top+scrollY-hdr();window.scrollTo({top:y,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
-var was=false;new MutationObserver(function(){var busy=quiz.classList.contains('qz-busy');if(busy&&!was){to(prog||quiz);}if(!busy&&was){place();if(innerWidth<900)to(form.querySelector('.quiz-form-title'));}was=busy;}).observe(quiz,{attributes:true,attributeFilter:['class']});
+var was=false;new MutationObserver(function(){var busy=quiz.classList.contains('qz-busy');was=busy;}).observe(quiz,{attributes:true,attributeFilter:['class']});
 new MutationObserver(place).observe(prev||form,{childList:true});
 })();</script>
 <script src="js/lead.js" defer></script>

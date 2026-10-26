@@ -41,17 +41,74 @@ if (count($rl["ip:$ip"] ?? []) >= 5) { http_response_code(429); echo '{"ok":fals
 $rl["ip:$ip"][] = $now; $rl["sig:$sig"] = [$now - 540]; // запись сигнатуры живёт 60 секунд
 file_put_contents($rlFile, json_encode($rl), LOCK_EX);
 
-$lines = [];
-$lines[] = '🔔 Заявка с сайта romanovbyuro.ru';
-$lines[] = '📞 ' . $phone . (!empty($d['channel']) ? '  ·  ответить: ' . $clean($d['channel'], 30) : '');
-if (!empty($d['block'])) $lines[] = '📍 Блок: ' . $clean($d['block'], 160);
-foreach ((array)($d['fields'] ?? []) as $k => $v) { $lines[] = '• ' . $clean($k, 80) . ': ' . $clean($v, 500); }
-$answers = array_slice((array)($d['answers'] ?? []), 0, 15);
-if ($answers) { $lines[] = '🧩 Ответы:'; foreach ($answers as $a) $lines[] = '   – ' . $clean($a, 200); }
-$lines[] = '🌐 ' . $clean($d['page'] ?? '', 120) . ' — ' . $clean($d['url'] ?? '', 300);
+// Сообщение: сверху то, по чему звонить (телефон и способ связи), затем ответы человека; служебное — внизу мелко.
+$h = fn($v) => htmlspecialchars((string)$v, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+$digits = preg_replace('/\D/', '', $phone);
+if (strlen($digits) === 11 && in_array($digits[0], ['7', '8'], true)) $digits = substr($digits, 1);
+$phoneNice = strlen($digits) === 10
+    ? sprintf('+7 (%s) %s-%s-%s', substr($digits, 0, 3), substr($digits, 3, 3), substr($digits, 6, 2), substr($digits, 8, 2))
+    : $phone;
+$channel = $clean($d['channel'] ?? '', 30);
+$fields = [];
+foreach ((array)($d['fields'] ?? []) as $k => $v) { $fields[$clean($k, 80)] = $clean($v, 500); }
+$estimate = $fields['Предварительный расчёт'] ?? '';
+unset($fields['Предварительный расчёт']);
+$qa = [];
+foreach (array_slice((array)($d['answers'] ?? []), 0, 15) as $a) {
+    $a = $clean($a, 300);
+    $p = mb_strpos($a, ' — ');
+    $qa[] = $p === false ? ['', $a] : [mb_substr($a, 0, $p), mb_substr($a, $p + 3)];
+}
+$pagePath = parse_url($clean($d['url'] ?? '', 300), PHP_URL_PATH) ?: '/';
 $utm = array_filter(array_map(fn($v) => $clean($v, 120), (array)($d['utm'] ?? [])));
-if ($utm) $lines[] = '🏷 ' . implode(' · ', array_map(fn($k, $v) => "$k=$v", array_keys($utm), $utm));
-if (!empty($d['referrer'])) $lines[] = '↩️ ' . $clean($d['referrer'], 200);
+$meta = [];
+if (!empty($d['block'])) $meta[] = 'Форма: ' . $clean($d['block'], 160);
+$meta[] = 'Страница: ' . $pagePath;
+if ($utm) $meta[] = 'Метки: ' . implode(' · ', array_map(fn($k, $v) => "$k=$v", array_keys($utm), $utm));
+if (!empty($d['referrer'])) $meta[] = 'Откуда пришёл: ' . $clean($d['referrer'], 200);
+$isTest = stripos(json_encode($utm), 'test') !== false;
+
+// Telegram (HTML-разметка)
+$t = [];
+$t[] = ($isTest ? '🧪 <b>ТЕСТОВАЯ ЗАЯВКА</b>' : '🔔 <b>Новая заявка с сайта</b>');
+$t[] = '';
+$t[] = '📞 <b>' . $h($phoneNice) . '</b>';
+if ($channel !== '') $t[] = '💬 Связаться: <b>' . $h($channel) . '</b>';
+if ($qa) {
+    $t[] = '';
+    $t[] = '📝 <b>Ответы</b>';
+    foreach ($qa as $i => [$q, $ans]) {
+        $t[] = '';
+        if ($q !== '') $t[] = ($i + 1) . '. ' . $h($q);
+        $t[] = '     → <b>' . $h($ans) . '</b>';
+    }
+}
+if ($estimate !== '') { $t[] = ''; $t[] = '💰 Ориентир на сайте: <b>' . $h($estimate) . '</b>'; }
+if ($fields) {
+    $t[] = '';
+    foreach ($fields as $k => $v) $t[] = '▫️ ' . $h($k) . ': <b>' . $h($v) . '</b>';
+}
+$t[] = '';
+$t[] = '───────────';
+$t[] = '<i>' . implode("\n", array_map($h, $meta)) . '</i>';
+$tgText = implode("\n", $t);
+
+// Почта и MAX — тот же порядок, обычным текстом
+$lines = [];
+$lines[] = $isTest ? 'ТЕСТОВАЯ ЗАЯВКА' : 'Новая заявка с сайта romanovbyuro.ru';
+$lines[] = '';
+$lines[] = 'Телефон: ' . $phoneNice;
+if ($channel !== '') $lines[] = 'Связаться: ' . $channel;
+if ($qa) {
+    $lines[] = '';
+    $lines[] = 'ОТВЕТЫ';
+    foreach ($qa as $i => [$q, $ans]) $lines[] = ($i + 1) . '. ' . ($q !== '' ? $q . ' — ' : '') . $ans;
+}
+if ($estimate !== '') { $lines[] = ''; $lines[] = 'Ориентир на сайте: ' . $estimate; }
+foreach ($fields as $k => $v) $lines[] = $k . ': ' . $v;
+$lines[] = '';
+$lines[] = '———';
+foreach ($meta as $m) $lines[] = $m;
 $text = implode("\n", $lines);
 
 // Журнал — заявка не потеряется, даже если Telegram недоступен
@@ -63,7 +120,7 @@ $delivered = [];
 
 // 1. Почта (внутри России, работает всегда)
 foreach ((array)($config['emails'] ?? ['romanovbyuro@yandex.ru']) as $to) {
-    $subj = '=?UTF-8?B?' . base64_encode('Заявка с сайта: ' . $phone) . '?=';
+    $subj = '=?UTF-8?B?' . base64_encode(($isTest ? '[ТЕСТ] ' : '') . 'Заявка с сайта: ' . $phoneNice . ($channel !== '' ? ' · ' . $channel : '')) . '?=';
     $hdr = "From: =?UTF-8?B?" . base64_encode('Сайт Романовъ') . "?= <noreply@romanovbyuro.ru>\r\n"
          . "Content-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
     if (@mail($to, $subj, $text, $hdr, '-fnoreply@romanovbyuro.ru')) $delivered[] = 'email';
@@ -74,8 +131,13 @@ $tgToken = rb_tg_token($config['tg_token'] ?? '');
 if ($tgToken && !empty($config['tg_relay_url'])) {
     foreach ((array)($config['tg_chat_ids'] ?? []) as $chat) {
         $r = rb_post(rtrim($config['tg_relay_url'], '/') . "/bot$tgToken/sendMessage",
-            ['chat_id' => $chat, 'text' => $text, 'disable_web_page_preview' => 'true'],
+            ['chat_id' => $chat, 'text' => $tgText, 'parse_mode' => 'HTML', 'disable_web_page_preview' => 'true'],
             ['X-Relay-Secret: ' . ($config['tg_relay_secret'] ?? '')]);
+        if ($r === 400) { // разметка не принята — шлём простым текстом, чтобы заявка не потерялась
+            $r = rb_post(rtrim($config['tg_relay_url'], '/') . "/bot$tgToken/sendMessage",
+                ['chat_id' => $chat, 'text' => $text, 'disable_web_page_preview' => 'true'],
+                ['X-Relay-Secret: ' . ($config['tg_relay_secret'] ?? '')]);
+        }
         if ($r === 200) $delivered[] = 'telegram';
     }
 }
