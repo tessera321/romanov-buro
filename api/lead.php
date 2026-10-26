@@ -90,6 +90,8 @@ if (!empty($config['max_token'])) {
     }
 }
 
+// Log channel acknowledgements without phone numbers, message text or credentials.
+@file_put_contents("$private/delivery.log", date('c') . ' ' . $sig . ' ' . json_encode($delivered) . "\n", FILE_APPEND | LOCK_EX);
 if (!$delivered) @file_put_contents("$private/delivery-errors.log", date('c') . " ни один канал не доставил: $phone\n", FILE_APPEND);
 
 echo json_encode(['ok' => true]);
