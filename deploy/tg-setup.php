@@ -9,11 +9,19 @@ if (!is_file($file)) { fwrite(STDERR, "Нет файла $file — сначал�
 $cfg = require $file;
 $api = 'https://api.telegram.org/bot' . ($cfg['tg_token'] ?? '');
 
-$me = json_decode(@file_get_contents("$api/getMe"), true);
-if (empty($me['ok'])) { fwrite(STDERR, "Telegram не принял токен — проверьте его\n"); exit(1); }
+$t = (string)($cfg['tg_token'] ?? '');
+echo 'Токен: длина ' . strlen($t) . ', формат ' . (preg_match('/^\d{6,12}:[A-Za-z0-9_-]{30,40}$/', $t) ? 'похож на правильный' : 'НЕ похож на токен BotFather') . (preg_match('/\s/', $t) ? ', есть пробелы/переносы!' : '') . "\n";
+$ctx = stream_context_create(['http' => ['timeout' => 10, 'ignore_errors' => true]]);
+$raw = @file_get_contents("$api/getMe", false, $ctx);
+if ($raw === false) {
+    $err = error_get_last()['message'] ?? '';
+    fwrite(STDERR, "Сервер не достучался до api.telegram.org: " . preg_replace('/bot[^\/]+/', 'bot***', $err) . "\n"); exit(1);
+}
+$me = json_decode($raw, true);
+if (empty($me['ok'])) { fwrite(STDERR, "Telegram ответил: " . ($me['description'] ?? substr($raw, 0, 80)) . "\n"); exit(1); }
 echo "Бот: @{$me['result']['username']}\n";
 
-$upd = json_decode(@file_get_contents("$api/getUpdates"), true);
+$upd = json_decode(@file_get_contents("$api/getUpdates", false, $ctx), true);
 $chats = [];
 foreach (($upd['result'] ?? []) as $u) {
     $c = $u['message']['chat'] ?? $u['my_chat_member']['chat'] ?? null;
