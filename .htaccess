@@ -1,0 +1,8 @@
+# The populated -inter pages are the current site; keep prototype sources intact.
+DirectoryIndex index-inter.html index.html
+
+RewriteEngine On
+# Temporary redirects while the site is being prepared for launch.
+RewriteRule ^index\.html$ / [R=302,L]
+RewriteRule ^doma\.html$ /doma-inter.html [R=302,L]
+RewriteRule ^commerce\.html$ /commerce-inter.html [R=302,L]
