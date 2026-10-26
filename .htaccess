@@ -3,6 +3,6 @@ DirectoryIndex index-inter.html index.html
 
 RewriteEngine On
 # Temporary redirects while the site is being prepared for launch.
-RewriteRule ^index\.html$ / [R=302,L]
-RewriteRule ^doma\.html$ /doma-inter.html [R=302,L]
-RewriteRule ^commerce\.html$ /commerce-inter.html [R=302,L]
+RewriteRule ^index\.html$ https://romanovbyuro.ru/ [R=302,L]
+RewriteRule ^doma\.html$ https://romanovbyuro.ru/doma-inter.html [R=302,L]
+RewriteRule ^commerce\.html$ https://romanovbyuro.ru/commerce-inter.html [R=302,L]
