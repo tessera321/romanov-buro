@@ -59,19 +59,54 @@ $row = [date('c'), $phone, $clean($d['channel'] ?? '', 30), $clean($d['url'] ?? 
 $fh = fopen("$private/leads.csv", 'a');
 if ($fh) { flock($fh, LOCK_EX); fputcsv($fh, $row); flock($fh, LOCK_UN); fclose($fh); }
 
-$sent = false;
-if (!empty($config['tg_token'])) {
+$delivered = [];
+
+// 1. Почта (внутри России, работает всегда)
+foreach ((array)($config['emails'] ?? ['romanovbyuro@yandex.ru']) as $to) {
+    $subj = '=?UTF-8?B?' . base64_encode('Заявка с сайта: ' . $phone) . '?=';
+    $hdr = "From: =?UTF-8?B?" . base64_encode('Сайт Романовъ') . "?= <noreply@romanovbyuro.ru>\r\n"
+         . "Content-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n";
+    if (@mail($to, $subj, $text, $hdr, '-fnoreply@romanovbyuro.ru')) $delivered[] = 'email';
+}
+
+// 2. Telegram — через мост на Cloudflare (api.telegram.org с российского хостинга недоступен)
+$tgToken = rb_tg_token($config['tg_token'] ?? '');
+if ($tgToken && !empty($config['tg_relay_url'])) {
     foreach ((array)($config['tg_chat_ids'] ?? []) as $chat) {
-        $ch = curl_init('https://api.telegram.org/bot' . $config['tg_token'] . '/sendMessage');
-        curl_setopt_array($ch, [
-            CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 8,
-            CURLOPT_POSTFIELDS => ['chat_id' => $chat, 'text' => $text, 'disable_web_page_preview' => 'true'],
-        ]);
-        $res = curl_exec($ch);
-        $sent = $sent || (curl_getinfo($ch, CURLINFO_HTTP_CODE) === 200);
-        curl_close($ch);
+        $r = rb_post(rtrim($config['tg_relay_url'], '/') . "/bot$tgToken/sendMessage",
+            ['chat_id' => $chat, 'text' => $text, 'disable_web_page_preview' => 'true'],
+            ['X-Relay-Secret: ' . ($config['tg_relay_secret'] ?? '')]);
+        if ($r === 200) $delivered[] = 'telegram';
     }
 }
-if (!$sent) @file_put_contents("$private/telegram-errors.log", date('c') . " not delivered: $phone\n", FILE_APPEND);
+
+// 3. MAX — напрямую, российский сервис
+if (!empty($config['max_token'])) {
+    foreach ((array)($config['max_user_ids'] ?? []) as $uid) {
+        $r = rb_post('https://platform-api.max.ru/messages?user_id=' . urlencode($uid),
+            json_encode(['text' => $text], JSON_UNESCAPED_UNICODE),
+            ['Authorization: ' . $config['max_token'], 'Content-Type: application/json']);
+        if ($r === 200) $delivered[] = 'max';
+    }
+}
+
+if (!$delivered) @file_put_contents("$private/delivery-errors.log", date('c') . " ни один канал не доставил: $phone\n", FILE_APPEND);
 
 echo json_encode(['ok' => true]);
+
+// Токен BotFather из сохранённой строки (если вставили сообщение целиком — берём сам токен)
+function rb_tg_token($s) {
+    return preg_match('/\b(\d{6,12}:[A-Za-z0-9_-]{30,40})\b/', (string)$s, $m) ? $m[1] : '';
+}
+
+function rb_post($url, $body, $headers = []) {
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 8,
+        CURLOPT_POSTFIELDS => $body, CURLOPT_HTTPHEADER => $headers,
+    ]);
+    curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    return $code;
+}
