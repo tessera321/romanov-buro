@@ -4671,7 +4671,7 @@ html body .hdr.hdr-hide{ transform: translateY(calc(-100% - 2px)) !important; }
 @media (prefers-reduced-motion: reduce){ .r9-ph img{ animation:none; } }
 </style><style id="gift-css">.qz-mock-img{ width:76px !important; height:92px !important; display:flex !important; align-items:center; justify-content:center; background:none !important; }.qz-mock-img img{ max-width:100%; max-height:100%; width:auto; height:auto; filter:drop-shadow(0 6px 10px rgba(0,0,0,.45)); }@media (min-width:901px){ .qz-gift:has(.qz-mock-img){ grid-template-columns:76px minmax(0,1fr) !important; } }@media (max-width:900px){ .qz-mock-img{ width:50px !important; height:62px !important; } }</style><style id="qzfix-css">
 .qz-docs{ margin:0 auto 16px; max-width:200px; }
-@media (min-width: 901px){ .quiz-form > .qz-docs{ grid-column: 2; max-width: 240px; margin-bottom: 20px; } }
+@media (min-width: 901px){ .quiz-form > .qz-col{ grid-column: 2; grid-row: 1 / span 9; } .quiz-form .qz-docs{ max-width: 240px; margin-bottom: 20px; } }
 #quizForm .qz-where{ font-size: clamp(1.15rem, 1.45vw, 1.4rem) !important; line-height: 1.35; color: var(--text-primary,#F5F0E8) !important; font-weight: 500; margin-bottom: 20px !important; text-wrap: balance; }
 .qz-docs img{ display:block; width:100%; height:auto; filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)); }
 .qz-msg[data-m="wa"]{ display:none !important; }
@@ -6358,6 +6358,7 @@ w.querySelectorAll('[data-to]').forEach(function(b){b.addEventListener('click',f
 var prog=quiz.querySelector('.quiz-progress');
 var where=form.querySelector('.quiz-result-preview + p');if(where)where.classList.add('qz-where');
 if(where&&!form.querySelector('.qz-docs')){var f=document.createElement('figure');f.className='qz-docs';f.innerHTML='<img src="img/quiz/docs-mock2.webp" alt="Образец сметы и графика производства работ от БюроРОМАНОВЪ" loading="lazy" decoding="async">';form.insertBefore(f,where);}
+if(where&&!form.querySelector('.qz-col')){var ttl=form.querySelector('.quiz-form-title'),pv=form.querySelector('.quiz-result-preview'),col=document.createElement('div');col.className='qz-col';var kids=[].slice.call(form.children).filter(function(e){return e!==ttl&&e!==pv;});form.insertBefore(col,kids[0]||null);kids.forEach(function(c){col.appendChild(c);});}
 var prev=form.querySelector('.quiz-result-preview'),qd=prev&&prev.querySelector('.qd');
 function place(){}
 place();
