@@ -5336,7 +5336,6 @@ html body .fmt-head p{ margin-top:10px !important; max-width:60ch; }
           <label>Удобнее получить в</label>
           <div class="pills" data-pills>
             <button type="button" class="pill" aria-pressed="true">Telegram</button>
-            <button type="button" class="pill" aria-pressed="false">WhatsApp</button>
             <button type="button" class="pill" aria-pressed="false">MAX</button>
             <button type="button" class="pill" aria-pressed="false">Звонок</button>
           </div>
@@ -6549,33 +6548,7 @@ a.top-bar-cta, a.btn-primary, a.btn-outline, a.pf-more, a.qz-msg, a.hdr-call{ te
     if (form.classList.contains('active') && lastClicked){ lastClicked = false; runCalc(); }
   }).observe(form, { attributes: true, attributeFilter: ['class'] });
 
-  /* messenger hand-off instead of a site form */
-  var where = form.querySelector('.quiz-result-preview + p'); if (where) where.classList.add('qz-where');
-  var ICON = {
-    tg: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.9 4.3 18.7 19.6c-.2 1.1-.9 1.3-1.8.8l-4.9-3.6-2.4 2.3c-.3.3-.5.5-1 .5l.4-5 9.1-8.2c.4-.4-.1-.6-.6-.2L6.2 13.3 1.4 11.8c-1-.3-1.1-1 .2-1.5L20.5 3c.9-.3 1.6.2 1.4 1.3z"/></svg>',
-    max: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 18V6l8 7 8-7v12"/></svg>',
-    wa: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 2s.8 2.3.9 2.5c.1.2 1.6 2.5 4 3.5 1.5.6 2 .7 2.8.6.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.2-.2-.4-.3z"/></svg>'
-  };
-  var box = document.createElement('div'); box.className = 'qz-send';
-  box.innerHTML = '<div class="qz-send-t">Отправьте ответы в мессенджер — пришлю туда подробный расчёт, план по этапам и бонусы. Номер телефона оставлять не нужно.</div>'
-    + '<div class="qz-send-btns">'
-    + '<a class="qz-msg" data-m="tg" href="#" target="_blank" rel="noopener">' + ICON.tg + 'Telegram</a>'
-    + '<a class="qz-msg" data-m="max" href="#" target="_blank" rel="noopener">' + ICON.max + 'MAX</a>'
-    + '<a class="qz-msg" data-m="wa" href="#" target="_blank" rel="noopener">' + ICON.wa + 'WhatsApp</a>'
-    + '</div><p class="qz-copied" role="status">Текст с ответами скопирован — если он не появился в чате, просто вставьте его.</p>'
-    + '<button type="button" class="qz-alt">Нет мессенджера? Оставить телефон</button>';
-  var preview = form.querySelector('.quiz-result-preview');
-  if (preview && preview.nextSibling) form.insertBefore(box, preview.nextSibling); else form.appendChild(box);
-  form.classList.add('qz-phone-hidden');
-  box.insertAdjacentHTML('beforeend', '<span class="todo">Указать Telegram-username, номер WhatsApp и ссылку на профиль MAX Владимира (RB_CONTACT в коде квиза).</span>');
-  var altBtn = box.querySelector('.qz-alt');
-  var back = document.createElement('button'); back.type = 'button'; back.className = 'qz-alt qz-back-msg'; back.textContent = '← Отправить в мессенджер'; back.hidden = true;
-  form.insertBefore(back, form.querySelector('button[type="submit"]') ? form.querySelector('button[type="submit"]').nextSibling : null);
-  altBtn.addEventListener('click', function(){
-    form.classList.remove('qz-phone-hidden'); box.hidden = true; back.hidden = false;
-    var ph = form.querySelector('input[type="tel"]'); if (ph) ph.focus();
-  });
-  back.addEventListener('click', function(){ form.classList.add('qz-phone-hidden'); box.hidden = false; back.hidden = true; });
+  /* quiz final: phone + preferred channel, submitted to /api/lead.php by js/lead.js */
 
   /* Vladimir's tip for the current question */
   var TIPS = {
@@ -6600,28 +6573,6 @@ a.top-bar-cta, a.btn-primary, a.btn-outline, a.pf-more, a.qz-msg, a.hdr-call{ te
   tip();
   new MutationObserver(tip).observe(quiz, { subtree: true, attributes: true, attributeFilter: ['class'] });
 
-  function message(){
-    var list = Object.keys(ans).map(function(k){ return ans[k]; }).sort(function(a, b){ return a.i - b.i; });
-    var range = document.getElementById('qrRange');
-    var lines = ['Здравствуйте, Владимир! Прошёл расчёт на сайте, объект — ' + PAGE + '.', ''];
-    list.forEach(function(x, n){ lines.push((n + 1) + '. ' + x.q + ' — ' + x.a); });
-    if (range && range.textContent.trim() && range.textContent.trim() !== '—') { lines.push(''); lines.push('Ориентир на сайте: ' + range.textContent.trim()); }
-    lines.push(''); lines.push('Пришлите, пожалуйста, подробный расчёт, план по этапам и бонусы.');
-    return lines.join('\n');
-  }
-  function copy(t){
-    try { if (navigator.clipboard && navigator.clipboard.writeText) return navigator.clipboard.writeText(t).catch(function(){}); } catch(e){}
-    try { var ta = document.createElement('textarea'); ta.value = t; ta.style.position = 'fixed'; ta.style.opacity = '0'; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); } catch(e){}
-  }
-  box.querySelectorAll('.qz-msg').forEach(function(a){
-    a.addEventListener('click', function(){
-      var t = message(), m = a.getAttribute('data-m'), u = encodeURIComponent(t);
-      a.href = m === 'tg' ? 'https://t.me/' + C.tg + '?text=' + u : m === 'wa' ? 'https://wa.me/' + C.wa + '?text=' + u : C.max;
-      copy(t);
-      box.querySelector('.qz-copied').classList.add('on');
-      if (window.ym && window.YM_ID) try { ym(window.YM_ID, 'reachGoal', 'quiz_' + m); } catch(e){}
-    });
-  });
 })();
 </script>
 
