@@ -1,6 +1,7 @@
 # Адреса сайта. Файлы в репозитории лежат плоско, сервер отдаёт их по понятным адресам.
 DirectoryIndex index-inter.html
 Options -Indexes
+ErrorDocument 404 /404.html
 
 RewriteEngine On
 
@@ -43,7 +44,7 @@ RewriteCond %{THE_REQUEST} \s/+case-polar\.html[\s?]
 RewriteRule ^ https://romanovbyuro.ru/obekty/klub-na-polyarnoy/ [R=301,L]
 
 # 4. Адрес без слеша на конце → со слешем
-RewriteRule ^(remont-domov|remont-kommercheskih-pomeshcheniy|obekty|obekty/[a-z0-9-]+)$ https://romanovbyuro.ru/$1/ [R=301,L]
+RewriteRule ^(remont-domov|remont-kommercheskih-pomeshcheniy|obekty|obekty/[a-z0-9-]+|politika-konfidencialnosti|soglasie-na-obrabotku|spasibo)$ https://romanovbyuro.ru/$1/ [R=301,L]
 
 # 5. Новые адреса → файлы страниц
 RewriteRule ^remont-domov/$ doma-inter.html [L]
@@ -59,3 +60,10 @@ RewriteRule ^obekty/zhk-brigantina/$ case-brigantina.html [L]
 RewriteRule ^obekty/shourum-falmec/$ case-falmec.html [L]
 RewriteRule ^obekty/marcelo-miracles/$ case-marcelo.html [L]
 RewriteRule ^obekty/klub-na-polyarnoy/$ case-polar.html [L]
+RewriteRule ^politika-konfidencialnosti/$ politika.html [L]
+RewriteRule ^soglasie-na-obrabotku/$ soglasie.html [L]
+RewriteRule ^spasibo/$ spasibo.html [L]
+
+# Файлы страниц напрямую не открываем — только по их адресам
+RewriteCond %{THE_REQUEST} \s/+(politika|soglasie|spasibo|404)\.html[\s?]
+RewriteRule ^ - [R=404,L]

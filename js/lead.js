@@ -40,6 +40,12 @@
 
     var pill = form.querySelector('.pill[aria-pressed="true"], .pill[aria-checked="true"]');
     var channel = pill ? txt(pill) : '';
+    if (!channel) { // в части форм способ связи — выпадающий список
+      [].some.call(form.querySelectorAll('select'), function (s) {
+        var o = s.options[s.selectedIndex];
+        if (o && !o.disabled && /^(Telegram|MAX|WhatsApp|Звонок)$/.test(txt(o))) { channel = txt(o); return true; }
+      });
+    }
 
     // Ответы квиза: выбранные варианты в блоке вокруг формы
     var scope = form.closest('section, .quiz-container') || form.parentElement || form;
@@ -74,11 +80,21 @@
     if (data.phone.replace(/\D/g, '').length < 10) return;
     form.dataset.leadSent = '1';
     var body = JSON.stringify(data);
+
+    // После отправки — страница «Спасибо»: способ связи и тип объекта для её текста и ссылок
+    var p = location.pathname, COM = /kommerch|shourum-falmec|marcelo-miracles|klub-na-polyarnoy/;
+    var type = /domov/.test(p) ? 'house' : COM.test(p) ? 'com' : 'apt';
+    var thanks = '/spasibo/?t=' + type + (data.channel ? '&ch=' + encodeURIComponent(data.channel) : '');
+    var left = false;
+    function go() { if (left) return; left = true; location.href = thanks; }
+    setTimeout(go, 3000); // если сеть зависла — заявку всё равно добьёт keepalive/sendBeacon
+
     try {
       fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true })
         .then(function (r) { if (!r.ok) throw new Error(r.status); })
-        .catch(function () { if (navigator.sendBeacon) navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'application/json' })); });
-    } catch (err) {}
+        .catch(function () { if (navigator.sendBeacon) navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'application/json' })); })
+        .then(function () { setTimeout(go, 600); });
+    } catch (err) { setTimeout(go, 600); }
     try { if (window.ym && window.RB_METRIKA_ID) ym(window.RB_METRIKA_ID, 'reachGoal', 'lead'); } catch (err) {}
   }, true);
 })();
