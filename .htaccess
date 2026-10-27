@@ -1,8 +1,61 @@
-# The populated -inter pages are the current site; keep prototype sources intact.
-DirectoryIndex index-inter.html index.html
+# Адреса сайта. Файлы в репозитории лежат плоско, сервер отдаёт их по понятным адресам.
+DirectoryIndex index-inter.html
+Options -Indexes
 
 RewriteEngine On
-# Temporary redirects while the site is being prepared for launch.
-RewriteRule ^index\.html$ https://romanovbyuro.ru/ [R=302,L]
-RewriteRule ^doma\.html$ https://romanovbyuro.ru/doma-inter.html [R=302,L]
-RewriteRule ^commerce\.html$ https://romanovbyuro.ru/commerce-inter.html [R=302,L]
+
+# 1. Один адрес сайта: https и без www
+RewriteCond %{HTTP_HOST} ^www\. [NC,OR]
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://romanovbyuro.ru%{REQUEST_URI} [R=301,L,NE]
+
+# 2. Служебные файлы не отдаём
+RewriteRule (^|/)(README\.md|\.git.*)$ - [F,L]
+
+# 3. Старые адреса → новые (только прямые запросы, чтобы не зациклить внутренние подстановки)
+RewriteCond %{THE_REQUEST} \s/+(index|index-inter)\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(doma|doma-inter)\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/remont-domov/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+(commerce|commerce-inter)\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/remont-kommercheskih-pomeshcheniy/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+cases\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-magnum\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/magnum/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-veresk\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/zhk-veresk/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-sokolniki\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/dom-v-sokolnikah/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-will\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/will-towers/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-holland\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/holland-park/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-sadovye\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/sadovye-kvartaly/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-brigantina\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/zhk-brigantina/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-falmec\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/shourum-falmec/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-marcelo\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/marcelo-miracles/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/+case-polar\.html[\s?]
+RewriteRule ^ https://romanovbyuro.ru/obekty/klub-na-polyarnoy/ [R=301,L]
+
+# 4. Адрес без слеша на конце → со слешем
+RewriteRule ^(remont-domov|remont-kommercheskih-pomeshcheniy|obekty|obekty/[a-z0-9-]+)$ https://romanovbyuro.ru/$1/ [R=301,L]
+
+# 5. Новые адреса → файлы страниц
+RewriteRule ^remont-domov/$ doma-inter.html [L]
+RewriteRule ^remont-kommercheskih-pomeshcheniy/$ commerce-inter.html [L]
+RewriteRule ^obekty/$ cases.html [L]
+RewriteRule ^obekty/magnum/$ case-magnum.html [L]
+RewriteRule ^obekty/zhk-veresk/$ case-veresk.html [L]
+RewriteRule ^obekty/dom-v-sokolnikah/$ case-sokolniki.html [L]
+RewriteRule ^obekty/will-towers/$ case-will.html [L]
+RewriteRule ^obekty/holland-park/$ case-holland.html [L]
+RewriteRule ^obekty/sadovye-kvartaly/$ case-sadovye.html [L]
+RewriteRule ^obekty/zhk-brigantina/$ case-brigantina.html [L]
+RewriteRule ^obekty/shourum-falmec/$ case-falmec.html [L]
+RewriteRule ^obekty/marcelo-miracles/$ case-marcelo.html [L]
+RewriteRule ^obekty/klub-na-polyarnoy/$ case-polar.html [L]
