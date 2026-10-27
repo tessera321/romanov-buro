@@ -5207,6 +5207,22 @@ html body .lm-card.wide:hover .lm-chkimg.lm-com2{ transform: scale(1.015) !impor
   .ty-dl{ align-self: stretch; justify-content: center; }
 }
 </style>
+<style id="tap-fix-css">
+/* Этап 3: зоны нажатия на телефоне не меньше ~40px */
+@media (max-width: 900px){
+  .ft-col{ gap: 0; }
+  .ft-col .ft-cap{ margin-bottom: 6px; }
+  .ft-col > a:not(.ft-phone){ padding: 9px 0; }
+  .ft-col > span:not(.ft-cap){ padding: 4px 0; }
+  .ft-legal{ gap: 0 24px; }
+  .ft-legal a{ padding: 9px 0; }
+  .pf-links{ gap: 0 18px; }
+  .pf-links a{ padding: 9px 0; }
+  .cs-more-head a{ padding: 10px 0; margin: -10px 0; }
+  .cs-crumbs a{ padding: 10px 0; margin: -10px 0; }
+  .final8-alt button, .final8-alt a{ padding: 10px 0; margin: -10px 0; }
+}
+</style>
 </head>
 <body>
 <header class="hdr gl" id="hdr">
