@@ -6758,6 +6758,6 @@ inp.addEventListener('change',show);['dragenter','dragover'].forEach(function(e)
 f.addEventListener('submit',function(e){e.preventDefault();var ph=f.querySelector('input[type=tel]');if(ph.value.replace(/\D/g,'').length<10){f.querySelector('.est-err').hidden=false;ph.focus();return;}
 var w=f.querySelector('.est-where'),m=w&&w.value?{textContent:w.value}:null,x=inp.files&&inp.files[0],o=document.createElement('div');o.className='est-ok';o.setAttribute('role','status');
 o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace(/[<>&]/g,'')+'» получили. ':'')+'Подготовим 2–3 варианта сметы и пришлём в '+(m?m.textContent:'мессенджер')+' — в рабочее время ответим за 5–10 минут.';if(m&&m.textContent==='Звонок')o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace(/[<>&]/g,'')+'» получили. ':'')+'Подготовим 2–3 варианта сметы и перезвоним в рабочее время.';f.replaceWith(o);});});})();</script>
-<script src="/js/lead.js" defer></script>
+<script src="/js/lead.js?v=2" defer></script>
 </body>
 </html>
