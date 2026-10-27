@@ -4979,7 +4979,14 @@ html body .fmt-head p{ margin-top:10px !important; max-width:60ch; }
   html body .r9v .r9-ph img{ width:100% !important; height:100% !important; object-fit:cover; }
   html body .ally-photo{ aspect-ratio:auto !important; height:84vw !important; max-height:520px; width:100% !important; }
 }
-</style></head>
+</style><style id="pf-links-css">
+.pf-links{ display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 18px; margin-top: clamp(20px, 2.4vw, 32px); padding-top: 18px; border-top: 1px solid var(--divider); font-size: .92rem; color: var(--text-muted); }
+.pf-links a{ color: var(--text-secondary); text-decoration: none; }
+.pf-links a:hover{ color: var(--bronze-hover, #CDBEAA); }
+.pf-links .pf-all{ margin-left: auto; color: var(--bronze-hover, #CDBEAA); }
+@media (max-width: 900px){ .pf-links .pf-all{ margin-left: 0; flex-basis: 100%; } }
+</style>
+</head>
 <body>
 
 <!-- HEADER (shared across pages) -->
@@ -5068,11 +5075,12 @@ html body .fmt-head p{ margin-top:10px !important; max-width:60ch; }
         <div class="pf-nav">
           <button class="arrow-btn" id="pfPrev" aria-label="Предыдущий объект"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button>
           <button class="arrow-btn" id="pfNext" aria-label="Следующий объект"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button>
-          <button class="btn-primary pf-calc" type="button" data-scroll="quizStart">Рассчитать похожий</button><a class="btn-outline pf-more" id="pfMore" href="/obekty/magnum/">Все этапы ремонта</a>
+          <button class="btn-primary pf-calc" type="button" data-scroll="quizStart">Рассчитать похожий</button><a class="btn-outline pf-more" id="pfMore" href="/obekty/magnum/">Посмотреть детали ремонта</a>
           <span class="pf-count" id="pfCount">01 / 08</span>
         </div>
       </div>
     </div>
+    <nav class="pf-links" aria-label="Подробные кейсы"><span>Подробно по объектам:</span><a href="/obekty/magnum/">Magnum</a><a href="/obekty/zhk-veresk/">ЖК «Вереск»</a><a href="/obekty/dom-v-sokolnikah/">Дом в Сокольниках</a><a href="/obekty/will-towers/">Will Towers</a><a href="/obekty/holland-park/">Холланд Парк</a><a href="/obekty/sadovye-kvartaly/">Садовые кварталы</a><a href="/obekty/zhk-brigantina/">ЖК «Бригантина»</a><a class="pf-all" href="/obekty/#apt">Все квартиры (7) →</a></nav>
     <span class="todo">Нужны сроки и цена за м² по договору и по факту для каждого объекта, и 5+ фото на объект.</span>
   </div>
 </section>
