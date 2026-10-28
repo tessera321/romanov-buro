@@ -1,6 +1,7 @@
 # Адреса сайта. Файлы в репозитории лежат плоско, сервер отдаёт их по понятным адресам.
 DirectoryIndex index-inter.html
 Options -Indexes
+AddCharset UTF-8 .txt .xml .webmanifest
 ErrorDocument 404 /404.html
 
 RewriteEngine On

@@ -1,2 +1,11 @@
+# Сайт закрыт от индексации до запуска (этап 8).
+# При запуске заменить строку "Disallow: /" на строки из блока ниже (без решёток).
 User-agent: *
 Disallow: /
+
+# Disallow: /spasibo/
+# Disallow: /api/
+# Disallow: /files/
+# Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&fbclid /
+
+Sitemap: https://romanovbyuro.ru/sitemap.xml
