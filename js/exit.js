@@ -1,9 +1,10 @@
 /* Поп-ап «на выходе»: все бонусы бюро за номер телефона.
-   Компьютер — курсор уходит за верхний край окна; телефон — быстрый скролл вверх
-   после 30 секунд на странице. Один раз за сеанс и никогда после заявки.
+   Только на компьютере (курсор уходит за верхний край окна); на телефонах и планшетах
+   не показывается (решение 31.10). Один раз за сеанс и никогда после заявки.
    Заявку отправляет общий js/lead.js (он слушает submit всех форм). */
 (function () {
   if (!window.HTMLDialogElement || /\/spasibo\//.test(location.pathname)) return;
+  if (!window.matchMedia('(hover: hover) and (pointer: fine) and (min-width: 901px)').matches) return;
   var LS = window.localStorage, SS = window.sessionStorage;
   function get(s, k) { try { return s.getItem(k); } catch (e) { return null; } }
   function set(s, k) { try { s.setItem(k, '1'); } catch (e) {} }
@@ -121,17 +122,8 @@
     d.showModal();
   }
 
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    document.addEventListener('mouseout', function (e) {
-      if (e.relatedTarget || e.clientY > 8 || Date.now() - t0 < 5000) return;
-      show();
-    });
-  } else {
-    var ly = window.scrollY, lt = Date.now();
-    window.addEventListener('scroll', function () {
-      var y = window.scrollY, t = Date.now(), dy = y - ly, dt = t - lt;
-      if (dt > 0 && dt < 250 && dy < 0 && -dy / dt > 2.2 && y > 600 && t - t0 > 30000) show();
-      ly = y; lt = t;
-    }, { passive: true });
-  }
+  document.addEventListener('mouseout', function (e) {
+    if (e.relatedTarget || e.clientY > 8 || Date.now() - t0 < 5000) return;
+    show();
+  });
 })();
