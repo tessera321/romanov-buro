@@ -68,6 +68,18 @@ if ($utm) $meta[] = 'Метки: ' . implode(' · ', array_map(fn($k, $v) => "$k
 if (!empty($d['referrer'])) $meta[] = 'Откуда пришёл: ' . $clean($d['referrer'], 200);
 $isTest = stripos(json_encode($utm), 'test') !== false;
 
+// Прикреплённые файлы: только те, что реально лежат в private/uploads (их номера выдал upload.php)
+$files = [];
+foreach (array_slice((array)($d['files'] ?? []), 0, 5) as $fid) {
+    $fid = is_scalar($fid) ? (string)$fid : '';
+    if (!preg_match('/^\d{8}-\d{6}-[a-f0-9]{12}$/', $fid)) continue;
+    $bin = "$private/uploads/$fid.bin"; $meta_f = "$private/uploads/$fid.json";
+    if (!is_file($bin) || !is_file($meta_f)) continue;
+    $info = json_decode(file_get_contents($meta_f), true) ?: [];
+    $files[] = ['path' => $bin, 'name' => (string)($info['name'] ?? 'file'), 'size' => (int)($info['size'] ?? filesize($bin))];
+}
+$fileLine = fn($f) => $f['name'] . ' (' . max(1, round($f['size'] / 1048576, 1)) . ' МБ)';
+
 // Telegram (HTML-разметка)
 $t = [];
 $t[] = ($isTest ? '🧪 <b>ТЕСТОВАЯ ЗАЯВКА</b>' : '🔔 <b>Новая заявка с сайта</b>');
@@ -84,6 +96,7 @@ if ($qa) {
     }
 }
 if ($estimate !== '') { $t[] = ''; $t[] = '💰 Ориентир на сайте: <b>' . $h($estimate) . '</b>'; }
+if ($files) { $t[] = ''; foreach ($files as $f) $t[] = '📎 Файл: <b>' . $h($fileLine($f)) . '</b> — следующим сообщением'; }
 if ($fields) {
     $t[] = '';
     foreach ($fields as $k => $v) $t[] = '▫️ ' . $h($k) . ': <b>' . $h($v) . '</b>';
@@ -106,6 +119,7 @@ if ($qa) {
 }
 if ($estimate !== '') { $lines[] = ''; $lines[] = 'Ориентир на сайте: ' . $estimate; }
 foreach ($fields as $k => $v) $lines[] = $k . ': ' . $v;
+foreach ($files as $f) $lines[] = 'Прикреплён файл: ' . $fileLine($f) . ' — отправлен в Telegram-группу, копия на сервере в private/uploads (хранится 90 дней)';
 $lines[] = '';
 $lines[] = '———';
 foreach ($meta as $m) $lines[] = $m;
@@ -139,6 +153,12 @@ if ($tgToken && !empty($config['tg_relay_url'])) {
                 ['X-Relay-Secret: ' . ($config['tg_relay_secret'] ?? '')]);
         }
         if ($r === 200) $delivered[] = 'telegram';
+        foreach ($files as $f) {
+            $r = rb_post(rtrim($config['tg_relay_url'], '/') . "/bot$tgToken/sendDocument",
+                ['chat_id' => $chat, 'caption' => 'Файл к заявке ' . $phoneNice, 'document' => new CURLFile($f['path'], 'application/octet-stream', $f['name'])],
+                ['X-Relay-Secret: ' . ($config['tg_relay_secret'] ?? '')], 120);
+            if ($r === 200) $delivered[] = 'telegram-file';
+        }
     }
 }
 
@@ -163,10 +183,10 @@ function rb_tg_token($s) {
     return preg_match('/\b(\d{6,12}:[A-Za-z0-9_-]{30,40})\b/', (string)$s, $m) ? $m[1] : '';
 }
 
-function rb_post($url, $body, $headers = []) {
+function rb_post($url, $body, $headers = [], $timeout = 8) {
     $ch = curl_init($url);
     curl_setopt_array($ch, [
-        CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => 8,
+        CURLOPT_POST => true, CURLOPT_RETURNTRANSFER => true, CURLOPT_TIMEOUT => $timeout,
         CURLOPT_POSTFIELDS => $body, CURLOPT_HTTPHEADER => $headers,
     ]);
     curl_exec($ch);

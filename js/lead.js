@@ -79,7 +79,8 @@
     var data = collect(form);
     if (data.phone.replace(/\D/g, '').length < 10) return;
     form.dataset.leadSent = '1';
-    var body = JSON.stringify(data);
+    var fileInput = form.querySelector('input[type="file"]');
+    var file = fileInput && fileInput.files && fileInput.files[0];
 
     // После отправки — страница «Спасибо»: способ связи и тип объекта для её текста и ссылок
     var p = location.pathname, COM = /kommerch|shourum-falmec|marcelo-miracles|klub-na-polyarnoy/;
@@ -87,14 +88,36 @@
     var thanks = '/spasibo/?t=' + type + (data.channel ? '&ch=' + encodeURIComponent(data.channel) : '');
     var left = false;
     function go() { if (left) return; left = true; location.href = thanks; }
-    setTimeout(go, 3000); // если сеть зависла — заявку всё равно добьёт keepalive/sendBeacon
 
-    try {
-      fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true })
-        .then(function (r) { if (!r.ok) throw new Error(r.status); })
-        .catch(function () { if (navigator.sendBeacon) navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'application/json' })); })
-        .then(function () { setTimeout(go, 600); });
-    } catch (err) { setTimeout(go, 600); }
+    function send() {
+      var body = JSON.stringify(data);
+      setTimeout(go, 3000); // если сеть зависла — заявку всё равно добьёт keepalive/sendBeacon
+      try {
+        fetch(ENDPOINT, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true })
+          .then(function (r) { if (!r.ok) throw new Error(r.status); })
+          .catch(function () { if (navigator.sendBeacon) navigator.sendBeacon(ENDPOINT, new Blob([body], { type: 'application/json' })); })
+          .then(function () { setTimeout(go, 600); });
+      } catch (err) { setTimeout(go, 600); }
+    }
+
+    // Файл («Прикрепите проект или смету») сначала кладём на сервер, в заявку уходит его номер.
+    // Не загрузился (размер, тип, сеть) — заявка всё равно уходит, с пометкой.
+    if (file && window.fetch && window.FormData) {
+      var fd = new FormData(); fd.append('file', file);
+      var done = false;
+      var fallback = setTimeout(function () { if (done) return; done = true; data.fields['Файл'] = file.name + ' — не успел загрузиться, попросить прислать в мессенджер'; send(); }, 90000);
+      fetch('/api/upload.php', { method: 'POST', body: fd })
+        .then(function (r) { return r.json().catch(function () { return {}; }); })
+        .then(function (j) {
+          if (done) return; done = true; clearTimeout(fallback);
+          if (j && j.ok && j.id) data.files = [j.id];
+          else data.fields['Файл'] = file.name + ' — не загрузился (' + ((j && j.error) || 'ошибка') + '), попросить прислать в мессенджер';
+          send();
+        })
+        .catch(function () { if (done) return; done = true; clearTimeout(fallback); data.fields['Файл'] = file.name + ' — не загрузился, попросить прислать в мессенджер'; send(); });
+    } else {
+      send();
+    }
     try { if (window.ym && window.RB_METRIKA_ID) ym(window.RB_METRIKA_ID, 'reachGoal', 'lead'); } catch (err) {}
   }, true);
 })();
