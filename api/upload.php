@@ -11,7 +11,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo '{"ok
 const RB_MAX = 50 * 1024 * 1024;
 const RB_EXT = ['pdf', 'jpg', 'jpeg', 'png', 'webp', 'heic', 'dwg', 'dxf', 'xls', 'xlsx', 'doc', 'docx', 'zip', 'rar', '7z'];
 
-$dir = dirname(__DIR__, 2) . '/private/uploads';
+// Timeweb: PHP сайта видит только public_html, поэтому private лежит внутри сайта (закрыт .htaccess). Beget: уровнем выше
+$dir = (is_dir(dirname(__DIR__) . '/private') ? dirname(__DIR__) : dirname(__DIR__, 2)) . '/private/uploads';
 if (!is_dir($dir)) @mkdir($dir, 0700, true);
 
 $f = $_FILES['file'] ?? null;

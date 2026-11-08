@@ -8,7 +8,8 @@ header('X-Robots-Tag: noindex');
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo '{"ok":false}'; exit; }
 
-$private = dirname(__DIR__, 2) . '/private';
+// Timeweb: PHP сайта видит только public_html, поэтому private лежит внутри сайта (закрыт .htaccess). Beget: уровнем выше
+$private = is_dir(dirname(__DIR__) . '/private') ? dirname(__DIR__) . '/private' : dirname(__DIR__, 2) . '/private';
 $config  = is_file("$private/config.php") ? require "$private/config.php" : [];
 
 $raw = file_get_contents('php://input', false, null, 0, 20000);
