@@ -280,22 +280,39 @@ html body .lm-card.full:has(.lm-catimg) .lm-catimg{width:112%!important;max-widt
 .furn .eng-grid>*{grid-column:1/-1!important}
 .furn .eng-grid .eng-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
 }
-/* «Дизайн-проект» на 2560: большое фото и квадратные превью снизу */
-.ds-thumbs{display:none}
-@media (min-width:2200px){
-.design2 .design-collage{display:block!important;position:sticky}
-.design2 .design-collage>.photo{display:none!important;aspect-ratio:3/2!important;width:100%}
-.design2 .design-collage>.photo.ds-on{display:block!important}
-.design2 .design-collage .ds-thumbs{display:flex;gap:12px;margin-top:12px}
-.ds-thumbs button{width:96px;height:96px;flex:none;padding:0;border:1px solid var(--border-accent);border-radius:10px;background:#fff center/cover no-repeat;cursor:pointer;opacity:.6;transition:opacity .2s,border-color .2s}
+/* «Дизайн-проект»: на всех разрешениях одно большое фото и квадратные превью снизу; все кадры одной пропорции — блок не скачет */
+.design2 .design-collage{display:block!important;aspect-ratio:auto!important;height:auto!important;min-height:0!important;overflow:visible!important}
+.design2 .design-collage>.photo.ph-img:nth-child(n){display:none!important;width:100%;height:auto!important;aspect-ratio:3/2!important;grid-row:auto!important;grid-column:auto!important;flex:none!important}
+.design2 .design-collage>.photo.ph-img.ds-on:nth-child(n){display:block!important}
+.design2 .design-collage .ds-thumbs{display:flex;gap:10px;margin-top:10px}
+.ds-thumbs button{width:80px;height:80px;flex:none;padding:0;border:1px solid var(--border-accent);border-radius:10px;background:#fff center/cover no-repeat;cursor:pointer;opacity:.6;transition:opacity .2s,border-color .2s}
 .ds-thumbs button:hover{opacity:.9}
 .ds-thumbs button[aria-pressed="true"]{opacity:1;border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze)}
+.design2 .design-collage>.photo.ph-img.ds-draw:nth-child(n){background-size:contain!important;background-repeat:no-repeat!important;background-color:#fff!important}
+.design2 .design-collage+.hs-count,.design2>.hs-count{display:none!important}
+@media (min-width:1681px){.ds-thumbs button{width:96px;height:96px}.design2 .design-collage .ds-thumbs{gap:12px;margin-top:12px}}
+@media (max-width:900px){
+.design2 .design-collage{margin:22px 0 6px!important;padding:0!important}
+.design2 .design-collage>.photo.ph-img:nth-child(n){aspect-ratio:4/3!important}
+.ds-thumbs button{width:64px;height:64px}
+}
+/* инженерные системы и мебель на 1024: плашки просторнее, описание 15px */
+@media (min-width:901px) and (max-width:1180px){
+html body .eng .eng-grid .eng-item{padding:24px 26px!important}
+html body .eng .eng-grid .eng-item p{font-size:15px!important}
 }
 /* «Получите план»: «Что вы получите» в плашке */
 .final8 .fp-card{padding:22px 24px;margin:0 0 16px;border-radius:var(--r-card,14px);background-color:#1C1C1C;background-image:var(--card-glow);border:1px solid rgba(255,255,255,.085)}
 .final8 .fp-card .fp-cap{margin:0 0 12px}
 .final8 .fp-card .fp-list{margin:0}
 /*/lt1113c*/
+
+/*f1113*/
+/* 1024: текст описаний 16px → 15px на всех страницах */
+@media (min-width:901px) and (max-width:1180px){
+html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.founder-facts p,.control .section-intro,.control .lead-p,.cl-row p,.fit-col li,.err-body p,.faq-in p,.eng-item p,.eng-note,.warm-row p,.pt-steps li,.pt-steps li span,.q2-card p,.guarantee-detail,.cs-p,.cs-intro,.cs-stage-txt p,.cs-lead,.cs-wrap td,.lg-doc p,.lg-doc li,.lg-op p,.ty-gift-head p,.ty-steps p,.ca-empty p,.fv-frame p,.geo-off){font-size:15px!important}
+}
+/*/f1113*/
 </style>
 
 
