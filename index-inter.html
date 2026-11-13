@@ -81,18 +81,6 @@
 }
 /* квиз: фото-варианты 3 + 1 */
 @media (min-width:901px){#quizStart .quiz-options.qz-photo{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
-/* «60 человек в команде» — карточки горизонтальные только на 1024 */
-@media (min-width:901px) and (max-width:1180px){
- .founder-info .founder-facts{grid-template-columns:1fr!important;gap:12px!important}
- .founder-info .founder-facts>div{display:grid;grid-template-columns:44px minmax(0,15em) minmax(0,1fr);column-gap:22px;align-items:center;padding:18px 22px}
- .founder-info .founder-facts>div .p-ic{margin:0}
- .founder-info .founder-facts>div h3{margin:0}
- .founder-info .founder-facts>div p{margin:0}
-}
-@media (min-width:901px) and (max-width:1180px){
- .founder-info .founder-facts>div{grid-template-columns:44px minmax(0,1fr)}
- .founder-info .founder-facts>div p{grid-column:2}
-}
 /* «Моя роль» и «Получите план»: заголовок сверху, ниже фото слева и текст справа на одном уровне */
 .sec-head{margin-bottom:clamp(28px,3.4vw,52px)}
 .sec-head h2{margin-bottom:16px}
@@ -244,6 +232,70 @@ html body .price-truth .pt-check .est-f{grid-column:1;grid-row:3}
 html body .price-truth .pt-check .pt-estimg{grid-column:2;grid-row:3;align-self:center;width:112%!important;margin:0 -40px 0 auto!important}
 }
 /*/lt1113*/
+
+/*lt1113c*/
+/* «60 человек»: 1024 — фото слева, имя/цитата/подпись справа, ниже 3 вертикальные карточки */
+@media (min-width:901px) and (max-width:1180px){
+.team-founder{grid-template-columns:minmax(0,5fr) minmax(0,7fr)!important;column-gap:var(--cg,28px)!important;row-gap:0!important;align-items:start!important}
+.team-founder>.founder-video{grid-column:1!important;grid-row:1/7!important;min-height:380px!important;height:100%!important;align-self:stretch!important}
+.team-founder>.founder-info{display:contents!important}
+.team-founder>.founder-info>:not(.founder-facts){grid-column:2!important}
+.team-founder>.founder-info>.founder-facts{grid-column:1/-1!important;grid-row:7!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;margin:28px 0 0!important;padding-top:0!important}
+.founder-info .founder-facts>div{display:grid!important;grid-template-columns:1fr!important;row-gap:10px!important;align-items:start!important;align-content:start!important;padding:22px!important}
+.founder-info .founder-facts>div p{grid-column:auto!important}
+html body .founder-info .founder-facts p{font-size:15px!important}
+}
+/* «Свой человек»: 1920 и 2560 — кадр выше, голова не режется */
+@media (min-width:1681px){
+.ally .ally-photo{aspect-ratio:3/2!important;height:auto!important;align-self:center!important;background-position:30% 6%!important}
+}
+/* лид-магниты на 1024 — мокапы крупнее */
+@media (min-width:901px) and (max-width:1180px){
+html body .lm-card.wide:has(.lm-chkimg) .lm-chkimg{width:88%!important;max-width:none!important;margin:-96px auto -40px -12px!important}
+html body .lm-card.full:has(.lm-catimg) .lm-catimg{width:112%!important;max-width:none!important;margin:-90px 0 -44px -40px!important}
+}
+/* инженерные системы: карусель вместо коллажа */
+.eng-car{position:relative;min-width:0;display:flex;flex-direction:column;gap:12px}
+.eng-car-nav{display:flex;align-items:center;gap:10px}
+.eng-car-nav .arrow-btn{flex:none}
+.eng-car-count{margin-left:auto;font-size:.8rem;color:var(--text-muted);font-variant-numeric:tabular-nums}
+@media (min-width:901px){
+.eng:not(.furn) .eng-col{display:flex!important;grid-template-columns:none!important;grid-template-rows:none!important;gap:10px!important;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;flex:1 1 auto;height:auto!important;min-height:540px!important}
+.eng:not(.furn) .eng-col::-webkit-scrollbar{display:none}
+.eng:not(.furn) .eng-col .eng-t{flex:0 0 calc((100% - 10px)/2);grid-column:auto!important;grid-row:auto!important;scroll-snap-align:start}
+.eng:not(.furn) .eng-col .eng-t figcaption{font-size:.8rem;left:14px;bottom:14px;padding:6px 12px}
+}
+@media (max-width:900px){.eng-car-nav{display:none}}
+/* инженерные системы на 1024: фото сверху, ниже карточки 3×2 */
+@media (min-width:901px) and (max-width:1180px){
+.eng:not(.furn) .eng-grid{grid-template-columns:minmax(0,1fr)!important;row-gap:28px!important}
+.eng:not(.furn) .eng-grid>*{grid-column:1/-1!important}
+.eng:not(.furn) .eng-col{min-height:0!important;height:400px!important}
+.eng:not(.furn) .eng-col .eng-t{flex:0 0 calc((100% - 10px)/2)}
+.eng:not(.furn) .eng-grid .eng-list{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important}
+}
+/* мебель и камень на 1024: видео 2×2 сверху, ниже карточки 2×2 */
+@media (min-width:901px) and (max-width:1180px){
+.furn .eng-grid{grid-template-columns:minmax(0,1fr)!important;row-gap:32px!important}
+.furn .eng-grid>*{grid-column:1/-1!important}
+.furn .eng-grid .eng-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+}
+/* «Дизайн-проект» на 2560: большое фото и квадратные превью снизу */
+.ds-thumbs{display:none}
+@media (min-width:2200px){
+.design2 .design-collage{display:block!important;position:sticky}
+.design2 .design-collage>.photo{display:none!important;aspect-ratio:3/2!important;width:100%}
+.design2 .design-collage>.photo.ds-on{display:block!important}
+.design2 .design-collage .ds-thumbs{display:flex;gap:12px;margin-top:12px}
+.ds-thumbs button{width:96px;height:96px;flex:none;padding:0;border:1px solid var(--border-accent);border-radius:10px;background:#fff center/cover no-repeat;cursor:pointer;opacity:.6;transition:opacity .2s,border-color .2s}
+.ds-thumbs button:hover{opacity:.9}
+.ds-thumbs button[aria-pressed="true"]{opacity:1;border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze)}
+}
+/* «Получите план»: «Что вы получите» в плашке */
+.final8 .fp-card{padding:22px 24px;margin:0 0 16px;border-radius:var(--r-card,14px);background-color:#1C1C1C;background-image:var(--card-glow);border:1px solid rgba(255,255,255,.085)}
+.final8 .fp-card .fp-cap{margin:0 0 12px}
+.final8 .fp-card .fp-list{margin:0}
+/*/lt1113c*/
 </style>
 
 
@@ -267,7 +319,7 @@ html body .price-truth .pt-check .pt-estimg{grid-column:2;grid-row:3;align-self:
     <div class="gl-dwrap">
       <nav aria-label="Разделы страницы"><span class="gl-cap">На этой странице</span><a class="dl" href="#portfolio" data-scroll="portfolio" data-spy="portfolio">Объекты</a><a class="dl" href="#price" data-scroll="price" data-spy="price">Цена</a><a class="dl" href="#standard" data-scroll="standard" data-spy="standard">Гарантии</a><a class="dl" href="#team" data-scroll="team" data-spy="team">Команда</a><a class="dl" href="#faq" data-scroll="faq" data-spy="faq">Вопросы</a></nav>
       <div><span class="gl-cap">Что ремонтируем</span><div class="gl-dirs"><a class="gl-dir" href="#top" data-scroll="top" aria-current="page"><b>Квартиры</b><small>от 45 000 ₽/м², 4–7 месяцев</small><em>Вы здесь</em></a><a class="gl-dir" href="/remont-domov/"><b>Дома и коттеджи</b><small>от 150 м², инженерия и отделка в одном договоре</small><em>Перейти</em></a><a class="gl-dir" href="/remont-kommercheskih-pomeshcheniy/"><b>Коммерция</b><small>бары, лофты, шоурумы — открытие в срок</small><em>Перейти</em></a></div></div>
-      <div class="gl-dcon"><span class="gl-cap">Связаться</span><a class="gl-phone" href="tel:+79263930450">+7 (926) 393-04-50</a><span class="mail">romanovbyuro@yandex.ru</span><span>Пн–Сб 9:00–20:00 · отвечаем сами, без колл-центра</span><div class="gl-dsoc"><a href="https://t.me/romanovvladimir81" target="_blank" rel="noopener" aria-label="Написать в Telegram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 4.5 2.6 11.8l6.2 2.1 2.3 6.6 3.4-4.4 5.3 3.9z"/><path d="m8.8 13.9 9.6-6.6"/></svg>Telegram</a><a href="#" aria-label="Написать в MAX"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H10l-6 4z"/></svg>MAX</a></div><button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость</button></div>
+      <div class="gl-dcon"><span class="gl-cap">Связаться</span><a class="gl-phone" href="tel:+79263930450">+7 (926) 393-04-50</a><span class="mail">romanovbyuro@yandex.ru</span><span>Пн–Сб 9:00–20:00 · отвечаем сами, без колл-центра</span><div class="gl-dsoc"><a href="https://t.me/romanovvladimir81" target="_blank" rel="noopener" aria-label="Написать в Telegram">Telegram</a><a href="#" aria-label="Написать в MAX">MAX</a></div><button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость</button></div>
     </div>
   </div>
 </header>
@@ -926,7 +978,7 @@ html body .price-truth .pt-check .pt-estimg{grid-column:2;grid-row:3;align-self:
         <div class="portrait-badge"><div class="portrait-badge-name">Владимир Романов</div><div class="portrait-badge-role">Отвечаю за результат своим именем</div></div>
       </div>
       <div>
-        <p class="fp-cap reveal">Что вы получите</p><ul class="fp-list reveal"><li><b>Стоимость работ и черновых материалов</b>за 1–2 дня после обращения</li><li><b>Мой бесплатный выезд на замер</b>в Москве — за 1–2 дня</li><li><b>Чек-лист «20 ошибок в дизайн-проекте»</b>до старта работ</li></ul>
+        <div class="fp-card reveal"><p class="fp-cap">Что вы получите</p><ul class="fp-list"><li><b>Стоимость работ и черновых материалов</b>за 1–2 дня после обращения</li><li><b>Мой бесплатный выезд на замер</b>в Москве — за 1–2 дня</li><li><b>Чек-лист «20 ошибок в дизайн-проекте»</b>до старта работ</li></ul></div>
         <form class="lead-form-card reveal" novalidate>
           <div class="form-group">
             <label for="fWhat">Что у вас уже есть</label>
@@ -1170,7 +1222,7 @@ html body .price-truth .pt-check .pt-estimg{grid-column:2;grid-row:3;align-self:
       var _f = function(l, v){ return '<div><small>' + l + '</small><b>' + v + '</b></div>'; }, _ar = ((c.sub + ' ' + c.chips.join(' ')).match(/(\d+[,.]?\d*)\s?м²/) || [])[1];
       var _fx = [];
       if (c.special){ _fx = c.special.map(function(r){ return [r[0], r[1]]; }); }
-      else { var _t = /\d/.test(c.term[1]) ? c.term[1] : c.term[0] + ', идёт';
+      else { var _t = /\d/.test(c.term[1]) ? c.term[1] : c.term[0];
         if (_ar) _fx.push(['Площадь', _ar + ' м²']); _fx.push(['Срок ремонта', _t]); _fx.push(['Год сдачи', c.year || '20__']); }
       $('pfFacts').innerHTML = ''; $('pfFacts').hidden = true;
       $('pfChips').innerHTML = _fx.map(function(r){ return '<span class="pf-st">' + r[0] + ' <b>' + r[1] + '</b></span>'; }).join('') + c.chips.filter(function(x){ return !(_ar && x.replace(/\s/g,'') === (_ar + 'м²')); }).map(function(x){ return '<span>' + x + '</span>'; }).join('');
@@ -1897,5 +1949,23 @@ addEventListener('pointermove',function(e){if(!d)return;var dx=e.clientX-d.x;if(
 addEventListener('pointerup',function(){if(d&&d.m)last=Date.now();d=null;});
 t.addEventListener('click',function(e){if(Date.now()-last<250){e.stopPropagation();e.preventDefault();}},true);
 b.addEventListener('pointerdown',function(e){var r=b.getBoundingClientRect();function mv(ev){t.scrollLeft=(ev.clientX-r.left)/r.width*t.scrollWidth-t.clientWidth/2;}mv(e);try{b.setPointerCapture(e.pointerId);}catch(x){}b.onpointermove=mv;b.onpointerup=b.onpointercancel=function(){b.onpointermove=null;};});})();</script>
+<script id="eng-car">(function(){var col=document.querySelector('.eng:not(.furn) .eng-col');if(!col)return;
+var w=document.createElement('div');w.className='eng-car';col.parentNode.insertBefore(w,col);w.appendChild(col);
+var nav=document.createElement('div');nav.className='eng-car-nav';
+nav.innerHTML='<button type="button" class="arrow-btn" aria-label="Предыдущее фото"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button><button type="button" class="arrow-btn" aria-label="Следующее фото"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button><span class="eng-car-count"></span>';
+w.appendChild(nav);var b=nav.querySelectorAll('button'),cnt=nav.querySelector('.eng-car-count'),sl=[].slice.call(col.querySelectorAll('.eng-t'));
+function step(){return sl.length>1?sl[1].offsetLeft-sl[0].offsetLeft:col.clientWidth;}
+function idx(){return Math.round(col.scrollLeft/step());}
+function per(){return Math.max(1,Math.round(col.clientWidth/step()));}
+function up(){var i=idx(),p=per(),n=sl.length,last=Math.min(n,i+p);cnt.textContent=(p>1?(i+1)+'–'+last:(i+1))+' / '+n;b[0].disabled=i<=0;b[1].disabled=col.scrollLeft+col.clientWidth>=col.scrollWidth-4;}
+function go(d){var i=Math.max(0,Math.min(sl.length-1,idx()+d));col.scrollTo({left:sl[i].offsetLeft-sl[0].offsetLeft,behavior:'smooth'});}
+b[0].addEventListener('click',function(){go(-1);});b[1].addEventListener('click',function(){go(1);});
+col.addEventListener('scroll',function(){clearTimeout(col._t);col._t=setTimeout(up,60);},{passive:true});addEventListener('resize',up);addEventListener('load',up);up();})();</script>
+<script id="ds-gal">(function(){var c=document.querySelector('.design2 .design-collage');if(!c)return;var ph=[].slice.call(c.querySelectorAll(':scope > .photo'));if(ph.length<2)return;
+var t=document.createElement('div');t.className='ds-thumbs';
+ph.forEach(function(p,i){var u=p.getAttribute('data-bg')||'';if(!u){var m=(p.style.backgroundImage||'').match(/url\(["']?([^"')]+)/);u=m?m[1]:'';}
+var btn=document.createElement('button');btn.type='button';btn.setAttribute('aria-label','Показать: '+(p.getAttribute('aria-label')||('фото '+(i+1))));btn.setAttribute('aria-pressed',i===0?'true':'false');if(u)btn.style.backgroundImage='url('+u+')';
+btn.addEventListener('click',function(){ph.forEach(function(q,k){q.classList.toggle('ds-on',k===i);});[].forEach.call(t.children,function(x,k){x.setAttribute('aria-pressed',k===i?'true':'false');});var pu=p.getAttribute('data-bg');if(pu&&!p.style.backgroundImage){p.style.backgroundImage='url('+pu+')';}});
+t.appendChild(btn);});ph[0].classList.add('ds-on');c.appendChild(t);})();</script>
 </body>
 </html>
