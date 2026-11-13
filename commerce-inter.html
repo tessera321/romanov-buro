@@ -47,7 +47,7 @@
 .ally-row b{font-size:1rem!important}
 .price-split li{font-size:15px!important}
 .price-sec .price-calc{width:100%;padding-left:22px!important;text-align:left!important;justify-content:flex-start!important}
-.team-founder>.founder-video{background-position:58% 12%!important}
+.team-founder>.founder-video{background-position:40% 12%!important}
 .r9v .r9-tab i{display:block!important;margin:0 0 4px!important}
 .r9v .r9-tab b{display:block!important;font-size:.9rem!important}
 .r9v .r9-tab small{font-size:.74rem!important;line-height:1.35!important}
@@ -103,6 +103,243 @@ html body .hero-apt img[src*="hero-v9"]{object-position:72% 42%!important}
 html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.founder-facts p,.control .section-intro,.control .lead-p,.cl-row p,.fit-col li,.err-body p,.faq-in p,.eng-item p,.eng-note,.warm-row p,.pt-steps li,.pt-steps li span,.q2-card p,.guarantee-detail,.cs-p,.cs-intro,.cs-stage-txt p,.cs-lead,.cs-wrap td,.lg-doc p,.lg-doc li,.lg-op p,.ty-gift-head p,.ty-steps p,.ca-empty p,.fv-frame p,.geo-off){font-size:15px!important}
 }
 /*/f1113*/
+
+/*ix1109*/
+@media (min-width:901px){.ally-grid>.ally-photo,.final8-grid>.final8-photo{align-self:stretch!important;aspect-ratio:auto!important;height:auto!important;max-height:none!important;min-height:420px!important}}
+
+.r9v .r9-tabs{align-items:start!important}
+@media (min-width:981px){
+ .hero7-photo{top:var(--hdr-h,84px)!important}
+ .hero7-photo img{object-position:70% 0%!important}
+ .hero7-scrim{background:linear-gradient(90deg,rgba(22,22,22,.98) 0%,rgba(22,22,22,.96) 40%,rgba(22,22,22,.9) 50%,rgba(22,22,22,.68) 58%,rgba(22,22,22,.26) 67%,rgba(22,22,22,0) 76%),linear-gradient(0deg,rgba(28,28,28,.96) 0%,rgba(28,28,28,.5) 16%,rgba(28,28,28,0) 34%)!important}
+ .hero7 h1 .tone{color:rgba(245,240,232,.56)}
+}
+.portfolio .section-intro,.errors .section-intro,.standard .lead-p{max-width:none!important}
+.standard-head{margin-bottom:clamp(28px,3vw,44px)}
+.standard-head .lead-p{margin-bottom:0}
+@media (min-width:981px){
+ .standard .standard-aside .ctr{margin-top:28px!important;padding-top:0!important}
+ .standard .standard-aside .contract-btn{margin-top:0}
+}
+/* кейсы: факты вместо столбцов «по договору / по факту» */
+.pf-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(0,1fr));gap:0;margin:18px 0 22px;border-top:1px solid var(--divider);border-bottom:1px solid var(--divider)}
+.pf-facts>div{padding:14px 18px 14px 0;min-width:0}
+.pf-facts>div+div{padding-left:18px;border-left:1px solid var(--divider)}
+.pf-facts small{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted);margin-bottom:6px}
+.pf-facts b{display:block;font-family:var(--display);font-weight:400;font-size:clamp(1.25rem,1.6vw,1.6rem);letter-spacing:-.02em;line-height:1.1;color:var(--text-primary);font-variant-numeric:lining-nums}
+/* «Что сделали» — ровные строки с разделителями */
+.pf-wl{gap:0 32px!important;border-top:1px solid var(--divider)}
+.pf-wl li{padding:9px 0 9px 18px!important;border-bottom:1px solid var(--divider);line-height:1.45!important;align-self:stretch}
+.pf-wl li::before{top:calc(9px + .725em - 3px)!important;width:6px;height:6px}
+.pf-wl li:first-child{grid-column:1/-1}
+/* «От заявки до ключей» — компактный степпер вместо крупных плиток */
+@media (min-width:901px){
+ .r9v .r9-tabs{gap:0 18px;margin:0 0 22px}
+ .r9v .r9-tab{display:block;padding:14px 0 0;background:none!important;border:0;border-top:2px solid rgba(245,240,232,.14);border-radius:0;text-align:left;color:var(--text-secondary)}
+ .r9v .r9-tab i{display:inline;font-size:.86rem;margin-right:6px}
+ .r9v .r9-tab b{display:inline;font-size:.95rem}
+ .r9v .r9-tab small{display:block;margin-top:4px;font-size:.78rem}
+ .r9v .r9-tab:hover{border-color:rgba(181,161,138,.55)}
+ .r9v .r9-tab[aria-selected="true"]{background:none!important;border-color:var(--bronze);border-top-color:var(--bronze)}
+ .r9v .r9-tab[aria-selected="true"] b{color:var(--bronze)}
+}
+/* квиз: фото-варианты 3 + 1 */
+@media (min-width:901px){#quizStart .quiz-options.qz-photo{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
+/* «Моя роль» и «Получите план»: заголовок сверху, ниже фото слева и текст справа на одном уровне */
+.sec-head{margin-bottom:clamp(28px,3.4vw,52px)}
+.sec-head h2{margin-bottom:16px}
+.sec-head .lead-p{margin:0}
+.ally-grid,.final8-grid{align-items:stretch!important}
+.ally-grid>div:nth-child(2) .ally-rows{margin-top:0}
+.ally-photo,.final8-photo{min-height:0!important;height:100%}
+@media (max-width:900px){.ally-photo{min-height:260px!important}.final8-photo{aspect-ratio:4/5;max-height:460px;height:auto}}
+.final8 .sec-head h2{max-width:24ch}
+.final8-grid .fp-cap{margin-top:0}
+@media (max-width: 980px){.hero7 h1 br.hb{display: none}}
+/*/ix1109*/
+
+/*lt1113*/
+.pf-tabbar{display:none}
+.pf-facts[hidden]{display:none!important}
+.pf-chips .pf-st{color:var(--text-muted)}
+.pf-chips .pf-st b{color:var(--text-primary);font-weight:600}
+@media (min-width:981px) and (max-width:1180px){
+html body .hero-apt img[src*="hero-v9"]{top:-56px!important;bottom:auto!important;height:calc(100% + 56px)!important}
+}
+@media (min-width:901px) and (max-width:1180px){
+.portfolio .pf-tabs{margin-bottom:12px!important;cursor:grab}
+.portfolio .pf-tabs.pf-more-r{-webkit-mask-image:linear-gradient(90deg,#000 84%,transparent);mask-image:linear-gradient(90deg,#000 84%,transparent)}
+.portfolio .pf-tabs.pf-more-l.pf-more-r{-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 84%,transparent);mask-image:linear-gradient(90deg,transparent,#000 10%,#000 84%,transparent)}
+.portfolio .pf-tabs.pf-more-l:not(.pf-more-r){-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%);mask-image:linear-gradient(90deg,transparent,#000 10%)}
+.pf-tabbar{display:block;position:relative;height:3px;border-radius:3px;background:rgba(245,240,232,.12);margin:0 0 clamp(24px,3vw,36px);cursor:pointer;touch-action:none}
+.pf-tabbar::before{content:"";position:absolute;left:0;right:0;top:-8px;bottom:-8px}
+.pf-tabbar[hidden]{display:none}
+.pf-tabbar i{position:absolute;top:0;bottom:0;border-radius:3px;background:var(--bronze)}
+.portfolio .pf-panel>:first-child{--th:64px!important;grid-template-columns:minmax(0,1fr)!important;row-gap:10px!important}
+.portfolio .pf-panel .pf-stage .pf-main{height:min(calc(100cqw * 1.08),78svh)!important}
+.portfolio .pf-panel .pf-thumbs{grid-template-columns:none!important;grid-auto-flow:column!important;grid-auto-columns:var(--th)!important;grid-auto-rows:var(--th)!important;justify-content:start}
+.portfolio .pf-wl{grid-template-columns:minmax(0,1fr)!important}
+}
+@media (min-width:901px){
+.compare>.container{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(32px,4vw,80px);grid-template-rows:auto auto 1fr;align-items:start}
+.compare .section-heading{grid-column:1;grid-row:1}
+.compare .section-intro{grid-column:1;grid-row:2;max-width:none!important}
+.compare .cmp-hint{grid-column:1;grid-row:3;justify-content:flex-start;text-align:left;margin:22px 0 0!important;align-items:flex-start;align-self:end}
+.compare .cmp-hint svg{margin-top:4px}
+.compare .cmp-grid{grid-column:2;grid-row:1/4;display:block;margin-top:0;align-self:end}
+.compare .cmp-grid .cmp-wrap{width:100%!important}
+.compare>.container>.todo{grid-column:1/-1}
+}
+.r9v .r9-tabs{gap:10px!important}
+.r9v .r9-tab{border:1px solid var(--border-accent)!important;border-radius:var(--r-ctl,10px)!important;background:transparent!important;padding:12px 16px!important;color:var(--text-primary)!important;transition:background-color .2s,border-color .2s,color .2s}
+.r9v .r9-tab:hover{background:var(--bronze-glow)!important}
+.r9v .r9-tab[aria-selected="true"]{background:var(--bronze)!important;border-color:var(--bronze)!important;color:#0D0D0D!important}
+.r9v .r9-tab[aria-selected="true"] b{color:#0D0D0D!important}
+.r9v .r9-tab[aria-selected="true"] i,.r9v .r9-tab[aria-selected="true"] small{color:rgba(28,28,28,.72)!important}
+@media (min-width:901px) and (max-width:1180px){.r9v .r9-tab{padding:12px 10px!important}}
+@media (min-width:901px){
+.qz-panel #quizStart.quiz-card{height:auto!important;max-height:none!important;overflow:visible!important}
+}
+@media (min-width:1681px){#quizStart .quiz-options.qz-photo{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+@media (min-width:901px) and (max-width:1180px){#quizStart .quiz-options.qz-photo{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (min-width:901px) and (max-width:1180px){
+#quizForm.quiz-form.active{display:flex!important;flex-direction:column;align-items:stretch;gap:0}
+#quizForm>.qz-col{order:-1;margin-bottom:28px}
+#quizForm>.quiz-form-title{order:0}
+#quizForm>.quiz-result-preview{order:1}
+}
+@media (min-width:901px) and (max-width:1180px){
+.standard .standard-grid{grid-template-columns:minmax(0,5fr) minmax(0,7fr)!important;grid-template-rows:auto auto auto 1fr;column-gap:clamp(28px,3.4vw,44px)!important;row-gap:0!important;align-items:start!important}
+.standard .standard-grid>div:nth-child(2),.standard .standard-grid .standard-aside{display:contents!important}
+.standard .standard-grid .ctr{grid-column:1;grid-row:1;margin:0!important;padding:0!important;width:100%}
+.standard .standard-grid .contract-btn{grid-column:1;grid-row:2;margin:28px 0 0!important;justify-self:start}
+.standard .standard-grid .ip-note{grid-column:1;grid-row:3;margin:24px 0 0!important}
+.standard .standard-grid .rules{grid-column:2;grid-row:1/5;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:28px;margin:0}
+.standard .standard-grid .rules>li{align-content:start!important;grid-template-columns:minmax(0,1fr)!important;row-gap:6px!important;column-gap:0!important;padding-block:20px!important;border-bottom:0!important}
+.standard .standard-grid .rules>li:nth-child(-n+2){border-top:0!important;padding-top:0!important}
+.standard .standard-grid .rule::before{padding-top:0!important;font-size:.82rem!important;line-height:1.2}
+.standard .standard-grid .rule h3{font-size:1.08rem!important}
+.standard .standard-grid>div>.todo{grid-column:1/-1}
+}
+@media (min-width:901px){
+.price-sec .format-main{align-items:stretch!important}
+.price-sec .format-main>:first-child{display:flex;flex-direction:column;align-items:stretch}
+.price-sec .format-main>:first-child .price-calc{margin-top:auto!important}
+.price-sec .format-main>:first-child .price-example{margin-bottom:28px}
+}
+@media (min-width:901px) and (max-width:1180px){
+.price-sec .price-split{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:auto 1fr}
+.price-sec .price-split>div+div{border-left:0!important;border-top:1px solid var(--border-accent)}
+.price-sec .price-split ul{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-auto-flow:row;column-gap:28px;align-items:start}
+.price-sec .price-split>div:first-child li:nth-child(1){order:1}.price-sec .price-split>div:first-child li:nth-child(2){order:2}.price-sec .price-split>div:first-child li:nth-child(3){order:3}.price-sec .price-split>div:first-child li:nth-child(5){order:4}.price-sec .price-split>div:first-child li:nth-child(4){order:5}.price-sec .price-split>div:first-child li:nth-child(6){order:6}.price-sec .price-split>div:first-child li:nth-child(8){order:7}.price-sec .price-split>div:first-child li:nth-child(9){order:8}.price-sec .price-split>div:first-child li:nth-child(7){order:9}.price-sec .price-split>div:first-child li:nth-child(10){order:10}.price-sec .price-split .extra li:nth-child(2){order:3}.price-sec .price-split .extra li:nth-child(3){order:2}.price-sec .price-split .extra li:nth-child(4){order:4}.price-sec .price-split .extra li:nth-child(1){order:1}
+}
+@media (min-width:901px) and (max-width:1180px){
+html body .price-truth .pt-check{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;grid-template-rows:auto auto auto;row-gap:0!important;align-items:start!important}
+html body .price-truth .pt-check>div:first-child{display:contents}
+.price-truth .pt-check-title{grid-column:1/-1;grid-row:1}
+.price-truth .pt-check .lead-p{grid-column:1/-1;grid-row:2;max-width:none}
+html body .price-truth .pt-check .est-f{grid-column:1;grid-row:3}
+html body .price-truth .pt-check .pt-estimg{grid-column:2;grid-row:3;align-self:center;width:112%!important;margin:0 -40px 0 auto!important}
+}
+/*/lt1113*/
+
+/*lt1113c*/
+/* «60 человек»: 1024 — фото слева, имя/цитата/подпись справа, ниже 3 вертикальные карточки */
+@media (min-width:901px) and (max-width:1180px){
+.team-founder{grid-template-columns:minmax(0,5fr) minmax(0,7fr)!important;column-gap:var(--cg,28px)!important;row-gap:0!important;align-items:start!important}
+.team-founder>.founder-video{grid-column:1!important;grid-row:1/7!important;min-height:380px!important;height:100%!important;align-self:stretch!important}
+.team-founder>.founder-info{display:contents!important}
+.team-founder>.founder-info>:not(.founder-facts){grid-column:2!important}
+.team-founder>.founder-info>.founder-facts{grid-column:1/-1!important;grid-row:7!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;margin:28px 0 0!important;padding-top:0!important}
+.founder-info .founder-facts>div{display:grid!important;grid-template-columns:1fr!important;row-gap:10px!important;align-items:start!important;align-content:start!important;padding:22px!important}
+.founder-info .founder-facts>div p{grid-column:auto!important}
+html body .founder-info .founder-facts p{font-size:15px!important}
+}
+/* «Свой человек»: 1920 и 2560 — кадр выше, голова не режется */
+@media (min-width:1681px){
+.ally .ally-photo{aspect-ratio:3/2!important;height:auto!important;align-self:center!important;background-position:30% 6%!important}
+}
+/* лид-магниты на 1024 — мокапы крупнее */
+@media (min-width:901px) and (max-width:1180px){
+html body .lm-card.wide:has(.lm-chkimg) .lm-chkimg{width:88%!important;max-width:none!important;margin:-96px auto -40px -12px!important}
+html body .lm-card.full:has(.lm-catimg) .lm-catimg{width:112%!important;max-width:none!important;margin:-90px 0 -44px -40px!important}
+}
+/* инженерные системы: карусель вместо коллажа */
+.eng-car{position:relative;min-width:0;display:flex;flex-direction:column;gap:12px}
+.eng-car-nav{display:flex;align-items:center;gap:10px}
+.eng-car-nav .arrow-btn{flex:none}
+.eng-car-count{margin-left:auto;font-size:.8rem;color:var(--text-muted);font-variant-numeric:tabular-nums}
+@media (min-width:901px){
+.eng:not(.furn) .eng-col{display:flex!important;grid-template-columns:none!important;grid-template-rows:none!important;gap:10px!important;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;flex:1 1 auto;height:auto!important;min-height:540px!important}
+.eng:not(.furn) .eng-col::-webkit-scrollbar{display:none}
+.eng:not(.furn) .eng-col .eng-t{flex:0 0 calc((100% - 10px)/2);grid-column:auto!important;grid-row:auto!important;scroll-snap-align:start}
+.eng:not(.furn) .eng-col .eng-t figcaption{font-size:.8rem;left:14px;bottom:14px;padding:6px 12px}
+}
+@media (max-width:900px){.eng-car-nav{display:none}}
+/* инженерные системы на 1024: фото сверху, ниже карточки 3×2 */
+@media (min-width:901px) and (max-width:1180px){
+.eng:not(.furn) .eng-grid{grid-template-columns:minmax(0,1fr)!important;row-gap:28px!important}
+.eng:not(.furn) .eng-grid>*{grid-column:1/-1!important}
+.eng:not(.furn) .eng-col{min-height:0!important;height:400px!important}
+.eng:not(.furn) .eng-col .eng-t{flex:0 0 calc((100% - 10px)/2)}
+.eng:not(.furn) .eng-grid .eng-list{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important}
+}
+/* мебель и камень на 1024: видео 2×2 сверху, ниже карточки 2×2 */
+@media (min-width:901px) and (max-width:1180px){
+.furn .eng-grid{grid-template-columns:minmax(0,1fr)!important;row-gap:32px!important}
+.furn .eng-grid>*{grid-column:1/-1!important}
+.furn .eng-grid .eng-list{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+}
+/* «Дизайн-проект»: на всех разрешениях одно большое фото и квадратные превью снизу; все кадры одной пропорции — блок не скачет */
+.design2 .design-collage{display:block!important;aspect-ratio:auto!important;height:auto!important;min-height:0!important;overflow:visible!important}
+.design2 .design-collage>.photo.ph-img:nth-child(n){display:none!important;width:100%;height:auto!important;aspect-ratio:3/2!important;grid-row:auto!important;grid-column:auto!important;flex:none!important}
+.design2 .design-collage>.photo.ph-img.ds-on:nth-child(n){display:block!important}
+.design2 .design-collage .ds-thumbs{display:flex;gap:10px;margin-top:10px}
+.ds-thumbs button{width:80px;height:80px;flex:none;padding:0;border:1px solid var(--border-accent);border-radius:10px;background:#fff center/cover no-repeat;cursor:pointer;opacity:.6;transition:opacity .2s,border-color .2s}
+.ds-thumbs button:hover{opacity:.9}
+.ds-thumbs button[aria-pressed="true"]{opacity:1;border-color:var(--bronze);box-shadow:0 0 0 1px var(--bronze)}
+.design2 .design-collage>.photo.ph-img.ds-draw:nth-child(n){background-size:contain!important;background-repeat:no-repeat!important;background-color:#fff!important}
+.design2 .design-collage+.hs-count,.design2>.hs-count{display:none!important}
+@media (min-width:1681px){.ds-thumbs button{width:96px;height:96px}.design2 .design-collage .ds-thumbs{gap:12px;margin-top:12px}}
+@media (max-width:900px){
+.design2 .design-collage{margin:22px 0 6px!important;padding:0!important}
+.design2 .design-collage>.photo.ph-img:nth-child(n){aspect-ratio:4/3!important}
+.ds-thumbs button{width:64px;height:64px}
+}
+/* инженерные системы и мебель на 1024: плашки просторнее, описание 15px */
+@media (min-width:901px) and (max-width:1180px){
+html body .eng .eng-grid .eng-item{padding:24px 26px!important}
+html body .eng .eng-grid .eng-item p{font-size:15px!important}
+}
+/* «Получите план»: «Что вы получите» в плашке */
+.final8 .fp-card{padding:22px 24px;margin:0 0 16px;border-radius:var(--r-card,14px);background-color:#1C1C1C;background-image:var(--card-glow);border:1px solid rgba(255,255,255,.085)}
+.final8 .fp-card .fp-cap{margin:0 0 12px}
+.final8 .fp-card .fp-list{margin:0}
+/*/lt1113c*/
+
+/*ix1031*/
+.btn-primary.price-calc{justify-content:center !important;text-align:center;padding-left:64px !important}@media (max-width: 900px){.ally .ally-photo{aspect-ratio:4/3 !important;height:auto !important;min-height:0 !important;width:100%}}
+/*/ix1031*/
+
+/*cx1113*/
+/* «Коммерция»: подпись Владимира под цитатой */
+.founder-sign{display:block;width:170px;height:auto;margin:-6px 0 18px -6px}
+/* «Сколько стоит» на 1024: пары пунктов одинаковой высоты (свой порядок для списков «Коммерции») */
+@media (min-width:901px) and (max-width:1180px){
+.price-sec .price-split .extra li:nth-child(n){order:0!important}
+.price-sec .price-split>div:first-child li:nth-child(1){order:1!important}
+.price-sec .price-split>div:first-child li:nth-child(11){order:2!important}
+.price-sec .price-split>div:first-child li:nth-child(2){order:3!important}
+.price-sec .price-split>div:first-child li:nth-child(4){order:4!important}
+.price-sec .price-split>div:first-child li:nth-child(5){order:5!important}
+.price-sec .price-split>div:first-child li:nth-child(6){order:6!important}
+.price-sec .price-split>div:first-child li:nth-child(7){order:7!important}
+.price-sec .price-split>div:first-child li:nth-child(10){order:8!important}
+.price-sec .price-split>div:first-child li:nth-child(3){order:9!important}
+.price-sec .price-split>div:first-child li:nth-child(9){order:10!important}
+.price-sec .price-split>div:first-child li:nth-child(8){order:11!important}
+}
+/*/cx1113*/
 </style>
 
 
@@ -134,11 +371,11 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
 <main id="top">
 <!-- 1. HERO -->
 <section class="hero7">
-  <div class="photo hero7-photo"><img src="/img/com/hero-office.webp" srcset="/img/com/hero-office-640.webp 640w, /img/com/hero-office-960.webp 960w, /img/com/hero-office-1280.webp 1280w, /img/com/hero-office.webp 1672w" sizes="100vw" alt="Владимир Романов, основатель БюроРОМАНОВЪ, в светлом офисе-лофте со стеклянными перегородками" fetchpriority="high"><aside class="hero-founder" aria-label="Кто отвечает за ваш объект"><b>Владимир Романов</b><span>Основатель бюро · 20 лет практики</span><p>Отвечаю за открытие в дату из договора, а ведёт объект моя команда — от демонтажа до клининга перед гостями.</p></aside></div>
+  <div class="photo hero7-photo hero-apt"><img src="/img/com/hero-v9-com.webp" srcset="/img/com/hero-v9-com-640.webp 640w, /img/com/hero-v9-com-960.webp 960w, /img/com/hero-v9-com-1280.webp 1280w, /img/com/hero-v9-com.webp 1672w" sizes="100vw" alt="Владимир Романов, основатель БюроРОМАНОВЪ, в светлом офисе-лофте со стеклянными перегородками" fetchpriority="high"><aside class="hero-founder" aria-label="Кто отвечает за ваш объект"><b>Владимир Романов</b><span>Основатель бюро · 20 лет практики</span><p>Отвечаю за открытие в дату из договора, а ведёт объект моя команда — от демонтажа до клининга перед гостями.</p></aside></div>
   <div class="hero7-scrim"></div>
   <div class="hero7-inner">
 
-    <h1>Ремонт коммерческих помещений под ключ за 2 месяца — <span class="tone">за каждый день просрочки платим неустойку</span></h1>
+    <h1>Ремонт коммерческих<br class="hb"> помещений под ключ<br class="hb"> за 2 месяца — <span class="tone">за каждый день<br class="hb"> просрочки платим неустойку</span></h1>
     <div class="hero7-price">от 90 000 ₽/м²</div>
     <p class="hero-sub">Полный цикл — от демонтажа до клининга перед гостями: инженерию, отделку, мебель и согласования с арендодателем берём на себя. <span class="hl">График запуска — приложение к договору, неустойка — 0,05% от стоимости работ за каждый день просрочки.</span></p>
     <div class="hero-cta-row" style="margin-top:30px">
@@ -187,7 +424,7 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
       <div class="pf-info">
         <h3 id="pfTitle">Объект</h3>
         <div class="pf-chips" id="pfChips"></div>
-        <table class="pf-table"><thead><tr><th></th><th>По договору</th><th>По факту</th></tr></thead><tbody id="pfTable"></tbody></table>
+        <div class="pf-facts" id="pfFacts"></div>
         <div class="pf-sub">Что сделали</div>
         <ul class="pf-works pf-wl" id="pfWorks"></ul>
         <div class="pf-sub">Особенность проекта</div>
@@ -238,6 +475,14 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
       <div class="photo ph-img lux-photo reveal" role="img" aria-label="Мастер выставляет встроенную духовку по уровню в шпонированной колонне кухни" style="background-position: 62% 50%" data-bg="/img/com/lux-oven.webp"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg></div>
     </div>
     <span class="todo">Нужны 2–3 факта от Романова: самый дорогой материал, с которым работали, и готов ли он написать «испортили материал — заменяем за свой счёт». С этой фразой блок становится гарантией.</span>
+  </div>
+</section>
+
+<section class="route8" id="route">
+  <div class="container">
+    <h2 class="reveal">Смета, график и спецификация — <span class="tone">у вас до первого платежа</span></h2>
+    <p class="section-intro reveal">Дальше отчёт каждую пятницу. Семь шагов от консультации до открытия. <span class="hl">Срок работ — до 2 месяцев.</span></p>
+    <div class="r9 r9v reveal" style="--n:7"><div class="r9-tabs" role="tablist" aria-label="Этапы работы"><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-0" aria-controls="r9p-vcommerce-0" aria-selected="true" tabindex="0"><i>01</i><b>Консультация</b><small>15–20 минут</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-1" aria-controls="r9p-vcommerce-1" aria-selected="false" tabindex="-1"><i>02</i><b>Выезд на объект</b><small>бесплатно</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-2" aria-controls="r9p-vcommerce-2" aria-selected="false" tabindex="-1"><i>03</i><b>Проверка проекта</b><small>бесплатно</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-3" aria-controls="r9p-vcommerce-3" aria-selected="false" tabindex="-1"><i>04</i><b>Смета и график</b><small>до 2 рабочих дней</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-4" aria-controls="r9p-vcommerce-4" aria-selected="false" tabindex="-1"><i>05</i><b>Договор</b><small>с НДС</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-5" aria-controls="r9p-vcommerce-5" aria-selected="false" tabindex="-1"><i>06</i><b>Работы</b><small>до 2 месяцев</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-6" aria-controls="r9p-vcommerce-6" aria-selected="false" tabindex="-1"><i>07</i><b>Сдача</b><small>по акту</small></button></div><div class="r9-box"><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-0" aria-labelledby="r9t-vcommerce-0"><div class="r9-ph"><img src="/img/com/steps/s1-call.webp" alt="Заказчица обсуждает по телефону план заведения на экране ноутбука" loading="lazy" decoding="async"></div><div class="r9-body"><h3>За 20 минут поймёте, тот ли это подрядчик</h3><p class="r9-t">Обсуждаем формат, площадь, проект и дату открытия. Если объект не наш профиль — скажем сразу и не будем тратить ваше время.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Честный ответ, берём ли объект</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Ориентир по бюджету и срокам — уже в разговоре</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Без обязательств и предоплаты</span></li></ul><div class="r9-fear"><b>Начнут продавать и навязывать?</b>Нет. Если задача не наша — так и скажем и подскажем, кто справится лучше.</div><div class="r9-res"><small>Результат шага</small>Понятно, есть ли смысл двигаться дальше</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="1">Следующий шаг</button><span class="r9-cnt"><b>01</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-1" aria-labelledby="r9t-vcommerce-1" hidden><div class="r9-ph"><img src="/img/com/steps/s2-visit.webp" alt="Замер помещения лазерным дальномером в присутствии заказчицы" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Смотрим помещение до того, как назвать итоговую цену</h3><p class="r9-t">Предварительную стоимость назовём и по проекту, итоговую — после замеров на месте. Осматриваем вводы электричества, воду, вентиляцию, делаем замеры. Сразу видно, что придётся согласовывать с арендодателем и торговым центром.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Мощность и вводы проверены до сметы</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Список вопросов к арендодателю</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Замеры для точной сметы</span></li></ul><div class="r9-fear"><b>Цена вырастет, когда вскроют стены?</b>Скрытые риски ищем до сметы, а не во время работ.</div><div class="r9-res"><small>Результат шага</small>Понятно состояние помещения и что согласовать с арендодателем</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="2">Следующий шаг</button><span class="r9-cnt"><b>02</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-2" aria-labelledby="r9t-vcommerce-2" hidden><div class="r9-ph"><img src="/img/com/steps/s3-check.webp" alt="Проверка плана заведения: замечания отмечены красным, рядом список замечаний" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Находим ошибки проекта на бумаге, а не в бетоне</h3><p class="r9-t">Проверяем дизайн-проект на технические ошибки: нагрузки, вентиляцию, выводы под оборудование, требования торгового центра и пожарные нормы.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Письменный список замечаний</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Исправления — до закупки материалов</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Проект, который можно построить в срок</span></li></ul><div class="r9-fear"><b>Проект красивый, но по нему не построить?</b>Это видно на этапе проверки — дизайнер успеет поправить до старта.</div><div class="r9-res"><small>Результат шага</small>Ошибки исправлены в проекте до закупок, а не на стройке</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="3">Следующий шаг</button><span class="r9-cnt"><b>03</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-3" aria-labelledby="r9t-vcommerce-3" hidden><div class="r9-ph"><img src="/img/com/steps/s4-estimate.webp" alt="Смета и график работ БюроРОМАНОВЪ на столе с образцами материалов" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Бюджет и дата открытия известны до первого платежа</h3><p class="r9-t">Построчная смета по видам работ, график запуска по неделям и спецификация материалов. Видно, за что вы платите на каждом этапе.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>2–3 варианта сметы под ваш бюджет</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>График привязан к дате открытия</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Инженерия посчитана сразу — это 20–30% бюджета</span></li></ul><div class="r9-fear"><b>Смета вырастет в процессе?</b>Цена фиксируется в договоре. Любое изменение — только по допсоглашению до начала работ.</div><div class="r9-res"><small>Результат шага</small>Смета, график запуска и спецификация — до первого платежа</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="4">Следующий шаг</button><span class="r9-cnt"><b>04</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-4" aria-labelledby="r9t-vcommerce-4" hidden><div class="r9-ph"><img src="/img/com/steps/s5-contract.webp" alt="Подписание договора подряда с графиком работ в приложении" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Срок и цена — в договоре, а не на словах</h3><p class="r9-t">Фиксированная цена, график как приложение к договору, неустойка за каждый день просрочки, аванс 20–30% и оплата по актам.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Работаем с НДС, все закрывающие документы</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Неустойка за просрочку — наша ответственность</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Платите только за принятые этапы</span></li></ul><div class="r9-fear"><b>Возьмут аванс и пропадут?</b>Аванс — 20–30%. Дальше оплата этапами, только после подписанного акта.</div><div class="r9-res"><small>Результат шага</small>Неустойка за каждый день просрочки — в договоре</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="5">Следующий шаг</button><span class="r9-cnt"><b>05</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-5" aria-labelledby="r9t-vcommerce-5" hidden><div class="r9-ph"><img src="/img/com/steps/s6-works.webp" alt="Монтаж стеновых панелей в зале, прораб сверяется с планшетом" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Объект под контролем, даже если вы на нём не бываете</h3><p class="r9-t">Один график на отделку, инженерию и поставки, ночные смены при необходимости. Акты каждые 7–10 дней, статус — по пятницам.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Фото скрытых работ до зашивки</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Видеоотчёт с объекта минимум раз в неделю</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Ваш технадзор — на любом этапе</span></li></ul><div class="r9-fear"><b>Придётся каждый день ездить на стройку?</b>Нет. Факт недели и план следующей приходят в мессенджер.</div><div class="r9-res"><small>Результат шага</small>Открытие — в дату из графика</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="6">Следующий шаг</button><span class="r9-cnt"><b>06</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-6" aria-labelledby="r9t-vcommerce-6" hidden><div class="r9-ph"><img src="/img/com/steps/s7-handover.webp" alt="Приёмка готового ресторана: заказчица и представитель бюро у барной стойки" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Открываетесь в готовом зале, а не на стройке</h3><p class="r9-t">Тестовый прогон всех систем, клининг, исполнительные схемы и гарантийный талон. Передаём зал, в котором можно сразу принимать гостей.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Системы проверены под нагрузкой до открытия</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Исполнительные схемы — для обслуживания</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Гарантийные обязательства — в договоре</span></li></ul><div class="r9-fear"><b>После сдачи подрядчика не найти?</b>Гарантия прописана в договоре, и мы на связи после открытия.</div><div class="r9-res"><small>Результат шага</small>Зал готов к открытию, гарантийный талон на руках</div><div class="r9-nav"><a class="btn-outline" href="/obekty/#com">Посмотреть объекты</a><span class="r9-cnt"><b>07</b> / 07</span></div></div></div></div></div>
   </div>
 </section>
 
@@ -405,12 +650,12 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
 
 <section class="ally">
   <div class="container">
-    <div class="ally-grid">
-      <div class="photo ph-img ally-photo reveal" role="img" aria-label="Владимир обсуждает план реконструкции с прорабом на объекте" style="background-position: 42% 30%" data-bg="/img/com/ally-plan.webp"></div>
-      <div>
-        <span class="label-sm reveal">Моя роль в вашем запуске</span>
+    <div class="sec-head"><span class="label-sm reveal">Моя роль в вашем запуске</span>
         <h2 class="reveal">Свой человек на вашем объекте — <span class="tone">пока вы готовите открытие</span></h2>
-        <p class="lead-p reveal">У каждого участника стройки свой интерес, а мой — <span class="hl">чтобы вы открылись в дату из договора</span> и по цене из сметы.</p>
+        <p class="lead-p reveal">У каждого участника стройки свой интерес, а мой — <span class="hl">чтобы вы открылись в дату из договора</span> и по цене из сметы.</p></div>
+    <div class="ally-grid">
+      <div class="photo ph-img ally-photo reveal" role="img" aria-label="Владимир обсуждает план помещения с арендаторами на объекте" style="background-position: 30% 30%" data-bg="/img/com/ally-v3.webp"></div>
+      <div>
         <div class="ally-rows">
           <div class="ally-row reveal"><b>Арендодатель и ТЦ</b><p>Режим работ, пропуска, шумные этапы, разгрузку и вывоз мусора согласуем мы. Вы не оказываетесь между подрядчиком и арендодателем.</p></div>
           <div class="ally-row reveal"><b>Поставщики</b><p>Сроки, брак, замены «на аналог» — спорим мы. Мебель, камень и оборудование с долгой поставкой заказываем заранее по графику.</p></div>
@@ -463,12 +708,13 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
   <div class="container">
     <h2 class="section-heading reveal" style="max-width:26ch">60 человек в команде, объект проверяю я — <span class="tone">не реже раза в 7 дней. Гарантия — до 5 лет</span></h2>
     <div class="team-founder reveal">
-      <button type="button" class="founder-video" id="fVideo" aria-haspopup="dialog" data-bg="/img/apt/hero-v6.webp"><span class="fv-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="fv-cap"><b>Видео · 0:50</b>Почему за ваш объект я отвечаю своим именем</span></button>
+      <button type="button" class="founder-video" id="fVideo" style="background-position:40% 20%" aria-haspopup="dialog" data-bg="/img/com/founder-v4.webp"><span class="fv-play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="fv-cap"><b>Видео · 0:50</b>Почему за ваш объект я отвечаю своим именем</span></button>
       <div class="founder-info">
         <h3>Владимир Романов</h3>
         <p><strong style="color:var(--bronze)">Руководитель проекта · 20 лет в ремонте</strong></p>
         <p>Работами руководит прораб, <span class="hl">руководителем проекта и надзором остаюсь я</span>. Договор заключается со мной, и за результат отвечаю я. В чате проекта — вы или ваш управляющий, прораб, дизайнер и я.</p>
         <p class="founder-quote">«Цитата Владимира его собственными словами — почему бюро называется „честных интерьеров“».</p>
+        <img class="founder-sign" src="/img/brand/signature.svg" alt="Подпись Владимира Романова" width="233" height="143" loading="lazy" decoding="async">
         <span class="todo">Записать цитату со слов Романова.</span>
         <div class="founder-facts">
       <div class="reveal"><span class="p-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.5 3-6 6.5-6s6.5 2.5 6.5 6"/><circle cx="17.5" cy="9" r="2.5"/><path d="M16 14.2c3 .2 5.5 2.4 5.5 5.8"/></svg></span><h3>60 человек в команде</h3><p>Без субподрядчиков: электрики, вентиляционщики, отделочники и столяры — моя команда.</p></div>
@@ -599,7 +845,7 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
           <div class="price-example-row"><span>Аванс 20–30%</span><b>1,4–2,2 млн ₽</b></div>
           <div class="price-example-row"><span>Срок по графику</span><b>до 2 месяцев</b></div>
         </div>
-        <button class="btn-primary" type="button" data-fq="" style="margin-top:28px">Рассчитать мой объект</button>
+        <button class="btn-primary price-calc" type="button" data-fq="" style="margin-top:28px">Рассчитать мой объект</button>
       </div>
       <div class="price-split">
         <div>
@@ -641,25 +887,17 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
   </div>
 </section>
 
-<section class="route8" id="route">
-  <div class="container">
-    <h2 class="reveal">Смета, график и спецификация — <span class="tone">у вас до первого платежа</span></h2>
-    <p class="section-intro reveal">Дальше отчёт каждую пятницу. Семь шагов от консультации до открытия. <span class="hl">Срок работ — до 2 месяцев.</span></p>
-    <div class="r9 r9v reveal" style="--n:7"><div class="r9-tabs" role="tablist" aria-label="Этапы работы"><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-0" aria-controls="r9p-vcommerce-0" aria-selected="true" tabindex="0"><i>01</i><b>Консультация</b><small>15–20 минут</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-1" aria-controls="r9p-vcommerce-1" aria-selected="false" tabindex="-1"><i>02</i><b>Выезд на объект</b><small>бесплатно</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-2" aria-controls="r9p-vcommerce-2" aria-selected="false" tabindex="-1"><i>03</i><b>Проверка проекта</b><small>бесплатно</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-3" aria-controls="r9p-vcommerce-3" aria-selected="false" tabindex="-1"><i>04</i><b>Смета и график</b><small>до 2 рабочих дней</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-4" aria-controls="r9p-vcommerce-4" aria-selected="false" tabindex="-1"><i>05</i><b>Договор</b><small>с НДС</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-5" aria-controls="r9p-vcommerce-5" aria-selected="false" tabindex="-1"><i>06</i><b>Работы</b><small>до 2 месяцев</small></button><button type="button" class="r9-tab" role="tab" id="r9t-vcommerce-6" aria-controls="r9p-vcommerce-6" aria-selected="false" tabindex="-1"><i>07</i><b>Сдача</b><small>по акту</small></button></div><div class="r9-box"><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-0" aria-labelledby="r9t-vcommerce-0"><div class="r9-ph"><img src="/img/com/steps/s1-call.webp" alt="Заказчица обсуждает по телефону план заведения на экране ноутбука" loading="lazy" decoding="async"></div><div class="r9-body"><h3>За 20 минут поймёте, тот ли это подрядчик</h3><p class="r9-t">Обсуждаем формат, площадь, проект и дату открытия. Если объект не наш профиль — скажем сразу и не будем тратить ваше время.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Честный ответ, берём ли объект</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Ориентир по бюджету и срокам — уже в разговоре</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Без обязательств и предоплаты</span></li></ul><div class="r9-fear"><b>Начнут продавать и навязывать?</b>Нет. Если задача не наша — так и скажем и подскажем, кто справится лучше.</div><div class="r9-res"><small>Результат шага</small>Понятно, есть ли смысл двигаться дальше</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="1">Следующий шаг</button><span class="r9-cnt"><b>01</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-1" aria-labelledby="r9t-vcommerce-1" hidden><div class="r9-ph"><img src="/img/com/steps/s2-visit.webp" alt="Замер помещения лазерным дальномером в присутствии заказчицы" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Смотрим помещение до того, как назвать итоговую цену</h3><p class="r9-t">Предварительную стоимость назовём и по проекту, итоговую — после замеров на месте. Осматриваем вводы электричества, воду, вентиляцию, делаем замеры. Сразу видно, что придётся согласовывать с арендодателем и торговым центром.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Мощность и вводы проверены до сметы</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Список вопросов к арендодателю</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Замеры для точной сметы</span></li></ul><div class="r9-fear"><b>Цена вырастет, когда вскроют стены?</b>Скрытые риски ищем до сметы, а не во время работ.</div><div class="r9-res"><small>Результат шага</small>Понятно состояние помещения и что согласовать с арендодателем</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="2">Следующий шаг</button><span class="r9-cnt"><b>02</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-2" aria-labelledby="r9t-vcommerce-2" hidden><div class="r9-ph"><img src="/img/com/steps/s3-check.webp" alt="Проверка плана заведения: замечания отмечены красным, рядом список замечаний" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Находим ошибки проекта на бумаге, а не в бетоне</h3><p class="r9-t">Проверяем дизайн-проект на технические ошибки: нагрузки, вентиляцию, выводы под оборудование, требования торгового центра и пожарные нормы.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Письменный список замечаний</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Исправления — до закупки материалов</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Проект, который можно построить в срок</span></li></ul><div class="r9-fear"><b>Проект красивый, но по нему не построить?</b>Это видно на этапе проверки — дизайнер успеет поправить до старта.</div><div class="r9-res"><small>Результат шага</small>Ошибки исправлены в проекте до закупок, а не на стройке</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="3">Следующий шаг</button><span class="r9-cnt"><b>03</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-3" aria-labelledby="r9t-vcommerce-3" hidden><div class="r9-ph"><img src="/img/com/steps/s4-estimate.webp" alt="Смета и график работ БюроРОМАНОВЪ на столе с образцами материалов" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Бюджет и дата открытия известны до первого платежа</h3><p class="r9-t">Построчная смета по видам работ, график запуска по неделям и спецификация материалов. Видно, за что вы платите на каждом этапе.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>2–3 варианта сметы под ваш бюджет</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>График привязан к дате открытия</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Инженерия посчитана сразу — это 20–30% бюджета</span></li></ul><div class="r9-fear"><b>Смета вырастет в процессе?</b>Цена фиксируется в договоре. Любое изменение — только по допсоглашению до начала работ.</div><div class="r9-res"><small>Результат шага</small>Смета, график запуска и спецификация — до первого платежа</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="4">Следующий шаг</button><span class="r9-cnt"><b>04</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-4" aria-labelledby="r9t-vcommerce-4" hidden><div class="r9-ph"><img src="/img/com/steps/s5-contract.webp" alt="Подписание договора подряда с графиком работ в приложении" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Срок и цена — в договоре, а не на словах</h3><p class="r9-t">Фиксированная цена, график как приложение к договору, неустойка за каждый день просрочки, аванс 20–30% и оплата по актам.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Работаем с НДС, все закрывающие документы</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Неустойка за просрочку — наша ответственность</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Платите только за принятые этапы</span></li></ul><div class="r9-fear"><b>Возьмут аванс и пропадут?</b>Аванс — 20–30%. Дальше оплата этапами, только после подписанного акта.</div><div class="r9-res"><small>Результат шага</small>Неустойка за каждый день просрочки — в договоре</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="5">Следующий шаг</button><span class="r9-cnt"><b>05</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-5" aria-labelledby="r9t-vcommerce-5" hidden><div class="r9-ph"><img src="/img/com/steps/s6-works.webp" alt="Монтаж стеновых панелей в зале, прораб сверяется с планшетом" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Объект под контролем, даже если вы на нём не бываете</h3><p class="r9-t">Один график на отделку, инженерию и поставки, ночные смены при необходимости. Акты каждые 7–10 дней, статус — по пятницам.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Фото скрытых работ до зашивки</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Видеоотчёт с объекта минимум раз в неделю</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Ваш технадзор — на любом этапе</span></li></ul><div class="r9-fear"><b>Придётся каждый день ездить на стройку?</b>Нет. Факт недели и план следующей приходят в мессенджер.</div><div class="r9-res"><small>Результат шага</small>Открытие — в дату из графика</div><div class="r9-nav"><button type="button" class="btn-outline" data-to="6">Следующий шаг</button><span class="r9-cnt"><b>06</b> / 07</span></div></div></div><div class="r9-panel" role="tabpanel" id="r9p-vcommerce-6" aria-labelledby="r9t-vcommerce-6" hidden><div class="r9-ph"><img src="/img/com/steps/s7-handover.webp" alt="Приёмка готового ресторана: заказчица и представитель бюро у барной стойки" loading="lazy" decoding="async"></div><div class="r9-body"><h3>Открываетесь в готовом зале, а не на стройке</h3><p class="r9-t">Тестовый прогон всех систем, клининг, исполнительные схемы и гарантийный талон. Передаём зал, в котором можно сразу принимать гостей.</p><ul class="r9-ben"><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Системы проверены под нагрузкой до открытия</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Исполнительные схемы — для обслуживания</span></li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>Гарантийные обязательства — в договоре</span></li></ul><div class="r9-fear"><b>После сдачи подрядчика не найти?</b>Гарантия прописана в договоре, и мы на связи после открытия.</div><div class="r9-res"><small>Результат шага</small>Зал готов к открытию, гарантийный талон на руках</div><div class="r9-nav"><a class="btn-outline" href="/obekty/#com">Посмотреть объекты</a><span class="r9-cnt"><b>07</b> / 07</span></div></div></div></div></div>
-  </div>
-</section>
-
 <section class="final8" id="final">
   <div class="container">
+    <div class="sec-head"><h2 class="reveal">Пришлите проект — <span class="tone">за 2 рабочих дня верну смету, график и список технических ошибок</span></h2>
+        <p class="lead-p reveal"><span class="hl">Проверка бесплатная.</span> Ответим в рабочее время за 5–10 минут, после консультации выедем на объект. Проекта нет — начнём с концепции.</p></div>
     <div class="final8-grid">
-      <div class="photo ph-img final8-photo reveal" role="img" aria-label="Владимир Романов" style="background-position:79% 28%" data-bg="/img/apt/hero-v6.webp">
+      <div class="photo ph-img final8-photo reveal" role="img" aria-label="Владимир Романов за барной стойкой готового ресторана" style="background-position:50% 8%" data-bg="/img/com/final-v4.webp">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-7 8-7s8 3 8 7"/></svg>
         <span class="ph-label">Портрет Владимира Романова, тот же стиль, что на первом экране</span>
         <div class="portrait-badge"><div class="portrait-badge-name">Владимир Романов</div><div class="portrait-badge-role">Отвечаю за результат своим именем</div></div>
       </div>
       <div>
-        <h2 class="reveal">Пришлите проект — <span class="tone">за 2 рабочих дня верну смету, график и список технических ошибок</span></h2>
-        <p class="lead-p reveal"><span class="hl">Проверка бесплатная.</span> Ответим в рабочее время за 5–10 минут, после консультации выедем на объект. Проекта нет — начнём с концепции.</p>
         <form class="lead-form-card reveal" novalidate>
           <div class="form-row2">
             <div class="form-group"><label for="fKind">Назначение помещения</label><select class="form-input" id="fKind" name="kind"><option>Бар, лаунж или кафе</option><option>Шоурум или бутик</option><option>Заведение по стандарту сети</option><option>Барбершоп или салон</option><option>Лофт или креативное пространство</option><option>Другое</option></select></div>
@@ -689,7 +927,7 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
       <p>Ремонт баров, лофтов и шоурумов под ключ: инженерия, отделка и согласования в одном графике. Открытие — в дату из договора.</p>
       <button class="btn-primary" data-scroll="quizStart">Рассчитать стоимость</button>
     </div>
-    <nav class="ft-col" aria-label="Разделы страницы"><span class="ft-cap">На этой странице</span><a href="#portfolio" data-scroll="portfolio">Объекты</a><a href="#video" data-scroll="video">Видеообзоры</a><a href="#engineering" data-scroll="engineering">Инженерия</a><a href="#route" data-scroll="route">Этапы</a><a href="#honest-price" data-scroll="honest-price">Цена</a><a href="#team" data-scroll="team">Команда</a><a href="#faq" data-scroll="faq">Вопросы</a></nav>
+    <nav class="ft-col" aria-label="Разделы страницы"><span class="ft-cap">На этой странице</span><a href="#portfolio" data-scroll="portfolio">Объекты</a><a href="#video" data-scroll="video">Видеообзоры</a><a href="#route" data-scroll="route">Этапы</a><a href="#honest-price" data-scroll="honest-price">Цена</a><a href="#team" data-scroll="team">Команда</a><a href="#engineering" data-scroll="engineering">Инженерия</a><a href="#faq" data-scroll="faq">Вопросы</a></nav>
     <nav class="ft-col" aria-label="Направления"><span class="ft-cap">Что ремонтируем</span><a href="/">Квартиры</a><a href="/remont-domov/">Дома и коттеджи</a><a href="#top" data-scroll="top" aria-current="page">Коммерция</a></nav>
     <div class="ft-col ft-con"><span class="ft-cap">Связаться</span>
       <a class="ft-phone" href="tel:+79263930450">+7 (926) 393-04-50</a><a href="mailto:romanovbyuro@yandex.ru">romanovbyuro@yandex.ru</a>
@@ -929,16 +1167,13 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
       var tb = pfTabs.children[curCase]; if (tb.offsetLeft < pfTabs.scrollLeft || tb.offsetLeft + tb.offsetWidth > pfTabs.scrollLeft + pfTabs.clientWidth) pfTabs.scrollLeft = tb.offsetLeft - 16;
       $('pfTitle').textContent = c.title;
       $('pfChips').innerHTML = c.chips.map(function(x){ return '<span>' + x + '</span>'; }).join('');
-      var th = document.querySelector('#pfPanel thead');
-      if (c.special){
-        th.innerHTML = '<tr><th></th><th colspan="2">Результат</th></tr>';
-        $('pfTable').innerHTML = c.special.map(function(r){ return '<tr><td>' + r[0] + '</td><td colspan="2" class="fact">' + r[1] + '</td></tr>'; }).join('');
-      } else {
-        th.innerHTML = '<tr><th></th><th>По договору</th><th>По факту</th></tr>';
-        $('pfTable').innerHTML = '<tr><td>Срок</td><td>' + c.term[0] + '</td><td class="fact">' + c.term[1] + '</td></tr>'
-          + '<tr><td>Отклонение от сметы</td><td>—</td><td class="fact">' + (c.dev || '___ %') + '</td></tr>'
-          + '<tr><td>Год сдачи</td><td colspan="2" class="fact">' + (c.year || '20__') + '</td></tr>';
-      }
+      var _f = function(l, v){ return '<div><small>' + l + '</small><b>' + v + '</b></div>'; }, _ar = ((c.sub + ' ' + c.chips.join(' ')).match(/(\d+[,.]?\d*)\s?м²/) || [])[1];
+      var _fx = [];
+      if (c.special){ _fx = c.special.map(function(r){ return [r[0], r[1]]; }); }
+      else { var _t = /\d/.test(c.term[1]) ? c.term[1] : c.term[0];
+        if (_ar) _fx.push(['Площадь', _ar + '\u00a0м²']); _fx.push(['Срок ремонта', _t]); _fx.push(['Год сдачи', c.year || '20__']); }
+      $('pfFacts').innerHTML = ''; $('pfFacts').hidden = true;
+      $('pfChips').innerHTML = _fx.map(function(r){ return '<span class="pf-st">' + r[0] + ' <b>' + r[1] + '</b></span>'; }).join('') + c.chips.filter(function(x){ return !(_ar && x.replace(/\s/g,'') === (_ar + 'м²')); }).map(function(x){ return '<span>' + x + '</span>'; }).join('');
       (function(w,el){el.innerHTML='';(Array.isArray(w)?w:[w]).forEach(function(t){var li=document.createElement('li');li.textContent=t;el.appendChild(li);});})(c.works,$('pfWorks'));
       $('pfFeature').textContent = c.feature;
       $('pfThumbs').innerHTML = '';
@@ -1581,5 +1816,34 @@ new MutationObserver(place).observe(prev||form,{childList:true});
 })();</script>
 <script id="lazy-media">(function(){window.__lmReady=1;var groups=[];[].forEach.call(document.querySelectorAll("[data-bg],.r9"),function(e){var g=e.closest("section")||e;if(groups.indexOf(g)<0)groups.push(g);});if(!groups.length)return;function load(g){[].forEach.call(g.querySelectorAll("[data-bg]"),function(e){e.style.backgroundImage="url("+e.getAttribute("data-bg")+")";e.removeAttribute("data-bg");});if(g.hasAttribute&&g.hasAttribute("data-bg")){g.style.backgroundImage="url("+g.getAttribute("data-bg")+")";g.removeAttribute("data-bg");}[].forEach.call(g.querySelectorAll(".r9 img[loading=lazy]"),function(i){i.loading="eager";});}if(!("IntersectionObserver" in window)){groups.forEach(load);return;}var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){load(x.target);io.unobserve(x.target);}});},{rootMargin:"900px 0px"});groups.forEach(function(g){io.observe(g);});})();</script>
 <script src="/js/lead.js?v=3" defer></script><script src="/js/exit.js?v=2" defer></script>
+<script id="pf-tabbar">(function(){var t=document.getElementById('pfTabs');if(!t)return;var b=document.createElement('div');b.className='pf-tabbar';b.setAttribute('aria-hidden','true');b.innerHTML='<i></i>';t.parentNode.insertBefore(b,t.nextSibling);var th=b.firstChild,last=0;
+function up(){var sw=t.scrollWidth,cw=t.clientWidth,ov=sw>cw+2;b.hidden=!ov;t.classList.toggle('pf-more-r',ov&&t.scrollLeft+cw<sw-2);t.classList.toggle('pf-more-l',ov&&t.scrollLeft>2);if(ov){th.style.width=(cw/sw*100)+'%';th.style.left=(t.scrollLeft/sw*100)+'%';}}
+t.addEventListener('scroll',up,{passive:true});addEventListener('resize',up);addEventListener('load',up);new MutationObserver(up).observe(t,{childList:true});up();
+var d=null;t.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse'||t.scrollWidth<=t.clientWidth+2)return;d={x:e.clientX,s:t.scrollLeft,m:false};});
+addEventListener('pointermove',function(e){if(!d)return;var dx=e.clientX-d.x;if(Math.abs(dx)>5)d.m=true;if(d.m)t.scrollLeft=d.s-dx;});
+addEventListener('pointerup',function(){if(d&&d.m)last=Date.now();d=null;});
+t.addEventListener('click',function(e){if(Date.now()-last<250){e.stopPropagation();e.preventDefault();}},true);
+b.addEventListener('pointerdown',function(e){var r=b.getBoundingClientRect();function mv(ev){t.scrollLeft=(ev.clientX-r.left)/r.width*t.scrollWidth-t.clientWidth/2;}mv(e);try{b.setPointerCapture(e.pointerId);}catch(x){}b.onpointermove=mv;b.onpointerup=b.onpointercancel=function(){b.onpointermove=null;};});})();</script>
+<script id="eng-car">(function(){var col=document.querySelector('.eng:not(.furn) .eng-col');if(!col)return;
+var w=document.createElement('div');w.className='eng-car';col.parentNode.insertBefore(w,col);w.appendChild(col);
+var nav=document.createElement('div');nav.className='eng-car-nav';
+nav.innerHTML='<button type="button" class="arrow-btn" aria-label="Предыдущее фото"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 18l-6-6 6-6"/></svg></button><button type="button" class="arrow-btn" aria-label="Следующее фото"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18l6-6-6-6"/></svg></button><span class="eng-car-count"></span>';
+w.appendChild(nav);var b=nav.querySelectorAll('button'),cnt=nav.querySelector('.eng-car-count'),sl=[].slice.call(col.querySelectorAll('.eng-t'));
+function step(){return sl.length>1?sl[1].offsetLeft-sl[0].offsetLeft:col.clientWidth;}
+function idx(){return Math.round(col.scrollLeft/step());}
+function per(){return Math.max(1,Math.round(col.clientWidth/step()));}
+function up(){var i=idx(),p=per(),n=sl.length,last=Math.min(n,i+p);cnt.textContent=(p>1?(i+1)+'–'+last:(i+1))+' / '+n;b[0].disabled=i<=0;b[1].disabled=col.scrollLeft+col.clientWidth>=col.scrollWidth-4;}
+function go(d){var i=Math.max(0,Math.min(sl.length-1,idx()+d));col.scrollTo({left:sl[i].offsetLeft-sl[0].offsetLeft,behavior:'smooth'});}
+b[0].addEventListener('click',function(){go(-1);});b[1].addEventListener('click',function(){go(1);});
+col.addEventListener('scroll',function(){clearTimeout(col._t);col._t=setTimeout(up,60);},{passive:true});addEventListener('resize',up);addEventListener('load',up);up();})();</script>
+<script id="hf-pos">(function(){var ph=document.querySelector('.hero-apt'),c=ph&&ph.querySelector('.hero-founder'),im=ph&&ph.querySelector('img');if(!c||!im)return;
+var PX=1170/1672,PY=560/941,P=['left','top','right','bottom'];
+function pos(){if(innerWidth<981){P.forEach(function(k){c.style.removeProperty(k);});return;}
+var pr=ph.getBoundingClientRect(),ir=im.getBoundingClientRect(),nw=im.naturalWidth||1672,nh=im.naturalHeight||941,s=Math.max(ir.width/nw,ir.height/nh),dw=nw*s,dh=nh*s,op=getComputedStyle(im).objectPosition.split(' '),ox=parseFloat(op[0])/100,oy=parseFloat(op[1])/100;
+if(isNaN(ox))ox=.5;if(isNaN(oy))oy=.5;
+var x=ir.left-pr.left+(ir.width-dw)*ox+dw*PX,y=ir.top-pr.top+(ir.height-dh)*oy+dh*PY,cw=c.offsetWidth,ch=c.offsetHeight,fw=document.querySelector('.hero7-features-wrap'),fh=fw?fw.offsetHeight:0;
+var l=Math.max(16,Math.min(x,pr.width-cw-16)),t=Math.max(16,Math.min(y-ch/2,pr.height-fh-ch-16));
+c.style.setProperty('left',l+'px','important');c.style.setProperty('top',t+'px','important');c.style.setProperty('right','auto','important');c.style.setProperty('bottom','auto','important');}
+pos();addEventListener('resize',pos);addEventListener('load',pos);if(!im.complete)im.addEventListener('load',pos);if(document.fonts&&document.fonts.ready)document.fonts.ready.then(pos);})();</script>
 </body>
 </html>
