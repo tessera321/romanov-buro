@@ -379,12 +379,14 @@ html body .eng .eng-grid .eng-item p{font-size:15px!important}
 .price-sec .format-main .price-example{flex:1 1 0;min-width:0;margin:24px 0 0!important;align-self:stretch}
 .price-sec .format-main .price-calc{flex:0 0 clamp(260px,34%,340px);width:auto!important;margin:24px 0 0!important;align-self:flex-end}
 .price-sec .format-main .price-split{grid-column:1/-1!important}
-.price-sec .price-split{grid-template-columns:minmax(0,1fr) minmax(0,2fr)!important;grid-template-rows:auto!important}
+.price-sec .price-split{grid-template-columns:minmax(0,2fr) minmax(0,1fr)!important;grid-template-rows:auto!important}
 .price-sec .price-split>div+div{border-top:0!important;border-left:1px solid var(--border-accent)!important}
-.price-sec .price-split .extra{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:auto auto;column-gap:clamp(24px,3vw,40px);align-content:start;align-items:start}
-.price-sec .price-split .extra>h3{grid-row:1;margin-top:0!important}
-.price-sec .price-split .extra>ul{grid-row:2;margin-bottom:0!important}
-.price-sec .price-split ul{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:none!important;grid-auto-rows:auto!important;align-content:start!important;align-self:start!important}
+.price-sec .price-split>div:first-child ul{grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:28px!important;grid-template-rows:none!important;grid-auto-rows:auto!important;align-items:start!important;align-content:start!important}
+.price-sec .price-split .extra{display:block}
+.price-sec .price-split .extra>h3{margin-top:0!important}
+.price-sec .price-split .extra>ul+h3{margin-top:28px!important}
+.price-sec .price-split .extra ul{grid-template-columns:minmax(0,1fr)!important;grid-template-rows:none!important;grid-auto-rows:auto!important;align-content:start!important}
+.price-sec .price-split .extra>ul:last-child{margin-bottom:0!important}
 .price-sec .price-split li{order:0!important}
 }
 
