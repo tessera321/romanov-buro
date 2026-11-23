@@ -405,6 +405,9 @@ html body .eng .eng-grid .eng-item p{font-size:15px!important}
 .standard .standard-aside .contract-btn{margin-top:28px!important}
 }
 /*/cx1114*/
+
+/* кнопка «Посмотреть детали ремонта» не помещалась в строку на 1181–1680 — второй ряд, рядом со стрелками (23.11) */
+@media (min-width:1181px) and (max-width:1680px){.pf-nav{grid-template-columns:52px 52px minmax(0,1fr) auto!important}.pf-nav .pf-calc{grid-column:1/-1!important;grid-row:1!important}.pf-nav #pfPrev{grid-column:1!important;grid-row:2!important}.pf-nav #pfNext{grid-column:2!important;grid-row:2!important}.pf-nav .pf-more{grid-column:3!important;grid-row:2!important;white-space:nowrap;min-height:48px!important;height:48px!important;padding-block:0!important}.pf-nav .pf-count{grid-column:4!important;grid-row:2!important}}
 </style>
 
 
@@ -1891,7 +1894,7 @@ var was=false;new MutationObserver(function(){var busy=quiz.classList.contains('
 new MutationObserver(place).observe(prev||form,{childList:true});
 })();</script>
 <script id="lazy-media">(function(){window.__lmReady=1;var groups=[];[].forEach.call(document.querySelectorAll("[data-bg],.r9"),function(e){var g=e.closest("section")||e;if(groups.indexOf(g)<0)groups.push(g);});if(!groups.length)return;function load(g){[].forEach.call(g.querySelectorAll("[data-bg]"),function(e){e.style.backgroundImage="url("+e.getAttribute("data-bg")+")";e.removeAttribute("data-bg");});if(g.hasAttribute&&g.hasAttribute("data-bg")){g.style.backgroundImage="url("+g.getAttribute("data-bg")+")";g.removeAttribute("data-bg");}[].forEach.call(g.querySelectorAll(".r9 img[loading=lazy]"),function(i){i.loading="eager";});}if(!("IntersectionObserver" in window)){groups.forEach(load);return;}var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){load(x.target);io.unobserve(x.target);}});},{rootMargin:"900px 0px"});groups.forEach(function(g){io.observe(g);});})();</script>
-<script src="/js/lead.js?v=3" defer></script><script src="/js/exit.js?v=2" defer></script>
+<script src="/js/lead.js?v=4" defer></script><script src="/js/exit.js?v=2" defer></script>
 <script id="pf-tabbar">(function(){var t=document.getElementById('pfTabs');if(!t)return;var b=document.createElement('div');b.className='pf-tabbar';b.setAttribute('aria-hidden','true');b.innerHTML='<i></i>';t.parentNode.insertBefore(b,t.nextSibling);var th=b.firstChild,last=0;
 function up(){var sw=t.scrollWidth,cw=t.clientWidth,ov=sw>cw+2;b.hidden=!ov;t.classList.toggle('pf-more-r',ov&&t.scrollLeft+cw<sw-2);t.classList.toggle('pf-more-l',ov&&t.scrollLeft>2);if(ov){th.style.width=(cw/sw*100)+'%';th.style.left=(t.scrollLeft/sw*100)+'%';}}
 t.addEventListener('scroll',up,{passive:true});addEventListener('resize',up);addEventListener('load',up);new MutationObserver(up).observe(t,{childList:true});up();
