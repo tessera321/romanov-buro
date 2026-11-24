@@ -146,15 +146,16 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
       </div>
       <div>
         <h2 class="reveal">Нашли похожий объект? <span class="tone">Посчитаем ремонт по вашей планировке</span></h2>
-        <p class="lead-p reveal">За 1 рабочий день покажем реальную стоимость и узлы, которые потом пришлось бы переделывать. Оставьте номер — свяжемся и подскажем, куда отправить проект.</p><p class="fp-cap reveal">Что вы получите</p><ul class="fp-list reveal"><li><b>Стоимость работ и черновых материалов</b>за 1–2 дня после обращения</li><li><b>Мой бесплатный выезд на замер</b>в Москве — за 1–2 дня</li><li><b>Чек-лист «20 ошибок в дизайн-проекте»</b>до старта работ</li></ul>
+        <p class="lead-p reveal">За 1 рабочий день покажем реальную стоимость и узлы, которые потом пришлось бы переделывать. Оставьте номер — свяжемся и подскажем, куда отправить проект.</p><p class="fp-cap reveal">Что вы получите</p><ul class="fp-list reveal"><li><b>Стоимость работ и черновых материалов</b>за 1–2 дня после обращения</li><li><b>Мой бесплатный выезд на объект</b>в Москве и области — за 1–2 дня</li><li><b>Чек-лист «20 ошибок в дизайн-проекте»</b>до старта работ</li></ul>
         <form class="lead-form-card reveal" novalidate>
+          <div class="form-group"><label for="fObj">Какой объект</label><select class="form-input" id="fObj" name="obj"><option value="apt">Квартира</option><option value="house">Дом или коттедж</option><option value="com">Коммерческое помещение</option></select></div>
           <div class="form-group">
             <label for="fWhat">Что у вас уже есть</label>
-            <select class="form-input" id="fWhat" name="what"><option>Пока ничего — только квартира</option><option>Планировка</option><option>Дизайн-проект</option><option>Смета на руках</option></select>
+            <select class="form-input" id="fWhat" name="what"><option>Пока ничего — только объект</option><option>Планировка</option><option>Дизайн-проект</option><option>Смета на руках</option></select>
           </div>
           <div class="form-group"><label for="fWhere">Где удобнее связаться</label><select class="form-input f-where" id="fWhere" name="where"><option>Telegram</option><option>MAX</option><option>Звонок</option></select></div>
           <div class="form-group"><label for="fPhone">Телефон</label><input class="form-input" id="fPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required></div>
-          <button class="btn-primary" type="submit" style="width:100%">Получить план ремонта</button><p class="fp-note">Ответим за 5–10 минут в рабочее время, уточним площадь квартиры и пришлём предварительный расчёт с чек-листом.</p>
+          <button class="btn-primary" type="submit" style="width:100%">Получить план ремонта</button><p class="fp-note">Ответим за 5–10 минут в рабочее время, уточним площадь объекта и пришлём предварительный расчёт с чек-листом.</p>
           <p class="form-consent">Нажимая кнопку, вы даёте <a href="/soglasie-na-obrabotku/">согласие на обработку персональных данных</a> и принимаете <a href="/politika-konfidencialnosti/">политику конфиденциальности</a>.</p>
         </form>
       </div>
@@ -165,14 +166,14 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
 </main>
 <script>(function(){var tabs=[].slice.call(document.querySelectorAll('.ca-tab')),cards=[].slice.call(document.querySelectorAll('.ca-card')),em=[].slice.call(document.querySelectorAll('.ca-empty'));
 function show(c){tabs.forEach(function(t){t.setAttribute('aria-pressed',t.dataset.cat===c?'true':'false');});var n=0;cards.forEach(function(k){var on=c==='all'||k.dataset.cat===c;k.hidden=!on;if(on)n++;});
-em.forEach(function(e){e.hidden=!(n===0&&e.dataset.empty===c);});}
+em.forEach(function(e){e.hidden=!(n===0&&e.dataset.empty===c);});var ob=document.getElementById('fObj');if(ob&&c!=='all')ob.value=c;}
 tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.cat);try{history.replaceState(null,'','#'+t.dataset.cat);}catch(e){}});});
 var h=(location.hash||'').slice(1);if(['apt','house','com'].indexOf(h)>-1)show(h);})();</script>
 <footer class="ft">
   <div class="container ft-top">
     <div class="ft-brand">
       <a class="ft-logo" href="/" aria-label="БюроРОМАНОВЪ — наверх"><picture><img class="lg-v2" src="/img/brand/logo-footer.svg" alt="БюроРОМАНОВЪ" width="420" height="150" loading="lazy"></picture><span class="ft-slogan">Отвечаем за результат своим именем</span></a>
-      <p>Ремонт квартир под ключ по дизайн-проекту: смета фиксируется в договоре, оплата по актам. Отвечаю за результат своим именем.</p>
+      <p>Ремонт квартир, домов и коммерческих помещений под ключ по дизайн-проекту: смета фиксируется в договоре, оплата по актам. Отвечаю за результат своим именем.</p>
       <a class="btn-primary" href="/#quiz">Рассчитать стоимость</a>
     </div>
     <nav class="ft-col" aria-label="Разделы страницы"><span class="ft-cap">На этой странице</span><a href="/#portfolio">Объекты</a><a href="/#price">Цена</a><a href="/#standard">Гарантии</a><a href="/#team">Команда</a><a href="/#engineering">Инженерия</a><a href="/#faq">Вопросы</a></nav>
@@ -1156,6 +1157,6 @@ o.innerHTML='<b>Заявка принята</b>'+(x?'Файл «'+x.name.replace
 document.addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('.cs-zoom');if(b){im.src=b.getAttribute('data-full');var f=b.closest('figure'),c=f&&f.querySelector('figcaption');cp.textContent=c?c.textContent:'';im.alt=cp.textContent;d.showModal();return;}
 if(e.target===d||e.target.closest('.cs-lb-x'))d.close();});})();</script>
 <script id="lazy-media">(function(){window.__lmReady=1;var groups=[];[].forEach.call(document.querySelectorAll("[data-bg],.r9"),function(e){var g=e.closest("section")||e;if(groups.indexOf(g)<0)groups.push(g);});if(!groups.length)return;function load(g){[].forEach.call(g.querySelectorAll("[data-bg]"),function(e){e.style.backgroundImage="url("+e.getAttribute("data-bg")+")";e.removeAttribute("data-bg");});if(g.hasAttribute&&g.hasAttribute("data-bg")){g.style.backgroundImage="url("+g.getAttribute("data-bg")+")";g.removeAttribute("data-bg");}[].forEach.call(g.querySelectorAll(".r9 img[loading=lazy]"),function(i){i.loading="eager";});}if(!("IntersectionObserver" in window)){groups.forEach(load);return;}var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){load(x.target);io.unobserve(x.target);}});},{rootMargin:"900px 0px"});groups.forEach(function(g){io.observe(g);});})();</script>
-<script src="/js/lead.js?v=4" defer></script><script src="/js/exit.js?v=2" defer></script>
+<script src="/js/lead.js?v=5" defer></script><script src="/js/exit.js?v=2" defer></script>
 </body>
 </html>

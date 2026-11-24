@@ -85,6 +85,7 @@
     // После отправки — страница «Спасибо»: способ связи и тип объекта для её текста и ссылок
     var p = location.pathname, COM = /kommerch|shourum-falmec|marcelo-miracles|klub-na-polyarnoy/;
     var type = /domov|gostevoy-dom|dom-v-edeme|dom-v-chehove/.test(p) ? 'house' : COM.test(p) ? 'com' : 'apt';
+    var ob = form.querySelector('[name="obj"]'); if (ob && /^(apt|house|com)$/.test(ob.value)) type = ob.value;
     var thanks = '/spasibo/?t=' + type + (data.channel ? '&ch=' + encodeURIComponent(data.channel) : '');
     var left = false;
     function go() { if (left) return; left = true; location.href = thanks; }
