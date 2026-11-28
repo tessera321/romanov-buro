@@ -15,6 +15,9 @@
     if (!sessionStorage.getItem('rb_ref')) sessionStorage.setItem('rb_ref', document.referrer || '');
   } catch (e) {}
 
+  // ClientID Метрики — в заявку, чтобы потом вернуть договоры в Метрику офлайн-конверсиями
+  try { if (window.ym && window.RB_METRIKA_ID) ym(window.RB_METRIKA_ID, 'getClientID', function (id) { try { sessionStorage.setItem('rb_ym_cid', id); } catch (e) {} }); } catch (e) {}
+
   function txt(el) { return (el && el.textContent || '').replace(/\s+/g, ' ').trim(); }
 
   function labelOf(input, form) {
@@ -63,6 +66,7 @@
     var heading = txt((form.closest('section') || document).querySelector('h2, h1'));
     var utm = {};
     try { utm = JSON.parse(sessionStorage.getItem('rb_utm') || '{}'); } catch (e) {}
+    try { var cid = sessionStorage.getItem('rb_ym_cid'); if (cid) utm.ym_client_id = cid; } catch (e) {}
 
     return {
       phone: phone, channel: channel, fields: fields, answers: answers,
@@ -119,6 +123,7 @@
     } else {
       send();
     }
-    try { if (window.ym && window.RB_METRIKA_ID) ym(window.RB_METRIKA_ID, 'reachGoal', 'lead'); } catch (err) {}
+    // Метрика: цель «lead» — одна на отправку; тип объекта и способ связи — параметрами визита
+    try { if (window.ym && window.RB_METRIKA_ID) ym(window.RB_METRIKA_ID, 'reachGoal', 'lead', { obj: type, channel: data.channel || '' }); } catch (err) {}
   }, true);
 })();
