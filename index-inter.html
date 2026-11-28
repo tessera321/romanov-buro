@@ -674,7 +674,8 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
     </div>
     <div class="certs2 reveal"><div class="certs2-title">Мастера сертифицированы производителями</div><div class="certs2-grid"><span>KNAUF</span><span>REHAU</span><span>TIKKURILA</span><span>SCHNEIDER ELECTRIC</span></div></div>
     <span class="todo">Сейчас названия набраны текстом. Официальные логотипы поставлю из брендбуков производителей, когда Романов пришлёт сертификаты и подтвердит право использовать знаки.</span>
-    <div class="crew">
+    <!-- Команда скрыта 28.11.2026 до имён и фото сотрудников: вернуть, убрав hidden -->
+    <div class="crew" hidden style="display:none">
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Прораб · стаж ___ лет</p></div>
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Прораб · стаж ___ лет</p></div>
       <div class="crew-card reveal"><div class="photo"><span class="ph-label">Фото</span></div><h3>Имя Фамилия</h3><p>Прораб · стаж ___ лет</p></div>
@@ -1240,7 +1241,7 @@ html body :is(.r9-t,.rule p,.founder-info>p:not(.founder-quote),.ally-row p,.fou
       var _fx = [];
       if (c.special){ _fx = c.special.map(function(r){ return [r[0], r[1]]; }); }
       else { var _t = /\d/.test(c.term[1]) ? c.term[1] : c.term[0];
-        if (_ar) _fx.push(['Площадь', _ar + ' м²']); _fx.push(['Срок ремонта', _t]); _fx.push(['Год сдачи', c.year || '20__']); }
+        if (_ar) _fx.push(['Площадь', _ar + ' м²']); /* срок и год сдачи скрыты 28.11: не подтверждены */ }
       $('pfFacts').innerHTML = ''; $('pfFacts').hidden = true;
       $('pfChips').innerHTML = _fx.map(function(r){ return '<span class="pf-st">' + r[0] + ' <b>' + r[1] + '</b></span>'; }).join('') + c.chips.filter(function(x){ return !(_ar && x.replace(/\s/g,'') === (_ar + 'м²')); }).map(function(x){ return '<span>' + x + '</span>'; }).join('');
       (function(w,el){el.innerHTML='';(Array.isArray(w)?w:[w]).forEach(function(t){var li=document.createElement('li');li.textContent=t;el.appendChild(li);});})(c.works,$('pfWorks'));
